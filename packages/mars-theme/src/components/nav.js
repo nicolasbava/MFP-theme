@@ -30,25 +30,36 @@ export default connect(Nav);
 const NavContainer = styled.nav`
   list-style: none;
   display: flex;
-  width: 848px;
+  // width: 848px;
+  background-color: #f5ebda;
   max-width: 100%;
   box-sizing: border-box;
   padding: 0 24px;
   margin: 0;
-  overflow-x: auto;
-
-  @media screen and (max-width: 560px) {
+  overflow-x: hidden;
+  justify-content: flex-end;
+  border-bottom: 1px solid #0000003b;
+  border-radius: 2px;
+  @media screen and (max-width: 686px) {
     display: none;
+    margin-right: 7%;
   }
 `;
 
 const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
-  color: #fff;
+  font-weight: bold;
+  padding-block: max(30px, 2%);
+  color: #333;
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
+  text-transform: uppercase;
+
+  a {
+    transition: 350ms ease-in-out;
+  }
 
   & > a {
     display: inline-block;
@@ -57,21 +68,27 @@ const NavItem = styled.div`
     border-bottom-color: transparent;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
-      border-bottom-color: #fff;
+      border-bottom-color: orange;
     }
   }
 
   &:first-of-type {
-    margin-left: 0;
+    position: absolute;
+    left: 0;
+    margin-left: 7%;
   }
 
   &:last-of-type {
-    margin-right: 0;
+    margin-right: 3%;
 
     &:after {
       content: "";
       display: inline-block;
       width: 24px;
     }
+  }
+
+  a:hover {
+    color: orange;
   }
 `;
