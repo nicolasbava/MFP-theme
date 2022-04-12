@@ -6,6 +6,8 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import Nav from "./nav";
+
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -35,6 +37,7 @@ const Theme = ({ state }) => {
       {/* Add the header of the site. */}
       <HeadContainer>
         <Header />
+        <Nav />
       </HeadContainer>
 
       {/* Add the main section. It renders a different component depending
