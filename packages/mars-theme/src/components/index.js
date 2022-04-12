@@ -39,6 +39,8 @@ const Theme = ({ state }) => {
       <HeadContainer>
         <Header />
       </HeadContainer>
+
+      {/* NICO- agrega nav abajo de la foto */}
       <Nav />
 
       {/* Add the main section. It renders a different component depending
@@ -56,6 +58,14 @@ const Theme = ({ state }) => {
 
         
       </Main>
+      
+      <Footer>
+
+        <After>
+        
+          <p>> PAGINA DESARROLLADA POR <a> ROJOLAB </a></p>
+        </After>
+      </Footer>
     </>
   );
 };
@@ -108,11 +118,42 @@ const HeadContainer = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
+  background-color: #f5ebda;
+`;  
+
+const Footer = styled.div`
+  background: rgb(245,235,218);
+`
+
+const Before = styled.div`
+    margin: 0;
+`
+
+
+const After = styled.div`
+  display: flex;
+  // justify-content: center;
+  background-color: #ff743d;
+  justify-content: flex-end;
+
+  p {
+    margin:0;
+    color:white;
+    transition: 500ms ease;
+    padding: 1em;
+    font-size: 1rem;
+    
+
+  }
+
+  a:hover {
+    color: red;
+    text-decoration: underline;
+  }
+  
 `;
+
+
+
 
 console.log(numeroRandom);
