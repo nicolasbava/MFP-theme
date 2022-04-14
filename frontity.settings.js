@@ -2,7 +2,7 @@ const settings = {
   "name": "memoriafp",
   "state": {
     "frontity": {
-      "url": "http://localhost/memoriaFilmica",
+      "url": "https://memoriafilmica.cl",
       "title": "MEMORIA FILMICA PENCOPOLITANA 2",
       "description": "WordPress installation for Frontity development"
     }
@@ -45,7 +45,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://localhost/memoriaFilmica",
+          "url": "https://memoriafilmica.cl",
           "postTypes": [{
             type: "peliculas",
             endpoint: "peliculas",

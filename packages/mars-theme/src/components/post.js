@@ -59,19 +59,15 @@ import FeaturedMedia from "./featured-media";
 
   const tab = '\u00A0';
 
-  const galeriaPelicula = post.acf.galeria;
+
  
   console.log(postType)
   console.log(post)
-  console.log(galeriaPelicula);
+
   /* ARTISTAS FUNCIONES CARACTERISTITAS */
 
   const artistas = postType === "artistas";
 
-  for(let i = 0; i < galeriaPelicula.length; i++){
-    let indexGaleria = galeriaPelicula[i]
-    console.log(indexGaleria);
-  }
 
   
   
@@ -94,6 +90,12 @@ import FeaturedMedia from "./featured-media";
         {pelicula && ( <BeforeTitle> > CATALOGO FILMICO PENCOPOLITANO</BeforeTitle>)}
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
+        {postType == "artistas" && (
+          <p>Esta es una Artista</p>
+          )}
+
+
+
         {/* Hide author and date on pages */}
         {!data.isPage && (
           <div>
@@ -104,9 +106,6 @@ import FeaturedMedia from "./featured-media";
                 </Author>
               </StyledLink>
             )}
-            
-            
-
             {/* <DateWrapper>
               {" "}
               on <b>{date.toDateString()}</b>
@@ -114,8 +113,6 @@ import FeaturedMedia from "./featured-media";
           </div>
         )}
       </div>
-
-      
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
@@ -133,33 +130,41 @@ import FeaturedMedia from "./featured-media";
         <Content>
           <Html2React html={post.content.rendered} />
         </Content>
-        
       )}
+        
+    
 
        {pelicula && (
               
               <CaractPeliculas>
-                <StyledLink link={yearPelicula}>
+                
                   <p>{yearPelicula}{tab}</p> 
-                </StyledLink>
-                <StyledLink link={generoPelicula}>
+                
+                
                   <p>{tab}/{tab}{generoPelicula} </p> 
-                </StyledLink>
-                <StyledLink link={colorPelicula}>
+                
+                
                   <p>{tab}/{tab}{colorPelicula} </p> 
-                </StyledLink>
-                <StyledLink link={estiloPelicula}>
+               
+              
                   <p>{tab}/{tab}{estiloPelicula}</p> 
-                </StyledLink>
+              
               </CaractPeliculas>
 
+              
             )}
 
      { /* =========  ARCHIVO PELICULAS INICIO ========== */ }
-            <img src={fotoPelicula} alt="" />
-
+            
+    {pelicula && (
+      <img src={fotoPelicula} alt="" />
+    )} 
      
     </Container>
+
+
+
+
   ) : null;
 };
 

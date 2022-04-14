@@ -12,23 +12,32 @@ import FeaturedMedia from "../featured-media";
  */
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
-  const date = new Date(item.date);
- 
+  const date = new Date(item.date); 
 
-  /* LIST ITEM PELICULA */
   const data = state.source.get(state.router.link);
   const post = state.source[data.type][data.id];
-  const year = item.acf.year;
-  const fotoPelicula = item.acf.foto_pelicula;
 
+  // Get postype si es persona
+  const postType = data.type;
+
+  /* PELICULAS FUNCIONES CARACTERISTICAS */
+  const pelicula = postType === "peliculas";
+
+   /* LIST ITEM PELICULA */
+
+   const year = item.acf.year;
+   const fotoPelicula = item.acf.foto_pelicula;
   
   return (
     
+    
+
+
     <article >
-      <Cuadrado className="cuadrado" style={{background: `url(${fotoPelicula})`}}>
+      
 
       <Link link={item.link}>
-        <Cartel className="cartel">
+        <Cartel style={{backgroundImage:`url(${fotoPelicula})`}}>
           <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
           <Year>{year}</Year>
         </Cartel>
@@ -54,8 +63,7 @@ const Item = ({ state, item }) => {
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
-      
-      </Cuadrado>
+   
     </article>
   );
 };
@@ -64,14 +72,6 @@ const Item = ({ state, item }) => {
 export default connect(Item);
 
 
-const Cuadrado = styled.div`
-  width: 300px;
-  height: 300px;
-  background-size: cover;
-  cursor: pointer;
-  margin-top: 1em;
-
-`
 
 const Cartel = styled.div`
   color: #fff;
@@ -87,8 +87,6 @@ const Title = styled.h1`
   padding-top: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
-
-
 `;
 
 const Year = styled.p`
