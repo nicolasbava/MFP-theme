@@ -63,7 +63,7 @@ const Theme = ({ state }) => {
 
         <After>
         
-          <p>> PAGINA DESARROLLADA POR <a> ROJOLAB </a></p>
+          <p> PAGINA DESARROLLADA POR <a> ROJOLAB </a></p>
         </After>
       </Footer>
     </>
