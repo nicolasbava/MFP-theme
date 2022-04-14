@@ -19,7 +19,7 @@ const settings = {
           ],
           [
               "Pagina Inicio",
-              "/memoriaFilmica/pagina-inicio/"
+              "/pagina-inicio/"
           ],
           [
               "Artistas",

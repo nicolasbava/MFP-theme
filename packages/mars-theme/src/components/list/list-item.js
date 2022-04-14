@@ -34,14 +34,26 @@ const Item = ({ state, item }) => {
 
 
     <article >
-      
+      {pelicula && (
+        <Link link={item.link}>
+          <Cuadrado style={{backgroundImage:`url(${fotoPelicula})`}}>
+            <Cartel>
+              <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+              <Year>{year}</Year>
+            </Cartel>
+          </Cuadrado>
+        </Link>
+      )}
 
-      <Link link={item.link}>
-        <Cartel style={{backgroundImage:`url(${fotoPelicula})`}}>
+      {!pelicula &&(
+        <Link link={item.link}>
+        
           <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
           <Year>{year}</Year>
-        </Cartel>
+      
       </Link>
+      )}
+      
       <div>
         {/* If the post has an author, we render a clickable author text. */}
         
@@ -76,9 +88,20 @@ export default connect(Item);
 const Cartel = styled.div`
   color: #fff;
   padding-top: 2em;
-  background: rgba(0,0,0, .7);
   padding-left: 1em;
   height: 89%;
+  padding-bottom: 1em;
+  transition: 500ms ease;
+  opacity:0;
+
+  &:hover {
+    background: rgba(0,0,0, .7);
+    opacity: 1;
+  }
+`
+
+const Cuadrado = styled.div`
+  background: grey;
 `
 
 const Title = styled.h1`

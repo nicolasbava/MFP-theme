@@ -69,7 +69,7 @@ const NavItem = styled.div`
 
   & > a {
     display: inline-block;
-    line-height: 2em;
+    line-height: 4em;
     border-bottom: 2px solid;
     border-bottom-color: transparent;
     /* Use for semantic approach to style the current link */
