@@ -1,6 +1,8 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
 
+
+
 /**
  * Navigation Component
  *
@@ -28,6 +30,7 @@ const Nav = ({ state }) => (
 export default connect(Nav);
 
 const NavContainer = styled.nav`
+  font-family: 'Krona One', sans-serif;
   list-style: none;
   display: flex;
   // width: 848px;
@@ -40,6 +43,8 @@ const NavContainer = styled.nav`
   justify-content: flex-end;
   border-bottom: 1px solid #0000003b;
   border-radius: 2px;
+
+
   @media screen and (max-width: 686px) {
     display: none;
     margin-right: 7%;
@@ -47,15 +52,16 @@ const NavContainer = styled.nav`
 `;
 
 const NavItem = styled.div`
+  
   padding: 0;
   margin: 0 16px;
-  font-weight: bold;
   padding-block: max(30px, 2%);
   color: #333;
-  font-size: 0.9em;
+  font-size: 0.6rem;
   box-sizing: border-box;
   flex-shrink: 0;
   text-transform: uppercase;
+
 
   a {
     transition: 350ms ease-in-out;

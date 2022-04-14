@@ -4,6 +4,7 @@ import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
 
+
 /**
  * The Post component that Mars uses to render any kind of "post type", like
  * posts, pages, attachments, etc.
@@ -23,7 +24,7 @@ import FeaturedMedia from "./featured-media";
  *
  * @returns The {@link Post} element rendered.
  */
-const Post = ({ state, actions, libraries }) => {
+  const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
@@ -36,6 +37,44 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  
+  // Get postype si es persona
+  const postType = data.type;
+
+
+
+  /* PELICULAS FUNCIONES CARACTERISTICAS */
+
+  const pelicula = postType === "peliculas";
+
+  const yearPelicula = post.acf.year;
+
+  const generoPelicula = post.acf.genero;
+
+  const colorPelicula = post.acf.color;
+
+  const estiloPelicula = post.acf.estilo;
+
+  const fotoPelicula = post.acf.foto_pelicula;
+
+  const tab = '\u00A0';
+
+  const galeriaPelicula = post.acf.galeria;
+ 
+  console.log(postType)
+  console.log(post)
+  console.log(galeriaPelicula);
+  /* ARTISTAS FUNCIONES CARACTERISTITAS */
+
+  const artistas = postType === "artistas";
+
+  for(let i = 0; i < galeriaPelicula.length; i++){
+    let indexGaleria = galeriaPelicula[i]
+    console.log(indexGaleria);
+  }
+
+  
+  
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -52,6 +91,7 @@ const Post = ({ state, actions, libraries }) => {
     <Container>
      
       <div>
+        {pelicula && ( <BeforeTitle> > CATALOGO FILMICO PENCOPOLITANO</BeforeTitle>)}
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Hide author and date on pages */}
@@ -64,13 +104,18 @@ const Post = ({ state, actions, libraries }) => {
                 </Author>
               </StyledLink>
             )}
-            <DateWrapper>
+            
+            
+
+            {/* <DateWrapper>
               {" "}
               on <b>{date.toDateString()}</b>
-            </DateWrapper>
+            </DateWrapper> */}
           </div>
         )}
       </div>
+
+      
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
@@ -88,7 +133,32 @@ const Post = ({ state, actions, libraries }) => {
         <Content>
           <Html2React html={post.content.rendered} />
         </Content>
+        
       )}
+
+       {pelicula && (
+              
+              <CaractPeliculas>
+                <StyledLink link={yearPelicula}>
+                  <p>{yearPelicula}{tab}</p> 
+                </StyledLink>
+                <StyledLink link={generoPelicula}>
+                  <p>{tab}/{tab}{generoPelicula} </p> 
+                </StyledLink>
+                <StyledLink link={colorPelicula}>
+                  <p>{tab}/{tab}{colorPelicula} </p> 
+                </StyledLink>
+                <StyledLink link={estiloPelicula}>
+                  <p>{tab}/{tab}{estiloPelicula}</p> 
+                </StyledLink>
+              </CaractPeliculas>
+
+            )}
+
+     { /* =========  ARCHIVO PELICULAS INICIO ========== */ }
+            <img src={fotoPelicula} alt="" />
+
+     
     </Container>
   ) : null;
 };
@@ -96,10 +166,13 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
   margin: 0;
   padding: 24px;
 `;
+
+const BeforeTitle = styled.p`
+
+`
 
 const Title = styled.h1`
   margin: 0;
@@ -109,7 +182,7 @@ const Title = styled.h1`
 `;
 
 const StyledLink = styled(Link)`
-  padding: 15px 0;
+  padding: 0 0;
 `;
 
 const Author = styled.p`
@@ -247,3 +320,12 @@ const Content = styled.div`
     }
   }
 `;
+
+const CaractPeliculas = styled.div`
+    display: flex;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+`

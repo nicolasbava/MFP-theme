@@ -13,26 +13,33 @@ import FeaturedMedia from "../featured-media";
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
   const date = new Date(item.date);
+ 
 
+  /* LIST ITEM PELICULA */
+  const data = state.source.get(state.router.link);
+  const post = state.source[data.type][data.id];
+  const year = item.acf.year;
+  const fotoPelicula = item.acf.foto_pelicula;
+
+  
   return (
-    <article>
-      <Link link={item.link}>
-        <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-      </Link>
+    
+    <article >
+      <Cuadrado className="cuadrado" style={{background: `url(${fotoPelicula})`}}>
 
+      <Link link={item.link}>
+        <Cartel className="cartel">
+          <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+          <Year>{year}</Year>
+        </Cartel>
+      </Link>
       <div>
         {/* If the post has an author, we render a clickable author text. */}
-        {author && (
-          <StyledLink link={author.link}>
-            <AuthorName>
-              By <b>{author.name}</b>
-            </AuthorName>
-          </StyledLink>
-        )}
-        <PublishDate>
+        
+        {/* <PublishDate>
           {" "}
           on <b>{date.toDateString()}</b>
-        </PublishDate>
+        </PublishDate> */}
       </div>
 
       {/*
@@ -47,6 +54,8 @@ const Item = ({ state, item }) => {
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
+      
+      </Cuadrado>
     </article>
   );
 };
@@ -54,14 +63,37 @@ const Item = ({ state, item }) => {
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
 
+
+const Cuadrado = styled.div`
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  cursor: pointer;
+  margin-top: 1em;
+
+`
+
+const Cartel = styled.div`
+  color: #fff;
+  padding-top: 2em;
+  background: rgba(0,0,0, .7);
+  padding-left: 1em;
+  height: 89%;
+`
+
 const Title = styled.h1`
   font-size: 2rem;
-  color: rgba(12, 17, 43);
   margin: 0;
   padding-top: 24px;
   padding-bottom: 8px;
   box-sizing: border-box;
+
+
 `;
+
+const Year = styled.p`
+
+`
 
 const AuthorName = styled.span`
   color: rgba(12, 17, 43, 0.9);

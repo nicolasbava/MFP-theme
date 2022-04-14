@@ -7,6 +7,8 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 import Nav from "./nav";
+import Footer from "./footer"
+
 
 
 /**
@@ -29,6 +31,7 @@ const Theme = ({ state }) => {
       <Head>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
+ 
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's. 
@@ -53,19 +56,14 @@ const Theme = ({ state }) => {
                 <List when={data.isArchive} />
                 <Post when={data.isPostType} />
                 <PageError when={data.isError} />
+
               </Switch>
 
 
         
       </Main>
       
-      <Footer>
-
-        <After>
-        
-          <p> PAGINA DESARROLLADA POR <a> ROJOLAB </a></p>
-        </After>
-      </Footer>
+      <Footer />
     </>
   );
 };
@@ -73,10 +71,11 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Krona One', sans-serif;
+    font-weight: normal;
   }
   a,
   a:visited {
@@ -117,41 +116,12 @@ const HeadContainer = styled.div`
 
 const Main = styled.div`
   display: flex;
-  justify-content: center;
+  padding-left: 7%;
+  padding-right: 7%;
   background-color: #f5ebda;
 `;  
 
-const Footer = styled.div`
-  background: rgb(245,235,218);
-`
 
-const Before = styled.div`
-    margin: 0;
-`
-
-
-const After = styled.div`
-  display: flex;
-  // justify-content: center;
-  background-color: #ff743d;
-  justify-content: flex-end;
-
-  p {
-    margin:0;
-    color:white;
-    transition: 500ms ease;
-    padding: 1em;
-    font-size: 1rem;
-    
-
-  }
-
-  a:hover {
-    color: red;
-    text-decoration: underline;
-  }
-  
-`;
 
 
 
