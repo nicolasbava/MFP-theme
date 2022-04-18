@@ -24,6 +24,11 @@ import FeaturedMedia from "./featured-media";
  *
  * @returns The {@link Post} element rendered.
  */
+
+// LINK 
+  const url = 'https://localhost:3000'
+
+
   const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -58,6 +63,10 @@ import FeaturedMedia from "./featured-media";
   const fotoPelicula = post.acf.foto_pelicula;
 
   const fichaTecnica = post.acf.ficha_tecnica;
+
+
+
+
 
   const tab = '\u00A0';
 
@@ -166,7 +175,8 @@ import FeaturedMedia from "./featured-media";
                 {fichaTecnica.map((val, key) => {
                   return (
                     
-                    <ContenedorFicha>
+                    <ContenedorFicha  value={key}>
+                      <p>{key}</p>
                       <p>{val.cargo}</p>
                       <p>{val.cargo_nombre}</p>
                     </ContenedorFicha>
@@ -183,14 +193,21 @@ import FeaturedMedia from "./featured-media";
                     <span>{tab}/{tab}{colorPelicula} </span> 
                     <span>{tab}/{tab}{estiloPelicula}</span> 
                   </div>
-                  <p>Formato Original: </p>
-                  <p>Rodaje: </p>
-                  <p>Estreno: </p>
+                  <p>Formato Original: {post.acf.formato_original}</p>
+                  <p>Rodaje: {post.rodaje}</p>
+                  <p>Estreno: {post.acf.estreno}</p>
                   <p>Productora: </p>
+                  
+                   
+                  
                   
                 </TextoFichaTecnica>
               </FichaTecnicaPelicula>
-          
+              <Interesar>
+                <p>> TE PUEDE INTERESAR</p>
+
+              </Interesar>
+              <Arriba>IR PARA ARRIBA</Arriba>
           </Pelicula>   
 
             )}
@@ -380,19 +397,26 @@ const CaractPeliculas = styled.div`
       margin: 0;
     }
 `
-const Pelicula = styled.div``
+const Pelicula = styled.div`
+    width: 100vw;
+    overflow-x: hidden;
+`
 
-const GaleriaPelicula = styled.div``
+const GaleriaPelicula = styled.div`
+    text-align: center;
+`
 
 const FichaTecnicaPelicula = styled.div`
 
     h3 {
-      margin-top: 1em;
+      padding-top: 2em;
+      
     }
 `
 
 const SliderFichaTecnica = styled.div`
-    display: flex;
+      padding-bottom: 2.3em;
+      display: flex;
 `
 
 const ContenedorFicha = styled.div`
@@ -408,11 +432,26 @@ const ContenedorFicha = styled.div`
 const Raya = styled.div`
     background: #d5d3d3;
     height: 2px;
-    width: 100vw;
     border-radius: 25px;
     position: absolute;
     left: 0;
+    right: 0;
 
 `
 
-const TextoFichaTecnica = styled.div``
+const TextoFichaTecnica = styled.div`
+  padding-top: 2em;
+
+
+`
+
+const Interesar = styled.div`
+
+`
+
+const Arriba = styled.p`
+    position: absolute;
+    right: 5vw;
+    font-size: .5em;
+    cursor: pointer;
+`

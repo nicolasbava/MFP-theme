@@ -32,6 +32,10 @@ const settings = {
           [
               "Salas",
               "/salas/"
+          ],
+          [
+            "NOTICIAS",
+            "/noticias/"
           ]
           ],
           "featured": {
