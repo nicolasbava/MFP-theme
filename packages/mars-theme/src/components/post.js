@@ -57,12 +57,15 @@ import FeaturedMedia from "./featured-media";
 
   const fotoPelicula = post.acf.foto_pelicula;
 
+  const fichaTecnica = post.acf.ficha_tecnica;
+
   const tab = '\u00A0';
 
 
  
   console.log(postType)
   console.log(post)
+
 
   /* ARTISTAS FUNCIONES CARACTERISTITAS */
 
@@ -158,9 +161,34 @@ import FeaturedMedia from "./featured-media";
                 <Raya></Raya>
                 <h3>> FICHA TÉCNICA</h3>
                 <p>> EQUIPO Y REPARTO</p>
+                
                 <SliderFichaTecnica>
-                  
+                {fichaTecnica.map((val, key) => {
+                  return (
+                    
+                    <ContenedorFicha>
+                      <p>{val.cargo}</p>
+                      <p>{val.cargo_nombre}</p>
+                    </ContenedorFicha>
+
+                  )
+                })}                  
                 </SliderFichaTecnica>
+                <Raya></Raya>
+                <TextoFichaTecnica>
+                  <p>> FICHA TECNICA</p>
+                  <div>
+                    <span>{yearPelicula}{tab}</span>                 
+                    <span>{tab}/{tab}{generoPelicula} </span> 
+                    <span>{tab}/{tab}{colorPelicula} </span> 
+                    <span>{tab}/{tab}{estiloPelicula}</span> 
+                  </div>
+                  <p>Formato Original: </p>
+                  <p>Rodaje: </p>
+                  <p>Estreno: </p>
+                  <p>Productora: </p>
+                  
+                </TextoFichaTecnica>
               </FichaTecnicaPelicula>
           
           </Pelicula>   
@@ -363,7 +391,19 @@ const FichaTecnicaPelicula = styled.div`
     }
 `
 
-const SliderFichaTecnica = styled.div``
+const SliderFichaTecnica = styled.div`
+    display: flex;
+`
+
+const ContenedorFicha = styled.div`
+    border: 2px #00ad9d solid;
+    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
 
 const Raya = styled.div`
     background: #d5d3d3;
@@ -374,3 +414,5 @@ const Raya = styled.div`
     left: 0;
 
 `
+
+const TextoFichaTecnica = styled.div``
