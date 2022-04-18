@@ -133,9 +133,9 @@ import FeaturedMedia from "./featured-media";
       )}
         
     
-
+        {/* POST TYPE PELICULAS */}
        {pelicula && (
-              
+          <Pelicula>     
               <CaractPeliculas>
                 
                   <p>{yearPelicula}{tab}</p> 
@@ -150,15 +150,24 @@ import FeaturedMedia from "./featured-media";
                   <p>{tab}/{tab}{estiloPelicula}</p> 
               
               </CaractPeliculas>
+              <GaleriaPelicula>              
+                <p> LINK DE PELICULA </p>
+                <p> GALERIA DE FOTOS PELICULAS</p>         
+              </GaleriaPelicula>
+              <FichaTecnicaPelicula>
+                <Raya></Raya>
+                <h3>> FICHA TÉCNICA</h3>
+                <p>> EQUIPO Y REPARTO</p>
+                <SliderFichaTecnica>
+                  
+                </SliderFichaTecnica>
+              </FichaTecnicaPelicula>
+          
+          </Pelicula>   
 
-              
             )}
-
-     { /* =========  ARCHIVO PELICULAS INICIO ========== */ }
             
-    {pelicula && (
-      <img src={fotoPelicula} alt="" />
-    )} 
+
      
     </Container>
 
@@ -201,6 +210,13 @@ const DateWrapper = styled.p`
   font-size: 0.9em;
   display: inline;
 `;
+
+
+
+
+
+
+
 
 /**
  * This component is the parent of the `content.rendered` HTML. We can use nested
@@ -326,6 +342,8 @@ const Content = styled.div`
   }
 `;
 
+//  FICHA PELICULAS inicio
+
 const CaractPeliculas = styled.div`
     display: flex;
 
@@ -333,4 +351,26 @@ const CaractPeliculas = styled.div`
       padding: 0;
       margin: 0;
     }
+`
+const Pelicula = styled.div``
+
+const GaleriaPelicula = styled.div``
+
+const FichaTecnicaPelicula = styled.div`
+
+    h3 {
+      margin-top: 1em;
+    }
+`
+
+const SliderFichaTecnica = styled.div``
+
+const Raya = styled.div`
+    background: #d5d3d3;
+    height: 2px;
+    width: 100vw;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+
 `

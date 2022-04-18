@@ -34,6 +34,7 @@ const Item = ({ state, item }) => {
 
 
     <article >
+      {/* PELICULAS cuadrados */}
       {pelicula && (
         <Link link={item.link}>
           <Cuadrado style={{backgroundImage:`url(${fotoPelicula})`}}>
@@ -45,6 +46,9 @@ const Item = ({ state, item }) => {
         </Link>
       )}
 
+
+        
+     {/* SI NO ES PELICULA ABAJO  */}
       {!pelicula &&(
         <Link link={item.link}>
         
