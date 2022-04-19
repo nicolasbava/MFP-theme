@@ -64,6 +64,8 @@ import FeaturedMedia from "./featured-media";
 
   const fichaTecnica = post.acf.ficha_tecnica;
 
+  const linkPelicula = "https://www.youtube.com/embed/" + post.acf.link;
+
 
 
 
@@ -71,9 +73,8 @@ import FeaturedMedia from "./featured-media";
   const tab = '\u00A0';
 
 
- 
-  console.log(postType)
-  console.log(post)
+  console.log(post);
+  console.log(postType);
 
 
   /* ARTISTAS FUNCIONES CARACTERISTITAS */
@@ -162,8 +163,13 @@ import FeaturedMedia from "./featured-media";
                   <p>{tab}/{tab}{estiloPelicula}</p> 
               
               </CaractPeliculas>
+
+
+              
+              <VideoPelicula>
+                <iframe width="80%" height="400" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </VideoPelicula>
               <GaleriaPelicula>              
-                <p> LINK DE PELICULA </p>
                 <p> GALERIA DE FOTOS PELICULAS</p>         
               </GaleriaPelicula>
               <FichaTecnicaPelicula>
@@ -173,18 +179,18 @@ import FeaturedMedia from "./featured-media";
                 
                 <SliderFichaTecnica>
                 {fichaTecnica.map((val, key) => {
-                  return (
-                    
-                    <ContenedorFicha  value={key}>
+                  return (                    
+                    <ContenedorFicha  value={val.id}>
                       <p>{key}</p>
                       <p>{val.cargo}</p>
                       <p>{val.cargo_nombre}</p>
                     </ContenedorFicha>
-
                   )
                 })}                  
                 </SliderFichaTecnica>
+
                 <Raya></Raya>
+
                 <TextoFichaTecnica>
                   <p>> FICHA TECNICA</p>
                   <div>
@@ -227,6 +233,8 @@ export default connect(Post);
 const Container = styled.div`
   margin: 0;
   padding: 24px;
+  box-sizing: border-box;
+  width: 100%;
 `;
 
 const BeforeTitle = styled.p`
@@ -402,6 +410,10 @@ const Pelicula = styled.div`
     overflow-x: hidden;
 `
 
+const VideoPelicula = styled.div`
+
+`
+
 const GaleriaPelicula = styled.div`
     text-align: center;
 `
@@ -417,6 +429,7 @@ const FichaTecnicaPelicula = styled.div`
 const SliderFichaTecnica = styled.div`
       padding-bottom: 2.3em;
       display: flex;
+      overflow-x: scroll;
 `
 
 const ContenedorFicha = styled.div`

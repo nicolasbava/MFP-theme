@@ -64,10 +64,16 @@ const settings = {
             type: "productoras",
             endpoint: "productoras",
             archive: "/productoras"
-        }, {
+        }, 
+        {
             type: "salas",
             endpoint: "salas",
             archive: "/salas"
+        },
+        {
+          type: "noticias",
+          endpoint: "noticias",
+          archive: "/noticias"
         }
     ]
         }
