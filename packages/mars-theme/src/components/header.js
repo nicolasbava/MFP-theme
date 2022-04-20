@@ -25,7 +25,7 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-let logo = 'http://localhost/memoriaFilmica/wp-content/uploads/2022/04/Logo-contraste1.png';
+let logo = 'https://memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png';
 
 const Container = styled.div`
   // width: 848px;

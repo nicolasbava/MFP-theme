@@ -22,7 +22,7 @@ import Footer from "./footer"
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-
+  const postType = data.type;
 
   return (
     <>
@@ -45,11 +45,25 @@ const Theme = ({ state }) => {
 
       {/* NICO- agrega nav abajo de la foto */}
       <Nav />
+      {postType === 'peliculas' &&  (
+                  <Buscador>
+                  <BeforeTitle> > CATALOGO FILMICO PENCOPOLITANO</BeforeTitle>
+                  <BeforeTitle> search bar </BeforeTitle>
+                  </Buscador>
+      )}
+      {postType === 'noticias' &&  (
+                  <Buscador>
+                  <BeforeTitle> > NOTICIAS</BeforeTitle>
+                  <BeforeTitle> search bar </BeforeTitle>
+                  </Buscador>
+      )}
+      
+
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-
+              
 
               <Switch>
                 <Loading when={data.isFetching} />
@@ -87,9 +101,9 @@ const globalStyles = css`
 // const background = "url('http://localhost/memoriaFilmica/wp-content/uploads/2022/04/03-min.png')";
 
 let arrayBackgrounds = [   
-  "url('http://localhost/memoriaFilmica/wp-content/uploads/2022/04/01-min.png')",
-  "url('http://localhost/memoriaFilmica/wp-content/uploads/2022/04/02-min.png')",
-  "url('http://localhost/memoriaFilmica/wp-content/uploads/2022/04/03-min.png')"
+  "url('https://memoriafilmica.cl/wp-content/uploads/2022/04/01-min.png')",
+  "url('https://memoriafilmica.cl/wp-content/uploads/2022/04/02-min.png')",
+  "url('https://memoriafilmica.cl/wp-content/uploads/2022/04/03-min.png')"
   
 ];
 
@@ -119,11 +133,25 @@ const Main = styled.div`
   padding-left: 7%;
   padding-right: 7%;
   background-color: #f5ebda;
+  
 `;  
 
+const Buscador = styled.div`
+  padding-top: 1em;
+  display:flex;
+  padding-left: 7%;
+  padding-right: 7%;
+  background-color: #f5ebda;
+  justify-content: space-between;
+  color: #333;
+`
+const BeforeTitle = styled.p`
+
+`
 
 
 
+console.log(numeroRandom)
 
 
-console.log(numeroRandom);
+

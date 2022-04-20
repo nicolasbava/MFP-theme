@@ -75,7 +75,14 @@ const settings = {
           endpoint: "noticias",
           archive: "/noticias"
         }
-    ]
+    ],
+        "taxonomies" : [
+          {
+            taxonomy: "genero",
+            endponit: "genero",
+            postTypeEndpoint: "peliculas",
+          }
+        ]
         }
       }
     },

@@ -48,7 +48,7 @@ import FeaturedMedia from "./featured-media";
 
 
 
-  /* PELICULAS FUNCIONES CARACTERISTICAS */
+  /*NICO PELICULAS FUNCIONES CARACTERISTICAS */
 
   const pelicula = postType === "peliculas";
 
@@ -70,20 +70,27 @@ import FeaturedMedia from "./featured-media";
 
 
 
+
+
   const tab = '\u00A0';
 
 
   console.log(post);
   console.log(postType);
 
+  
 
-  /* ARTISTAS FUNCIONES CARACTERISTITAS */
 
-  const artistas = postType === "artistas";
+
+  /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
+
+  const artista = postType === "artistas";
+  
+  const fotoArtista = post.acf.foto_artista;
 
 
   
-  
+  /* NICO fin ARTISTAS FUNCIONES CARACTERISTITAS */
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -100,11 +107,34 @@ import FeaturedMedia from "./featured-media";
     <Container>
      
       <div>
-        {pelicula && ( <BeforeTitle> > CATALOGO FILMICO PENCOPOLITANO</BeforeTitle>)}
+        
+        {!artista && (
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-        {postType == "artistas" && (
-          <p>Esta es una Artista</p>
+        )}
+
+        {artista && (
+        <Artista>
+          <Indice><p> > CATALOGO > FICHA TÉCNICA</p></Indice>
+          <Info>
+            <Foto><img src={fotoArtista}></img></Foto>
+            <InfoArtista>
+              <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+              <p>ANIO: desconocido</p>
+              <p>LUGAR DE NACIMIENTO: desconocido</p>
+              <Content>
+                <Html2React html={post.content.rendered} />
+              </Content>
+            
+            </InfoArtista>
+          </Info>
+          <TrabajosArtista>
+            <p>> DIRECTOR (8)</p>
+            <p>poner las peliculas en las que trabajo como director</p>
+            <p>> SONIDO (2)</p>
+            <p>poner las peliculas en las que trabajo como sonido</p>
+          </TrabajosArtista>
+        </Artista>
           )}
 
 
@@ -143,8 +173,13 @@ import FeaturedMedia from "./featured-media";
         <Content>
           <Html2React html={post.content.rendered} />
         </Content>
-      )}
-        
+      )} 
+      
+
+      
+     
+
+            
     
         {/* POST TYPE PELICULAS */}
        {pelicula && (
@@ -167,7 +202,7 @@ import FeaturedMedia from "./featured-media";
 
               
               <VideoPelicula>
-                <iframe width="80%" height="400" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="400" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </VideoPelicula>
               <GaleriaPelicula>              
                 <p> GALERIA DE FOTOS PELICULAS</p>         
@@ -183,7 +218,7 @@ import FeaturedMedia from "./featured-media";
                     <ContenedorFicha  value={val.id}>
                       <p>{key}</p>
                       <p>{val.cargo}</p>
-                      <p>{val.cargo_nombre}</p>
+                      <p>{val.cargo_nombre[21]}</p>
                     </ContenedorFicha>
                   )
                 })}                  
@@ -202,15 +237,13 @@ import FeaturedMedia from "./featured-media";
                   <p>Formato Original: {post.acf.formato_original}</p>
                   <p>Rodaje: {post.rodaje}</p>
                   <p>Estreno: {post.acf.estreno}</p>
-                  <p>Productora: </p>
-                  
-                   
-                  
-                  
+                  <p>Productora: array ID</p>            
+
                 </TextoFichaTecnica>
               </FichaTecnicaPelicula>
               <Interesar>
                 <p>> TE PUEDE INTERESAR</p>
+
 
               </Interesar>
               <Arriba>IR PARA ARRIBA</Arriba>
@@ -242,10 +275,11 @@ const BeforeTitle = styled.p`
 `
 
 const Title = styled.h1`
-  margin: 0;
-  margin-top: 24px;
-  margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    color: rgba(12, 17, 43);
+    font-size: 2.7rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -406,11 +440,12 @@ const CaractPeliculas = styled.div`
     }
 `
 const Pelicula = styled.div`
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
 `
 
 const VideoPelicula = styled.div`
+    padding: 1em 0;
 
 `
 
@@ -459,6 +494,7 @@ const TextoFichaTecnica = styled.div`
 `
 
 const Interesar = styled.div`
+    padding: 3em 0;
 
 `
 
@@ -468,3 +504,29 @@ const Arriba = styled.p`
     font-size: .5em;
     cursor: pointer;
 `
+
+/* ARTISTA inicio */
+
+const Artista = styled.div`
+     background-color: #f0e3d5;
+`
+
+const Indice = styled.div`
+`
+
+const Info = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+const Foto = styled.div`
+`
+
+const InfoArtista = styled.div`
+    margin-left: 2em;
+`
+
+const TrabajosArtista = styled.div`
+    padding: 4em 0;
+`
+

@@ -34,11 +34,17 @@ const Item = ({ state, item }) => {
 
 
     <article >
+
       {/* PELICULAS cuadrados */}
       {pelicula && (
+        
+
         <Link link={item.link}>
           <Cuadrado style={{backgroundImage:`url(${fotoPelicula})`}}>
             <Cartel>
+              
+              <Rayita></Rayita>
+
               <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
               <Year>{year}</Year>
             </Cartel>
@@ -51,7 +57,6 @@ const Item = ({ state, item }) => {
      {/* SI NO ES PELICULA ABAJO  */}
       {!pelicula &&(
         <Link link={item.link}>
-        
           <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
           <Year>{year}</Year>
       
@@ -93,23 +98,52 @@ const Cartel = styled.div`
   color: #fff;
   padding-top: 2em;
   padding-left: 1em;
-  height: 89%;
+  height: 100%;
   padding-bottom: 1em;
   transition: 500ms ease;
   opacity:0;
+  box-sizing: border-box;
+  transition: opacity 0.55s;
+  border-radius: 2px;
+  z-index: 95;
+
+  & > * {
+
+    transition: transform 0.7s;
+    transform: translateX(-8rem);
+  }
+
+  
+  &:hover > * {
+    transform: translateX(0);
+
+  }
 
   &:hover {
     background: rgba(0,0,0, .7);
     opacity: 1;
+    box-sizing: border-box;
+
   }
+`
+
+const Rayita = styled.div`
+  width: 25%;
+  height: 3px;
+  background: white;
 `
 
 const Cuadrado = styled.div`
   background: grey;
+  border-radius: 2px;
+  height: 25vw;
+    z-index: 99;
+    width: 25vw;
+    overflow:hidden;
 `
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: clamp(1rem,1vw,2rem);
   margin: 0;
   padding-top: 24px;
   padding-bottom: 8px;
@@ -138,3 +172,5 @@ const Excerpt = styled.div`
   line-height: 1.6em;
   color: rgba(12, 17, 43, 0.8);
 `;
+
+
