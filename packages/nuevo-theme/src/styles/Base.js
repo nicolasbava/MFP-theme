@@ -1,6 +1,8 @@
 import React from "react"
 import {Global, css} from "frontity"
 
+
+
 const Base = () => {
 
     const grisFuente = "#333"
@@ -13,7 +15,9 @@ const Base = () => {
 
             @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 
+           
                 html {
+                    // font-family: "Calibri", sans-serif;
                     font-family: 'Krona One', sans-serif;
                     color: ${grisFuente};
                 }

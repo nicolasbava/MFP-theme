@@ -12,25 +12,30 @@ const Footer = ({ state }) => {
   return (
     <>
 
-        <AnteRaya>
+<AnteRaya>
           <Raya></Raya>
           <FooterPeliculas>
-            <div>
-              <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png"></img>
-            </div>
-            <div>
-              <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png"></img>
-            </div>
+            <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
+            
+            <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
+            
             <div>
               <h4>¿QUIÉNES SOMOS?</h4>
-              <p>A theme is the foundation for the complete design of a website. This includes things like typography, color palettes, headers and footers, backgrounds, and page layouts.</p>
+              <p>Memoria Fílmica Pencopolitana es un colectivo de investigación y difusión del patrimonio audiovisual pencopolitano, dedicado al rescate y puesta en valor del patrimonio universal local.</p>
             </div>
-            <div>
+            <Iconos>
               <span>{">>"}</span>
-              <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-              <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-              <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-            </div>
+              <a href="https://google.com" target="_blank"> 
+                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
+              </a>
+              <a href="https://google.com" target="_blank"> 
+                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
+              </a>
+              <a href="https://google.com" target="_blank"> 
+                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
+              </a>
+              
+            </Iconos>
           </FooterPeliculas>
         </AnteRaya>
 
@@ -53,17 +58,17 @@ const AnteRaya = styled.div`
 `
 
 const Raya = styled.div`
-height: 2px;
+height: 1px;
 position: absolute;
 right: 0;
 left: 26%;
 background: #3939394f;
-top: 42px;
+top: 125px;
 border-radius: 2px;
 `
 
 const FooterPeliculas = styled.div`
-  background-color: #f5ebda;
+  background-color: inherit;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 2fr;
   align-items: center;
@@ -77,27 +82,38 @@ const FooterPeliculas = styled.div`
 
   .logo-footer{
     padding-left: 1em;
-    width: 12vw;
+    width: 14vw;
     z-index: 99;
     position: relative;
     top: 21px;
   }
 
   .logo-mem{
-    width: 13vw;
-
-margin-top: 1em;
-margin-left: -1em;
+    width: 11vw;
+    margin-top: 7em;
+    margin-left: 1em;
   
   }
 
   div {
-    padding-left: 1em;
+    padding-left: 2em;
     margin-right: 2em;
     color: #333;
+    margin-top: 6em;
+   
+  h4 {
+    font-size: 0.7rem;
+    margin: 0.5em 0;
+    font-weight: normal;
+
+  }  
 
   p { 
-    font-size: .7rem;
+    font-size: .8rem;
+    font-family: "Calibri", sans-serif;
+    margin: 0;
+    color: #646464;
+    letter-spacing: .3px;
   } 
   }
 `

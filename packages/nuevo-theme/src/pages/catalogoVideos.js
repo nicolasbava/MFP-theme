@@ -5,6 +5,7 @@ import Link from "../components/Link"
 import { CatalogoNoticias } from "./catalogoNoticias"
 import Footer from "../components/footer"
 import CatalogoNoticiasPeliculas from "./catalogoNoticiasPeliculas"
+import Search from "../components/Search"
 
 
 const CatalogoVideos = ({state}) => {
@@ -48,151 +49,128 @@ const CatalogoVideos = ({state}) => {
         <>
 
         <Contenedor>
-            <p>{">"}CATÁLOGO FÍLMICO PENCOPOLITANO</p>
-        
-            <p>Videos disponibles({data.items.length})</p>
+            <CartelHeader>
+                <p>{">"}CATÁLOGO FÍLMICO PENCOPOLITANO</p>
+                <Search />
+            </CartelHeader>    
+ 
 
 
             {/* OUTSIDE, scroll  */}
             <Outside>
 
-            {/* ARRAY 1  */}
-            <Array>
-            {array1.map((peliculas) => {
-                // const pelicula = state.source.peliculas[id]                
-                // <p>Peliculas disponibles({data.items.length})</p>             
+                {/* ARRAY 1  */}
+                <Array>
+                {array1.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
+                    return (
+
+
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
+
+                    )
+                })}
+                </Array>
+
+
+                {/* ARRAY 2  */}
+                <Array>
+                {array2.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
+                    return (
+
+
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
+
+                    )
+                })}
+                </Array>
                 
-                return (
+
+                {/* ARRAY 3  */}
+                <Array>
+                {array3.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
+                    return (
 
 
-                    <article key={peliculas.id}>
-                    {/* <p>{peliculas.title.rendered}</p> */}
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
 
-                     {/* {console.log(arrayPeliculas)} */}
-                        
-                        <Link href={peliculas.link}>
-                             {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                            <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                <Cartel>
-                                
-                                <Rayita></Rayita>
-                                <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
-
-                                <h4>{peliculas.acf.year}</h4>
-                                </Cartel>
-                            </Cuadrado>
-                         </Link>
-                         
-                     </article>
-
-                )
-            })}
-            </Array>
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-            {/* ARRAY 2  */}
-            <Array>
-            {array2.map((peliculas) => {
-                // const pelicula = state.source.peliculas[id]                
-                // <p>Peliculas disponibles({data.items.length})</p>             
-                
-                return (
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
 
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
 
-                    <article key={peliculas.id}>
-                    {/* <p>{peliculas.title.rendered}</p> */}
-
-                     {/* {console.log(arrayPeliculas)} */}
-                        
-                        <Link href={peliculas.link}>
-                             {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                            <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                <Cartel>
-                                
-                                <Rayita></Rayita>
-                                <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
-
-                                <h4>{peliculas.acf.year}</h4>
-                                </Cartel>
-                            </Cuadrado>
-                         </Link>
-                         
-                     </article>
-
-                )
-            })}
-            </Array>
-            
-
-            {/* ARRAY 3  */}
-            <Array>
-            {array3.map((peliculas) => {
-                // const pelicula = state.source.peliculas[id]                
-                // <p>Peliculas disponibles({data.items.length})</p>             
-                
-                return (
-
-
-                    <article key={peliculas.id}>
-                    {/* <p>{peliculas.title.rendered}</p> */}
-
-                     {/* {console.log(arrayPeliculas)} */}
-                        
-                        <Link href={peliculas.link}>
-                             {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                            <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                <Cartel>
-                                
-                                <Rayita></Rayita>
-                                <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
-
-                                <h4>{peliculas.acf.year}</h4>
-                                </Cartel>
-                            </Cuadrado>
-                         </Link>
-                         
-                     </article>
-
-                )
-            })}
-            </Array>
+                    )
+                })}
+                </Array>
             
             </Outside>
-            {/* OUTSIDE final */}
 
-            {/* NOTICIAS */}
-
-            {/* <Noticias>
+            {/* ultimas 3 NOTICIAS */}
             
-                <h3>NOTICIAS {">>"}</h3>
-                <NoticiasFlex>
-                {typeof noticias === "undefined" ? <p>cargando noticias</p> : 
-
-                    Object.values(noticias).reverse().slice(0,3).map( noticia => {
-                        return (
-                            <ArticuloNoticia key={noticia.id}>
-                                <NoticiaImg>
-
-                                </NoticiaImg>
-                                <Link href={noticia.link}>
-                                    <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
-                                </Link>
-
-                            </ArticuloNoticia>
-                        )
-                    })
-
-                }
-                </NoticiasFlex>     
-            </Noticias> */}
-
-            <h3>NOTICIAS {">>"}</h3>
+            <Titulo>NOTICIAS {">>"}</Titulo>
                 <NoticiasFlex>
                     {typeof noticias === "undefined" ? <p>Cargando Noticias...</p> : 
                     
@@ -208,8 +186,8 @@ const CatalogoVideos = ({state}) => {
                                             <Link href={noticia.link}>
                                                 <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
                                             </Link>
-                                        <p dangerouslySetInnerHTML={{__html: noticia.excerpt.rendered}}></p>
-                                        <span>{">>"}</span>
+                                            <p dangerouslySetInnerHTML={{__html: noticia.excerpt.rendered}}></p>
+                                            <span>{">>"}</span>
                                         </CartelNoticia>
 
                                     </Noticias>
@@ -228,13 +206,38 @@ const CatalogoVideos = ({state}) => {
 }
 
 
+const CartelHeader = styled.nav`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+
+    p {
+        font-size: .8rem
+    }
+`
+
+const Titulo = styled.h4`
+    margin-top: 6em;
+    margin-bottom: 2em;
+    font-weight: normal;
+
+`
+
+const Article = styled.article`
+    
+&:first-of-type{
+    margin-left: -2vw;
+}
+`
+
+
 const ImagenNoticia = styled.div`
 
 
     background: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     background-color: #00b1a0;
-    width: 25vw;
+    width: 100%;
     height: 25vw;
     background-blend-mode: screen;
     cursor: pointer; 
@@ -259,20 +262,15 @@ const ImagenNoticia = styled.div`
 const DisplayNoticias = styled.div`
   display: flex;
   justify-content: space-around;
-
-  // & > * {
-  //   margin-left: 2vw;
-  // }
-`
+  width: 100%;
 
 
-const ContenedorNoticia = styled.div`
 `
 
 const Noticias = styled.div`
   border: 2px grey solid;
   border-radius: 5px;
-  width: 25vw;
+  width: 27vw;
   
   img {
     max-width: 100%;
@@ -287,15 +285,17 @@ const Noticias = styled.div`
     font-size: 1.3rem;
     text-transform: uppercase;
     color: #333;
+    font-weight: normal;
   }
 
   p {
     color: #4a4a4a;
-    font-size: 0.7rem;
+    font-size: .8rem;
     font-weight: initial;
-    line-height: 1.4;
+    line-height: 1;
     text-align: justify;
     padding-bottom: 1em;    
+    font-family: 'Calibri', sans-serif;
   }
 
   .leer-mas {
@@ -308,39 +308,22 @@ const Noticias = styled.div`
     cursor: pointer;
   }
 
-  span:hover .leer-mas {
-    opacity: 1;
-  }
 `
 
 const CartelNoticia = styled.section`
   padding: 1em 2em;
+
 `
-
-
-
-
-
-
 
 export default connect(CatalogoVideos)
 
-const NoticiaImg = styled.div`
 
-`
-
-const ArticuloNoticia = styled.article`
-    border: 2px black solid;
-    width: 30vw;
-`
 
 const NoticiasFlex = styled.section`
     display:flex
 `
 
-// const Noticias = styled.section`
-//     margin-top: 4em;
-// `
+
 
 const Outside = styled.div`
   // display:flex
@@ -393,6 +376,7 @@ const Outside = styled.div`
 const Array = styled.div`
     display: flex;
     padding: 1em 0;
+
 
 `
 
@@ -448,11 +432,15 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 28vw;
-  z-index: 99;
-  width: 28vw;
+  height: 29vw;
+  width: 29vw;
   overflow:hidden;
-  margin-left: 2vw
+  margin-left: 1vw;
+  z-index: 99;
+
+
+
+
 `
 
 const Title = styled.h1`

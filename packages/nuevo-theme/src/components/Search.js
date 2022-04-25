@@ -13,7 +13,7 @@ const Search = ({state, actions}) => {
                 }}
             >            
             </input>
-            <pre>Search value: {state.theme.valorBusquedaGlobal}</pre>
+            {/* <pre>Search value: {state.theme.valorBusquedaGlobal}</pre> */}
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import {connect} from "frontity"
+import {connect, styled} from "frontity"
 import Header from "./components/Header"
 import CatalogoVideos from "./pages/catalogoVideos";
 import CatalogoArtistas from "./pages/catalogoArtistas";
@@ -37,8 +37,7 @@ const Root = ({state, actions}) => {
         <Header />
 
 
-        <Search />
-        <hr />
+        <Raya></Raya>
 
 
         {data.isFetching && <p>Cargando...</p>}
@@ -58,3 +57,9 @@ const Root = ({state, actions}) => {
   };
 
 export default connect(Root)
+
+const Raya = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #d9d4d4;
+`
