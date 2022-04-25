@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {connect} from "frontity"
 import Header from "./components/Header"
 import CatalogoVideos from "./pages/catalogoVideos";
@@ -10,6 +10,8 @@ import UpHeader from "./components/UpHeader";
 import CatalogoNoticias from "./pages/catalogoNoticias";
 
 import Base from "./styles/Base";
+import Home from "./pages/Home";
+import MenuModal from "./components/MenuModal";
 
 
 
@@ -17,10 +19,20 @@ import Base from "./styles/Base";
 const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
 
+    useEffect(() => {
+      actions.source.fetch("/peliculas")
+      actions.source.fetch("/artistas")
+      actions.source.fetch("/noticias")
+      actions.source.fetch("/presentacion")
+
+    }, []) 
+
+
+
     return (
       <>
         <Base />
-
+        <MenuModal />
         <UpHeader />
 
         <Header />
@@ -28,7 +40,7 @@ const Root = ({state, actions}) => {
         <hr />
 
 
-        {data.isHome && <p> Estamos en la Home</p>}
+        {data.isHome && <Home />}
         {data.isFetching && <p>Cargando...</p>}
 
         {data.isPeliculasArchive && <CatalogoVideos />}

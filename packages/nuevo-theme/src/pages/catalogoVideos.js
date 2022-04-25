@@ -19,6 +19,8 @@ const CatalogoVideos = ({state}) => {
         peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )  
 
+    const noticias = state.source.noticias;
+
 
 
     return (
@@ -61,7 +63,20 @@ const CatalogoVideos = ({state}) => {
             })}
 
             <h3>NOTICIAS {">>"}</h3>
+            {typeof noticias === "undefined" ? <p>cargando noticias</p> : 
 
+                Object.values(noticias).reverse().slice(0,3).map( noticia => {
+                    return (
+                        <article key={noticia.id}>
+                            <Link href={noticia.link}>
+                                <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
+                            </Link>
+
+                        </article>
+                    )
+                })
+
+            }
       
 
             <Footer />

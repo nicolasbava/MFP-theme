@@ -7,9 +7,7 @@ const Post = ({ state, element }) => {
     
     const post = state.source[data.type][data.id]
 
-    const generoID = post.genero[0]
 
-    const genero = state.source.genero[generoID]
 
 
 
@@ -22,7 +20,7 @@ const Post = ({ state, element }) => {
                 <p>PELICULAS ASAS</p>
                 <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered}}></h2>
                 <p dangerouslySetInnerHTML={{__html: post.content.rendered}}></p>
-                <p>Genero: : {genero.name}</p>
+
             </>
         )
     } else if (element === 'artista') {

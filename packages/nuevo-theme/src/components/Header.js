@@ -1,6 +1,7 @@
 import React from "react"
 import {connect, styled} from "frontity"
 import Link from "./Link"
+import MenuButton from "./MenuButton"
 
 
 
@@ -27,6 +28,10 @@ const Nav = styled.nav`
     & a {
         padding-left: 1em
     }
+
+    @media (max-width: 600px){
+        display:none
+    }
 `
 
 // RENDER
@@ -42,6 +47,7 @@ const Header = () => {
                 <Link href='/noticias'>NOTICIAS</Link> 
                 <Link href='/artistas'>ARTISTAS</Link> 
             </Nav>
+            <MenuButton />
         </Contenedor>
             
             
