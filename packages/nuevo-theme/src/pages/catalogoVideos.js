@@ -52,6 +52,10 @@ const CatalogoVideos = ({state}) => {
         
             <p>Videos disponibles({data.items.length})</p>
 
+
+            {/* OUTSIDE, scroll  */}
+            <Outside>
+
             {/* ARRAY 1  */}
             <Array>
             {array1.map((peliculas) => {
@@ -159,35 +163,237 @@ const CatalogoVideos = ({state}) => {
             })}
             </Array>
             
+            </Outside>
+            {/* OUTSIDE final */}
+
+            {/* NOTICIAS */}
+
+            {/* <Noticias>
+            
+                <h3>NOTICIAS {">>"}</h3>
+                <NoticiasFlex>
+                {typeof noticias === "undefined" ? <p>cargando noticias</p> : 
+
+                    Object.values(noticias).reverse().slice(0,3).map( noticia => {
+                        return (
+                            <ArticuloNoticia key={noticia.id}>
+                                <NoticiaImg>
+
+                                </NoticiaImg>
+                                <Link href={noticia.link}>
+                                    <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
+                                </Link>
+
+                            </ArticuloNoticia>
+                        )
+                    })
+
+                }
+                </NoticiasFlex>     
+            </Noticias> */}
 
             <h3>NOTICIAS {">>"}</h3>
-            {typeof noticias === "undefined" ? <p>cargando noticias</p> : 
+                <NoticiasFlex>
+                    {typeof noticias === "undefined" ? <p>Cargando Noticias...</p> : 
+                    
+                        Object.values(noticias).reverse().slice(0,3).map( noticia => {
 
-                Object.values(noticias).reverse().slice(0,3).map( noticia => {
-                    return (
-                        <article key={noticia.id}>
-                            <Link href={noticia.link}>
-                                <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
-                            </Link>
+                            return (
+                                <DisplayNoticias key={noticia.id}>
+                                    <Noticias>  
+                                        <Link href={noticia.link}>
+                                            <ImagenNoticia style={{backgroundImage:`url(${noticia.acf.foto_portada})`}}></ImagenNoticia>
+                                        </Link>    
+                                        <CartelNoticia>
+                                            <Link href={noticia.link}>
+                                                <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
+                                            </Link>
+                                        <p dangerouslySetInnerHTML={{__html: noticia.excerpt.rendered}}></p>
+                                        <span>{">>"}</span>
+                                        </CartelNoticia>
 
-                        </article>
-                    )
-                })
+                                    </Noticias>
+                                </DisplayNoticias> 
+                            )
+                        })         
+                    }
+                </NoticiasFlex>
+            
 
-            }
-      
-
-            <Footer />
             </Contenedor>
+            <Footer />
+
         </>
     )
 }
 
+
+const ImagenNoticia = styled.div`
+
+
+    background: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-color: #00b1a0;
+    width: 25vw;
+    height: 25vw;
+    background-blend-mode: screen;
+    cursor: pointer; 
+    transition: background-color 500ms ease;
+    filter: blur(0.1px);
+    z-index: 0
+    -webkit-filter: blur(0.1px);
+    background-size: cover;
+    
+    &:hover {
+    background-color: #00f3ff00;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+
+    };
+  
+
+`
+
+
+
+const DisplayNoticias = styled.div`
+  display: flex;
+  justify-content: space-around;
+
+  // & > * {
+  //   margin-left: 2vw;
+  // }
+`
+
+
+const ContenedorNoticia = styled.div`
+`
+
+const Noticias = styled.div`
+  border: 2px grey solid;
+  border-radius: 5px;
+  width: 25vw;
+  
+  img {
+    max-width: 100%;
+    box-sizing: border-box;
+    cursor:pointer;
+    background-color: blue;
+    background-blend-mode: multiply;
+    
+  }
+
+  h4 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #333;
+  }
+
+  p {
+    color: #4a4a4a;
+    font-size: 0.7rem;
+    font-weight: initial;
+    line-height: 1.4;
+    text-align: justify;
+    padding-bottom: 1em;    
+  }
+
+  .leer-mas {
+    margin-left: 5px;
+    opacity: 0;
+  }
+
+  span {
+    color: #333;
+    cursor: pointer;
+  }
+
+  span:hover .leer-mas {
+    opacity: 1;
+  }
+`
+
+const CartelNoticia = styled.section`
+  padding: 1em 2em;
+`
+
+
+
+
+
+
+
 export default connect(CatalogoVideos)
+
+const NoticiaImg = styled.div`
+
+`
+
+const ArticuloNoticia = styled.article`
+    border: 2px black solid;
+    width: 30vw;
+`
+
+const NoticiasFlex = styled.section`
+    display:flex
+`
+
+// const Noticias = styled.section`
+//     margin-top: 4em;
+// `
+
+const Outside = styled.div`
+  // display:flex
+  overflow-x: scroll;
+  width: 91vw;
+
+  &:nth-child(1) {
+    margin-left: 0
+  }
+
+  scrollbar-color: #fe743d #f5ebda;
+      scrollbar-width: thin;
+      scrollbar-radius: 2px;
+
+      &::-webkit-scrollbar {
+        height: 10px;
+        width: 69px;
+        background-color: #fe743d #f5ebda;
+        cursor:pointer;
+
+      }
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 10px;
+        cursor:pointer;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f5ebda;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #fe743d;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #fe7434;
+        cursor: pointer;
+
+      }
+
+`
 
 const Array = styled.div`
     display: flex;
     padding: 1em 0;
+
 `
 
 const Contenedor = styled.main`
@@ -246,6 +452,7 @@ const Cuadrado = styled.div`
   z-index: 99;
   width: 28vw;
   overflow:hidden;
+  margin-left: 2vw
 `
 
 const Title = styled.h1`
