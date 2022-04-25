@@ -2,6 +2,7 @@ import React from 'react'
 import {connect, styled, css, Global} from 'frontity'
 import Featured from './Featured'
 import Link from './Link'
+import FichaLink from './FichaLink'
 
 
 
@@ -59,7 +60,17 @@ const Post = ({actions, state, element, libraries }) => {
 
   const interesarPeliculas = state.source.peliculas;
 
-  interesarPeliculas
+    /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
+
+
+  
+    const fotoArtista = post.acf.foto_artista;
+    
+    const nacimiento = post.acf.lugar_de_nacimiento;
+  
+    const yearNacimiento = post.acf.nacimiento;
+    
+    // ARTISTAS final
 
 
     // ====== PELICULA inicio ========
@@ -120,9 +131,9 @@ const Post = ({actions, state, element, libraries }) => {
                             <article className="fondo-verde">                        
                                 {val.cargo_nombre.map((val,key) =>{
                                 return (
-                                    <Link href={val.post_type + "/" + val.post_name}>
-                                    <p>{val.post_title}</p>
-                                    </Link>
+                                    <FichaLink link={val.post_type + "/" + val.post_name}>
+                                        <p>{val.post_title}</p>
+                                    </FichaLink>
                                 )
                                 })}
                                 <p className="cargo">{val.cargo}</p>  
@@ -213,20 +224,114 @@ const Post = ({actions, state, element, libraries }) => {
     } else if (element === 'artista') {
        return ( 
         <>
-           <p>SOY UN Artista</p>
-           <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered}}></h2>
-                {/* <p dangerouslySetInnerHTML={{__html: post.content.rendered}}></p> */}
+           <Artista>
+                <InfoAf>
+                    <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
+                    <Info>
+                    <Foto>
+                        <div style={{backgroundImage:`url(${fotoArtista})`}}></div>
+                    </Foto>
+                    <InfoArtista>
+                        <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                        <p>{yearNacimiento}</p>
+                        <p>{nacimiento}</p>
+
+                        <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
+
+                    
+                    </InfoArtista>
+                    </Info>
+                </InfoAf>
+                <TrabajosArtista>
+                    <p>{">"} DIRECTOR (8)</p>
+                    <p>poner las peliculas en las que trabajo como director</p>
+                    <p>{">"} SONIDO (2)</p>
+                    <p>poner las peliculas en las que trabajo como sonido</p>
+
+
+                </TrabajosArtista>
+
+
+
+
+        </Artista>
         </>   
            )
     }
 }
 
+// artista inicio
+
+//  ARTISTA inicio 
+
+const Artista = styled.div`
+     background-color: #eed8c0;
+     margin-top: -16px;
+`
+
+const DescripcionArtista = styled.span`
+    
+`
+
+const InfoAf = styled.div`
+    background: #f5ebda;
+
+`
+
+const Bio = styled.p`
+    font-family: 'Calibri', sans-serif;
+    line-height: 1.2;
+`
 
 
+const TituloArtista  = styled.h2`
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    color: #0f0c09;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+`;
+
+const Indice = styled.div`
+    padding-left: 7%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+`
+
+const Info = styled.div`
+    display: flex;
+    padding-left: 7%;
+     padding: -24px;
+     padding-right: 7%;
+
+`
+
+const Foto = styled.div`
+
+
+    div {
+      width: 12vw;
+      height: 18vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+`
+
+const InfoArtista = styled.div`
+    margin-left: 2em;
+`
+
+const TrabajosArtista = styled.div`
+    padding: 4em 0;
+`
+
+// artista final
 const InteresarPeliculas = styled.section`
     padding-top: 2em;
 `
-
 
 const Article = styled.article`
     
@@ -235,14 +340,10 @@ const Article = styled.article`
 }
 `
 
-
 const Array = styled.div`
     display: flex;
     padding: 1em 0;
 `
-
-
-
 
 const Cartel = styled.div`
   color: #fff;
