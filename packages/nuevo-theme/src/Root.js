@@ -6,6 +6,10 @@ import CatalogoArtistas from "./pages/catalogoArtistas";
 import Post from "./components/Post"
 import Search from "./components/Search";
 import Footer from "./components/footer";
+import UpHeader from "./components/UpHeader";
+import CatalogoNoticias from "./pages/catalogoNoticias";
+
+import Base from "./styles/Base";
 
 
 
@@ -15,8 +19,11 @@ const Root = ({state, actions}) => {
 
     return (
       <>
-        <Header />
+        <Base />
 
+        <UpHeader />
+
+        <Header />
         <Search />
         <hr />
 
@@ -26,6 +33,7 @@ const Root = ({state, actions}) => {
 
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
+        {data.isNoticiasArchive && <CatalogoNoticias />}
         {data.isNoticiasArchive && <p> Estamos en la Noticias</p>}
 
         {data.isPeliculas && <Post element='pelicula' />}

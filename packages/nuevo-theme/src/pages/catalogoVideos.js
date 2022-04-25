@@ -2,6 +2,9 @@ import React from "react"
 import {connect, styled} from "frontity"
 import Featured from "../components/Featured"
 import Link from "../components/Link"
+import { CatalogoNoticias } from "./catalogoNoticias"
+import Footer from "../components/footer"
+import CatalogoNoticiasPeliculas from "./catalogoNoticiasPeliculas"
 
 
 const CatalogoVideos = ({state}) => {
@@ -56,6 +59,13 @@ const CatalogoVideos = ({state}) => {
 
                 )
             })}
+
+            <h3>NOTICIAS {">>"}</h3>
+
+      
+
+            <Footer />
+            
         </>
     )
 }

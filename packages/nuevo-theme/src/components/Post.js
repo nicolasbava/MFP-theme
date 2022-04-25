@@ -1,12 +1,16 @@
 import React from 'react'
 import {connect} from 'frontity'
+import Featured from './Featured'
 
 const Post = ({ state, element }) => {
-    const data = state.source.get(state.source.link)
+    const data = state.source.get(state.router.link)
+    
     const post = state.source[data.type][data.id]
 
-    // const postTitle = state.source[data.type][data.id].title.rendered;
-    // podria funcionar este codigo de arriba probar
+    const generoID = post.genero[0]
+
+    const genero = state.source.genero[generoID]
+
 
 
 
@@ -15,12 +19,20 @@ const Post = ({ state, element }) => {
     if ( element === 'pelicula')  {
         return (
             <>
-            
-               <h3 dangerouslySetInnerHTML={{ __html:pelicula.title.rendered }}></h3>
+                <p>PELICULAS ASAS</p>
+                <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered}}></h2>
+                <p dangerouslySetInnerHTML={{__html: post.content.rendered}}></p>
+                <p>Genero: : {genero.name}</p>
             </>
         )
     } else if (element === 'artista') {
-       return ( <p>SOY UN Artista</p>)
+       return ( 
+        <>
+           <p>SOY UN Artista</p>
+           <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered}}></h2>
+                <p dangerouslySetInnerHTML={{__html: post.content.rendered}}></p>
+        </>   
+           )
     }
 
     

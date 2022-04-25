@@ -1,15 +1,51 @@
 import React from "react"
-import {connect} from "frontity"
+import {connect, styled} from "frontity"
 import Link from "./Link"
 
+
+
+// ESTILOS CSS
+const HeaderContenedor = styled.section`
+
+    padding: 1em 7% 1em 7%;
+
+`
+
+const Contenedor = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+const Logo = styled.div`
+    width: 60%
+
+`
+
+const Nav = styled.nav`
+    display: flex; 
+    justify-content: space-between;
+
+    & a {
+        padding-left: 1em
+    }
+`
+
+// RENDER
 const Header = () => {
     return (
-       <>
-            <Link href='/'>Inicio</Link> //
-            <Link href='/peliculas'>Peliculas</Link> //
-            <Link href='/noticias'>Noticias</Link> // 
-            <Link href='/artistas'>artistas</Link> //
-        </>
+       <HeaderContenedor>
+        <Contenedor>
+            <Logo>
+                <Link href='/'>INICIO</Link> 
+            </Logo>
+            <Nav>
+                <Link href='/peliculas'>PELICULAS</Link> 
+                <Link href='/noticias'>NOTICIAS</Link> 
+                <Link href='/artistas'>ARTISTAS</Link> 
+            </Nav>
+        </Contenedor>
+            
+            
+        </HeaderContenedor>
     )
 
 }
