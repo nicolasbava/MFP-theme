@@ -168,9 +168,9 @@ const Post = ({actions, state, element, libraries }) => {
 
                             {productoraPelicula.length > 0 ? (productoraPelicula.map((val,key) => {
                             return (
-                                <p>Procutora:   <Link href={val.post_type + '/' + val.post_name}> {val.post_title} </Link></p>
+                                <p>Procutora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
                             )
-                            })) : <Link href={"productoras/desconocida"}> <p>Productora: Desconocida</p> </Link>
+                            })) : <FichaLink link={"productoras/desconocida"}> <p>Productora: Desconocida</p> </FichaLink>
                         }         
                         </div>
                     </TextoFichaTecnica>
@@ -243,6 +243,7 @@ const Post = ({actions, state, element, libraries }) => {
                     </Info>
                 </InfoAf>
                 <TrabajosArtista>
+
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>
@@ -257,6 +258,43 @@ const Post = ({actions, state, element, libraries }) => {
         </Artista>
         </>   
            )
+    } else if (element === 'productora'){
+        return ( 
+            <>
+               <Artista>
+                    <InfoAf>
+                        <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
+                        <Info>
+                        <Foto>
+                            <div style={{backgroundImage:`url(${fotoArtista})`}}></div>
+                        </Foto>
+                        <InfoArtista>
+                            <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                            <p>{yearNacimiento}</p>
+                            <p>{nacimiento}</p>
+    
+                            <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
+    
+                        
+                        </InfoArtista>
+                        </Info>
+                    </InfoAf>
+                    <TrabajosArtista>
+    
+                        <p>{">"} DIRECTOR (8)</p>
+                        <p>poner las peliculas en las que trabajo como director</p>
+                        <p>{">"} SONIDO (2)</p>
+                        <p>poner las peliculas en las que trabajo como sonido</p>
+    
+    
+                    </TrabajosArtista>
+    
+    
+    
+    
+            </Artista>
+            </>   
+               )
     }
 }
 
@@ -265,16 +303,16 @@ const Post = ({actions, state, element, libraries }) => {
 //  ARTISTA inicio 
 
 const Artista = styled.div`
-     background-color: #eed8c0;
-     margin-top: -16px;
+    background-color: #eed8c0;
+    margin-top: -16px;
 `
 
 const DescripcionArtista = styled.span`
-    
+    font-family: 'Red Hat Text', sans-serif;
 `
 
 const InfoAf = styled.div`
-    background: #f5ebda;
+    // background: #f5ebda;
 
 `
 
@@ -303,9 +341,9 @@ const Indice = styled.div`
 const Info = styled.div`
     display: flex;
     padding-left: 7%;
-     padding: -24px;
-     padding-right: 7%;
-
+    padding: -24px;
+    padding-right: 7%;
+    padding-bottom: 2em;
 `
 
 const Foto = styled.div`
@@ -325,7 +363,10 @@ const InfoArtista = styled.div`
 `
 
 const TrabajosArtista = styled.div`
-    padding: 4em 0;
+    padding: 1em 0 4em 0;
+    background:#fbf0e5;
+    padding-left: 7%;
+    padding-right: 7%;
 `
 
 // artista final

@@ -13,7 +13,7 @@ const Base = () => {
         <Global 
             styles = {css`
 
-            @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Red+Hat+Display:wght@400;500;600&family=Red+Hat+Text:wght@300;400&display=swap');
 
            
                 html {

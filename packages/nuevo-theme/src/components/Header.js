@@ -2,6 +2,7 @@ import React from "react"
 import {connect, styled} from "frontity"
 import Link from "./Link"
 import MenuButton from "./MenuButton"
+import FichaLink from "./FichaLink"
 
 
 
@@ -16,9 +17,20 @@ const Contenedor = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: .8rem
+
+    & > a {
+        display: inline-block;
+        line-height: 5.7em;
+        border-bottom: 2px solid;
+        border-bottom-color: transparent;
+        /* Use for semantic approach to style the current link */
+        &[aria-current="page"] {
+          border-bottom-color: orange;
+        }
+      }
 `
 const Logo = styled.div`
-    width: 60%
+    width: 20%
 
 `
 
@@ -44,9 +56,21 @@ const Header = () => {
                     <Link href='/peliculas'>{">"}INICIO</Link> 
                 </Logo>
                 <Nav>
-                    <Link href='/peliculas'>PELICULAS</Link> 
-                    <Link href='/noticias'>NOTICIAS</Link> 
-                    <Link href='/artistas'>ARTISTAS</Link> 
+                   <div>
+                        <SubMenu>
+                            <Link href='/noticias'>PELICULAS</Link> 
+                            <Link href='/artistas'>ARTISTAS</Link> 
+                        </SubMenu>
+                   </div>
+                   <Link>PRESENTACION</Link>                    
+                   <Link href='/noticias'>NOTICIAS</Link> 
+                   <Link href='/peliculas'>CATALOGO</Link> 
+                   <Link href='/articulos'>ARTICULOS</Link> 
+
+
+                    
+                    {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
+                    <FichaLink link='/mapa'>MAPA INTERACTIVO</FichaLink>
                 </Nav>
                 <MenuButton />
             </Contenedor>
@@ -58,3 +82,14 @@ const Header = () => {
 }
 
 export default connect(Header)
+
+const SubMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    visibility: collapse;
+
+    .hover:hover & {
+        display: block
+    }
+`

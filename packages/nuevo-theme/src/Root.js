@@ -11,6 +11,8 @@ import CatalogoNoticias from "./pages/catalogoNoticias";
 
 import Base from "./styles/Base";
 import Home from "./pages/Home";
+import CatalogoProductoras from "./pages/catalogoProductoras";
+import Mapa from "./pages/Mapa";
 
 
 
@@ -46,12 +48,17 @@ const Root = ({state, actions}) => {
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
         {data.isNoticiasArchive && <CatalogoNoticias />}
-        {data.isNoticiasArchive && <p> Estamos en la Noticias</p>}
+        {data.isProductorasArchive && <CatalogoProductoras />}
+
 
         {data.isPeliculas && <Post element='pelicula' />}
         {data.isArtistas && <Post element='artista' />}
+        {data.isMapaArchive && <Mapa />}
+
 
         {data.isPeliculas && <FooterBasico />}
+        {data.isArtistas && <FooterBasico />}
+
 
 
       </>

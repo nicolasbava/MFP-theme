@@ -36,7 +36,7 @@ const UpHeader = ({ state }) => {
     <HeadContainer  style={{backgroundImage:`${background}`}} >
 
         <Container>
-          <StyledLink href="/">
+          <StyledLink href="/peliculas">
             {/* <Title> */}
               <img src={logo} alt="" height="150"/>
             {/* </Title> */}
