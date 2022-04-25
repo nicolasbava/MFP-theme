@@ -40,7 +40,7 @@ const Header = () => {
        <HeaderContenedor>
         <Contenedor>
             <Logo>
-                <Link href='/'>INICIO</Link> 
+                <Link href='/peliculas'>{">"}INICIO</Link> 
             </Logo>
             <Nav>
                 <Link href='/peliculas'>PELICULAS</Link> 

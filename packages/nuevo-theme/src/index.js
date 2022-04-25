@@ -9,7 +9,8 @@ export default {
   state: {
     theme: {
       contador: 0,
-      valorBusquedaGlobal: ''
+      valorBusquedaGlobal: '',
+      isMobileMenuOpen: false,
     }
   },
   actions: {
@@ -19,6 +20,12 @@ export default {
       },
       setValorBusqueda: ({state}) => value => 
         {state.theme.valorBusquedaGlobal = value}
-    }
+      },
+      toggleMobileMenu:({state}) => {
+        state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen
+      },
+      closeMobileMenu: ({state}) => {
+        state.theme.isMobileMenuOpen = false
+      }
   }
 };

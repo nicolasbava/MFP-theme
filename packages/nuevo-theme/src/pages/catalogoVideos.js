@@ -14,10 +14,31 @@ const CatalogoVideos = ({state}) => {
 
     const arrayPeliculas = Object.values(state.source.peliculas)
 
+    arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
+
     
     const filteredPeliculas = arrayPeliculas.filter((peliculas) =>
         peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )  
+
+    
+
+    let array1= []
+    let array2 = []
+    let array3 = []
+
+    const items1 = [0,3,6,9,12,15,18,21,24,27,30,33,36,39]
+
+    const items2 = [1,4,7,10,13,16,19,22,25,28,31]
+
+    const items3 = [2,5,8,11,14,17,20,23,26,29]
+
+    filteredPeliculas.forEach((item,index) => {
+    if(items1.includes(index)) array1.push(item);
+    if(items2.includes(index)) array2.push(item);
+    if(items3.includes(index)) array3.push(item);
+    
+    })
 
     const noticias = state.source.noticias;
 
@@ -25,14 +46,17 @@ const CatalogoVideos = ({state}) => {
 
     return (
         <>
-            <h1>CATALOGO VIDEOS</h1>
+
+        <Contenedor>
+            <p>{">"}CATÁLOGO FÍLMICO PENCOPOLITANO</p>
         
             <p>Videos disponibles({data.items.length})</p>
-            {filteredPeliculas.map((peliculas) => {
-                // const pelicula = state.source.peliculas[id]
 
-                
-                <p>Peliculas disponibles({data.items.length})</p>
+            {/* ARRAY 1  */}
+            <Array>
+            {array1.map((peliculas) => {
+                // const pelicula = state.source.peliculas[id]                
+                // <p>Peliculas disponibles({data.items.length})</p>             
                 
                 return (
 
@@ -61,6 +85,80 @@ const CatalogoVideos = ({state}) => {
 
                 )
             })}
+            </Array>
+
+
+            {/* ARRAY 2  */}
+            <Array>
+            {array2.map((peliculas) => {
+                // const pelicula = state.source.peliculas[id]                
+                // <p>Peliculas disponibles({data.items.length})</p>             
+                
+                return (
+
+
+                    <article key={peliculas.id}>
+                    {/* <p>{peliculas.title.rendered}</p> */}
+
+                     {/* {console.log(arrayPeliculas)} */}
+                        
+                        <Link href={peliculas.link}>
+                             {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                            <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                <Cartel>
+                                
+                                <Rayita></Rayita>
+                                <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+
+                                <h4>{peliculas.acf.year}</h4>
+                                </Cartel>
+                            </Cuadrado>
+                         </Link>
+                         
+                     </article>
+
+                )
+            })}
+            </Array>
+            
+
+            {/* ARRAY 3  */}
+            <Array>
+            {array3.map((peliculas) => {
+                // const pelicula = state.source.peliculas[id]                
+                // <p>Peliculas disponibles({data.items.length})</p>             
+                
+                return (
+
+
+                    <article key={peliculas.id}>
+                    {/* <p>{peliculas.title.rendered}</p> */}
+
+                     {/* {console.log(arrayPeliculas)} */}
+                        
+                        <Link href={peliculas.link}>
+                             {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                            <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                <Cartel>
+                                
+                                <Rayita></Rayita>
+                                <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+
+                                <h4>{peliculas.acf.year}</h4>
+                                </Cartel>
+                            </Cuadrado>
+                         </Link>
+                         
+                     </article>
+
+                )
+            })}
+            </Array>
+            
 
             <h3>NOTICIAS {">>"}</h3>
             {typeof noticias === "undefined" ? <p>cargando noticias</p> : 
@@ -80,14 +178,22 @@ const CatalogoVideos = ({state}) => {
       
 
             <Footer />
-            
+            </Contenedor>
         </>
     )
 }
 
 export default connect(CatalogoVideos)
 
+const Array = styled.div`
+    display: flex;
+    padding: 1em 0;
+`
 
+const Contenedor = styled.main`
+    padding-left: 7%;
+    padding-right: 7%;
+`
 const Cartel = styled.div`
   color: #fff;
   padding-top: 2em;

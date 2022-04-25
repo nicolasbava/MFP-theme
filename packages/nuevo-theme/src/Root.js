@@ -11,7 +11,7 @@ import CatalogoNoticias from "./pages/catalogoNoticias";
 
 import Base from "./styles/Base";
 import Home from "./pages/Home";
-import MenuModal from "./components/MenuModal";
+
 
 
 
@@ -32,16 +32,17 @@ const Root = ({state, actions}) => {
     return (
       <>
         <Base />
-        <MenuModal />
         <UpHeader />
 
         <Header />
+
+
         <Search />
         <hr />
 
 
-        {data.isHome && <Home />}
         {data.isFetching && <p>Cargando...</p>}
+        {data.isHome && <Home />}
 
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
