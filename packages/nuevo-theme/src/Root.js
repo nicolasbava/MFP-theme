@@ -5,7 +5,7 @@ import CatalogoVideos from "./pages/catalogoVideos";
 import CatalogoArtistas from "./pages/catalogoArtistas";
 import Post from "./components/Post"
 import Search from "./components/Search";
-import Footer from "./components/footer";
+import Footer, { FooterBasico } from "./components/footer";
 import UpHeader from "./components/UpHeader";
 import CatalogoNoticias from "./pages/catalogoNoticias";
 
@@ -50,6 +50,8 @@ const Root = ({state, actions}) => {
 
         {data.isPeliculas && <Post element='pelicula' />}
         {data.isArtistas && <Post element='artista' />}
+
+        {data.isPeliculas && <FooterBasico />}
 
 
       </>

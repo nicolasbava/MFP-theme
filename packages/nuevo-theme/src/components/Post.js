@@ -56,9 +56,13 @@ const Post = ({actions, state, element, libraries }) => {
 
 
   const tab = '\u00A0';
-    
-    // 
 
+  const interesarPeliculas = state.source.peliculas;
+
+  interesarPeliculas
+
+
+    // ====== PELICULA inicio ========
     if ( element === 'pelicula')  {
         return (
             <Pelicula>
@@ -165,11 +169,45 @@ const Post = ({actions, state, element, libraries }) => {
 
                 <InteresarPeliculas>
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
+                        <Array>
+
+                            {typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
+                            
+                                Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
+
+                                    return (
+                                            <Article key={pelicula.id}>
+                                            {/* <p>{peliculas.title.rendered}</p> */}
+                    
+                                            {/* {console.log(arrayPeliculas)} */}
+                                                
+                                                <Link href={pelicula.link}>
+                                                    {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                    
+                    
+                                                    <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
+                                                        <Cartel>
+                                                        
+                                                        <Rayita></Rayita>
+                                                        <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
+                    
+                                                        <h4>{pelicula.acf.year}</h4>
+                                                        </Cartel>
+                                                    </Cuadrado>
+                                                </Link>
+                                                
+                                            </Article>                                                                
+                                    )
+                                })         
+                            }
+
+                        </Array>
                         
                 </InteresarPeliculas>
               
 
-            </Pelicula>
+
+            </Pelicula>            
 
         )
     } else if (element === 'artista') {
@@ -184,8 +222,81 @@ const Post = ({actions, state, element, libraries }) => {
 }
 
 
+
 const InteresarPeliculas = styled.section`
     padding-top: 2em;
+`
+
+
+const Article = styled.article`
+    
+&:first-of-type{
+    margin-left: -1vw;
+}
+`
+
+
+const Array = styled.div`
+    display: flex;
+    padding: 1em 0;
+`
+
+
+
+
+const Cartel = styled.div`
+  color: #fff;
+  padding-top: 2em;
+  padding-left: 1em;
+  height: 100%;
+  padding-bottom: 1em;
+  transition: 500ms ease;
+  opacity:0;
+  box-sizing: border-box;
+  transition: opacity 0.55s;
+  border-radius: 2px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1em;
+
+  & > * {
+
+    transition: transform 0.7s;
+    transform: translateX(-8rem);
+  }
+
+  
+  &:hover > * {
+    transform: translateX(0);
+
+  }
+
+  &:hover {
+    background: rgba(0,0,0, .7);
+    opacity: 1;
+    box-sizing: border-box;
+
+
+  }
+`
+
+const Rayita = styled.div`
+  width: 18%;
+  height: 5px;
+  background: #ff871c;
+  border-radius: 4px;
+`
+
+const Cuadrado = styled.div`
+  background: grey;
+  border-radius: 2px;
+  height: 20vw;
+  width: 20vw;
+  overflow:hidden;
+  margin-left: 1vw;
+  z-index: 99;
 `
 
 export default connect(Post)

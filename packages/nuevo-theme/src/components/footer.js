@@ -48,9 +48,19 @@ const Footer = ({ state }) => {
   );
 };
 
+const FooterBasico = () => {
+  return (
+    <Container>
+      <p>DESARROLLADO POR ROJOLAB STUDIO</p>        
+    </Container>
+  )
+
+}
+
 
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Footer);
+export {FooterBasico}
 
 const AnteRaya = styled.div`
   position: relative;

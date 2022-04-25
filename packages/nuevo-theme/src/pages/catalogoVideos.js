@@ -226,7 +226,7 @@ const Titulo = styled.h4`
 const Article = styled.article`
     
 &:first-of-type{
-    margin-left: -2vw;
+    margin-left: -1vw;
 }
 `
 
@@ -388,8 +388,9 @@ const Cartel = styled.div`
   color: #fff;
   padding-top: 2em;
   padding-left: 1em;
-  height: 100%;
+  padding-right: 2em;
   padding-bottom: 1em;
+  height: 100%;
   transition: 500ms ease;
   opacity:0;
   box-sizing: border-box;
@@ -399,7 +400,7 @@ const Cartel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 1em;
+
 
   & > * {
 
@@ -437,10 +438,6 @@ const Cuadrado = styled.div`
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
-
-
-
-
 `
 
 const Title = styled.h1`

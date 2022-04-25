@@ -8,7 +8,7 @@ import MenuButton from "./MenuButton"
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
 
-    padding: 3em 7% 3em 7%;
+    padding: 3em 7% 2em 7%;
 
 `
 
