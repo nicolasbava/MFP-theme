@@ -4,7 +4,7 @@ const settings = {
     "frontity": {
       "url": "https://memoriafilmica.cl",
       "title": "MEMORIA FILMICA PENCOPOLITANA 2",
-      "description": "WordPress installation for Frontity development"
+      "description": "MEMORIA FILMICA PENCOPOLITANA"
     }
   },
   "packages": [

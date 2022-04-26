@@ -168,7 +168,7 @@ const CatalogoVideos = ({state}) => {
             
             </Outside>
 
-            {/* ultimas 3 NOTICIAS */}
+            {/* NOTICIAS ultimas 3 */}
             
             <Titulo>NOTICIAS {">>"}</Titulo>
                 <NoticiasFlex>
@@ -296,7 +296,7 @@ const Noticias = styled.div`
     line-height: 1;
     text-align: justify;
     padding-bottom: 1em;    
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Red Hat Text', sans-serif;
   }
 
   .leer-mas {
@@ -405,6 +405,7 @@ const Cartel = styled.div`
 
   h3 {
       margin-bottom: 0;
+      text-transform: uppercase;
   }
 
   h4{

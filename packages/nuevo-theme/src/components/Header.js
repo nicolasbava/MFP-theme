@@ -46,12 +46,7 @@ const Header = () => {
                     <Link href='/peliculas'>{">"}INICIO</Link> 
                 </Logo>
                 <Nav>
-                   <div>
-                        <SubMenu>
-                            <Link href='/noticias'>PELICULAS</Link> 
-                            <Link href='/artistas'>ARTISTAS</Link> 
-                        </SubMenu>
-                   </div>
+                   
                    <Link>PRESENTACION</Link>                    
                    <Link href='/noticias'>NOTICIAS</Link> 
                    <Link href='/peliculas'>CATALOGO</Link> 

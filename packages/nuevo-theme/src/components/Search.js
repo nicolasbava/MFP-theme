@@ -1,10 +1,10 @@
 import React from "react"
-import {connect} from "frontity"
+import {connect, styled} from "frontity"
 
 const Search = ({state, actions}) => {
     return (
         <>
-            <input
+            <Input
                 type="text"
                 placeholder="Busca aqui..."
                 value={state.theme.valorBusquedaGlobal}
@@ -12,10 +12,15 @@ const Search = ({state, actions}) => {
                     actions.theme.setValorBusqueda(event.target.value)
                 }}
             >            
-            </input>
+            </Input>
             {/* <pre>Search value: {state.theme.valorBusquedaGlobal}</pre> */}
         </>
     )
 }
 
 export default connect(Search)
+
+const Input = styled.input`
+    height: 20px;
+    
+`

@@ -83,20 +83,20 @@ const Post = ({actions, state, element, libraries }) => {
                 <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
                 
 
-                <CaractPeliculas >                
-                    {/* <Link href={yearPelicula} > */}
-                    <p>{yearPelicula}{tab}</p> 
+                <CaractPeliculas >      
 
-                    {/* </Link> */}
+                    {yearPelicula && 
+                    <Link href={yearPelicula} >
+                    <p>{yearPelicula}</p> 
+                    </Link>}                           
+                    {generoPelicula && 
+                    <p>/{tab}{generoPelicula} </p>} 
+                    {colorPelicula && 
+                    <p>{tab}/{tab}{colorPelicula} </p>}        
+                    {estiloPelicula && 
+                    <p>/{tab}{estiloPelicula}</p>}
                     
                     
-                    <p>/{tab}{generoPelicula} </p> 
-                    
-                    
-                    <p>{tab}/{tab}{colorPelicula} </p> 
-                
-                
-                    <p>/{tab}{estiloPelicula}</p> 
               
                 </CaractPeliculas>
 
@@ -641,7 +641,7 @@ const ContenedorFicha = styled.div`
       }
     .fondo-verde {
       background:#00ad9d;
-      padding: .3em 0 1.1em 0.5em;
+      padding: 0.3em 0.5em 1.1em 0.5em;
       border-radius: 0 0 2px 2px ;
       height: 7vw;
     }
