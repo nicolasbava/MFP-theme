@@ -8,8 +8,7 @@ import FichaLink from "./FichaLink"
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
-
-    padding: 3em 7% 2em 7%;
+    padding: 2.5em 7% 1em 7%;
 
 `
 
@@ -18,16 +17,7 @@ const Contenedor = styled.div`
     justify-content: space-between;
     font-size: .8rem
 
-    & > a {
-        display: inline-block;
-        line-height: 5.7em;
-        border-bottom: 2px solid;
-        border-bottom-color: transparent;
-        /* Use for semantic approach to style the current link */
-        &[aria-current="page"] {
-          border-bottom-color: orange;
-        }
-      }
+    
 `
 const Logo = styled.div`
     width: 20%

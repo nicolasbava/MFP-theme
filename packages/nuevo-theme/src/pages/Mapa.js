@@ -1,10 +1,9 @@
 import React from "react"
 import {connect, Head, styled} from "frontity"
 import Link from "@frontity/components/link"
+import { FooterBasico } from "../components/footer"
 
-import Header from "../components/header"
-import Footer from "../components/footer"
-import Nav from "../components/nav"
+
 
 const Mapa = () => {
 
@@ -23,12 +22,14 @@ const Mapa = () => {
             <ContenedorMapa>
                 <iframe 
                     src="https://www.google.com/maps/d/embed?mid=1nAIsXBvqPzoEvq1PdFiEZxU5VZLX3PfR&ehbc=2E312F" 
-                    height="600"
-                    width="1300"
+                    height="800"
+                    width="1320"
                 ></iframe>     
             </ContenedorMapa>
 
         </Contendor>
+
+        <FooterBasico />
 
         </> 
     )
@@ -37,7 +38,8 @@ const Mapa = () => {
 export default Mapa
 
 const Contendor = styled.div`
-    margin-left: -5%;
+    margin-left: 1%;
+    margin-right: 1%;
     position: relative;
 
 
@@ -61,5 +63,5 @@ const Contendor = styled.div`
 
 const ContenedorMapa = styled.section`
     position:relative;
-    margin-bottom: 10vh;
+    bottom: -0.5vh;
 `

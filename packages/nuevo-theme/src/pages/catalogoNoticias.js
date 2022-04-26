@@ -41,7 +41,8 @@ const CatalogoNoticias = ({state, actions}) => {
                             </Link>
                             <DescripcionArtista dangerouslySetInnerHTML={{__html:artistas.content.rendered }}></DescripcionArtista>
                             
-                            
+                        <Raya></Raya>
+                           
                         </CartelNoticias>
                     </>
 
@@ -59,9 +60,18 @@ const CatalogoNoticias = ({state, actions}) => {
 
 export default connect(CatalogoNoticias)
 
+const Raya = styled.div`
+    heigth:4px;
+    width: 100vw;
+    background: #333;
+`
+
 const Titulo = styled.h3`
     text-align: center;
     text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 0em;
 `
 
 const Noticias = styled.main`
@@ -82,6 +92,7 @@ const NoticiasFlex = styled.section`
 
 const CartelNoticias = styled.article`
     // border: 2px black solid;
+    padding-bottom: 3em;
 
 `
 

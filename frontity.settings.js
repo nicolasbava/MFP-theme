@@ -108,6 +108,15 @@ const settings = {
             "per_page": 99,
             "_embed": true
           },
+        },
+        {
+          type: "articulos",
+          endpoint: "articulos",
+          archive: "/articulos",
+          "params":{
+            "per_page": 99,
+            "_embed": true
+          },
         }
     ],
         "taxonomies" : [

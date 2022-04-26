@@ -196,6 +196,7 @@ const CatalogoVideos = ({state}) => {
                         })         
                     }
                 </NoticiasFlex>
+                <p>{noticias.id}</p>
             
 
             </Contenedor>
@@ -385,12 +386,12 @@ const Contenedor = styled.main`
     padding-right: 7%;
 `
 const Cartel = styled.div`
-  color: #fff;
-  padding-top: 2em;
-  padding-left: 1em;
-  padding-right: 2em;
-  padding-bottom: 1em;
-  height: 100%;
+    color: #fff;
+    padding-top: 5em;
+    padding-left: 2em;
+    padding-right: 4em;
+    padding-bottom: 1em;
+    height: 100%;
   transition: 500ms ease;
   opacity:0;
   box-sizing: border-box;
@@ -401,6 +402,15 @@ const Cartel = styled.div`
   flex-direction: column;
   justify-content: center;
 
+
+  h3 {
+      margin-bottom: 0;
+  }
+
+  h4{
+      margin-top:.5em;
+      font-size: 1rem
+  }
 
   & > * {
 
