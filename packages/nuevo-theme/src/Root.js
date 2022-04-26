@@ -42,8 +42,9 @@ const Root = ({state, actions}) => {
         <Raya></Raya>
 
 
+
         {data.isFetching && <p>Cargando...</p>}
-        {data.isHome && <Home />}
+
 
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}

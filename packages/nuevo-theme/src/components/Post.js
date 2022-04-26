@@ -3,11 +3,13 @@ import {connect, styled, css, Global} from 'frontity'
 import Featured from './Featured'
 import Link from './Link'
 import FichaLink from './FichaLink'
+import Trabajos from './Tabajos'
 
+const naranja = '${naranja}'
 
+const fondoRosa = '#fbf0e5'
 
-
-
+const redHat = "'Red Hat Text', sans-serif"
 
 
 const Post = ({actions, state, element, libraries }) => {
@@ -60,6 +62,8 @@ const Post = ({actions, state, element, libraries }) => {
 
   const interesarPeliculas = state.source.peliculas;
 
+  // const randomInteresarPeliculas = Math.floor(Math.random() * interesarPeliculas.length)
+
     /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
 
 
@@ -69,6 +73,12 @@ const Post = ({actions, state, element, libraries }) => {
     const nacimiento = post.acf.lugar_de_nacimiento;
   
     const yearNacimiento = post.acf.nacimiento;
+
+    // const found = fichaTecnica.find((item) => {
+    //   item.cargo.cargo_nombre === post.title.rendered
+    // })
+
+
     
     // ARTISTAS final
 
@@ -76,6 +86,10 @@ const Post = ({actions, state, element, libraries }) => {
     // ====== PELICULA inicio ========
     if ( element === 'pelicula')  {
         return (
+
+
+
+
             <Pelicula>
                 <Catalogo>{">>"}CÁLOGO FÍLMICO PENCOPOLITANO</Catalogo>
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
@@ -85,19 +99,14 @@ const Post = ({actions, state, element, libraries }) => {
 
                 <CaractPeliculas >      
 
-                    {yearPelicula && 
-                    <Link href={yearPelicula} >
-                    <p>{yearPelicula}</p> 
-                    </Link>}                           
-                    {generoPelicula && 
-                    <p>/{tab}{generoPelicula} </p>} 
-                    {colorPelicula && 
-                    <p>{tab}/{tab}{colorPelicula} </p>}        
-                    {estiloPelicula && 
-                    <p>/{tab}{estiloPelicula}</p>}
+                    {yearPelicula && <Link href={yearPelicula} > <p>{yearPelicula}</p> </Link>}  
                     
+                    {generoPelicula && <p>/{tab}{generoPelicula} </p>} 
+
+                    {colorPelicula && <p>{tab}/{tab}{colorPelicula} </p>}        
+                   
+                    {estiloPelicula && <p>/{tab}{estiloPelicula}</p>}                
                     
-              
                 </CaractPeliculas>
 
                 <VideoPelicula>
@@ -113,17 +122,24 @@ const Post = ({actions, state, element, libraries }) => {
                     }    
 
                 </GaleriaPelicula>
-                <Raya></Raya>   
+
 
 
 
                 <FichaTecnicaPelicula>
-
-                    <h3>{">"} FICHA TÉCNICA</h3>
-                    <p className="eq">{">"} EQUIPO Y REPARTO</p>
+                    
+                    {fichaTecnica > 0 ? (
+                      <>
+                        <Raya></Raya>   
+                        <h3>{">"} FICHA TÉCNICA</h3>
+                        <p className="eq">{">"} EQUIPO Y REPARTO</p>
+                      </>
+                    ): null}
+                    
                 
                     <SliderFichaTecnica className="panel" style={wrap} >
-                        {fichaTecnica.map((val, key) => {
+
+                        {fichaTecnica > 0 ? fichaTecnica.map((val, key) => {
                         return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
@@ -140,15 +156,20 @@ const Post = ({actions, state, element, libraries }) => {
                                 </article>
                             </ContenedorFicha>
                         )
-                        })}                  
+                      } 
+                        ): null
+                    }
                     </SliderFichaTecnica >
-                    {fichaTecnica.length > 5 && (
+                    
+                    
+                    
+                
+
+                  { fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
                     <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length}) 
                                     
                     </VerMas>
-                    )}
-                    
-
+                    )} 
                     <Raya></Raya>
 
                     <TextoFichaTecnica>
@@ -183,6 +204,8 @@ const Post = ({actions, state, element, libraries }) => {
                         <Array>
 
                             {typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
+
+                                    
                             
                                 Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
 
@@ -225,6 +248,8 @@ const Post = ({actions, state, element, libraries }) => {
        return ( 
         <>
            <Artista>
+
+
                 <InfoAf>
                     <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                     <Info>
@@ -244,12 +269,13 @@ const Post = ({actions, state, element, libraries }) => {
                 </InfoAf>
                 <TrabajosArtista>
 
+                    <Trabajos />
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>
                     <p>poner las peliculas en las que trabajo como sonido</p>
 
-
+   
                 </TrabajosArtista>
 
 
@@ -295,7 +321,7 @@ const Post = ({actions, state, element, libraries }) => {
             </Artista>
             </>   
                )
-    }
+    } 
 }
 
 // artista inicio
@@ -304,7 +330,7 @@ const Post = ({actions, state, element, libraries }) => {
 
 const Artista = styled.div`
     background-color: #eed8c0;
-    margin-top: -16px;
+
 `
 
 const DescripcionArtista = styled.span`
@@ -312,7 +338,7 @@ const DescripcionArtista = styled.span`
 `
 
 const InfoAf = styled.div`
-    // background: #f5ebda;
+    // background: ${fondoRosa};
 
 `
 
@@ -498,14 +524,14 @@ const GaleriaPelicula = styled.div`
       cursor:pointer;
     }
 
-    scrollbar-color: #fe743d #f5ebda;
+    scrollbar-color: ${naranja} ${fondoRosa};
       scrollbar-width: thin;
       scrollbar-radius: 2px;
 
       &::-webkit-scrollbar {
         height: 10px;
         width: 69px;
-        background-color: #fe743d #f5ebda;
+        background-color: ${naranja} ${fondoRosa};
         cursor:pointer;
 
       }
@@ -518,12 +544,12 @@ const GaleriaPelicula = styled.div`
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: #f5ebda;
+        background: ${fondoRosa};
       }
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: #fe743d;
+        background: ${naranja};
         border-radius: 2px;
         cursor: pointer;
       }
@@ -569,7 +595,7 @@ const SliderFichaTecnica = styled.div`
       overflow-x: scroll;
     //   justify-content: space-between;
 
-      scrollbar-color: #fe743d #f5ebda;
+      scrollbar-color: ${naranja} ${fondoRosa};
       scrollbar-width: thin;
       scrollbar-radius: 2px;
 
@@ -580,7 +606,7 @@ const SliderFichaTecnica = styled.div`
       &::-webkit-scrollbar {
         height: 10px;
         width: 69px;
-        background-color: #fe743d #f5ebda;
+        background-color: ${naranja} ${fondoRosa};
         cursor:pointer;
 
       }
@@ -593,12 +619,12 @@ const SliderFichaTecnica = styled.div`
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: #f5ebda;
+        background: ${fondoRosa};
       }
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: #fe743d;
+        background: ${naranja};
         border-radius: 6px;
         cursor: pointer;
       }

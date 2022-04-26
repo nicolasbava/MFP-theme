@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {connect, styled} from "frontity"
 import Featured from "../components/Featured"
 import Link from "../components/Link"
@@ -8,10 +8,16 @@ import CatalogoNoticiasPeliculas from "./catalogoNoticiasPeliculas"
 import Search from "../components/Search"
 
 
-const CatalogoVideos = ({state}) => {
+const CatalogoVideos = ({state, actions}) => {
+
+  useEffect(() => {
+    actions.source.fetch("/peliculas")
+  }, []) 
+
     const data = state.source.get(state.router.link)
 
     // const arrayNoticias = Object.values(state.source.noticias)
+    
 
     const arrayPeliculas = Object.values(state.source.peliculas)
 
@@ -43,21 +49,33 @@ const CatalogoVideos = ({state}) => {
 
     const noticias = state.source.noticias;
 
+    
+
+    // const scrollContainer = document.querySelector("main");
+
+    // scrollContainer.addEventListener("wheel", (evt) => {
+    //     evt.preventDefault();
+    //     scrollContainer.scrollLeft += evt.deltaY;
+    // });
+
+
 
 
     return (
         <>
 
+
+
         <Contenedor>
             <CartelHeader>
-                <p>{">"}CATÁLOGO FÍLMICO PENCOPOLITANO</p>
+                <p>{">"}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
  
 
 
             {/* OUTSIDE, scroll  */}
-            <Outside>
+            <Outside className="main">
 
                 {/* ARRAY 1  */}
                 <Array>

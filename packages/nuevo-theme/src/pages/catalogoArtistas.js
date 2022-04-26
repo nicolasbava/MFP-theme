@@ -33,7 +33,7 @@ const CatalogoArtistas = ({state, actions}) => {
             <button onClick= {actions.theme.setPlusContador}
             >Sumar 1</button> */}
         
-            <p>Artistas disponibles({data.items.length})</p>
+            {/* <p>Artistas disponibles({data.items.length})</p> */}
 
             <ArtistasFlex>
                 {filteredArtistas.reverse().map((artistas) => {

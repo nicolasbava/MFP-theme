@@ -55,7 +55,7 @@ const Header = () => {
 
                     
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
-                    <FichaLink link='/mapa'>MAPA INTERACTIVO</FichaLink>
+                    <FichaLink link='/mapa'>MAPA</FichaLink>
                 </Nav>
                 <MenuButton />
             </Contenedor>
