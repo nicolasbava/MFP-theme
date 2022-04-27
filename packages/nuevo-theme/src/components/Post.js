@@ -160,6 +160,8 @@ const Post = ({ actions, state, element, libraries }) => {
                         ): null
                     }
                     </SliderFichaTecnica >
+
+                    {/* {state.theme.contador % 2 !== 0 && } */}
                     
                     
                     
@@ -592,6 +594,56 @@ const SliderFichaTecnica = styled.div`
       transition: flex-wrap 500ms ease;
       padding-bottom: 2.3em;
       display: flex;
+      overflow-x: scroll;
+    //   justify-content: space-between;
+
+      scrollbar-color: ${naranja} ${fondoRosa};
+      scrollbar-width: thin;
+      scrollbar-radius: 2px;
+
+      &:first-of-type {
+        margin-left: -2vw;
+      }
+
+      &::-webkit-scrollbar {
+        height: 10px;
+        width: 69px;
+        background-color: ${naranja} ${fondoRosa};
+        cursor:pointer;
+
+      }
+
+      /* width */
+      &::-webkit-scrollbar {
+        width: 10px;
+        cursor:pointer;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: ${fondoRosa};
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: ${naranja};
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #fe7434;
+        cursor: pointer;
+
+      }
+`
+
+const SliderFichaTecnicaWrap = styled.div`
+      transition: flex-wrap 500ms ease;
+      padding-bottom: 2.3em;
+      display: flex;
+      flex-wrap: wrap;
       overflow-x: scroll;
     //   justify-content: space-between;
 
