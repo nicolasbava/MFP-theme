@@ -8,18 +8,25 @@ import { CloseIcon, HamburgerIcon } from "./menu-icon"
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
 
-// import LogoImg from "https://memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png"
-
-
+const naranja = "#EC7342"
+const fondoSeleccionado = "#f5e1c8;"
+const bordeModal = "#b7b7b7"
+const logo = 'https://memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png';
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
-    padding: 2.5em 7% 1em 7%;
+    padding: 1em 7% 1em 7%;
     
-    
+    @media (max-widht:600px) {
+        padding: 1em 7% 1em 7%;
+
+    }
+
     @media (max-width: 600px){
+
         &{
             background: #ff743d
+
 
         }
     }
@@ -30,9 +37,18 @@ const Contenedor = styled.div`
     justify-content: space-between;
     font-size: .8rem;
     align-items: center;    
+
+    .img {
+        width: 147px;
+        height: auto;
+        
+        @media (min-width: 600px) {
+            display: none
+        }
+    }
 `
 const Logo = styled.div`
-    width: 20%
+
 
 `
 
@@ -57,7 +73,7 @@ const Header = ({state,actions}) => {
                 <Logo>
                     <Link href='/peliculas'>{">"}INICIO</Link> 
                 </Logo>
-                {/* <Img src={LogoImg}></Img> */}
+                <img className="img" src={logo}></img>
                 <Nav>
                    <Relative>
                         
@@ -98,12 +114,16 @@ const Header = ({state,actions}) => {
 export default connect(Header)
 
 const Presentacion = styled.span`
-    background: #7c7c7c;
+    background: ${fondoSeleccionado};
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,.3);
-    border-radius: 2px;
-    padding: .1em .2em;
+    border: 0.3px solid ${bordeModal};
+    /* border-radius: 2px; */
+    padding: 0.1em 0.2em;
     margin-left: 1em;
+
+    span:hover {
+        color: #EC7342
+    }
 `
 const Presentacion2 = styled.span`
     margin-left: 1em;
@@ -121,17 +141,6 @@ const Relative = styled.div`
 const RelativeCatalogo = styled.div`
     position:relative;
     transition: 250ms ease;    
-`
-
-const Img = styled.img`
-    width: 100px;
-
-    @media (max-width: 600px){
-        & {
-            display: none
-        }
-
-    }
 `
 
 const SubMenu = styled.div`

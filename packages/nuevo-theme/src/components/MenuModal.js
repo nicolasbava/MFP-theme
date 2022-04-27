@@ -2,6 +2,9 @@ import React from "react"
 import {styled, connect} from "frontity"
 import Link from "./Link"
 
+const fondoRosa = "rgb(251 240 229)"
+
+
 const MenuModal = ({state,actions}) => {
     const {isMobileMenuOpen} = state.theme
 
@@ -29,8 +32,9 @@ const MenuModal = ({state,actions}) => {
 
                         
                     </NavLinks>                
+               <Raya></Raya>
+
                 </MenuContainer>
-               
             
             </>
         )
@@ -38,6 +42,14 @@ const MenuModal = ({state,actions}) => {
 
     
 }
+
+
+const Raya = styled.div`
+  height: 1px;
+  width: 100%;
+  background: #d9d4d4;
+
+`
 
 const Padding = styled.div`
     padding-left: 2em;
@@ -51,7 +63,7 @@ const Padding = styled.div`
 `
 
 const MenuContainer = styled.div`
-    background: rgba(0,0,0,.5);
+    background: ${fondoRosa};
     color:white;
     position:relative;
 

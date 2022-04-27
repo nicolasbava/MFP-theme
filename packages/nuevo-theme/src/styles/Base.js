@@ -3,10 +3,12 @@ import {Global, css} from "frontity"
 
 
 
-const Base = () => {
+const Base = () => { 
+
+    const naranja = "#EC7342"
 
     const grisFuente = "#333"
-
+    
     const fondoRosa = "#fbf0e5"
 
     return (
@@ -36,7 +38,7 @@ const Base = () => {
                 }
                 
                 a:hover {
-                    color: orange;
+                    color: #EC7342;
                 }
 
 

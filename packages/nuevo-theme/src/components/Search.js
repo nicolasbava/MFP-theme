@@ -21,6 +21,11 @@ const Search = ({state, actions}) => {
 export default connect(Search)
 
 const Input = styled.input`
+
     height: 20px;
+    background: #f9f9f9;
+    border: 1px solid #d9d4d4;
+    border-radius: 20px;
+    padding: 0.3em 1em;
     
 `

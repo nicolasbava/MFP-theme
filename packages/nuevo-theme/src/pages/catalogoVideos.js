@@ -204,7 +204,7 @@ const CatalogoVideos = ({state, actions}) => {
                                             <Link href={noticia.link}>
                                                 <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
                                             </Link>
-                                            <p dangerouslySetInnerHTML={{__html: noticia.excerpt.rendered}}></p>
+                                            <p dangerouslySetInnerHTML={{__html: noticia.acf.resumen}}></p>
                                             <span>{">>"}</span>
                                         </CartelNoticia>
 
@@ -229,6 +229,7 @@ const CartelHeader = styled.nav`
     display: flex;
     justify-content: space-between;
     margin-top: 2em;
+    align-items: center;
 
     p {
         font-size: .8rem
@@ -265,6 +266,7 @@ const ImagenNoticia = styled.div`
     z-index: 0
     -webkit-filter: blur(0.1px);
     background-size: cover;
+    border-radius: 3px 3px 0 0;
     
     &:hover {
     background-color: #00f3ff00;
@@ -287,9 +289,10 @@ const DisplayNoticias = styled.div`
 `
 
 const Noticias = styled.div`
-  border: 2px grey solid;
+  border: 2px #3335 solid;
   border-radius: 5px;
   width: 27vw;
+  height: fit-content;
   
   img {
     max-width: 100%;
@@ -313,8 +316,9 @@ const Noticias = styled.div`
     font-weight: initial;
     line-height: 1;
     text-align: justify;
-    padding-bottom: 1em;    
+    padding-bottom: 0.7em;
     font-family: 'Red Hat Text', sans-serif;
+    margin-bottom: 0;
   }
 
   .leer-mas {
@@ -325,12 +329,17 @@ const Noticias = styled.div`
   span {
     color: #333;
     cursor: pointer;
+    font-size: 2rem;
   }
 
 `
 
 const CartelNoticia = styled.section`
   padding: 1em 2em;
+
+  h4 {
+    margin: 0;
+  }
 
 `
 

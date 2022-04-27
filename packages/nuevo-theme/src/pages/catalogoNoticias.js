@@ -5,6 +5,7 @@ import Link from "../components/Link"
 import Search from "../components/Search"
 import Footer from "../components/footer"
 
+const naranja = "#EC7342"
 
 
 const CatalogoNoticias = ({state, actions}) => {
@@ -52,8 +53,11 @@ const CatalogoNoticias = ({state, actions}) => {
                                                 <Link href={artistas.link}>
                                                     <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
                                                 </Link>
-                                                <p dangerouslySetInnerHTML={{__html: artistas.excerpt.rendered}}></p>
-                                                <span>{">>"}</span>
+                                                <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
+                                                <Flex>
+                                                    <span>{">>"}</span>
+                                                    <Link href={artistas.link}><span className="vermas">VER MÁS</span></Link>
+                                                </Flex>
                                             </CartelNoticia>
 
                                         </Noticias>
@@ -81,10 +85,6 @@ const Contenedor = styled.main`
     padding-left: 7%;
     padding-right: 7%;
     margin-top: 3%;
-
-    p {
-        margin-bottom: 2em;
-    }
 `
 
 const ImagenNoticia = styled.div`
@@ -102,6 +102,7 @@ const ImagenNoticia = styled.div`
     z-index: 0
     -webkit-filter: blur(0.1px);
     background-size: cover;
+    border-radius: 3px 3px 0 0;
     
     &:hover {
     background-color: #00f3ff00;
@@ -124,9 +125,10 @@ const DisplayNoticias = styled.div`
 `
 
 const Noticias = styled.div`
-  border: 2px grey solid;
+  border: 2px #3335 solid;
   border-radius: 5px;
   width: 27vw;
+  height: fit-content;
   
   img {
     max-width: 100%;
@@ -150,28 +152,51 @@ const Noticias = styled.div`
     font-weight: initial;
     line-height: 1;
     text-align: justify;
-    padding-bottom: 1em;    
+    padding-bottom: 0.7em;
     font-family: 'Red Hat Text', sans-serif;
+    margin-bottom: 0;
   }
 
-  .leer-mas {
-    margin-left: 5px;
-    opacity: 0;
-  }
+
 
   span {
     color: #333;
     cursor: pointer;
+    font-size: 1rem;
+    transition: 500ms;
   }
+
+`
+
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
+
 
 `
 
 const CartelNoticia = styled.section`
   padding: 1em 2em;
+  transition: 250ms ease;
+
+
+  h4 {
+    margin: 0;
+  }
+
+  .vermas {
+    font-size: 1rem;
+    margin-left: 0.5em;
+  }
+
+  .vermas:hover {
+      color: ${naranja};
+      opacity: 0;
+  }
+
+
 
 `
-
-
 
 
 

@@ -95,6 +95,7 @@ const FooterPeliculas = styled.div`
 
   img {
     width: 3.5vw;
+    height: auto;
   }
 
   .logo-footer{
@@ -106,7 +107,7 @@ const FooterPeliculas = styled.div`
   }
 
   .logo-mem{
-    width: 11vw;
+    width: 13vw;
     margin-top: 7em;
     margin-left: 1em;
   
