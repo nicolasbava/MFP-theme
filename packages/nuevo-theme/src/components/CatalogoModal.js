@@ -11,9 +11,10 @@ const CatalogoModal = ({state,actions}) => {
                 <MenuContainer>
                     
                     <NavLinks>
-                        <Link href='/peliculas'>PELICULAS</Link> 
-                        <Link href='/artistas'>ARTISTAS</Link> 
-                        <Link href='/productoras'>PRODUCTORAS</Link> 
+                        
+                        <Link href='/peliculas'><p onClick={actions.theme.setPlusContadorCatalogo}>PELICULAS</p></Link> 
+                        <Link href='/artistas'><p onClick={actions.theme.setPlusContadorCatalogo}>ARTISTAS</p></Link> 
+                        <Link href='/productoras'><p onClick={actions.theme.setPlusContadorCatalogo}>PRODUCTORAS</p></Link> 
                     </NavLinks>                
                 </MenuContainer>
                
@@ -47,6 +48,10 @@ const NavLinks = styled.nav`
     border: 2px solid rgba(0,0,0,.3);
     padding-right: 1em;
     // padding-left: .2em;
+
+    p {
+        margin: 0;
+    }
 `
 
 export default connect(CatalogoModal)

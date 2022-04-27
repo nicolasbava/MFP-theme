@@ -62,7 +62,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
   const interesarPeliculas = state.source.peliculas;
 
-  // const randomInteresarPeliculas = Math.floor(Math.random() * interesarPeliculas.length)
+
 
     /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
 

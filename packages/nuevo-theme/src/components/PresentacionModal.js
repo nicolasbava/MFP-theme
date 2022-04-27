@@ -11,9 +11,9 @@ const PresentacionModal = ({state,actions}) => {
                 <MenuContainer>
                     
                     <NavLinks>
-                        <Link href='/peliculas'>TERRITORIO</Link> 
-                        <Link href='/noticias'>EQUIPO</Link> 
-                        <Link href='/artistas'>ARTISTAS</Link> 
+                        <Link href='/presentacion/territorio'><p onClick={actions.theme.setPlusContadorPresentacion}>TERRITORIO</p></Link> 
+                        <Link href='/presentacion/proyecto'><p onClick={actions.theme.setPlusContadorPresentacion}>PROYECTO</p></Link> 
+                        <Link href='/presentacion/equipo'><p onClick={actions.theme.setPlusContadorPresentacion}>EQUIPO</p></Link> 
                     </NavLinks>                
                 </MenuContainer>
                
@@ -47,6 +47,10 @@ const NavLinks = styled.nav`
     border: 2px solid rgba(0,0,0,.3);
     padding-right: 1em;
     // padding-left: .2em;
+
+    p {
+        margin: 0;
+    }
 `
 
 export default connect(PresentacionModal)

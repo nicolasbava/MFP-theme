@@ -14,7 +14,7 @@ const CatalogoVideos = ({state, actions}) => {
     actions.source.fetch("/peliculas")
   }, []) 
 
-    const data = state.source.get(state.router.link)
+   
 
     // const arrayNoticias = Object.values(state.source.noticias)
     

@@ -1,9 +1,9 @@
 import React from "react"
 import {connect, styled} from "frontity"
-import Featured from "../components/Featured"
+
 import Link from "../components/Link"
 import Search from "../components/Search"
-import Footer from "../components/footer"
+
 
 
 
@@ -49,7 +49,7 @@ const CatalogoProductoras = ({state, actions}) => {
                 )
             })}
 
-            <Footer />
+
         </Productoras>
     )
 }
