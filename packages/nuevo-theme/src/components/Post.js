@@ -65,10 +65,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
     /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
+  let fotoArtista
 
-
+    if (post.acf.foto_artista === true) {
+      fotoArtista = post.acf.foto_artista;
+    } else { fotoArtista = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
   
-    const fotoArtista = post.acf.foto_artista;
+   
     
     const nacimiento = post.acf.lugar_de_nacimiento;
   
@@ -77,6 +80,13 @@ const Post = ({ actions, state, element, libraries }) => {
     // const found = fichaTecnica.find((item) => {
     //   item.cargo.cargo_nombre === post.title.rendered
     // })
+
+
+ 
+
+    
+
+
 
 
     
@@ -247,6 +257,28 @@ const Post = ({ actions, state, element, libraries }) => {
 
         )
     } else if (element === 'artista') {
+      
+    const arrayNuevo = [];
+
+    const name = post.title.rendered
+
+    const peliculas = interesarPeliculas;
+
+    // if(peliculas.length > 0) {
+    //   peliculas.forEach((item) => {
+    //     if (item.acf.ficha_tecnica !== "undefined"){
+    //         let test = []
+    //         test = item.acf.ficha_tecnica.filter(
+    //             (ele) => ele.post_title === name
+    //         );
+    //     }
+    //     if (test.length > 0) arrayNuevo.push(item);
+    //     });
+    
+    // } else {return null}
+    
+
+
        return ( 
         <>
            <Artista>
@@ -271,7 +303,12 @@ const Post = ({ actions, state, element, libraries }) => {
                 </InfoAf>
                 <TrabajosArtista>
 
-                    <Trabajos nombre={post.title.rendered} />
+                  
+
+
+                    {/* {console.log(arrayNuevo)} */}
+
+                    {console.log(peliculas)}
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>
@@ -326,6 +363,8 @@ const Post = ({ actions, state, element, libraries }) => {
     } 
 }
 
+
+
 // artista inicio
 
 //  ARTISTA inicio 
@@ -368,9 +407,9 @@ const Indice = styled.div`
 
 const Info = styled.div`
     display: flex;
-    padding-left: 7%;
+    padding-left: 11%;
     padding: -24px;
-    padding-right: 7%;
+    padding-right: 18%;
     padding-bottom: 2em;
 `
 

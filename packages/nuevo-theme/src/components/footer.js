@@ -51,7 +51,7 @@ const Footer = ({ state }) => {
 const FooterBasico = () => {
   return (
     <Container>
-      <p>DESARROLLADO POR ROJOLAB STUDIO</p>        
+      <p>DESARROLLADO POR <Rojolab href="https://www.behance.net/ROJOLAB">ROJOLAB</Rojolab>STUDIO</p>        
     </Container>
   )
 
@@ -61,6 +61,13 @@ const FooterBasico = () => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Footer);
 export {FooterBasico}
+
+const Rojolab = styled.a`
+
+  &:hover {
+    color: red;
+  }
+`
 
 const AnteRaya = styled.div`
   position: relative;
@@ -150,10 +157,10 @@ const Container = styled.div`
   padding-right: 7%;
   padding-block: 0.3%;
   text-align: right;
-  font-size: .8rem;
+  font-size: .5rem;
 
   p::before {
-      content:">"   
+      content:"> "   
   }
 `;
 
