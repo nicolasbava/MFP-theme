@@ -35,7 +35,7 @@ const HeaderContenedor = styled.section`
 const Contenedor = styled.div`
     display: flex;
     justify-content: space-between;
-    font-size: .8rem;
+    font-size: .7rem;
     align-items: center;    
 
     .img {
@@ -119,14 +119,14 @@ const Presentacion = styled.span`
     border: 0.3px solid ${bordeModal};
     /* border-radius: 2px; */
     padding: 0.1em 0.2em;
-    margin-left: 1em;
+    margin-left: 3.5em;
 
     span:hover {
         color: #EC7342
     }
 `
 const Presentacion2 = styled.span`
-    margin-left: 1em;
+    margin-left: 3.5em;
     cursor: pointer;
     padding: .1em .2em;
     border: 1px solid rgba(0,0,0,0);
