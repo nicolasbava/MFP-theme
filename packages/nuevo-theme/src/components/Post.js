@@ -12,7 +12,7 @@ const fondoRosa = '#fbf0e5'
 const redHat = "'Red Hat Text', sans-serif"
 
 
-const Post = ({actions, state, element, libraries }) => {
+const Post = ({ actions, state, element, libraries }) => {
     const data = state.source.get(state.router.link)
     
     const post = state.source[data.type][data.id]   
@@ -269,7 +269,7 @@ const Post = ({actions, state, element, libraries }) => {
                 </InfoAf>
                 <TrabajosArtista>
 
-                    <Trabajos />
+                    <Trabajos nombre={post.title.rendered} />
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>

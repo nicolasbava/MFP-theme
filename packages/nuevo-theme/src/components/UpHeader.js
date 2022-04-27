@@ -68,6 +68,12 @@ const HeadContainer = styled.div`
   background: rgba(0,0,0,0.5) no-repeat left center;
   background-size: cover;
   justify-content: space-between;
+
+  @media (max-width: 600px){
+    & {
+      display: none
+    }
+  }
 `;
 
 const Container = styled.div`

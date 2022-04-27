@@ -13,6 +13,8 @@ import Base from "./styles/Base";
 import Home from "./pages/Home";
 import CatalogoProductoras from "./pages/catalogoProductoras";
 import Mapa from "./pages/Mapa";
+import HomePeliculas from "./pages/HomePeliculas";
+import MenuModal from "./components/MenuModal";
 
 
 
@@ -40,11 +42,12 @@ const Root = ({state, actions}) => {
 
 
         <Raya></Raya>
-
+        {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
 
         {data.isFetching && <p>Cargando...</p>}
 
+        {data.isHome && <Home />}
 
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
@@ -74,4 +77,11 @@ const Raya = styled.div`
   height: 1px;
   width: 100%;
   background: #d9d4d4;
+
+  @media (max-width: 600px){
+
+    &{
+      display:none
+    }
+  }
 `

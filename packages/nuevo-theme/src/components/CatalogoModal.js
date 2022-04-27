@@ -2,8 +2,8 @@ import React from "react"
 import {styled, connect} from "frontity"
 import Link from "./Link"
 
-const MenuModal = ({state,actions}) => {
-    const {isMobileMenuOpen} = state.theme
+const CatalogoModal = ({state,actions}) => {
+
 
     // if(isMobileMenuOpen === true) {
         return ( 
@@ -12,8 +12,8 @@ const MenuModal = ({state,actions}) => {
                     
                     <NavLinks>
                         <Link href='/peliculas'>PELICULAS</Link> 
-                        <Link href='/noticias'>NOTICIAS</Link> 
                         <Link href='/artistas'>ARTISTAS</Link> 
+                        <Link href='/productoras'>PRODUCTORAS</Link> 
                     </NavLinks>                
                 </MenuContainer>
                
@@ -25,32 +25,28 @@ const MenuModal = ({state,actions}) => {
     
 }
 
+
+
 const MenuContainer = styled.div`
-    background: rgba(0,0,0,.5);
-    color:white;
-    position:relative;
-
-    top:0;
-    left:0;
+    background: #fbf0e5;
+    color: white;
+    position: absolute;
+    top: 19px;
+    left: 13px;
     z-index: 99;
-
-    @media (min-width: 600px){
-
-        &{
-            display:none
-        }
-    }
 `
 
 const NavLinks = styled.nav`
     widht: 100%;
     height: 100%;
     display:flex;
-    padding-left: 1em;
+
     flex-direction: column;
-    padding-top: 1em;
-    text-align: left;
-    padding-bottom: 1em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    border: 2px solid rgba(0,0,0,.3);
+    padding-right: 1em;
+    // padding-left: .2em;
 `
 
-export default connect(MenuModal)
+export default connect(CatalogoModal)

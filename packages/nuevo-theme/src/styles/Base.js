@@ -42,6 +42,7 @@ const Base = () => {
 
                 img {
                     display: block;
+                    height: 160px
                 }
 
             `}
