@@ -246,14 +246,7 @@ const Titulo = styled.h4`
 `
 
 const Article = styled.article`
-    
-/*&:first-of-type{
-    margin-left: -1vw;
-}*/
-margin-bottom: 10px;
-
-
-
+  margin-bottom: 10px;
 `
 
 
@@ -282,7 +275,8 @@ const ImagenNoticia = styled.div`
     };
   
     @media (max-width: 1000px) { 
-      height: 50vw}
+      height: 50vw;
+    }
 `
 
 
@@ -294,13 +288,13 @@ const DisplayNoticias = styled.div`
   margin-left: 2px;
   margin-right: 2px;
   margin-bottom: 5px;
-
   flex: 1 0 30%;
 
   @media (max-width: 1000px) { 
     flex: 1 0 100%;   
     width: 100%;
-  margin-bottom: 10px}
+    margin-bottom: 10px;
+  }
 
 `
 
@@ -309,8 +303,6 @@ const Noticias = styled.div`
   border-radius: 5px;
   width: 27vw;
   height: fit-content;
-
-  
   
   img {
     max-width: 100%;
@@ -350,6 +342,9 @@ const Noticias = styled.div`
     font-size: 2rem;
   }
 
+  @media (max-width: 1000px) {  
+    width: 100%;
+  }
 `
 
 const CartelNoticia = styled.section`
@@ -368,8 +363,6 @@ export default connect(CatalogoVideos)
 const NoticiasFlex = styled.section`
     display:flex;
     flex-wrap: wrap;
-
-
 `
 
 
@@ -424,24 +417,20 @@ const Outside = styled.div`
 `
 
 const Array = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1em 0;
-
-
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em 0;
 `
 
 const Contenedor = styled.main`
-    padding-left: 7%;
-    padding-right: 7%;
+  padding-left: 7%;
+  padding-right: 7%;
 `
 const Cartel = styled.div`
-    color: #fff;
-    /*padding-top: 12em;*/
-    padding-left: 4em;
-    padding-right: 4em;
-    /*padding-bottom: 1em;*/
-    height: 100%;
+  color: #fff;
+  padding-left: 4em;
+  padding-right: 4em;
+  height: 100%;
   transition: 500ms ease;
   opacity:0;
   box-sizing: border-box;
@@ -452,12 +441,11 @@ const Cartel = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 
-  /*font-size: 1rem;*/
-
   @media (max-width: 600px) { 
     font-size: 0.5rem;  }
-    @media (min-width:601px) and (max-width:1000px) {
-      font-size: 0.6rem;
+
+  @media (min-width:601px) and (max-width:1000px) {
+    font-size: 0.6rem;
   }​
 
 
@@ -507,7 +495,6 @@ const Cuadrado = styled.div`
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
-
 
   @media (max-width: 600px) { 
     height: 40vw;
