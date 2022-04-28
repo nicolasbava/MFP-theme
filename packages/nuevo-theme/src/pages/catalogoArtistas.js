@@ -169,8 +169,8 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 25vw;
-  width: 25vw;
+  height: 26vw;
+  width: 26vw;
   overflow:hidden;
   z-index: 99;
   background-size: cover;

@@ -69,7 +69,7 @@ const CatalogoVideos = ({state, actions}) => {
 
         <Contenedor>
             <CartelHeader>
-                <p>{">"}ENCICLOPEDIA VIRTUAL</p>
+                <p>{"> "}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
  
@@ -357,6 +357,7 @@ const Outside = styled.div`
   // display:flex
   overflow-x: scroll;
   width: 91vw;
+  padding-bottom: 3vw;
 
   &:nth-child(1) {
     margin-left: 0
@@ -414,8 +415,8 @@ const Contenedor = styled.main`
 `
 const Cartel = styled.div`
     color: #fff;
-    padding-top: 5em;
-    padding-left: 2em;
+    padding-top: 12em;
+    padding-left: 4em;
     padding-right: 4em;
     padding-bottom: 1em;
     height: 100%;

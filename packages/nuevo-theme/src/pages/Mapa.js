@@ -22,8 +22,8 @@ const Mapa = () => {
             <ContenedorMapa>
                 <iframe 
                     src="https://www.google.com/maps/d/embed?mid=1nAIsXBvqPzoEvq1PdFiEZxU5VZLX3PfR&ehbc=2E312F" 
-                    height="600"
-                    width="800"
+                    height="800"
+                    width="1155"
                 ></iframe>     
             </ContenedorMapa>
 
@@ -61,5 +61,6 @@ const Contendor = styled.div`
 const ContenedorMapa = styled.section`
     display: flex;
     justify-content: center;
+    margin-bottom:2em
 
 `

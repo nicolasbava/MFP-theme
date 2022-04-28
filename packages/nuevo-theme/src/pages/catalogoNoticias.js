@@ -154,7 +154,7 @@ const Noticias = styled.div`
     text-align: justify;
     padding-bottom: 0.7em;
     font-family: 'Red Hat Text', sans-serif;
-    margin-bottom: 0;
+    margin-bottom: 1em;
   }
 
 
@@ -176,7 +176,7 @@ const Flex = styled.div`
 `
 
 const CartelNoticia = styled.section`
-  padding: 1em 2em;
+  padding: 2em 2em;
   transition: 250ms ease;
 
 

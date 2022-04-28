@@ -44,7 +44,7 @@ const UpHeader = ({ state }) => {
           {/* <MobileMenu /> */}
         </Container>
         
-        <Description>CATÁLOGO FÍLMICO PENCOPOLITANO</Description>
+        <Description>ENCICLOPEDIA VIRTUAL</Description>
       
     </HeadContainer>
 
@@ -68,6 +68,7 @@ const HeadContainer = styled.div`
   background: rgba(0,0,0,0.5) no-repeat left center;
   background-size: cover;
   justify-content: space-between;
+  font-weight: normal;
 
   @media (max-width: 600px){
     & {

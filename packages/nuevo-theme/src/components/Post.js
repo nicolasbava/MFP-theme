@@ -101,7 +101,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
             <Pelicula>
-                <Catalogo>{">>"}CÁLOGO FÍLMICO PENCOPOLITANO</Catalogo>
+                <Catalogo>{"> "}CATÁLOGO {">"} PELÍCULA</Catalogo>
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
                 {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
                 <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
@@ -523,10 +523,12 @@ const Catalogo = styled.p`
     font-size: .9rem
 `
 const TituloPeli = styled.h2`
-    font-size: 3rem;
+    font-size: 2rem;
     color: black;
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
     margin-top: 0;
+    text-transform: uppercase;
+    font-weight: normal;
 
 `
 const InfoPeli = styled.span`
@@ -540,6 +542,7 @@ const CaractPeliculas = styled.div`
     text-transform: uppercase;
     letter-spacing: 1px;
     color:#424141;
+    margin-bottom: 1.2em;
 
     p {
       padding: 0;

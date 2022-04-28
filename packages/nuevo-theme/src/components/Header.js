@@ -57,7 +57,7 @@ const Nav = styled.nav`
     justify-content: space-between;
 
     & a {
-        padding-left: 1em
+        padding-left: 3.5em
     }
 
     @media (max-width: 600px){
@@ -71,7 +71,7 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/peliculas'>{">"}INICIO</Link> 
+                    <Link href='/peliculas'>{"> "}INICIO</Link> 
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>
@@ -139,7 +139,7 @@ const Relative = styled.div`
     transition: 250ms ease;
 `
 const RelativeCatalogo = styled.div`
-    position:relative;
+    position: relative;
     transition: 250ms ease;    
 `
 

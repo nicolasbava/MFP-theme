@@ -36,8 +36,8 @@ const MenuContainer = styled.div`
     background: ${fondoRosa};
     color: white;
     position: absolute;
-    top: 19px;
-    left: 12px;
+    top: 15px;
+    left: 39px;
     z-index: 99;
 
 `
@@ -50,7 +50,8 @@ const NavLinks = styled.nav`
 
 
     a {
-        padding: 0
+        padding: 0;
+
     }
 
     p {
