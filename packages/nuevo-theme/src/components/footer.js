@@ -1,5 +1,5 @@
 import { connect, styled } from "frontity";
-import Link from "./link";
+
 // import Item from "./list/list-item";
 
 

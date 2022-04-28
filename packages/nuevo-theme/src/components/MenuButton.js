@@ -1,7 +1,6 @@
 import React from "react"
 import { connect, styled, css } from "frontity"
-import MenuModal from "./MenuModal"
-import { CloseIcon, HamburgerIcon } from "./menu-icon";
+
 
 import HambIcon from "../img/hamb.png"
 import Close from "../img/close.png"

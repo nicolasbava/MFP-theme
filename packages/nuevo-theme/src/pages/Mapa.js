@@ -1,6 +1,6 @@
 import React from "react"
 import {connect, Head, styled} from "frontity"
-import Link from "@frontity/components/link"
+
 import { FooterBasico } from "../components/footer"
 
 

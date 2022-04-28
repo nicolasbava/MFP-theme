@@ -3,8 +3,8 @@ import {connect, styled} from "frontity"
 import Link from "./Link"
 import MenuButton from "./MenuButton"
 import FichaLink from "./FichaLink"
-import MenuModal from "./MenuModal"
-import { CloseIcon, HamburgerIcon } from "./menu-icon"
+
+
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
 

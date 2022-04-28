@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect, styled, css, Global} from 'frontity'
-import Featured from './Featured'
+
 import Link from './Link'
 import FichaLink from './FichaLink'
-import Trabajos from './Tabajos'
+
 
 const naranja = '${naranja}'
 
