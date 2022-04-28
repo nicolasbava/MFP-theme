@@ -1,5 +1,5 @@
 import React from "react"
-import Root from "./root"
+import Root from "./Root"
 import { connect } from "frontity";
 
 export default {
