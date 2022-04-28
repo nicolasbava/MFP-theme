@@ -214,8 +214,8 @@ const CatalogoVideos = ({state, actions}) => {
                         })         
                     }
                 </NoticiasFlex>
-                <p>{noticias.id}</p>
-            
+                <p>{typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}</p>
+                    
 
             </Contenedor>
             <Footer />
