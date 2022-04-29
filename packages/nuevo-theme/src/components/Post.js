@@ -164,7 +164,9 @@ const Post = ({ actions, state, element, libraries }) => {
                         return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                            <div style={{backgroundImage:`url(https://web.memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png)`}}></div>
+                            {console.log(fichaTecnica)}
+
+                            <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                             <article className="fondo-verde">                        
                                 {val.cargo_nombre.map((val,key) =>{
                                 return (
@@ -256,7 +258,7 @@ const Post = ({ actions, state, element, libraries }) => {
                         })         
                     }
 
-</Array>
+                </Array>
                         
                 </InteresarPeliculas>
               
@@ -569,13 +571,14 @@ const GaleriaPelicula = styled.div`
     display: flex;
     overflow-x: scroll;
     padding-bottom: 2em;
-    
-    // & > * {
-    //   margin-left: 1em;
-    // }
+
+    &:first-of-type {
+      margin-left: -2vw;
+    }
 
     img {
       cursor:pointer;
+      margin-left: 2vw
     }
 
     scrollbar-color: ${naranja} ${fondoRosa};

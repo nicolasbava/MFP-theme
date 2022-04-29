@@ -71,7 +71,7 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/peliculas'>{"> "}INICIO</Link> 
+                    <Link href='/'>{"> "}INICIO</Link> 
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>

@@ -18,7 +18,9 @@ import MenuModal from "./components/MenuModal";
 import Territorio from "./pages/Territorio";
 import Equipo from "./pages/Equipo";
 import Proyecto from "./pages/Proyecto";
-
+import Modal from "./components/Modal";
+import Catalogo from "./pages/catalogoVideos"
+import Peliculas from "./pages/Peliculas";
 
 
 
@@ -47,6 +49,8 @@ const Root = ({state, actions}) => {
         <Header />
 
 
+
+
         <Raya></Raya>
         {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
@@ -59,7 +63,7 @@ const Root = ({state, actions}) => {
         {data.isEquipoArchive && <Equipo />}
         {data.isProyectoArchive && <Proyecto />}
 
-        {data.isPeliculasArchive && <CatalogoVideos />}
+        {data.isPeliculasArchive && <Peliculas />}
         {data.isArtistasArchive && <CatalogoArtistas />}
         {data.isNoticiasArchive && <CatalogoNoticias />}
         {data.isProductorasArchive && <CatalogoProductoras />}

@@ -188,7 +188,7 @@ const Peliculas = ({state, actions}) => {
             
             </Outside>
 
-            {/* NOTICIAS ultimas 3 */}
+            {/* NOTICIAS ultimas 3
             
             <Titulo>NOTICIAS {">>"}</Titulo>
                 <NoticiasFlex>
@@ -217,10 +217,10 @@ const Peliculas = ({state, actions}) => {
                     }
                 </NoticiasFlex>
                 {typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}
-                    
+                     */}
 
             </Contenedor>
-            <Footer />
+            {/* <Footer /> */}
 
         </>
     )
@@ -372,6 +372,7 @@ const Outside = styled.div`
   overflow-x: scroll;
   width: 91vw;
   padding-bottom: 3vw;
+  margin-bottom: 5em;
 
   &:nth-child(1) {
     margin-left: 0
@@ -379,7 +380,7 @@ const Outside = styled.div`
 
   scrollbar-color: #fe743d #f5ebda;
       scrollbar-width: thin;
-      scrollbar-radius: 2px;
+      scrollbar-radius: 25px;
 
       &::-webkit-scrollbar {
         height: 10px;
@@ -403,7 +404,7 @@ const Outside = styled.div`
       /* Handle */
       &::-webkit-scrollbar-thumb {
         background: #fe743d;
-        border-radius: 2px;
+        border-radius: 25px;
         cursor: pointer;
       }
 

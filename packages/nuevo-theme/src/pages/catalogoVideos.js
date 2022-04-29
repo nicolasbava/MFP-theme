@@ -227,6 +227,198 @@ const CatalogoVideos = ({state, actions}) => {
     )
 }
 
+const Catalogo = ({state, actions}) => {
+
+  const data = state.source.get(state.router.link);
+
+   
+
+    // const arrayNoticias = Object.values(state.source.noticias)
+      const peliculas = state.source.peliculas
+      
+      const arrayPeliculas = Object.values(state.source.peliculas)
+      arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
+  
+      
+      const filteredPeliculas = arrayPeliculas.filter((peliculas) =>
+          peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
+      )  
+  
+      console.log(filteredPeliculas)
+  
+      let array1= []
+      let array2 = []
+      let array3 = []
+  
+      const items1 = [0,3,6,9,12,15,18,21,24,27,30,33,36,39]
+  
+      const items2 = [1,4,7,10,13,16,19,22,25,28,31]
+  
+      const items3 = [2,5,8,11,14,17,20,23,26,29]
+  
+      filteredPeliculas.forEach((item,index) => {
+      if(items1.includes(index)) array1.push(item);
+      if(items2.includes(index)) array2.push(item);
+      if(items3.includes(index)) array3.push(item);
+      
+      })
+
+
+
+
+    
+
+    const noticias = state.source.noticias;
+
+    
+
+    // const scrollContainer = document.querySelector("main");
+
+    // scrollContainer.addEventListener("wheel", (evt) => {
+    //     evt.preventDefault();
+    //     scrollContainer.scrollLeft += evt.deltaY;
+    // });
+
+
+
+
+    return (
+        <>
+        {}
+
+
+        <Contenedor>
+            <CartelHeader>
+                <p>{"> "}ENCICLOPEDIA VIRTUAL</p>
+                <Search />
+            </CartelHeader>    
+ 
+
+
+            {/* OUTSIDE, scroll  */}
+            <Outside className="main">
+
+                {/* ARRAY 1  */}
+                <Array>
+                {array1.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
+                    return (
+
+
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
+
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
+
+                    )
+                })}
+                </Array>
+
+
+                {/* ARRAY 2  */}
+                <Array>
+                {array2.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                   // peliculas.title.rendered.toUpperCase()
+                   
+                    return (
+
+
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
+
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
+
+                    )
+                })}
+                </Array>                
+
+                {/* ARRAY 3  */}
+                <Array>
+                {array3.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
+                    return (
+
+
+                        <Article key={peliculas.id}>
+                        {/* <p>{peliculas.title.rendered}</p> */}
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            <Link href={peliculas.link}>
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                                    <Cartel>
+                                    
+                                    <Rayita></Rayita>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
+
+                                    <h4>{peliculas.acf.year}</h4>
+                                    </Cartel>
+                                </Cuadrado>
+                            </Link>
+                            
+                        </Article>
+
+                    )
+                })}
+                </Array>
+            
+            </Outside>
+
+                    
+
+            </Contenedor>
+
+
+        </>
+    )
+}
+
+
+
 
 const CartelHeader = styled.nav`
     display: flex;
@@ -357,7 +549,9 @@ const CartelNoticia = styled.section`
 
 `
 
-export default connect(CatalogoVideos)
+export default connect(CatalogoVideos, {Catalogo})
+
+
 
 
 
