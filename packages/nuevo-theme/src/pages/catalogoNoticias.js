@@ -85,6 +85,7 @@ const Contenedor = styled.main`
     padding-left: 7%;
     padding-right: 7%;
     margin-top: 3%;
+    padding-bottom: 2em;
 `
 
 const ImagenNoticia = styled.div`

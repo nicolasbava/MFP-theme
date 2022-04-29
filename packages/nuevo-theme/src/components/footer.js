@@ -4,15 +4,15 @@ import { connect, styled } from "frontity";
 
 
 
-const Footer = ({ state }) => {
-  const data = state.source.get(state.router.link);
-  const post = state.source[data.type][data.id];
-  const postType = data.type;
+const Footer = () => {
+  // const data = state.source.get(state.router.link);
+  // const post = state.source[data.type][data.id];
+  // const postType = data.type;
 
   return (
     <>
 
-<AnteRaya>
+      <AnteRaya>
 
           <FooterPeliculas>
 
@@ -92,7 +92,7 @@ const Footer = ({ state }) => {
         </AnteRaya>
 
       <Container>
-            <p>DESARROLLADO POR ROJOLAB STUDIO</p>        
+            <p>DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank"></a> ROJOLAB STUDIO</p>        
       </Container>
 
 
@@ -142,7 +142,7 @@ const Linea3 = styled.section`
 `
 
 const Rojolab = styled.a`
-
+  color: white;
   &:hover {
     color: red;
   }

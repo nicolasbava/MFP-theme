@@ -33,32 +33,43 @@ const Equipo = ({state}) => {
 
             <h3>FREDDY ROJAS MATAMALA</h3>
             <p>
-            Desde la Ciudad de Los Álamos - Lebu, Provincia de Arauco. Actualmente cursa su carrera de Artes Multimedia en la UNA (Universidad Nacional de las Artes)  Buenos Aires, Arg. Diseñador Gráfico Profesional titulado en el Instituto Profesional Duoc UC,año 2015 y egresado de la Escuela de Cine y Artes Audiovisuales de Eliseo Subiela, Buenos Aires, Arg el año 2021. Actualmente dirige su estudio de diseño “Rojo.Lab” y paralelamente se desempeña como Realizador Audiovisual independiente y productor en su proyecto “Décima Films”. Ha trabajado en proyectos como Casa de Salud, Wuñelfe, Festival de Cine Lebu, Mundo Villa (Argentina), Memoria Filmica Pencopolitana, entre otros. 
- 
+            Freddy Rojas viene desde la ciudad de Los Álamos, Lebu, Provincia de Arauco, actualmente cursa la carrera de Artes Multimediales en la UNA (Universidad Nacional de las Artes) Buenos Aires, Argentina.  
+            Es Diseñador Gráfico titulado en el Instituto Profesional Duoc UC Concepción el año 2015 y egresado de la Escuela de Cine y Artes Audiovisuales de Eliseo Subiela, Buenos Aires, Argentina el año 2021. 
+            Actualmente dirige su estudio de diseño Rojo Lab y paralelamente se desempeña como Realizador Audiovisual independiente y productor en su proyecto Décima Films. Ha trabajado en proyectos como Casa de Salud, Wuñelfe, Festival de Cine Lebu, Mundo Villa (Argentina), Memoria Filmica Pencopolitana, entre otros. 
             </p>
                 
-            <Imagenes>
-                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-15.png"></img>
-
-            </Imagenes>
+            
 
 
 
 
         </Contenedor>
+        <Imagenes>
+                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-16.png"></img>
+                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-7.jpg"></img>
+
+            </Imagenes>
         </>
     )
 }
 
-export default connect(Equipo)
+export default Equipo
 
 const Imagenes = styled.div`
+    padding-left: 16%;
+    padding-right: 16%;
+
+    img {
+        width: 65vw;
+        height: auto;
+        margin-bottom: 2em;
+    }
 
 `
 
 const Contenedor = styled.main`
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 16%;
+    padding-right: 16%;
     
 
     h2 {

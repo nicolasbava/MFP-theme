@@ -32,7 +32,7 @@ const Proyecto = () => {
     )
 }
 
-export default connect(Proyecto)
+export default Proyecto
 
 const Indice = styled.div`
     padding-left: 7%;

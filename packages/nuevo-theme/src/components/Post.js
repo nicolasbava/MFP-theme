@@ -5,7 +5,7 @@ import Link from './Link'
 import FichaLink from './FichaLink'
 
 
-const naranja = 'orange'
+const naranja = '#ec7342'
 
 const fondoRosa = '#fbf0e5'
 
@@ -149,7 +149,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 <FichaTecnicaPelicula>
                     
-                    {fichaTecnica > 0 ? (
+                    {fichaTecnica.length > 0 ? (
                       <>
                         <Raya></Raya>   
                         <h3>{">"} FICHA TÉCNICA</h3>
@@ -160,7 +160,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 
                     <SliderFichaTecnica className="panel" style={wrap} >
 
-                        {fichaTecnica > 0 ? fichaTecnica.map((val, key) => {
+                        {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
                         return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
@@ -568,7 +568,7 @@ const GaleriaPelicula = styled.div`
     text-align: center;
     display: flex;
     overflow-x: scroll;
-
+    padding-bottom: 2em;
     
     // & > * {
     //   margin-left: 1em;

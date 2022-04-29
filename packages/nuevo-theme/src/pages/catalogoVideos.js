@@ -375,7 +375,7 @@ const Outside = styled.div`
   padding-bottom: 3vw;
 
   &:first-of-type {
-    margin-left: -2vw;
+    margin-left: -1vw;
   }
 
   scrollbar-color: #fe743d #f5ebda;
@@ -420,7 +420,7 @@ const Outside = styled.div`
 const Array = styled.div`
   display: flex;
   // flex-wrap: wrap;
-  padding: 1em 0;
+  // padding: 1em 0;
 
 
 `

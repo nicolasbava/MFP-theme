@@ -36,7 +36,7 @@ const Territorio = () => {
     )
 }
 
-export default connect(Territorio)
+export default Territorio
 
 const Indice = styled.div`
     padding-left: 7%;
