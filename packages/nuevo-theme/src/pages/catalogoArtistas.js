@@ -22,7 +22,7 @@ const CatalogoArtistas = ({state, actions}) => {
         <Contenedor>
             {/* {console.log(arrayArtistas)} */}
             <Flex>
-                <h2>CATALOGO ARTISTAS</h2>
+            <p>{"> "} CATÁLOGO {">"} ARTISTAS</p>
                 <Search />
             </Flex>
             {!filteredArtistas.length > 0 && (
@@ -95,18 +95,22 @@ const Flex = styled.div`
 const ArtistasFlex = styled.section`
     display: flex;
     flex-wrap:wrap;
-    gap: 2vw;
-    justify-content: space-around;
+    justify-content: space-between;
 
 `
 
 const Contenedor = styled.main`
     padding-left: 7%;
     padding-right: 7%;
+
+    P {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
 `
 
 const Article = styled.article`    
-
+    margin-bottom: .5vw;
 `
 
 
@@ -169,8 +173,8 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 26vw;
-  width: 26vw;
+  height: 25vw;
+  width: 28vw;
   overflow:hidden;
   z-index: 99;
   background-size: cover;

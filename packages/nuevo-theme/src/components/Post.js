@@ -131,7 +131,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 </CaractPeliculas>
 
                 <VideoPelicula>
-                    <iframe width="100%" height="400" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="600" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </VideoPelicula>
 
                 <GaleriaPelicula>              
@@ -321,53 +321,61 @@ const Post = ({ actions, state, element, libraries }) => {
                 </InfoAf>
                 <TrabajosArtista>
 
-                  {/* ojo aca. ESTE DE ABAJO SON LAS PRODUCTORAS Y EL OTRO LAS PELICULAS */}
+  {/* ============ PRODUCTORAS  ============*/}
 
+                {typeof productoras === "undefined" ? <p>{"> "}PRODUCTORAS (0)</p> : (
                   <InteresarPeliculas>
-                    <p className="eq">{">"} PRODUCTORAS ({productoras.length})</p>
-                    <Array>
+                  <p className="eq">{">"} PRODUCTORAS ({productoras.length})</p>
+                  <Array>
 
-                      {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
+                    {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
 
-                          Object.values(productoras).map( pelicula => {
+                        Object.values(productoras).map( pelicula => {
 
-                              return (
-                                      <Article key={pelicula.id}>
-                                      {/* <p>{peliculas.title.rendered}</p> */}
+                            return (
+                                    <Article key={pelicula.id}>
+                                    {/* <p>{peliculas.title.rendered}</p> */}
 
-                                      {/* {console.log(arrayPeliculas)} */}
+                                    {/* {console.log(arrayPeliculas)} */}
 
-                                      <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
-                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                    <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
+                                            {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                              <Cuadrado style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                  <Cartel>
+                                            <Cuadrado style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cartel>
 
-                                                  <Rayita></Rayita>
-                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
+                                                <Rayita></Rayita>
+                                                <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
 
-                                                {/* <h4>{pelicula.acf.year}</h4> */}
-                                                </Cartel>
-                                            </Cuadrado>
-                                        </FichaLink>
+                                              {/* <h4>{pelicula.acf.year}</h4> */}
+                                              </Cartel>
+                                          </Cuadrado>
+                                      </FichaLink>
 
-                                    </Article>                                                                
-                            )
-                        })         
-                    }
+                                  </Article>                                                                
+                          )
+                      })         
+                  }
 
-                </Array>
-                        
-                  </InteresarPeliculas>
+              </Array>
+                      
+                </InteresarPeliculas>
+
+                )}
+
 {/*============== TRABAJOS ARTISTA ==============================*/}
+                  
+                {typeof trabajos === "undefined" ? <p>{"> "}TRABAJOS (0)</p> : (
 
+
+               
                   <InteresarPeliculas>
                     <p className="eq">{">"} TRABAJOS ({trabajos.length})</p>
                     <Array>
 
                       {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> : 
-                          
+
                           Object.values(trabajos).map( pelicula => {
 
                               return (
@@ -399,7 +407,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 </Array>
                         
                   </InteresarPeliculas>
-                  
+                   )}
                 </TrabajosArtista>
 
 
@@ -652,7 +660,8 @@ const GaleriaPelicula = styled.div`
 
     img {
       cursor:pointer;
-      margin-left: 2vw
+      margin-left: 2vw;
+
     }
 
     scrollbar-color: ${naranja} ${fondoRosa};

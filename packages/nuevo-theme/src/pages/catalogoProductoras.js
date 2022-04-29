@@ -85,7 +85,7 @@ const CatalogoProductoras = ({state, actions}) => {
 export default connect(CatalogoProductoras)
 
 const Article = styled.article`
-  margin-bottom: 10px;
+  margin-bottom: 1vw;
 `
 
 
@@ -93,6 +93,10 @@ const Array = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 1em 0;
+
+  &:first-of-type{
+    margin-left: -1vw;
+  }
 `
 
 const Contenedor = styled.main`
@@ -112,7 +116,8 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  padding-top: 12em;
+  // justify-content: flex-end;
 
   @media (max-width: 600px) { 
     font-size: 0.5rem;  }
@@ -163,7 +168,7 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 27vw;
+  height: 24vw;
   width: 27vw;
   overflow:hidden;
   margin-left: 1vw;
@@ -186,14 +191,15 @@ const Productoras = styled.section`
     padding-right: 7%;
 
     article {
-        padding-top: 1em;
+        // padding-top: 1em;
         display: flex; 
         justify-content: space-between;
         align-items: center;
 
         p {
             font-size: .8rem;
-            margin: 0
+            padding-top: 2em;
+            padding-bottom: 2em;
         }
     }
 

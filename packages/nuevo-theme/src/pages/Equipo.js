@@ -55,44 +55,6 @@ const Equipo = ({state}) => {
 
 export default Equipo
 
-const Imagenes = styled.div`
-    padding-left: 16%;
-    padding-right: 16%;
-
-    img {
-        width: 65vw;
-        height: auto;
-        margin-bottom: 2em;
-    }
-
-`
-
-const Contenedor = styled.main`
-    padding-left: 16%;
-    padding-right: 16%;
-    
-
-    h2 {
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-    h3 { 
-        font-weight: normal; 
-        padding-bottom: 1em;    
-    }
-
-    h3, p {
-        font-family: 'Red Hat Text', sans-serif;
-        margin: 0;    
-    }
-
-    p {
-        padding-bottom: 1em;    
-
-    }
-
-`
 const Indice = styled.div`
     padding-left: 7%;
     padding-right: 7%;
@@ -107,4 +69,59 @@ const Indice = styled.div`
     font-family: 'Krona One', sans-serif;
 
     }
+`
+
+const Imagenes = styled.div`
+    display: flex;
+    gap: 2vw;
+
+
+    img {
+        width: 48%;
+        height: auto;
+    }
+`
+
+const Contenedor = styled.main`
+    padding-top: 5em;
+    padding-left: 16%;
+    padding-right: 16%;
+    img {
+        width: 67vw;
+        height: auto;
+        margin-left:auto;
+        margin-right: auto;
+        padding:1em 0;
+    }
+
+    .margen {
+        padding-left: 4%;
+        paddin-right: 10%;
+        width: 35vw;
+    }
+    
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        padding-bottom: 1em;
+
+    }
+
+    h3 { 
+        font-weight: normal; 
+        padding-bottom: 1em;    
+    }
+
+    h3, p {
+        font-family: 'Red Hat Text', sans-serif;
+        margin: 0;    
+    }
+
+    p {
+        padding-bottom: 2em;    
+
+    }
+
 `

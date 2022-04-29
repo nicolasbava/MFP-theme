@@ -227,11 +227,13 @@ const Peliculas = ({state, actions}) => {
 }
 
 
+
 const CartelHeader = styled.nav`
     display: flex;
     justify-content: space-between;
     margin-top: 2em;
     align-items: center;
+    padding-bottom: 2em;
 
     p {
         font-size: .8rem
@@ -360,6 +362,8 @@ export default connect(Peliculas)
 
 
 
+
+
 const NoticiasFlex = styled.section`
     display:flex;
     flex-wrap: wrap;
@@ -371,11 +375,11 @@ const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
   width: 91vw;
-  padding-bottom: 3vw;
+  padding-bottom: 2em;
   margin-bottom: 5em;
 
-  &:nth-child(1) {
-    margin-left: 0
+  &:first-of-type {
+    margin-left: -1vw;
   }
 
   scrollbar-color: #fe743d #f5ebda;
@@ -420,7 +424,9 @@ const Outside = styled.div`
 const Array = styled.div`
   display: flex;
   // flex-wrap: wrap;
-  padding: 1em 0;
+  // padding: 1em 0;
+
+
 `
 
 const Contenedor = styled.main`
@@ -431,6 +437,7 @@ const Cartel = styled.div`
   color: #fff;
   padding-left: 4em;
   padding-right: 4em;
+  padding-top: 12em;
   height: 100%;
   transition: 500ms ease;
   opacity:0;
@@ -440,7 +447,7 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  // justify-content: flex-end;
 
   @media (max-width: 600px) { 
     font-size: 0.5rem;  }
@@ -491,11 +498,13 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 28vw;
+  height: 25vw;
   width: 28vw;
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
+  background-position: center;
+  background-size: cover;
 
   @media (max-width: 600px) { 
     height: 40vw;

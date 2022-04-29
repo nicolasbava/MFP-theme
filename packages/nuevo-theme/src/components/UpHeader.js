@@ -106,6 +106,7 @@ const Description = styled.h4`
   padding: .1em .2em;
   margin-right: 7%;
   opacity: 0; 
+  font-weight: normal;
   @media(min-width: 696px){
     opacity: 1; 
   }

@@ -1,7 +1,8 @@
 import React from "react"
 import {connect} from "frontity"
 import Link from "../components/Link"
-import CatalogoVideos from "./catalogoVideos"
+import Peliculas from "./Peliculas"
+// import Catalogo from "./catalogoVideos"
 
 const Home = ({state}) => {
     const pageHero = state.source.page[353]
@@ -21,8 +22,9 @@ const Home = ({state}) => {
 
             {typeof peliculas === "undefined" ? <p>cargando peliculas</p> : 
             
-                <CatalogoVideos />
-            
+                // <Catalogo />
+
+                <Peliculas />
             }
 
             

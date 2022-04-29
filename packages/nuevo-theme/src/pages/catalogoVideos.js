@@ -425,6 +425,7 @@ const CartelHeader = styled.nav`
     justify-content: space-between;
     margin-top: 2em;
     align-items: center;
+    padding-bottom: 2em;
 
     p {
         font-size: .8rem
@@ -627,6 +628,7 @@ const Cartel = styled.div`
   color: #fff;
   padding-left: 4em;
   padding-right: 4em;
+  padding-top: 12em;
   height: 100%;
   transition: 500ms ease;
   opacity:0;
@@ -636,7 +638,7 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  // justify-content: flex-end;
 
   @media (max-width: 600px) { 
     font-size: 0.5rem;  }
