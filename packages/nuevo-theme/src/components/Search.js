@@ -20,7 +20,7 @@ const Search = ({state, actions}) => {
     )
 }
 
-export default connect(Search)
+export default connect(Search);
 
 const Contenedor = styled.div`
         transition: all 500ms ease-in-out;
