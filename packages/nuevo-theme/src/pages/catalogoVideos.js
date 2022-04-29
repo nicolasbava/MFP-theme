@@ -10,6 +10,7 @@ import Search from "../components/Search"
 
 const CatalogoVideos = ({state, actions}) => {
 
+  const data = state.source.get(state.router.link);
 
    
 
@@ -373,8 +374,8 @@ const Outside = styled.div`
   width: 91vw;
   padding-bottom: 3vw;
 
-  &:nth-child(1) {
-    margin-left: 0
+  &:first-of-type {
+    margin-left: -2vw;
   }
 
   scrollbar-color: #fe743d #f5ebda;
@@ -420,6 +421,8 @@ const Array = styled.div`
   display: flex;
   // flex-wrap: wrap;
   padding: 1em 0;
+
+
 `
 
 const Contenedor = styled.main`

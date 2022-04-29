@@ -18,51 +18,72 @@ const Footer = ({ state }) => {
 
             <Linea1>
 
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
+                <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
                 
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
+                <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
                 
                 <Iconos>
                   <img className="raya" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/FLECHITAS.png"></img>
                   
-                  <a href="https://google.com" target="_blank"> 
+                  <a href="https://www.youtube.com/channel/UCcCPD7ziLSWwc_tqyn_hL5w" target="_blank"> 
                     <img className="youtube" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-YOUTUBE-A.png"></img>
                   </a>
-                  <a href="https://google.com" target="_blank"> 
+                  <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
                     <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-FACEBOOK-A.png"></img>
                   </a>
-                  <a href="https://google.com" target="_blank"> 
+                  <a href="https://www.instagram.com/memoriafilmica/" target="_blank"> 
                     <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-INSTAGRAM-A.png"></img>
                   </a>                  
                 </Iconos>
-
+                <a href=""> 
                 <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-M.CONCE-A.png"></img>
+                </a>
 
+                <a>
                 <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-FAAIC-A.png"></img>
-
+                </a>
+                <a>
                 <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-CC-A.png"></img>
-              
+                </a>
               </Linea1>
 
               <Linea2>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-AFUDEC-A.png"></img>
-
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08.MHC-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-H.A.C-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-VERMUT-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-CDS-A.png"></img>
-   
+                <a href="http://catalogoafudec.udec.cl/" target="_blank">
+                <img className="foto achicar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-AFUDEC-A.png"></img>
+                </a>
+                <a href="http://www.archivohistoricoconcepcion.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08.MHC-A.png"></img>
+                </a>
+                <a href="https://historiaarquitectonicaconcepcion.cl/?fbclid=IwAR0irT9yzrWgfSoCdCDuJ5RCVneYns1G9GQX4Vg-Ud4p2IalxL8FaJ3LGOA" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-H.A.C-A.png"></img>
+                </a>
+                <a href="http://proyectovermut.cl/" target="_blank">
+                <img className="foto achicar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-VERMUT-A.png"></img>
+                </a>
+                <a href="https://casadesalud.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-CDS-A.png"></img>
+                </a>
               </Linea2>
 
               <Linea3>
-
+                <a href="https://www.cclm.cl/cineteca-nacional-de-chile/" target="_blank">
                 <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-CINETECA-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-CINETECA.U.CHILE-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-ARCHIVO-PATRIMONIAL-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-CATOLICA-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-CINECHILE-A.png"></img>
-                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-A.png"></img>
-
+                </a>
+                <a href="http://cinetecavirtual.uchile.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-CINETECA.U.CHILE-A.png"></img>
+                </a>
+                <a href="https://archivopatrimonial.usach.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-ARCHIVO-PATRIMONIAL-A.png"></img>
+                </a>
+                <a href="http://archivofilmico.uc.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-CATOLICA-A.png"></img>
+                </a>
+                <a href="https://cinechile.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-CINECHILE-A.png"></img>
+                </a>
+                <a href="https://cinechile.cl/" target="_blank">
+                <img className="foto agrandar" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-A.png"></img>
+                </a>
               </Linea3>
 
 
@@ -96,20 +117,27 @@ export {FooterBasico}
 
 
 const Linea1 = styled.section`
+  flex-wrap:wrap;
   display:flex;
   align-items: center;
   justify-content: space-between;
+  // padding-bottom: 2em;
 `
 
 const Linea2 = styled.section`
   display:flex;
+  flex-wrap:wrap;
   align-items: center;
+  padding-bottom: 4em;
   justify-content: space-between;
+
 `
 
 const Linea3 = styled.section`
+  flex-wrap:wrap;
   display:flex;
   align-items: center;
+  padding-bottom: 4em;
   justify-content: space-between;
 `
 
@@ -126,13 +154,13 @@ const AnteRaya = styled.div`
 `
 
 const Raya = styled.div`
-height: 1px;
-position: absolute;
-right: 0;
-left: 26%;
-background: #3939394f;
-top: 125px;
-border-radius: 2px;
+  height: 1px;
+  position: absolute;
+  right: 0;
+  left: 26%;
+  background: #3939394f;
+  top: 125px;
+  border-radius: 2px;
 `
 
 const FooterPeliculas = styled.div`
@@ -143,19 +171,33 @@ const FooterPeliculas = styled.div`
   padding-left: 7%;
   padding-right: 7%;
 
+  a:hover {
+    transform: scale(1.01)
+  }
 
   img {
-    width: 3.5vw;
+    width: 2.9vw;
     height: auto;
   }
 
   img.foto {
     width: 8vw;
+    margin-left: 1em;
+  }
+  
+  img.foto.agrandar {
+    width: 11vw;
+  }
+
+  img.foto.achicar {
+      width: 7vw;
+
   }
 
   img.raya {
-    width: 5vw;
-    height: auto;
+    width: 4vw;
+    height: 2.7vw;
+    margin: auto;
   }
 
   .logo-footer{
@@ -164,6 +206,11 @@ const FooterPeliculas = styled.div`
     z-index: 99;
     position: relative;
     top: -57px;
+
+    @media (max-width: 944px){
+
+      display:none
+    }
   }
 
   .logo-mem{
@@ -174,7 +221,7 @@ const FooterPeliculas = styled.div`
   }
 
   div {
-    padding-left: 2em;
+    // padding-left: 2em;
     margin-right: 2em;
     color: #333;
     // margin-top: 6em;
@@ -207,7 +254,8 @@ const Iconos = styled.div`
 
 
   .youtube {
-    width: 4.4vw;
+    width: 3.4vw;
+    height: auto;
   }
 `
 
@@ -216,7 +264,7 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   color: #fff;
-  background-color: #ec7342;
+  background-color: #333;
   padding-right: 7%;
   padding-block: 0.3%;
   text-align: right;

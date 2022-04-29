@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect, styled, css, Global} from 'frontity'
 
 import Link from './Link'
@@ -12,6 +12,8 @@ const fondoRosa = '#fbf0e5'
 const redHat = "'Red Hat Text', sans-serif"
 
 
+
+
 const Post = ({ actions, state, element, libraries }) => {
     const data = state.source.get(state.router.link)
     
@@ -19,6 +21,14 @@ const Post = ({ actions, state, element, libraries }) => {
     // 
     
   /*NICO PELICULAS FUNCIONES CARACTERISTICAS */
+
+  useEffect(() => {
+    actions.source.fetch("/peliculas")
+    actions.source.fetch("/artistas")
+    actions.source.fetch("/noticias")
+    actions.source.fetch("/presentacion")
+
+  }, []) 
 
 
 
@@ -68,7 +78,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     if (post.acf.foto_artista === true) {
       fotoRandom = post.acf.foto_artista;
-    } else { fotoRandom = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
+    } else { fotoRandom = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
   
    
     
@@ -154,7 +164,7 @@ const Post = ({ actions, state, element, libraries }) => {
                         return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                            <div style={{backgroundImage:`url(https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png)`}}></div>
+                            <div style={{backgroundImage:`url(https://web.memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png)`}}></div>
                             <article className="fondo-verde">                        
                                 {val.cargo_nombre.map((val,key) =>{
                                 return (
@@ -204,7 +214,7 @@ const Post = ({ actions, state, element, libraries }) => {
                             return (
                                 <p>Procutora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
                             )
-                            })) : <FichaLink link={"productoras/desconocida"}> <p>Productora: Desconocida</p> </FichaLink>
+                            })) :<p>Productora: <FichaLink link={"productoras/desconocida"}>  Desconocida </FichaLink></p>
                         }         
                         </div>
                     </TextoFichaTecnica>
@@ -216,35 +226,35 @@ const Post = ({ actions, state, element, libraries }) => {
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
                     <Array>
 
-{typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
+                      {typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
 
-    Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
+                          Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
 
-        return (
-                <Article key={pelicula.id}>
-                {/* <p>{peliculas.title.rendered}</p> */}
+                              return (
+                                      <Article key={pelicula.id}>
+                                      {/* <p>{peliculas.title.rendered}</p> */}
 
-                {/* {console.log(arrayPeliculas)} */}
+                                      {/* {console.log(arrayPeliculas)} */}
 
-                    <Link href={pelicula.link}>
-                        {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                          <Link href={pelicula.link}>
+                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                        <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
-                            <Cartel>
+                                              <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
+                                                  <Cartel>
 
-                            <Rayita></Rayita>
-                            <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
+                                                  <Rayita></Rayita>
+                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
 
-                            <h4>{pelicula.acf.year}</h4>
-                            </Cartel>
-                        </Cuadrado>
-                    </Link>
+                                                <h4>{pelicula.acf.year}</h4>
+                                                </Cartel>
+                                            </Cuadrado>
+                                        </Link>
 
-                </Article>                                                                
-        )
-    })         
-}
+                                    </Article>                                                                
+                            )
+                        })         
+                    }
 
 </Array>
                         
@@ -257,11 +267,11 @@ const Post = ({ actions, state, element, libraries }) => {
         )
     } else if (element === 'artista') {
       
-    const arrayNuevo = [];
+    // const arrayNuevo = [];
 
-    const name = post.title.rendered
+    // const name = post.title.rendered
 
-    const peliculas = interesarPeliculas;
+    // const peliculas = interesarPeliculas;
 
     // if(peliculas.length > 0) {
     //   peliculas.forEach((item) => {
@@ -307,11 +317,11 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     {/* {console.log(arrayNuevo)} */}
 
-           
+{/*            
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>
-                    <p>poner las peliculas en las que trabajo como sonido</p>
+                    <p>poner las peliculas en las que trabajo como sonido</p> */}
 
    
                 </TrabajosArtista>
@@ -346,7 +356,7 @@ const Post = ({ actions, state, element, libraries }) => {
     
                    
      
-                      <h3>EN DESARROLLO</h3>
+                      {/* <h3>EN DESARROLLO</h3> */}
                     
 
                     </TrabajosArtista>

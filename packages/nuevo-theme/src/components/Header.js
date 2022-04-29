@@ -11,7 +11,7 @@ import CatalogoModal from "./CatalogoModal"
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
-const logo = 'https://memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png';
+const logo = 'https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png';
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`

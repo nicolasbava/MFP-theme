@@ -30,7 +30,10 @@ const Root = ({state, actions}) => {
       actions.source.fetch("/peliculas")
       actions.source.fetch("/artistas")
       actions.source.fetch("/noticias")
-      actions.source.fetch("/presentacion")
+      actions.source.fetch("/territorio")
+      actions.source.fetch("/equipo")
+      actions.source.fetch("/proyecto")
+
 
     }, []) 
 
