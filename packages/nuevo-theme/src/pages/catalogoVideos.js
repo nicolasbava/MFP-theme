@@ -220,7 +220,7 @@ const CatalogoVideos = ({state, actions}) => {
                     
 
             </Contenedor>
-            <Footer />
+
 
         </>
     )
@@ -495,6 +495,8 @@ const Cuadrado = styled.div`
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
+  background-position: center;
+  background-size: cover;
 
   @media (max-width: 600px) { 
     height: 40vw;

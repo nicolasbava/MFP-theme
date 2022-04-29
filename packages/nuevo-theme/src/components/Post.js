@@ -60,7 +60,6 @@ const Post = ({ actions, state, element, libraries }) => {
 
   const tab = '\u00A0';
 
-  const interesarPeliculas = state.source.peliculas;
 
 
 
@@ -85,6 +84,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
 
+  const interesarPeliculas = state.source.peliculas;
     
 
 
@@ -214,41 +214,39 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 <InteresarPeliculas>
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
-                        <Array>
+                    <Array>
 
-                            {typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
+{typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
 
-                                    
-                            
-                                Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
+    Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
 
-                                    return (
-                                            <Article key={pelicula.id}>
-                                            {/* <p>{peliculas.title.rendered}</p> */}
-                    
-                                            {/* {console.log(arrayPeliculas)} */}
-                                                
-                                                <Link href={pelicula.link}>
-                                                    {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-                    
-                    
-                                                    <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
-                                                        <Cartel>
-                                                        
-                                                        <Rayita></Rayita>
-                                                        <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
-                    
-                                                        <h4>{pelicula.acf.year}</h4>
-                                                        </Cartel>
-                                                    </Cuadrado>
-                                                </Link>
-                                                
-                                            </Article>                                                                
-                                    )
-                                })         
-                            }
+        return (
+                <Article key={pelicula.id}>
+                {/* <p>{peliculas.title.rendered}</p> */}
 
-                        </Array>
+                {/* {console.log(arrayPeliculas)} */}
+
+                    <Link href={pelicula.link}>
+                        {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                        <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
+                            <Cartel>
+
+                            <Rayita></Rayita>
+                            <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
+
+                            <h4>{pelicula.acf.year}</h4>
+                            </Cartel>
+                        </Cuadrado>
+                    </Link>
+
+                </Article>                                                                
+        )
+    })         
+}
+
+</Array>
                         
                 </InteresarPeliculas>
               
@@ -309,7 +307,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     {/* {console.log(arrayNuevo)} */}
 
-                    {console.log(peliculas)}
+           
                     <p>{">"} DIRECTOR (8)</p>
                     <p>poner las peliculas en las que trabajo como director</p>
                     <p>{">"} SONIDO (2)</p>
@@ -360,17 +358,11 @@ const Post = ({ actions, state, element, libraries }) => {
             </Artista>
             </>   
                )
-    } else if (element === 'territorio') {
-      return (
-        <>
-        
-        
-                <h1>TERRITORIO</h1>
-
-        </>
-      )
-    }
+    } 
 }
+
+export default connect(Post)
+
 
 
 
@@ -517,7 +509,6 @@ const Cuadrado = styled.div`
   z-index: 99;
 `
 
-export default connect(Post)
 
 
 const Pelicula = styled.section`

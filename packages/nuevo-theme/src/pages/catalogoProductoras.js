@@ -168,6 +168,9 @@ const Cuadrado = styled.div`
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
+  background-position: center;
+  background-size: cover;
+  background-image: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-1.48.26-AM.jpeg);
 
   @media (max-width: 600px) { 
     height: 40vw;

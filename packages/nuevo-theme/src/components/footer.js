@@ -13,29 +13,60 @@ const Footer = ({ state }) => {
     <>
 
 <AnteRaya>
-          <Raya></Raya>
+
           <FooterPeliculas>
-            <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
-            
-            <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
-            
-            <div>
-              <h4>¿QUIÉNES SOMOS?</h4>
-              <p>Memoria Fílmica Pencopolitana es un colectivo de investigación y difusión del patrimonio audiovisual pencopolitano, dedicado al rescate y puesta en valor del patrimonio universal local.</p>
-            </div>
-            <Iconos>
-              <span>{">>"}</span>
-              <a href="https://google.com" target="_blank"> 
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-              </a>
-              <a href="https://google.com" target="_blank"> 
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-              </a>
-              <a href="https://google.com" target="_blank"> 
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/icons8-instagram-240.png"></img>
-              </a>
+
+            <Linea1>
+
+                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
+                
+                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
+                
+                <Iconos>
+                  <img className="raya" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/FLECHITAS.png"></img>
+                  
+                  <a href="https://google.com" target="_blank"> 
+                    <img className="youtube" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-YOUTUBE-A.png"></img>
+                  </a>
+                  <a href="https://google.com" target="_blank"> 
+                    <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-FACEBOOK-A.png"></img>
+                  </a>
+                  <a href="https://google.com" target="_blank"> 
+                    <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-INSTAGRAM-A.png"></img>
+                  </a>                  
+                </Iconos>
+
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-M.CONCE-A.png"></img>
+
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-FAAIC-A.png"></img>
+
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-CC-A.png"></img>
               
-            </Iconos>
+              </Linea1>
+
+              <Linea2>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-AFUDEC-A.png"></img>
+
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08.MHC-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-H.A.C-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-VERMUT-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-CDS-A.png"></img>
+   
+              </Linea2>
+
+              <Linea3>
+
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-CINETECA-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-CINETECA.U.CHILE-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-ARCHIVO-PATRIMONIAL-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-CATOLICA-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-CINECHILE-A.png"></img>
+                <img className="foto" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-A.png"></img>
+
+              </Linea3>
+
+
+            
           </FooterPeliculas>
         </AnteRaya>
 
@@ -62,6 +93,26 @@ const FooterBasico = () => {
 export default connect(Footer);
 export {FooterBasico}
 
+
+
+const Linea1 = styled.section`
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Linea2 = styled.section`
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Linea3 = styled.section`
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 const Rojolab = styled.a`
 
   &:hover {
@@ -85,9 +136,9 @@ border-radius: 2px;
 `
 
 const FooterPeliculas = styled.div`
-  background-color: inherit;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 2fr;
+  background-color: #EC7342;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, 186px)
   align-items: center;
   padding-left: 7%;
   padding-right: 7%;
@@ -98,17 +149,26 @@ const FooterPeliculas = styled.div`
     height: auto;
   }
 
+  img.foto {
+    width: 8vw;
+  }
+
+  img.raya {
+    width: 5vw;
+    height: auto;
+  }
+
   .logo-footer{
     padding-left: 1em;
     width: 14vw;
     z-index: 99;
     position: relative;
-    top: 21px;
+    top: -57px;
   }
 
   .logo-mem{
     width: 13vw;
-    margin-top: 7em;
+    // margin-top: 7em;
     margin-left: 1em;
   
   }
@@ -117,7 +177,7 @@ const FooterPeliculas = styled.div`
     padding-left: 2em;
     margin-right: 2em;
     color: #333;
-    margin-top: 6em;
+    // margin-top: 6em;
    
   h4 {
     font-size: 0.7rem;
@@ -141,12 +201,14 @@ const Iconos = styled.div`
   align-content: center;
   justify-content: space-around;
 
-  span { 
-    font-size: 2.5rem;
-    color: black;
+  img {
+    margin-left: 1vw;
   }
 
 
+  .youtube {
+    width: 4.4vw;
+  }
 `
 
 const Container = styled.div`

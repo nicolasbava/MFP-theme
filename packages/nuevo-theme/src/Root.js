@@ -69,8 +69,8 @@ const Root = ({state, actions}) => {
         {data.isMapaArchive && <Mapa />}
 
 
-        {data.isPeliculas && <FooterBasico />}
-        {data.isArtistas && <FooterBasico />}
+        <Footer />
+
 
 
 

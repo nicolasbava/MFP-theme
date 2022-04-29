@@ -218,8 +218,7 @@ const HomePeliculas = ({state, actions}) => {
             
 
             </Contenedor>
-            <Footer />
-
+            
         </>
     )
 }
