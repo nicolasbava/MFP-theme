@@ -24,7 +24,7 @@ const CatalogoVideos = ({state, actions}) => {
           peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
       )  
   
-      console.log(arrayPeliculas)
+      console.log(filteredPeliculas)
   
       let array1= []
       let array2 = []
@@ -100,7 +100,7 @@ const CatalogoVideos = ({state, actions}) => {
                                     <Cartel>
                                     
                                     <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
                                     <h4>{peliculas.acf.year}</h4>
                                     </Cartel>
@@ -119,7 +119,8 @@ const CatalogoVideos = ({state, actions}) => {
                 {array2.map((peliculas) => {
                     // const pelicula = state.source.peliculas[id]                
                     // <p>Peliculas disponibles({data.items.length})</p>             
-                    
+                   // peliculas.title.rendered.toUpperCase()
+                   
                     return (
 
 
@@ -136,7 +137,8 @@ const CatalogoVideos = ({state, actions}) => {
                                     <Cartel>
                                     
                                     <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+                                    
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
                                     <h4>{peliculas.acf.year}</h4>
                                     </Cartel>
@@ -171,7 +173,7 @@ const CatalogoVideos = ({state, actions}) => {
                                     <Cartel>
                                     
                                     <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered}}></h3>
+                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
                                     <h4>{peliculas.acf.year}</h4>
                                     </Cartel>
@@ -214,7 +216,7 @@ const CatalogoVideos = ({state, actions}) => {
                         })         
                     }
                 </NoticiasFlex>
-                <p>{typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}</p>
+                {typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}
                     
 
             </Contenedor>
@@ -244,10 +246,7 @@ const Titulo = styled.h4`
 `
 
 const Article = styled.article`
-    
-&:first-of-type{
-    margin-left: -1vw;
-}
+  margin-bottom: 10px;
 `
 
 
@@ -275,7 +274,9 @@ const ImagenNoticia = styled.div`
 
     };
   
-
+    @media (max-width: 1000px) { 
+      height: 50vw;
+    }
 `
 
 
@@ -283,8 +284,17 @@ const ImagenNoticia = styled.div`
 const DisplayNoticias = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  /*width: 100%;*/
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  flex: 1 0 30%;
 
+  @media (max-width: 1000px) { 
+    flex: 1 0 100%;   
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
 `
 
@@ -332,6 +342,9 @@ const Noticias = styled.div`
     font-size: 2rem;
   }
 
+  @media (max-width: 1000px) {  
+    width: 100%;
+  }
 `
 
 const CartelNoticia = styled.section`
@@ -348,7 +361,8 @@ export default connect(CatalogoVideos)
 
 
 const NoticiasFlex = styled.section`
-    display:flex
+    display:flex;
+    flex-wrap: wrap;
 `
 
 
@@ -403,23 +417,20 @@ const Outside = styled.div`
 `
 
 const Array = styled.div`
-    display: flex;
-    padding: 1em 0;
-
-
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em 0;
 `
 
 const Contenedor = styled.main`
-    padding-left: 7%;
-    padding-right: 7%;
+  padding-left: 7%;
+  padding-right: 7%;
 `
 const Cartel = styled.div`
-    color: #fff;
-    padding-top: 12em;
-    padding-left: 4em;
-    padding-right: 4em;
-    padding-bottom: 1em;
-    height: 100%;
+  color: #fff;
+  padding-left: 4em;
+  padding-right: 4em;
+  height: 100%;
   transition: 500ms ease;
   opacity:0;
   box-sizing: border-box;
@@ -428,7 +439,14 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+
+  @media (max-width: 600px) { 
+    font-size: 0.5rem;  }
+
+  @media (min-width:601px) and (max-width:1000px) {
+    font-size: 0.6rem;
+  }​
 
 
   h3 {
@@ -477,6 +495,11 @@ const Cuadrado = styled.div`
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
+
+  @media (max-width: 600px) { 
+    height: 40vw;
+    width: 40vw;  }
+
 `
 
 const Title = styled.h1`
