@@ -287,13 +287,20 @@ const Post = ({ actions, state, element, libraries }) => {
     //     });
     
     // } else {return null}
+    const productoras = post.acf.prodcutoras
+    const trabajos = post.acf.trabajos
     
+
 
 
        return ( 
         <>
            <Artista>
 
+               {/* {productoras.length > 0 ? console.log(productoras.length) : null}  */}
+               {console.log(post)}
+               
+                  
 
                 <InfoAf>
                     <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
@@ -314,18 +321,85 @@ const Post = ({ actions, state, element, libraries }) => {
                 </InfoAf>
                 <TrabajosArtista>
 
+                  {/* ojo aca. ESTE DE ABAJO SON LAS PRODUCTORAS Y EL OTRO LAS PELICULAS */}
+
+                  <InteresarPeliculas>
+                    <p className="eq">{">"} PRODUCTORAS ({productoras.length})</p>
+                    <Array>
+
+                      {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
+
+                          Object.values(productoras).map( pelicula => {
+
+                              return (
+                                      <Article key={pelicula.id}>
+                                      {/* <p>{peliculas.title.rendered}</p> */}
+
+                                      {/* {console.log(arrayPeliculas)} */}
+
+                                      <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
+                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                              <Cuadrado style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                  <Cartel>
+
+                                                  <Rayita></Rayita>
+                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
+
+                                                {/* <h4>{pelicula.acf.year}</h4> */}
+                                                </Cartel>
+                                            </Cuadrado>
+                                        </FichaLink>
+
+                                    </Article>                                                                
+                            )
+                        })         
+                    }
+
+                </Array>
+                        
+                  </InteresarPeliculas>
+{/*============== TRABAJOS ARTISTA ==============================*/}
+
+                  <InteresarPeliculas>
+                    <p className="eq">{">"} TRABAJOS ({trabajos.length})</p>
+                    <Array>
+
+                      {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> : 
+                          
+                          Object.values(trabajos).map( pelicula => {
+
+                              return (
+                                      <Article key={pelicula.id}>
+                                      {/* <p>{peliculas.title.rendered}</p> */}
+
+                                      {/* {console.log(arrayPeliculas)} */}
+
+                                      <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
+                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                              <Cuadrado style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                  <Cartel>
+
+                                                  <Rayita></Rayita>
+                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
+
+                                                {/* <h4>{pelicula.acf.year}</h4> */}
+                                                </Cartel>
+                                            </Cuadrado>
+                                        </FichaLink>
+
+                                    </Article>                                                                
+                            )
+                        })     
+                    }
+
+                </Array>
+                        
+                  </InteresarPeliculas>
                   
-
-
-                    {/* {console.log(arrayNuevo)} */}
-
-{/*            
-                    <p>{">"} DIRECTOR (8)</p>
-                    <p>poner las peliculas en las que trabajo como director</p>
-                    <p>{">"} SONIDO (2)</p>
-                    <p>poner las peliculas en las que trabajo como sonido</p> */}
-
-   
                 </TrabajosArtista>
 
 
