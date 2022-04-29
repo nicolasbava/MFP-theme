@@ -15,9 +15,9 @@ const PresentacionModal = ({state,actions}) => {
                 <MenuContainer>
                     
                     <NavLinks>
-                        <Link href='/presentacion/territorio'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}TERRITORIO</p></Link> 
-                        <Link href='/presentacion/proyecto'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}PROYECTO</p></Link> 
-                        <Link href='/presentacion/equipo'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}EQUIPO</p></Link> 
+                        <Link href='/territorio'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}TERRITORIO</p></Link> 
+                        <Link href='/proyecto'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}PROYECTO</p></Link> 
+                        <Link href='/equipo'><p onClick={actions.theme.setPlusContadorPresentacion}>{"> "}EQUIPO</p></Link> 
                     </NavLinks>                
                 </MenuContainer>
                

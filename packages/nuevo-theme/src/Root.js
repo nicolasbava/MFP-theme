@@ -15,6 +15,9 @@ import CatalogoProductoras from "./pages/catalogoProductoras";
 import Mapa from "./pages/Mapa";
 import HomePeliculas from "./pages/HomePeliculas";
 import MenuModal from "./components/MenuModal";
+import Territorio from "./pages/Territorio";
+import Equipo from "./pages/Equipo";
+import Proyecto from "./pages/Proyecto";
 
 
 
@@ -49,6 +52,10 @@ const Root = ({state, actions}) => {
 
         {data.isHome && <Home />}
 
+        {data.isTerritorioArchive && <Territorio />}
+        {data.isEquipoArchive && <Equipo />}
+        {data.isProyectoArchive && <Proyecto />}
+
         {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
         {data.isNoticiasArchive && <CatalogoNoticias />}
@@ -64,7 +71,6 @@ const Root = ({state, actions}) => {
 
         {data.isPeliculas && <FooterBasico />}
         {data.isArtistas && <FooterBasico />}
-
 
 
 

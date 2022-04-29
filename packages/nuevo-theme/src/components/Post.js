@@ -360,7 +360,16 @@ const Post = ({ actions, state, element, libraries }) => {
             </Artista>
             </>   
                )
-    } 
+    } else if (element === 'territorio') {
+      return (
+        <>
+        
+        
+                <h1>TERRITORIO</h1>
+
+        </>
+      )
+    }
 }
 
 

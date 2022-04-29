@@ -68,6 +68,9 @@ jobs:
         #  run: rm -rf node_modules && yarn install --frozen-lockfile # if using yarn for your project
       - name: Deploy to Layer0
         run: |
-          npm run deploy -- ${{'--branch=$BRANCH_NAME' || ''}} 
+          npm run deploy -- ${{'--branch=$BRANCH_NAME' || ''}} --token=$deploy_token  \
+          ${{github.event_name == 'push' && '--environment=default' || ''}} \
+          ${{github.event_name == 'pull_request' && '--environment=staging' || ''}} \
+          ${{github.event_name == 'release' && '--environment=production' || ''}}
         env:
           deploy_token: ${{secrets.LAYER0_DEPLOY_TOKEN}}

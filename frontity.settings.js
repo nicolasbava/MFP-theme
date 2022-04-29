@@ -2,7 +2,7 @@ const settings = {
   "name": "memoriafp",
   "state": {
     "frontity": {
-      "url": "https://memoriafilmica.cl",
+      "url": "https://web.memoriafilmica.cl",
       "title": "MEMORIA FILMICA PENCOPOLITANA 2",
       "description": "MEMORIA FILMICA PENCOPOLITANA"
     }
@@ -16,7 +16,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://memoriafilmica.cl",
+          "url": "https://web.memoriafilmica.cl",
           "params":{
             "per_page": 99,
             "_embed": true
@@ -77,9 +77,27 @@ const settings = {
           },
         },
         {
-          type: "presentacion",
-          endpoint: "presentacion",
-          archive: "/presentacion",
+          type: "territorio",
+          endpoint: "territorio",
+          archive: "/territorio",
+          "params":{
+            "per_page": 99,
+            "_embed": true
+          },
+        },
+        {
+          type: "proyecto",
+          endpoint: "proyecto",
+          archive: "/proyecto",
+          "params":{
+            "per_page": 99,
+            "_embed": true
+          },
+        },
+        {
+          type: "equipo",
+          endpoint: "equipo",
+          archive: "/equipo",
           "params":{
             "per_page": 99,
             "_embed": true
