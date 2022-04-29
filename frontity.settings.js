@@ -10,40 +10,7 @@ const settings = {
   "packages": [
     {
       "name": "nuevo-theme",
-      // "state": {
-      //   "theme": {
-      //     "menu": [
-      //       [
-      //         "Peliculas",
-      //         "/peliculas/"
-      //     ],
-      //     [
-      //         "Pagina Inicio",
-      //         "/pagina-inicio/"
-      //     ],
-      //     [
-      //         "Artistas",
-      //         "/artistas/"
-      //     ],
-      //     [
-      //         "Productoras",
-      //         "/productoras/"
-      //     ],
-      //     [
-      //         "Salas",
-      //         "/salas/"
-      //     ],
-      //     [
-      //       "NOTICIAS",
-      //       "/noticias/"
-      //     ]
-      //     ],
-      //     "featured": {
-      //       "showOnList": false,
-      //       "showOnPost": false
-      //     }
-      //   }
-      // }
+      
     },
     {
       "name": "@frontity/wp-source",
@@ -110,9 +77,9 @@ const settings = {
           },
         },
         {
-          type: "articulos",
-          endpoint: "articulos",
-          archive: "/articulos",
+          type: "presentacion",
+          endpoint: "presentacion",
+          archive: "/presentacion",
           "params":{
             "per_page": 99,
             "_embed": true

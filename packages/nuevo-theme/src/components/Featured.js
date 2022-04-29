@@ -6,7 +6,7 @@ const Featured = ({state, imgID, element}) => {
     
     
     
-    if (element === 'artista' && media === undefined) {
+    if ( media === undefined) {
         return <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"></img>
     } else {
         return (

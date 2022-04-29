@@ -5,7 +5,7 @@ import Link from './Link'
 import FichaLink from './FichaLink'
 
 
-const naranja = '${naranja}'
+const naranja = 'orange'
 
 const fondoRosa = '#fbf0e5'
 
@@ -65,11 +65,11 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
     /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
-  let fotoArtista
+  let fotoRandom
 
     if (post.acf.foto_artista === true) {
-      fotoArtista = post.acf.foto_artista;
-    } else { fotoArtista = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
+      fotoRandom = post.acf.foto_artista;
+    } else { fotoRandom = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
   
    
     
@@ -77,12 +77,13 @@ const Post = ({ actions, state, element, libraries }) => {
   
     const yearNacimiento = post.acf.nacimiento;
 
-    // const found = fichaTecnica.find((item) => {
-    //   item.cargo.cargo_nombre === post.title.rendered
-    // })
+  // =========== PRODUCTORAS ====================
+
+    const filmografia = post.acf.filmografia
+
+    // const equipo = post.acf.equipo
 
 
- 
 
     
 
@@ -177,7 +178,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     
                 
 
-                  { fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
+                  {fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
                     <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length}) 
                                     
                     </VerMas>
@@ -288,7 +289,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                     <Info>
                     <Foto>
-                        <div style={{backgroundImage:`url(${fotoArtista})`}}></div>
+                        <div style={{backgroundImage:`url(${fotoRandom})`}}></div>
                     </Foto>
                     <InfoArtista>
                         <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -331,12 +332,11 @@ const Post = ({ actions, state, element, libraries }) => {
                         <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                         <Info>
                         <Foto>
-                            <div style={{backgroundImage:`url(${fotoArtista})`}}></div>
+                            <div style={{backgroundImage:`url(${fotoRandom})`}}></div>
                         </Foto>
                         <InfoArtista>
                             <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                            <p>{yearNacimiento}</p>
-                            <p>{nacimiento}</p>
+
     
                             <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
     
@@ -346,16 +346,16 @@ const Post = ({ actions, state, element, libraries }) => {
                     </InfoAf>
                     <TrabajosArtista>
     
-                        <p>{">"} DIRECTOR (8)</p>
-                        <p>poner las peliculas en las que trabajo como director</p>
-                        <p>{">"} SONIDO (2)</p>
-                        <p>poner las peliculas en las que trabajo como sonido</p>
-    
-    
+                   
+     
+                      <h3>EN DESARROLLO</h3>
+                    
+
                     </TrabajosArtista>
+                    
     
     
-    
+                    {/* [0].peliculas.post_title */}
     
             </Artista>
             </>   

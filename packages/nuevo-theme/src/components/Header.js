@@ -15,7 +15,7 @@ const logo = 'https://memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contrast
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
-    padding: 1em 7% 1em 7%;
+    padding: 1.5em 7% 1.5em 7%;
     
     @media (max-widht:600px) {
         padding: 1em 7% 1em 7%;
@@ -31,7 +31,6 @@ const HeaderContenedor = styled.section`
         }
     }
 `
-
 const Contenedor = styled.div`
     display: flex;
     justify-content: space-between;
@@ -51,7 +50,6 @@ const Logo = styled.div`
 
 
 `
-
 const Nav = styled.nav`
     display: flex; 
     justify-content: space-between;
@@ -59,6 +57,8 @@ const Nav = styled.nav`
     & a {
         padding-left: 3.5em
     }
+
+    
 
     @media (max-width: 600px){
         display:none

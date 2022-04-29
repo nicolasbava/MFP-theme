@@ -3,7 +3,7 @@ import {connect, Head, styled} from "frontity"
 
 import { FooterBasico } from "../components/footer"
 
-
+const fontTitulo = ".8rem"
 
 const Mapa = () => {
 
@@ -38,16 +38,15 @@ const Mapa = () => {
 export default Mapa
 
 const Contendor = styled.div`
-
-
     .titulo {
         margin-left: 7%;
         margin-top: 3em;
         color: #333;
+        font-size: ${fontTitulo}
     }
 
     .descripcion {
-        font-family: 'Calibri';
+        font-family: 'Red Hat Text', sans-serif;
         margin-left: 7%;
         margin-bottom: 2em;
         position:relative;   

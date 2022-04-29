@@ -57,6 +57,8 @@ const Root = ({state, actions}) => {
 
         {data.isPeliculas && <Post element='pelicula' />}
         {data.isArtistas && <Post element='artista' />}
+        {data.isProductoras && <Post element='productora' />}
+        
         {data.isMapaArchive && <Mapa />}
 
 

@@ -8,7 +8,7 @@ import Footer from "../components/footer"
 import Search from "../components/Search"
 
 
-const CatalogoVideos = ({state, actions}) => {
+const Peliculas = ({state, actions}) => {
 
 
    
@@ -356,7 +356,7 @@ const CartelNoticia = styled.section`
 
 `
 
-export default connect(CatalogoVideos)
+export default connect(Peliculas)
 
 
 
