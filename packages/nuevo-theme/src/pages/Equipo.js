@@ -46,7 +46,7 @@ const Equipo = ({state}) => {
         </Contenedor>
         <Imagenes>
                 <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-16.png"></img>
-                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-7.jpg"></img>
+                {/* <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-7.jpg"></img> */}
 
             </Imagenes>
         </>
@@ -73,11 +73,12 @@ const Indice = styled.div`
 
 const Imagenes = styled.div`
     display: flex;
-    gap: 2vw;
-
+    align-items:center;
+    justify-content:center;
+    padding-bottom: 5em;
 
     img {
-        width: 48%;
+        width: 68vw;
         height: auto;
     }
 `

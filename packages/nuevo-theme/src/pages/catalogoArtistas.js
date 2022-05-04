@@ -11,16 +11,17 @@ const CatalogoArtistas = ({state, actions}) => {
     const data = state.source.get(state.router.link)
 
     const arrayArtistas = Object.values(state.source.artistas)
+
+    arrayArtistas.sort((a,b) => (a.content.rendered > b.content.rendered) ? 1 : ((b.content.rendered > a.content.rendered) ? -1 : 0))
     
     const filteredArtistas = arrayArtistas.filter((artistas) =>
         artistas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
-    const fotoArtista = 'https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png' 
 
     return (
         <Contenedor>
-            {/* {console.log(arrayArtistas)} */}
+            {console.log(arrayArtistas)}
             <Flex>
             <p>{"> "} CATÁLOGO {">"} ARTISTAS</p>
                 <Search />
@@ -53,14 +54,14 @@ const CatalogoArtistas = ({state, actions}) => {
 
                             <Article key={artistas.id}>
                                 {/* <p>{peliculas.title.rendered}</p> */}
-
+                                {/* artistas.acf.foto_artista === 0 ? fotoArtista : artistas.acf.foto_artista */}
                                 {/* {console.log(arrayPeliculas)} */}
                                 
                                 <Link href={artistas.link}>
                                     {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                    <Cuadrado style={{backgroundImage:`url(${artistas.featured_media === 0 ? fotoArtista : artistas.featured_media})`}}>
+                                    <Cuadrado style={{backgroundImage:`url(${artistas.acf.foto_artista || fotoArtista})`}}>
                                         <Cartel>
                                         
                                         <Rayita></Rayita>
@@ -106,6 +107,7 @@ const Contenedor = styled.main`
     P {
         padding-top: 2em;
         padding-bottom: 2em;
+        font-size: .8rem;
     }
 `
 
@@ -169,6 +171,8 @@ const Rayita = styled.div`
   background: #ff871c;
   border-radius: 4px;
 `
+const fotoArtista = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
+
 
 const Cuadrado = styled.div`
   background: grey;
@@ -178,5 +182,7 @@ const Cuadrado = styled.div`
   overflow:hidden;
   z-index: 99;
   background-size: cover;
+  background-image: url(${fotoArtista});
+  background-position: center;
   background-repeat: no-repeat;
 `

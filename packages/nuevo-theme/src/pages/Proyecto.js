@@ -65,6 +65,7 @@ const Contenedor = styled.main`
     padding-top: 5em;
     padding-left: 16%;
     padding-right: 16%;
+    padding-bottom: 4em;
     img {
         width: 67vw;
         height: auto;

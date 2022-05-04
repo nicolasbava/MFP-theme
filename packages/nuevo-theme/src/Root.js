@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {connect, styled} from "frontity"
 import Header from "./components/Header"
 import CatalogoVideos from "./pages/catalogoVideos";
@@ -27,6 +27,8 @@ import Peliculas from "./pages/Peliculas";
 
 const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
+    const [estadoModal1, cambiarEstadoModal1] = useState(true);
+
 
     useEffect(() => {
       actions.source.fetch("/peliculas")
@@ -74,6 +76,10 @@ const Root = ({state, actions}) => {
         {data.isProductoras && <Post element='productora' />}
         
         {data.isMapaArchive && <Mapa />}
+       
+       
+       
+       
 
 
         <Footer />

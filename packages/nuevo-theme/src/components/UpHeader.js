@@ -70,7 +70,7 @@ const HeadContainer = styled.div`
   justify-content: space-between;
   font-weight: normal;
 
-  @media (max-width: 600px){
+  @media (max-width: 769px){
     & {
       display: none
     }
@@ -107,7 +107,7 @@ const Description = styled.h4`
   margin-right: 7%;
   opacity: 0; 
   font-weight: normal;
-  @media(min-width: 696px){
+  @media(min-width: 769px){
     opacity: 1; 
   }
 `;

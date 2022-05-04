@@ -32,7 +32,7 @@ const Img = styled.img`
 
     display:none;
 
-    @media (max-width: 600px){
+    @media (max-width: 769px){
         display: flex;
     }
 `

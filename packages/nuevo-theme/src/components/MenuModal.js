@@ -16,16 +16,16 @@ const MenuModal = ({state,actions}) => {
                     <NavLinks>
                         <p>{">"}PRESENTACIÓN</p>
                         <Padding>
-                            <Link href='/presentacion/territorio'>· TERRITORIO</Link> 
-                            <Link href='/presentacion/proyecto'>· PROYECTO</Link> 
-                            <Link href='/presentacion/equipo'>· EQUIPO</Link> 
+                            <Link href='/territorio'>· TERRITORIO</Link> 
+                            <Link href='/proyecto'>· PROYECTO</Link> 
+                            <Link href='/equipo'>· EQUIPO</Link> 
                         </Padding>
                         <Link href='/noticias'>{">"}NOTICIAS</Link>
                         <p>{">"}CATÁLOGO</p>
                         <Padding>
                             <Link href='/peliculas'>· PELICULAS</Link> 
-                            <Link href='/noticias'>· NOTICIAS</Link> 
                             <Link href='/artistas'>· ARTISTAS</Link> 
+                            <Link href='/productoras'>· PRODUCTORAS</Link> 
                         </Padding>
                         <Link href='/mapa'>{">"}MAPA</Link>
                         <Link href='/contacto'>{">"}CONTACTO</Link>

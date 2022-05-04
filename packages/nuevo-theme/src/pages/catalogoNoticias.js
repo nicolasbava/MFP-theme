@@ -118,8 +118,7 @@ const ImagenNoticia = styled.div`
 
 
 const DisplayNoticias = styled.div`
-  display: flex;
-  justify-content: space-around;
+
   width: 100%;
 
 

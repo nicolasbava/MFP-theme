@@ -220,7 +220,7 @@ const Peliculas = ({state, actions}) => {
                      */}
 
             </Contenedor>
-            {/* <Footer /> */}
+
 
         </>
     )
@@ -436,8 +436,8 @@ const Contenedor = styled.main`
 const Cartel = styled.div`
   color: #fff;
   padding-left: 4em;
-  padding-right: 4em;
-  padding-top: 12em;
+  padding-right: 2em;
+  padding-top: 11em;
   height: 100%;
   transition: 500ms ease;
   opacity:0;
@@ -458,7 +458,7 @@ const Cartel = styled.div`
 
 
   h3 {
-      margin-bottom: 0;
+      margin-bottom: 7px;
       text-transform: uppercase;
   }
 

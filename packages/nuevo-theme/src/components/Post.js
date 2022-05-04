@@ -78,7 +78,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     if (post.acf.foto_artista === true) {
       fotoRandom = post.acf.foto_artista;
-    } else { fotoRandom = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"}
+    } else { fotoRandom = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"}
   
    
     
@@ -306,7 +306,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                     <Info>
                     <Foto>
-                        <div style={{backgroundImage:`url(${fotoRandom})`}}></div>
+                        <div style={{backgroundImage:`url(${post.acf.foto_artista || fotoRandom})`}}></div>
                     </Foto>
                     <InfoArtista>
                         <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -366,7 +366,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 {/*============== TRABAJOS ARTISTA ==============================*/}
                   
-                {typeof trabajos === "undefined" ? <p>{"> "}TRABAJOS (0)</p> : (
+                {typeof trabajos === false ? <p>{"> "}TRABAJOS (0)</p> : (
 
 
                
@@ -424,7 +424,7 @@ const Post = ({ actions, state, element, libraries }) => {
                         <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                         <Info>
                         <Foto>
-                            <div style={{backgroundImage:`url(${fotoRandom})`}}></div>
+                            <div style={{backgroundImage:`url(${post.acf.foto_productora || fotoRandom})`}}></div>
                         </Foto>
                         <InfoArtista>
                             <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
@@ -465,7 +465,9 @@ export default connect(Post)
 //  ARTISTA inicio 
 
 const Artista = styled.div`
-    background-color: #eed8c0;
+    // background-color: #eed8c0;
+    background-color: #f0e3d6;
+
 
 `
 

@@ -16,9 +16,11 @@ const CatalogoProductoras = ({state, actions}) => {
         productoras.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
+
+
     return (
         <Productoras>
-            {/* {console.log(arrayArtistas)} */}
+            {console.log(arrayArtistas)}
             <article>
                 <p>{"> "} CATÁLOGO {">"} PRODUCTORAS</p>
                 <Search />
@@ -55,7 +57,7 @@ const CatalogoProductoras = ({state, actions}) => {
                                         {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                        <Cuadrado >
+                                        <Cuadrado style={{backgroundImage:`url(${productoras.acf.foto_productora})`}} >
                                             <Cartel>
                                             
                                             <Rayita></Rayita>
@@ -175,7 +177,7 @@ const Cuadrado = styled.div`
   z-index: 99;
   background-position: center;
   background-size: cover;
-  background-image: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-1.48.26-AM.jpeg);
+  // background-image: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-1.48.26-AM.jpeg);
 
   @media (max-width: 600px) { 
     height: 40vw;
@@ -187,6 +189,7 @@ const Cuadrado = styled.div`
 
 
 const Productoras = styled.section`
+    padding-bottom: 10vh;
     padding-left: 7%;
     padding-right: 7%;
 
