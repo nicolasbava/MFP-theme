@@ -94,7 +94,8 @@ const Article = styled.article`
 const Array = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 1em 0;
+  // padding: 1em 0;
+  margin-right: -2vw;
 
   &:first-of-type{
     margin-left: -1vw;
@@ -118,8 +119,8 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  padding-top: 12em;
-  // justify-content: flex-end;
+  justify-content: end;
+  padding-bottom: 5em;
 
   @media (max-width: 600px) { 
     font-size: 0.5rem;  }
@@ -171,7 +172,7 @@ const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
   height: 24vw;
-  width: 27vw;
+  width: 27.8vw;
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
@@ -180,8 +181,8 @@ const Cuadrado = styled.div`
   // background-image: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-1.48.26-AM.jpeg);
 
   @media (max-width: 600px) { 
-    height: 40vw;
-    width: 40vw;  }
+    height: 38vw;
+    width: 42vw;  }
 
 `
 

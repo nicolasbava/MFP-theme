@@ -14,22 +14,20 @@ const Mapa = () => {
 
     return (
        <>
-        <Contendor>
+            <Contendor>
 
-            <p className="titulo">{">"} MAPA INTERACTIVO</p>
-            <p className="descripcion">Presionar sobre este icono para desplegar mas opciones.</p>
+                <p className="titulo">{">"} MAPA INTERACTIVO</p>
+                {/* <p className="descripcion">Presionar sobre este icono para desplegar mas opciones.</p> */}
 
-            <ContenedorMapa>
-                <iframe 
-                    src="https://www.google.com/maps/d/embed?mid=1nAIsXBvqPzoEvq1PdFiEZxU5VZLX3PfR&ehbc=2E312F" 
-                    height="800"
-                    width="1155"
-                ></iframe>     
-            </ContenedorMapa>
+                <ContenedorMapa>
+                    <iframe 
+                        src="https://www.google.com/maps/d/embed?mid=1nAIsXBvqPzoEvq1PdFiEZxU5VZLX3PfR&ehbc=2E312F" 
+                        height="800"
+                        width="1800"
+                    ></iframe>     
+                </ContenedorMapa>
 
-        </Contendor>
-
-        <FooterBasico />
+            </Contendor>
 
         </> 
     )
@@ -38,16 +36,21 @@ const Mapa = () => {
 export default Mapa
 
 const Contendor = styled.div`
+    padding-left: 7%;
+    padding-right: 6.8%;
+    padding-bottom:7%;
+
     .titulo {
-        margin-left: 7%;
+        // margin-left: 7%;
         margin-top: 3em;
+        margin-bottom: 3em;
         color: #333;
         font-size: ${fontTitulo}
     }
 
     .descripcion {
         font-family: 'Red Hat Text', sans-serif;
-        margin-left: 7%;
+        // margin-left: 7%;
         margin-bottom: 2em;
         position:relative;   
         
@@ -60,6 +63,6 @@ const Contendor = styled.div`
 const ContenedorMapa = styled.section`
     display: flex;
     justify-content: center;
-    margin-bottom:2em
+    // margin-bottom:2em
 
 `

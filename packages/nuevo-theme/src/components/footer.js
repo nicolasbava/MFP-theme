@@ -2,7 +2,7 @@ import { connect, styled } from "frontity";
 
 // import Item from "./list/list-item";
 
- 
+const anaranjado = "#f9672d"
 
 const Footer = () => {
   // const data = state.source.get(state.router.link);
@@ -92,7 +92,8 @@ const Footer = () => {
         </AnteRaya>
 
       <Container>
-            <p>DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank"></a> ROJOLAB STUDIO</p>        
+        <p>MEMORIAFILMICAPENCOPOLITANA@GMAIL.COM</p>
+        <p className="rojolab">DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank">ROJOLAB</a></p>        
       </Container>
 
 
@@ -100,19 +101,10 @@ const Footer = () => {
   );
 };
 
-const FooterBasico = () => {
-  return (
-    <Container>
-      <p>DESARROLLADO POR <Rojolab href="https://www.behance.net/ROJOLAB">ROJOLAB</Rojolab>STUDIO</p>        
-    </Container>
-  )
-
-}
-
 
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Footer);
-export {FooterBasico}
+
 
 
 
@@ -160,12 +152,6 @@ const Linea3 = styled.section`
   }
 `
 
-const Rojolab = styled.a`
-  color: white;
-  &:hover {
-    color: red;
-  }
-`
 
 const AnteRaya = styled.div`
   position: relative;
@@ -183,11 +169,11 @@ const Raya = styled.div`
 `
 
 const FooterPeliculas = styled.div`
-  background-color: #EC7342;
+  background-color: ${anaranjado};
   // display: grid;
   // grid-template-columns: repeat(auto-fill, 186px)
   align-items: center;
-  padding-left: 7%;
+  padding-left: 6%;
   padding-right: 7%;
 
   a:hover {
@@ -284,10 +270,20 @@ const Container = styled.div`
   box-sizing: border-box;
   color: #fff;
   background-color: #333;
-  padding-right: 7%;
+  padding-right: 6.7%;
+  padding-left: 7%;
   padding-block: 0.3%;
   text-align: right;
   font-size: .5rem;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+
+  .rojolab {
+    text-align: right;
+  }
+
+  a {color: white}
 
   p::before {
       content:"> "   

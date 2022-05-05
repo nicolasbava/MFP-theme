@@ -26,7 +26,7 @@ const Contenedor = styled.div`
         transition: all 500ms ease-in-out;
         position: relative;
 
-        display:flex;
+        display:none;
         align-items:center;
 
     input {
@@ -79,7 +79,9 @@ const Contenedor = styled.div`
     //     right: 125px;
     // }
 
-
+    @media (min-width: 466px){
+        display:flex;
+    }
 
 `
 

@@ -14,21 +14,21 @@ const MenuModal = ({state,actions}) => {
                 <MenuContainer>
                     
                     <NavLinks>
-                        <p>{">"}PRESENTACIÓN</p>
+                        <p onClick={actions.theme.setPlusContadorMobile}>{">"}PRESENTACIÓN</p>
                         <Padding>
-                            <Link href='/territorio'>· TERRITORIO</Link> 
-                            <Link href='/proyecto'>· PROYECTO</Link> 
-                            <Link href='/equipo'>· EQUIPO</Link> 
+                            <Link href='/territorio'><p onClick={actions.theme.setPlusContadorMobile}>· TERRITORIO</p></Link> 
+                            <Link href='/proyecto'><p onClick={actions.theme.setPlusContadorMobile}>· PROYECTO</p></Link> 
+                            <Link href='/equipo'><p onClick={actions.theme.setPlusContadorMobile}>· EQUIPO</p></Link> 
                         </Padding>
-                        <Link href='/noticias'>{">"}NOTICIAS</Link>
-                        <p>{">"}CATÁLOGO</p>
+                        <Link href='/noticias'><p onClick={actions.theme.setPlusContadorMobile}>{">"}NOTICIAS</p></Link>
+                        <p onClick={actions.theme.setPlusContadorMobile}>{">"}CATÁLOGO</p>
                         <Padding>
-                            <Link href='/peliculas'>· PELICULAS</Link> 
-                            <Link href='/artistas'>· ARTISTAS</Link> 
-                            <Link href='/productoras'>· PRODUCTORAS</Link> 
+                            <Link href='/peliculas'><p onClick={actions.theme.setPlusContadorMobile}>· PELICULAS</p></Link> 
+                            <Link href='/artistas'><p onClick={actions.theme.setPlusContadorMobile}>· ARTISTAS</p></Link> 
+                            <Link href='/productoras'><p onClick={actions.theme.setPlusContadorMobile}>· PRODUCTORAS</p></Link> 
                         </Padding>
-                        <Link href='/mapa'>{">"}MAPA</Link>
-                        <Link href='/contacto'>{">"}CONTACTO</Link>
+                        <Link href='/mapa'><p onClick={actions.theme.setPlusContadorMobile}>{">"}MAPA</p></Link>
+                        <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>{">"}CONTACTO</p></Link>
 
                         
                     </NavLinks>                

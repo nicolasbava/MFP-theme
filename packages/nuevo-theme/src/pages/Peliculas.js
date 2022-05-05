@@ -102,7 +102,7 @@ const Peliculas = ({state, actions}) => {
                                     <Rayita></Rayita>
                                     <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
-                                    <h4>{peliculas.acf.year}</h4>
+                                    <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
@@ -140,7 +140,7 @@ const Peliculas = ({state, actions}) => {
                                     
                                     <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
-                                    <h4>{peliculas.acf.year}</h4>
+                                    <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
@@ -172,10 +172,10 @@ const Peliculas = ({state, actions}) => {
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                     
-                                    <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
+                                      <Rayita></Rayita>
+                                      <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
-                                    <h4>{peliculas.acf.year}</h4>
+                                      <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
@@ -186,39 +186,7 @@ const Peliculas = ({state, actions}) => {
                 })}
                 </Array>
             
-            </Outside>
-
-            {/* NOTICIAS ultimas 3
-            
-            <Titulo>NOTICIAS {">>"}</Titulo>
-                <NoticiasFlex>
-                    {typeof noticias === "undefined" ? <p>Cargando Noticias...</p> : 
-                    
-                        Object.values(noticias).reverse().slice(0,3).map( noticia => {
-
-                            return (
-                                <DisplayNoticias key={noticia.id}>
-                                    <Noticias>  
-                                        <Link href={noticia.link}>
-                                            <ImagenNoticia style={{backgroundImage:`url(${noticia.acf.foto_portada})`}}></ImagenNoticia>
-                                        </Link>    
-                                        <CartelNoticia>
-                                            <Link href={noticia.link}>
-                                                <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
-                                            </Link>
-                                            <p dangerouslySetInnerHTML={{__html: noticia.acf.resumen}}></p>
-                                            <span>{">>"}</span>
-                                        </CartelNoticia>
-
-                                    </Noticias>
-                                </DisplayNoticias> 
-                            )
-                        })         
-                    }
-                </NoticiasFlex>
-                {typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}
-                     */}
-
+              </Outside>
             </Contenedor>
 
 
@@ -236,145 +204,22 @@ const CartelHeader = styled.nav`
     padding-bottom: 2em;
 
     p {
-        font-size: .8rem
+        font-size: .8rem;
+        padding: 0;
+        margin: 0;
     }
 `
-
-const Titulo = styled.h4`
-    margin-top: 6em;
-    margin-bottom: 2em;
-    font-weight: normal;
-
-`
-
 const Article = styled.article`
   margin-bottom: 10px;
-`
-
-
-const ImagenNoticia = styled.div`
-
-
-    background: no-repeat;
-    background-color: rgba(0, 0, 0, 0);
-    background-color: #00b1a0;
-    width: 100%;
-    height: 25vw;
-    background-blend-mode: screen;
-    cursor: pointer; 
-    transition: background-color 500ms ease;
-    filter: blur(0.1px);
-    z-index: 0
-    -webkit-filter: blur(0.1px);
-    background-size: cover;
-    border-radius: 3px 3px 0 0;
-    
-    &:hover {
-    background-color: #00f3ff00;
-    filter: blur(0);
-    -webkit-filter: blur(0);
-
-    };
-  
-    @media (max-width: 1000px) { 
-      height: 50vw;
-    }
-`
-
-
-
-const DisplayNoticias = styled.div`
-  display: flex;
-  justify-content: space-around;
-  /*width: 100%;*/
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-bottom: 5px;
-  flex: 1 0 30%;
-
-  @media (max-width: 1000px) { 
-    flex: 1 0 100%;   
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-`
-
-const Noticias = styled.div`
-  border: 2px #3335 solid;
-  border-radius: 5px;
-  width: 27vw;
-  height: fit-content;
-  
-  img {
-    max-width: 100%;
-    box-sizing: border-box;
-    cursor:pointer;
-    background-color: blue;
-    background-blend-mode: multiply;
-    
-  }
-
-  h4 {
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    color: #333;
-    font-weight: normal;
-  }
-
-  p {
-    color: #4a4a4a;
-    font-size: .8rem;
-    font-weight: initial;
-    line-height: 1;
-    text-align: justify;
-    padding-bottom: 0.7em;
-    font-family: 'Red Hat Text', sans-serif;
-    margin-bottom: 0;
-  }
-
-  .leer-mas {
-    margin-left: 5px;
-    opacity: 0;
-  }
-
-  span {
-    color: #333;
-    cursor: pointer;
-    font-size: 2rem;
-  }
-
-  @media (max-width: 1000px) {  
-    width: 100%;
-  }
-`
-
-const CartelNoticia = styled.section`
-  padding: 1em 2em;
-
-  h4 {
-    margin: 0;
-  }
-
 `
 
 export default connect(Peliculas)
 
 
-
-
-
-const NoticiasFlex = styled.section`
-    display:flex;
-    flex-wrap: wrap;
-`
-
-
-
 const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
-  width: 91vw;
+  width: 87vw;
   padding-bottom: 2em;
   margin-bottom: 5em;
 
@@ -437,7 +282,9 @@ const Cartel = styled.div`
   color: #fff;
   padding-left: 4em;
   padding-right: 2em;
-  padding-top: 11em;
+  padding-bottom: 2em;
+  // padding-top: 11em;
+  justify-content: flex-end;
   height: 100%;
   transition: 500ms ease;
   opacity:0;
@@ -450,23 +297,15 @@ const Cartel = styled.div`
   // justify-content: flex-end;
 
   @media (max-width: 600px) { 
-    font-size: 0.5rem;  }
+    font-size: 0.5rem;  
+  }
 
   @media (min-width:601px) and (max-width:1000px) {
     font-size: 0.6rem;
   }​
 
-
-  h3 {
-      margin-bottom: 7px;
-      text-transform: uppercase;
-  }
-
-  h4{
-      margin-top:.5em;
-      font-size: 1rem
-  }
-
+  
+  
   & > * {
 
     transition: transform 0.7s;
@@ -483,32 +322,43 @@ const Cartel = styled.div`
     background: rgba(0,0,0, .7);
     opacity: 1;
     box-sizing: border-box;
-
-
   }
 `
 
 const Rayita = styled.div`
-  width: 18%;
-  height: 5px;
-  background: #ff871c;
-  border-radius: 4px;
+    width: 29px;
+    height: 5px;
+    margin-left: 1px;
+    background: #ff871c;
+    border-radius: 4px;
+    margin-bottom: 11px;
 `
 
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 25vw;
-  width: 28vw;
+  height: 24vw;
+  width: 27.7vw;
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
   background-position: center;
   background-size: cover;
 
-  @media (max-width: 600px) { 
-    height: 40vw;
-    width: 40vw;  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    line-height: 1.6;
+    font-weight: normal;
+}
+
+
+  @media (max-width: 769px) { 
+    height: 38vw;
+    width: 43vw;  }
+
+
 
 `
 

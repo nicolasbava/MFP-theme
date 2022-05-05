@@ -45,7 +45,7 @@ const Equipo = ({state}) => {
 
         </Contenedor>
         <Imagenes>
-                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-16.png"></img>
+                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-16.png"></img>
                 {/* <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-7.jpg"></img> */}
 
             </Imagenes>
@@ -84,7 +84,7 @@ const Imagenes = styled.div`
 `
 
 const Contenedor = styled.main`
-    padding-top: 5em;
+    padding-top: 7%;
     padding-left: 16%;
     padding-right: 16%;
     img {

@@ -1,7 +1,8 @@
 import React from "react"
-import {connect} from "frontity"
+import {connect, styled} from "frontity"
 import Link from "../components/Link"
 import Peliculas from "./Peliculas"
+import Cargando from "../components/Cargando"
 // import Catalogo from "./catalogoVideos"
 
 const Home = ({state}) => {
@@ -20,7 +21,7 @@ const Home = ({state}) => {
             
             {/* <CatalogoVideos /> */}
 
-            {typeof peliculas === "undefined" ? <p>cargando peliculas</p> : 
+            {typeof peliculas === "undefined" ? <Cargando /> : 
             
                 // <Catalogo />
 
@@ -38,3 +39,4 @@ const Home = ({state}) => {
 }
 
 export default connect(Home)
+

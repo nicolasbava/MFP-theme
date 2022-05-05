@@ -15,21 +15,21 @@ const Territorio = () => {
             <h2>TERRITORIO</h2>
             <p>El término ‘pencopolitano’ alude al primer emplazamiento de la ciudad de Concepción en la bahía de Penco. El término ‘pencopolitanismo’, fue acuñado por el periodista Víctor Solar Manzano y revisitado por Pacián Martínez, uno de los nombres importantes del cineclubismo penquista, aludiendo a la historia, cultura y tradiciones de esta zona y al espíritu y amor por esta tierra que, o nos vio nacer o nos adoptó. Asimismo, el término ‘pencopolitano’ puede extenderse también a un área de influencia cultural, económica e industrial con centro en la ciudad de Concepción.
             </p>
-            <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-6.jpg"></img>
+            <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/1-6.jpg"></img>
 
             <p>
             Adhiriendo a este sentimiento de pertenencia, este proyecto cubre geográficamente el territorio cruzado por el río Bío Bío, entre la bahía de Coliumo y la parte norte del golfo de Arauco, comprendiendo las actuales comunas de Concepción, Talcahuano, Lota, Coronel, Tomé, Penco, Hualqui, Chiguayante, San Pedro de la Paz y Hualpén.
             </p>
-            <img className="margen" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/2.jpg" ></img>
+            <img className="margen" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/2.jpg" ></img>
 
             <p>
             Considerando este enfoque, la información aquí presentada se centra en la producción cinematográfica producida y/o filmada en este territorio, principalmente por realizadores y productores nacidos o avecindados en él. Esto no debe entenderse como algo excluyente, ni significa que sean las únicas producciones del artista. Asimismo, aunque los lugares de rodaje refieren principalmente a las comunas antes mencionadas, también puede haber locaciones externas a este territorio.
             </p>
             <Imagenes>
-                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
-                <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/4-11.png"></img>
+                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
+                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/4-11.png"></img>
 
-        </Imagenes>
+            </Imagenes>
             
         </Contenedor>
         
@@ -68,7 +68,7 @@ const Imagenes = styled.div`
 `
 
 const Contenedor = styled.main`
-    padding-top: 5em;
+    padding-top: 7%;
     padding-left: 16%;
     padding-bottom: 4em;
     padding-right: 16%;

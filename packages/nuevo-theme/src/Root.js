@@ -21,6 +21,7 @@ import Proyecto from "./pages/Proyecto";
 import Modal from "./components/Modal";
 import Catalogo from "./pages/catalogoVideos"
 import Peliculas from "./pages/Peliculas";
+import Cargando from "./components/Cargando";
 
 
 
@@ -57,7 +58,7 @@ const Root = ({state, actions}) => {
         {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
 
-        {data.isFetching && <p>Cargando...</p>}
+        {data.isFetching && <Cargando />}
 
         {data.isHome && <Home />}
 

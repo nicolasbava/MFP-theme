@@ -96,7 +96,12 @@ const Flex = styled.div`
 const ArtistasFlex = styled.section`
     display: flex;
     flex-wrap:wrap;
-    justify-content: space-between;
+    justify-content: left;
+    margin-right: -2vw;
+
+    &:first-of-type {
+        margin-left: -1vw;
+      }
 
 `
 
@@ -112,7 +117,7 @@ const Contenedor = styled.main`
 `
 
 const Article = styled.article`    
-    margin-bottom: .5vw;
+    // margin-bottom: 1vw;
 `
 
 
@@ -177,12 +182,19 @@ const fotoArtista = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/Wha
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 25vw;
-  width: 28vw;
+  height: 38vw;
+  width: 42.5vw;
+  margin-bottom: 1vw;
+  margin-left: 1vw;
   overflow:hidden;
   z-index: 99;
   background-size: cover;
   background-image: url(${fotoArtista});
   background-position: center;
   background-repeat: no-repeat;
+
+  @media (min-width: 769px){
+    width: 27.7vw;
+    height: 24vw;
+ }
 `

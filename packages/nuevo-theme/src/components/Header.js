@@ -11,11 +11,11 @@ import CatalogoModal from "./CatalogoModal"
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
-const logo = "'http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png'";
+const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
-    padding: 1.5em 7% 1.5em 7%;
+    padding: 2em 7% 2em 7%;
     
     @media (max-widht:600px) {
         padding: 1em 7% 1em 7%;
@@ -38,11 +38,11 @@ const Contenedor = styled.div`
     align-items: center;    
 
     .img {
-        width: 147px;
+        max-width: 106px;
         height: auto;
         
         @media (min-width: 769px) {
-            display: none
+            display: none;
         }
     }
 `

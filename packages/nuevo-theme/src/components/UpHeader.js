@@ -6,19 +6,20 @@ import Link from "./Link";
 
 
 const UpHeader = ({ state }) => {
-  let logo = 'https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Logo-contraste1.png';
+  const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
+
 
   let arrayBackgrounds = [   
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900.png')"
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900.png')",
+    "url('http://memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900.png')"
 
     
   ];
