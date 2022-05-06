@@ -17,11 +17,10 @@ const Footer = () => {
           <FooterPeliculas>
 
             <Linea1>
-
                 <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
-                
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
-                
+                <a>
+                  <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
+                </a>
                 <Iconos>
                   <img className="raya blanco" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/FLECHITAS.png"></img>
                   
@@ -37,7 +36,7 @@ const Footer = () => {
                 </Iconos>
                 <div className="raya2"></div>
 
-                <a href=""> 
+                <a> 
                 <img className="foto gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/04-M.CONCE-b.png"></img>
                 </a>
 
@@ -83,7 +82,7 @@ const Footer = () => {
                 <a href="https://cinechile.cl/" target="_blank">
                 <img className="foto agrandar gris ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/16-CINECHILE-B.png"></img>
                 </a>
-                <a href="https://cinechile.cl/" target="_blank">
+                <a href="" target="_blank">
                 <img className="foto agrandar blanco ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-B.png"></img>
                 </a>
               </Linea3>
@@ -131,7 +130,7 @@ const Linea1 = styled.section`
     position: relative;
     top: 0;
     border-radius: 6px;
-    left: -10px;
+    // left: -10px;
   }
 `
 
@@ -203,7 +202,7 @@ const FooterPeliculas = styled.div`
   }
 
   img {
-    width: 2.9vw;
+    width: 2.5vw;
     height: auto;
   }
 
@@ -245,8 +244,8 @@ const FooterPeliculas = styled.div`
   }
 
   img.raya {
-    width: 4vw;
-    height: 2.7vw;
+    width: 3.5vw;
+    height: 2.2vw;
     margin: auto;
   }
 
@@ -301,7 +300,7 @@ const Iconos = styled.div`
   }
 
   .youtube {
-    width: 3.4vw;
+    width: 3vw;
     height: auto;
   }
 `
