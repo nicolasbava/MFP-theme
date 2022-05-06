@@ -171,10 +171,12 @@ const Cartel = styled.div`
 `
 
 const Rayita = styled.div`
-  width: 18%;
-  height: 5px;
-  background: #ff871c;
-  border-radius: 4px;
+    width: 29px;
+    height: 5px;
+    margin-left: 1px;
+    background: #ff871c;
+    border-radius: 4px;
+    margin-bottom: 11px;
 `
 const fotoArtista = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
 
@@ -192,6 +194,14 @@ const Cuadrado = styled.div`
   background-image: url(${fotoArtista});
   background-position: center;
   background-repeat: no-repeat;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    line-height: 1.6;
+    font-weight: normal;
+  }
 
   @media (min-width: 769px){
     width: 27.7vw;

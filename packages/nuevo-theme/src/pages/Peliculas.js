@@ -296,18 +296,9 @@ const Cartel = styled.div`
   flex-direction: column;
   // justify-content: flex-end;
 
-  @media (max-width: 600px) { 
-    font-size: 0.5rem;  
-  }
-
-  @media (min-width:601px) and (max-width:1000px) {
-    font-size: 0.6rem;
-  }​
-
   
   
   & > * {
-
     transition: transform 0.7s;
     transform: translateX(-8rem);
   }
@@ -323,15 +314,23 @@ const Cartel = styled.div`
     opacity: 1;
     box-sizing: border-box;
   }
+
+  @media (max-width: 600px) { 
+    font-size: 0.5rem;  
+  }
+
+  @media (min-width:601px) and (max-width:1000px) {
+    font-size: 0.6rem;
+  }​ 
 `
 
 const Rayita = styled.div`
-    width: 29px;
-    height: 5px;
-    margin-left: 1px;
-    background: #ff871c;
-    border-radius: 4px;
-    margin-bottom: 11px;
+  width: 29px;
+  height: 5px;
+  margin-left: 1px;
+  background: #ff871c;
+  border-radius: 4px;
+  margin-bottom: 11px;
 `
 
 const Cuadrado = styled.div`
@@ -351,15 +350,12 @@ const Cuadrado = styled.div`
     text-transform: uppercase;
     line-height: 1.6;
     font-weight: normal;
-}
-
+  }
 
   @media (max-width: 769px) { 
     height: 38vw;
-    width: 43vw;  }
-
-
-
+    width: 43vw;  
+  }
 `
 
 const Title = styled.h1`
