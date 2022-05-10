@@ -116,21 +116,25 @@ const Linea1 = styled.section`
   justify-content: space-between;
   // padding-bottom: 2em;
 
-  @media (max-width: 944px){
-    & {
-  padding-top: 2em; 
-  padding-bottom: 2em;
-    }
-  }
+
 
   .raya2 {
-    height: 100px;
+    height: 5vw;
     width: 2px;
-    background: #00000099;
+    background: #00000052;
     position: relative;
     top: 0;
     border-radius: 6px;
     // left: -10px;
+  }
+
+  @media (max-width: 944px){
+    .raya2 {display:none}
+
+    & {
+  padding-top: 2em; 
+  padding-bottom: 2em;
+    }
   }
 `
 
@@ -190,7 +194,7 @@ const FooterPeliculas = styled.div`
   // display: grid;
   // grid-template-columns: repeat(auto-fill, 186px)
   align-items: center;
-  padding-left: 6%;
+  padding-left: 7%;
   padding-right: 7%;
 
   .bigger {
