@@ -83,9 +83,15 @@ const CatalogoNoticias = ({state, actions}) => {
 
 const Contenedor = styled.main`
     padding-left: 7%;
-    padding-right: 7%;
-    margin-top: 3%;
+    padding-right: 5%;
+    // margin-top: 3%;
     padding-bottom: 2em;
+
+    p {
+        font-size: .7rem;
+        padding-bottom: 2.5em;
+        padding-top: 2.5em;
+    }
 `
 
 const ImagenNoticia = styled.div`
@@ -94,8 +100,8 @@ const ImagenNoticia = styled.div`
     background: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     background-color: #00b1a0;
-    width: 100%;
-    height: 25vw;
+    height: 24vw;
+    width: 27.2vw;
     background-blend-mode: screen;
     cursor: pointer; 
     transition: background-color 500ms ease;
@@ -127,7 +133,7 @@ const DisplayNoticias = styled.div`
 const Noticias = styled.div`
   border: 2px #3335 solid;
   border-radius: 5px;
-  width: 27vw;
+  width: 27.2vw;
   height: fit-content;
   
   img {
@@ -140,7 +146,7 @@ const Noticias = styled.div`
   }
 
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     color: #333;
     font-weight: normal;
@@ -148,13 +154,15 @@ const Noticias = styled.div`
 
   p {
     color: #4a4a4a;
-    font-size: .8rem;
+    font-size: .7rem;
     font-weight: initial;
     line-height: 1;
     text-align: justify;
     padding-bottom: 0.7em;
     font-family: 'Red Hat Text', sans-serif;
     margin-bottom: 1em;
+    margin-top: 0;
+    padding-top: 1em;
   }
 
 
@@ -177,7 +185,7 @@ const Flex = styled.div`
 
 const CartelNoticia = styled.section`
   padding: 2em 2em;
-  transition: 250ms ease;
+  transition: 150ms ease;
 
 
   h4 {
@@ -185,13 +193,15 @@ const CartelNoticia = styled.section`
   }
 
   .vermas {
-    font-size: 1rem;
+    font-size: .8rem;
     margin-left: 0.5em;
+    margin-top: auto;
+    margin-bottom:auto;
   }
 
   .vermas:hover {
       color: ${naranja};
-      opacity: 0;
+      opacity: 1;
   }
 
 

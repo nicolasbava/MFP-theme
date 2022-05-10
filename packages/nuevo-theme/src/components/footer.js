@@ -48,7 +48,7 @@ const Footer = () => {
                 </a>
               </Linea1>
 
-              <Linea2>
+            {/* <Linea2>
                 <a href="http://catalogoafudec.udec.cl/" target="_blank">
                 <img className="foto achicar gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/07-AFUDEC-b.png"></img>
                 </a>
@@ -85,7 +85,7 @@ const Footer = () => {
                 <a href="" target="_blank">
                 <img className="foto agrandar blanco ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-B.png"></img>
                 </a>
-              </Linea3>
+              </Linea3> */}
 
 
             

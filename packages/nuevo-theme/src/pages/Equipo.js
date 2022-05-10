@@ -1,59 +1,60 @@
 import React from "react"
-import {connect, styled, css, Global} from "frontity"
+import {connect, styled} from "frontity"
+import Cargando from "../components/Cargando"
 
 const Equipo = ({state}) => {
 
- 
+    // const data = state.source.get(state.router.link)
 
+    // const data = Object.values(state.source.territorio)
+
+    // const data = state.source.territorio
+    const data = state.source.equipo[1302]
 
     return (
+
         <>
-        <Indice>
+            <Indice>
                 <p>{"> "}PRESENTACIÓN {">"} EQUIPO</p>
-        </Indice>
-        <Contenedor>
+            </Indice>
 
 
-            <h2>Equipo</h2>
 
-            <h3>EVELYN MUNZENMAYER</h3>
+            {/* {console.log(data.content.rendered)} */}
+            <Contenedor>
+                <h2>EQUIPO</h2>
+                <div dangerouslySetInnerHTML={{__html: data.content.rendered}}></div>
 
-            <p>Lic. en Antropología Física con diploma en Gestión del Patrimonio Cultural. Si bien su principal área de experticia ha sido la bioarqueología, ha convivido en paralelo con la constante inquietud de participar en artes y cultura, lo que la llevó a escribir de cine y música en la revista digital Humo Negro. Eventualmente, su pasión por desenterrar historias la llevó a conformar el colectivo Memoria Fílmica Pencopolitana, donde actualmente se desempeña como investigadora y gestora cultural.
-            </p>
+                {/* <p>
+                    El término ‘pencopolitano’ alude al primer emplazamiento de la ciudad de Concepción en la bahía de Penco. El término ‘pencopolitanismo’, fue acuñado por el periodista Víctor Solar Manzano y revisitado por Pacián Martínez, uno de los nombres importantes del cineclubismo penquista, aludiendo a la historia, cultura y tradiciones de esta zona y al espíritu y amor por esta tierra que, o nos vio nacer o nos adoptó. Asimismo, el término ‘pencopolitano’ puede extenderse también a un área de influencia cultural, económica e industrial con centro en la ciudad de Concepción.
+                </p>
+                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/1-6.jpg"></img>
 
-            <h3>PAULO NAVARRETE</h3>
+                <p>
+                    Adhiriendo a este sentimiento de pertenencia, este proyecto cubre geográficamente el territorio cruzado por el río Bío Bío, entre la bahía de Coliumo y la parte norte del golfo de Arauco, comprendiendo las actuales comunas de Concepción, Talcahuano, Lota, Coronel, Tomé, Penco, Hualqui, Chiguayante, San Pedro de la Paz y Hualpén.
+                </p>
+                <img className="margen" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/2.jpg" ></img>
 
-            <h3>EDUARDO GUTIÉRREZ</h3>
-            <p>
-            Periodista y comunicador social con intereses y formación en arte y cultura. Ha escrito para medios como Radio Leufü, Diario Concepción e Indie Hoy (Argentina). Ha trabajado en espacios culturales como La Tienda Nacional, Corporación Cultural de Lo Barnechea, Leufü Estudio y Casa de Salud, lugar donde produjo y condujo un bloque semanal de exhibiciones audiovisuales. Actualmente se desempeña como periodista de la Bienal Concepción, Arte {"&"} Ciencia.
-            Desde el 2018 es encargado de comunicaciones y gestiones dentro de Memoria Fílmica Pencopolitana.
-            MARCO VALENZUELA
-            Profesor de Historia y magíster en Psicología, cinéfilo desde temprana edad. Entre 2015 y 2020, ha sido productor y co-conductor del programa de cine Notas en 35 mm, de emisión semanal por radioleufu.cl. Profesor de talleres de video y comunicación popular y alternativa y realizador y editor independiente entre los años 1994 y 1999. 
-            </p>
+                <p>
+                    Considerando este enfoque, la información aquí presentada se centra en la producción cinematográfica producida y/o filmada en este territorio, principalmente por realizadores y productores nacidos o avecindados en él. Esto no debe entenderse como algo excluyente, ni significa que sean las únicas producciones del artista. Asimismo, aunque los lugares de rodaje refieren principalmente a las comunas antes mencionadas, también puede haber locaciones externas a este territorio.
+                </p>
+                <Imagenes>
+                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
+                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/4-11.png"></img>
 
-            <h3>FREDDY ROJAS MATAMALA</h3>
-            <p>
-            Freddy Rojas viene desde la ciudad de Los Álamos, Lebu, Provincia de Arauco, actualmente cursa la carrera de Artes Multimediales en la UNA (Universidad Nacional de las Artes) Buenos Aires, Argentina.  
-            Es Diseñador Gráfico titulado en el Instituto Profesional Duoc UC Concepción el año 2015 y egresado de la Escuela de Cine y Artes Audiovisuales de Eliseo Subiela, Buenos Aires, Argentina el año 2021. 
-            Actualmente dirige su estudio de diseño Rojo Lab y paralelamente se desempeña como Realizador Audiovisual independiente y productor en su proyecto Décima Films. Ha trabajado en proyectos como Casa de Salud, Wuñelfe, Festival de Cine Lebu, Mundo Villa (Argentina), Memoria Filmica Pencopolitana, entre otros. 
-            </p>
-                
+                </Imagenes> */}
+
             
+            </Contenedor> 
 
 
-
-
-        </Contenedor>
-        <Imagenes>
-                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-16.png"></img>
-                {/* <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-7.jpg"></img> */}
-
-            </Imagenes>
+        
+        
         </>
     )
 }
 
-export default Equipo
+export default connect(Equipo)
 
 const Indice = styled.div`
     padding-left: 7%;
@@ -73,12 +74,11 @@ const Indice = styled.div`
 
 const Imagenes = styled.div`
     display: flex;
-    align-items:center;
-    justify-content:center;
-    padding-bottom: 5em;
+    gap: 2vw;
+
 
     img {
-        width: 68vw;
+        width: 48%;
         height: auto;
     }
 `
@@ -86,9 +86,19 @@ const Imagenes = styled.div`
 const Contenedor = styled.main`
     padding-top: 7%;
     padding-left: 16%;
+    padding-bottom: 7%;
     padding-right: 16%;
+
+    ul, li {
+        text-decoration: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
     img {
-        width: 67vw;
+        // width: 67vw;
+        width: 100%;
         height: auto;
         margin-left:auto;
         margin-right: auto;
@@ -115,7 +125,7 @@ const Contenedor = styled.main`
         padding-bottom: 1em;    
     }
 
-    h3, p {
+    h3, p, div {
         font-family: 'Red Hat Text', sans-serif;
         margin: 0;    
     }

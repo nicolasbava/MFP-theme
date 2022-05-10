@@ -24,7 +24,7 @@ const Peliculas = ({state, actions}) => {
           peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
       )  
   
-      console.log(filteredPeliculas)
+      // console.log(filteredPeliculas)
   
       let array1= []
       let array2 = []
@@ -204,7 +204,7 @@ const CartelHeader = styled.nav`
     padding-bottom: 2em;
 
     p {
-        font-size: .8rem;
+        font-size: .7rem;
         padding: 0;
         margin: 0;
     }
@@ -282,7 +282,7 @@ const Cartel = styled.div`
   color: #fff;
   padding-left: 4em;
   padding-right: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 3em;
   // padding-top: 11em;
   justify-content: flex-end;
   height: 100%;

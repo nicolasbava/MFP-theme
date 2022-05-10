@@ -21,7 +21,7 @@ const CatalogoArtistas = ({state, actions}) => {
 
     return (
         <Contenedor>
-            {console.log(arrayArtistas)}
+            {/* {console.log(arrayArtistas)} */}
             <Flex>
             <p>{"> "} CATÁLOGO {">"} ARTISTAS</p>
                 <Search />

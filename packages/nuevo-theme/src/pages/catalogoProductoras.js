@@ -211,7 +211,7 @@ const Productoras = styled.section`
         align-items: center;
 
         p {
-            font-size: .8rem;
+            font-size: .7rem;
             padding-top: 2em;
             padding-bottom: 2em;
         }

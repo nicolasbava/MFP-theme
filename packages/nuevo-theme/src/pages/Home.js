@@ -21,6 +21,8 @@ const Home = ({state}) => {
             
             {/* <CatalogoVideos /> */}
 
+            {/* {console.log(peliculas)} */}
+
             {typeof peliculas === "undefined" ? <Cargando /> : 
             
                 // <Catalogo />

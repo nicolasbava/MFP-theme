@@ -97,7 +97,9 @@ const Post = ({ actions, state, element, libraries }) => {
   const interesarPeliculas = state.source.peliculas;
     
 
-
+  // ============ NOTICIAS ======================
+  
+  const noticias = state.source.noticias
 
 
     
@@ -452,15 +454,112 @@ const Post = ({ actions, state, element, libraries }) => {
             </Artista>
             </>   
                )
-    } 
+    } else if (element === 'noticia') {
+        
+      return (
+        <Noticia>
+        <IndiceNoticias>
+          <Link href='/noticias'>
+            <p>{">"} NOTICIAS</p>
+          </Link>
+        </IndiceNoticias>
+          
+          <ContenedorNoticia>
+            <h2 dangerouslySetInnerHTML={{__html: post.title.rendered}}></h2>
+            <div dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
+          </ContenedorNoticia>
+
+          <GaleriaPelicula>              
+                    {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
+                      return (
+                        <a href={val}>
+                          <img src={val}></img>
+                        </a>
+                      )
+                      })) : null
+                    }    
+
+          </GaleriaPelicula>
+        
+        </Noticia>
+        )
+    }
 }
 
 export default connect(Post)
 
 
 
+//  NOTICIA inicio
+const Noticia = styled.section`
+  margin-bottom: 7%;
+`;
 
-// artista inicio
+const IndiceNoticias = styled.div`
+    padding: 2em 7%;
+
+    p {
+      font-size: .7rem;
+    }
+
+`;
+
+
+const ContenedorNoticia = styled.section`
+    // padding-top: 7%;
+    padding-left: 16%;
+    padding-bottom: 4em;
+    padding-right: 16%;
+
+    ul, li {
+        text-decoration: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        // width: 67vw;
+        width: 100%;
+        height: auto;
+        margin-left:auto;
+        margin-right: auto;
+        padding:1em 0;
+    }
+
+    .margen {
+        padding-left: 4%;
+        paddin-right: 10%;
+        width: 35vw;
+    }
+
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        padding-bottom: 1em;
+        font-weight: normal;
+    }
+
+    h3 { 
+        font-weight: normal; 
+        padding-bottom: 1em;    
+    }
+
+    h3, p, div {
+        font-family: 'Red Hat Text', sans-serif;
+        margin: 0;    
+    }
+
+    p {
+        padding-bottom: 2em;    
+
+    }
+
+
+`;
+
 
 //  ARTISTA inicio 
 
