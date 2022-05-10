@@ -117,7 +117,6 @@ const Post = ({ actions, state, element, libraries }) => {
                 <Catalogo>{"> "}CATÁLOGO {">"} PELÍCULA</Catalogo>
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
                 {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
-                <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
                 
 
                 <CaractPeliculas >      
@@ -132,9 +131,15 @@ const Post = ({ actions, state, element, libraries }) => {
                     
                 </CaractPeliculas>
 
-                <VideoPelicula>
-                    <iframe width="100%" height="600" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </VideoPelicula>
+                <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
+
+                {post.acf.link.length === 0 ? null : (
+
+                  <VideoPelicula>
+                      <iframe width="100%" height="600" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </VideoPelicula>
+                )}
+                
 
                 <GaleriaPelicula>              
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
@@ -715,7 +720,7 @@ const Pelicula = styled.section`
 const Catalogo = styled.p`
     padding-top: 2em;
     padding-bottom: 2em;
-    font-size: .9rem
+    font-size: .7rem
 `
 const TituloPeli = styled.h2`
     font-size: 2rem;
