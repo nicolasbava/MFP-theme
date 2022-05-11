@@ -8,6 +8,8 @@ import Footer from "../components/footer"
 
 
 const CatalogoArtistas = ({state, actions}) => {
+
+
     const data = state.source.get(state.router.link)
 
     const arrayArtistas = Object.values(state.source.artistas)
@@ -85,6 +87,9 @@ const CatalogoArtistas = ({state, actions}) => {
     )
 }
 
+const fotoArtista = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
+
+
 export default connect(CatalogoArtistas)
 
 const Flex = styled.div`
@@ -112,7 +117,7 @@ const Contenedor = styled.main`
     P {
         padding-top: 2em;
         padding-bottom: 2em;
-        font-size: .8rem;
+        font-size: .7rem;
     }
 `
 
@@ -124,7 +129,7 @@ const Article = styled.article`
 const Cartel = styled.div`
     color: #fff;
     padding-top: 5em;
-    padding-left: 2em;
+    padding-left: 4em;
     padding-right: 4em;
     padding-bottom: 1em;
     height: 100%;
@@ -178,7 +183,6 @@ const Rayita = styled.div`
     border-radius: 4px;
     margin-bottom: 11px;
 `
-const fotoArtista = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
 
 
 const Cuadrado = styled.div`

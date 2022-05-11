@@ -213,6 +213,10 @@ const FooterPeliculas = styled.div`
   img.foto {
     width: 8vw;
     // margin-left: 1em;
+
+    // @media (max-width: 944px){
+    //   width: 13vw;
+    // }
   }
   
   img.foto.agrandar {
@@ -251,6 +255,8 @@ const FooterPeliculas = styled.div`
     width: 3.5vw;
     height: 2.2vw;
     margin: auto;
+    margin-left: -1em;
+    margin-right: 1em;
   }
 
   .logo-footer{

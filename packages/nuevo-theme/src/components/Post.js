@@ -3,6 +3,7 @@ import {connect, styled, css, Global} from 'frontity'
 
 import Link from './Link'
 import FichaLink from './FichaLink'
+import Cargando from './Cargando'
 
 
 const naranja = '#ec7342'
@@ -71,6 +72,9 @@ const Post = ({ actions, state, element, libraries }) => {
   const tab = '\u00A0';
 
 
+  
+
+
 
 
     /* NICO ARTISTAS FUNCIONES CARACTERISTITAS */
@@ -95,7 +99,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
   const interesarPeliculas = state.source.peliculas;
-    
+   
 
   // ============ NOTICIAS ======================
   
@@ -114,7 +118,10 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
             <Pelicula>
-                <Catalogo>{"> "}CATÁLOGO {">"} PELÍCULA</Catalogo>
+                <Catalogo>
+                  <Link href="/">  {"> "}CATÁLOGO{" "} 
+                  {">"} PELÍCULAS</Link>
+                </Catalogo>
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
                 {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
                 
@@ -140,72 +147,30 @@ const Post = ({ actions, state, element, libraries }) => {
                   </VideoPelicula>
                 )}
                 
-
+                {/* GALERIA PELICULAS */}
                 <GaleriaPelicula>              
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                     return (
-                        <img src={val}></img>
+                        <a href={val}>
+                          <img src={val}></img>
+                        </a>
                     )
                     })) : null
                     }    
 
                 </GaleriaPelicula>
 
-
-
-
-                <FichaTecnicaPelicula>
-                    
-                    {fichaTecnica.length > 0 ? (
-                      <>
-                        <Raya></Raya>   
-                        <h3>{">"} FICHA TÉCNICA</h3>
-                        <p className="eq">{">"} EQUIPO Y REPARTO</p>
-                      </>
-                    ): null}
-                    
-                
-                    <SliderFichaTecnica className="panel" style={wrap} >
-
-                        {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
-                        return (                    
-                            <ContenedorFicha  value={val.id}>
-                            {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                            {console.log(fichaTecnica)}
-
-                            <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
-                            <article className="fondo-verde">                        
-                                {val.cargo_nombre.map((val,key) =>{
-                                return (
-                                    <FichaLink link={val.post_type + "/" + val.post_name}>
-                                        <p>{val.post_title}</p>
-                                    </FichaLink>
-                                )
-                                })}
-                                <p className="cargo">{val.cargo}</p>  
-                                </article>
-                            </ContenedorFicha>
-                        )
-                      } 
-                        ): null
-                    }
-                    </SliderFichaTecnica >
-
-                    {/* {state.theme.contador % 2 !== 0 && } */}
-                    
-                    
-                    
                 
 
-                  {fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
-                    <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length}) 
-                                    
-                    </VerMas>
-                    )} 
+
+                <FichaTecnicaPelicula>               
+
                     <Raya></Raya>
+                    <h3>{">"} FICHA TÉCNICA</h3>
 
+                    {/* FICHA TECNICA TEXTO - pelicula  */}
                     <TextoFichaTecnica>
-                        <p clas sName="eq">{">"} FICHA TECNICA</p>
+                        <p clas sName="eq">{">"} FICHA TÉCNICA</p>
                         <div className="cartel-ficha">
                             <div>
                             <span>{yearPelicula}{tab}</span>                 
@@ -227,6 +192,50 @@ const Post = ({ actions, state, element, libraries }) => {
                         }         
                         </div>
                     </TextoFichaTecnica>
+
+                    {fichaTecnica.length > 0 ? (
+                      <>
+                        <p className="eq">{">"} EQUIPO Y REPARTO</p>
+                      </>
+                    ): null}
+                    
+                      
+                  {/* FICHA TECNICA PERSONAS slider - pelicula */}
+                    <SliderFichaTecnica className="panel" style={wrap} >
+
+                        {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
+                        return (                    
+                            <ContenedorFicha  value={val.id}>
+                            {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
+                            {console.log(fichaTecnica)}
+
+                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                            <article className="fondo-verde">                        
+                                {val.cargo_nombre.map((val,key) =>{
+                                return (
+                                    <FichaLink link={val.post_type + "/" + val.post_name}>
+                                        <p>{val.post_title}</p>
+                                    </FichaLink>
+                                )
+                                })}
+                                <p className="cargo">{val.cargo}</p>  
+                                </article>
+                            </ContenedorFicha>
+                        )
+                      } 
+                        ): null
+                    }
+                    </SliderFichaTecnica >
+
+                    {/* {state.theme.contador % 2 !== 0 && } */}                
+                    
+
+
+                    {fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
+                    <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length}) 
+                                    
+                    </VerMas>
+                    )} 
               </FichaTecnicaPelicula>
 
             {/* TE PUEDE INTERESAR inicio  */}
@@ -235,7 +244,9 @@ const Post = ({ actions, state, element, libraries }) => {
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
                     <Array>
 
-                      {typeof interesarPeliculas === "undefined" ? <p>Cargando Peliculas...</p> : 
+                      {typeof interesarPeliculas === "undefined" ? <Cargando /> : 
+
+                          
 
                           Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
 
@@ -428,7 +439,12 @@ const Post = ({ actions, state, element, libraries }) => {
             <>
                <Artista>
                     <InfoAf>
-                        <Indice><p> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
+                        <Indice><p> {">"} CATALOGO                
+                            {" > "} 
+                          <Link href='/productoras'>
+                            PRODUCTORAS 
+                          </Link></p>
+                         </Indice>
                         <Info>
                         <Foto>
                             <div style={{backgroundImage:`url(${post.acf.foto_productora || fotoRandom})`}}></div>
@@ -582,6 +598,8 @@ const DescripcionArtista = styled.span`
 const InfoAf = styled.div`
     // background: ${fondoRosa};
 
+
+
 `
 
 const Bio = styled.p`
@@ -604,6 +622,13 @@ const Indice = styled.div`
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
+
+    p {
+      font-size: .7rem;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      font-weight: normal;
+    }
 `
 
 const Info = styled.div`
@@ -657,7 +682,7 @@ const Array = styled.div`
 const Cartel = styled.div`
   color: #fff;
   padding-top: 2em;
-  padding-left: 1em;
+  // padding-left: 1em;
   height: 100%;
   padding-bottom: 1em;
   transition: 500ms ease;
@@ -668,8 +693,21 @@ const Cartel = styled.div`
   z-index: 95;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-left: 1em;
+  justify-content: flex-end;
+  padding-left: 3em;
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    font-weight: normal;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
 
   & > * {
 
@@ -702,8 +740,8 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 20vw;
-  width: 20vw;
+  height: 18vw;
+  width: 20.5vw;
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
@@ -802,7 +840,7 @@ const GaleriaPelicula = styled.div`
 
       /* Handle on hover */
       &::-webkit-scrollbar-thumb:hover {
-        background: #fe7434;
+        background: #F9672D;;
         cursor: pointer;
 
       }
@@ -820,9 +858,10 @@ const FichaTecnicaPelicula = styled.div`
 
     .eq {
       font-size: .9rem;
-      padding-left: 1.4em;
+      // padding-left: 1.4em;
       color: #333;
       padding-bottom: 1em;
+      padding-top: 2em;
     }
 
     .cartel-ficha {
@@ -972,6 +1011,9 @@ const ContenedorFicha = styled.div`
       margin: 0;
       padding: 0;
       color: white;
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: 0.8rem;
     }
 
     .cargo {
@@ -993,9 +1035,12 @@ const Raya = styled.div`
 `
 
 const TextoFichaTecnica = styled.div`
-  padding-top: 2em;
+  // padding-top: 2em;
 
-
+  p {
+    // font-size: .9rem;
+    // font-family: ${redHat};
+  }
 `
 
 const Interesar = styled.div`

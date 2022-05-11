@@ -53,11 +53,13 @@ const Logo = styled.div`
 const Nav = styled.nav`
     display: flex; 
     justify-content: space-between;
+    // position:relative;
 
     & a {
         padding-left: 3.5em
     }
 
+    
     
 
     @media (max-width: 769px){
@@ -77,8 +79,19 @@ const Header = ({state,actions}) => {
                 <Nav>
                    <Relative>
                         
-                            {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion>}                       
-                            {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion2>}
+                            {state.theme.contadorPresentacion % 2 !== 0 && 
+                                <Presentacion onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN
+                                {/* <div className="absoluto">
+                                    <article>
+                                        <p>ABSOLUTO</p>
+                                        <p>ABSOLUTO</p>
+                                        <p>ABSOLUTO</p>
+                                    </article>
+                                
+                                </div> */}
+                                </Presentacion>}                       
+                            {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN               
+                    </Presentacion2>}
                                           
                         {state.theme.contadorPresentacion % 2 !== 0 && <PresentacionModal />}                       
                    </Relative>
@@ -97,8 +110,9 @@ const Header = ({state,actions}) => {
                    </RelativeCatalogo>
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
-                    <FichaLink link='/mapa'>MAPA</FichaLink>
-                    <Link href='/articulos'>CONTACTO</Link> 
+                    <FichaLink link='/mapa' onClick={actions.theme.setPlusContadorPresentacion} >MAPA</FichaLink>
+                    <Link href='/articulos'onClick={actions.theme.setPlusContadorPresentacion}>CONTACTO</Link> 
+                    
                 </Nav>
             <MenuButton />
 
@@ -120,9 +134,23 @@ const Presentacion = styled.span`
     /* border-radius: 2px; */
     padding: 0.1em 0.2em;
     margin-left: 3.5em;
+    
+    .absoluto {
+        position:absoluto;
+        display:none;
+        top: 1px;
+        left:1px;
+        background: white;
+        border: 1px solid black;
+    }
+
 
     span:hover {
         color: #EC7342
+    }
+
+    &:hover .absoluto{
+        display: inline;
     }
 `
 const Presentacion2 = styled.span`
@@ -130,6 +158,7 @@ const Presentacion2 = styled.span`
     cursor: pointer;
     padding: .1em .2em;
     border: 1px solid rgba(0,0,0,0);
+    position:relative;
 
 
 `
