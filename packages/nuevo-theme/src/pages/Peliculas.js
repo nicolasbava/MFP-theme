@@ -185,6 +185,15 @@ const Peliculas = ({state, actions}) => {
                     )
                 })}
                 </Array>
+
+                <Año>
+                  {array3.map((peliculas) => {
+                    return (
+                      <h3>{peliculas.acf.year}</h3>
+                    )
+                  }
+                  )}                  
+                </Año>
             
               </Outside>
             </Contenedor>
@@ -194,7 +203,14 @@ const Peliculas = ({state, actions}) => {
     )
 }
 
-
+const Año = styled.div`
+    display: flex;
+    
+    h3 {
+      width: 27.7vw;
+      margin-left: 1vw;
+    }
+`
 
 const CartelHeader = styled.nav`
     display: flex;
@@ -338,7 +354,7 @@ const Cuadrado = styled.div`
   border-radius: 2px;
   height: 24vw;
   width: 27.7vw;
-  overflow:hidden;
+  overflow: hidden;
   margin-left: 1vw;
   z-index: 99;
   background-position: center;
@@ -346,7 +362,7 @@ const Cuadrado = styled.div`
 
   h3 {
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     text-transform: uppercase;
     line-height: 1.6;
     font-weight: normal;

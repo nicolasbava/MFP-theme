@@ -82,7 +82,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     if (post.acf.foto_artista === true) {
       fotoRandom = post.acf.foto_artista;
-    } else { fotoRandom = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"}
+    } else { fotoRandom = "http://memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"}
   
    
     
@@ -170,14 +170,14 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     {/* FICHA TECNICA TEXTO - pelicula  */}
                     <TextoFichaTecnica>
-                        <p clas sName="eq">{">"} FICHA TÉCNICA</p>
+                        <p className="eq">{">"} FICHA TÉCNICA</p>
                         <div className="cartel-ficha">
                             <div>
-                            <span>{yearPelicula}{tab}</span>                 
-                            <span>{tab}/{tab}{generoPelicula} </span> 
+                            <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                 
+                            {/* <span>{tab}/{tab}{generoPelicula} </span> 
                             <span>{tab}/{tab}{colorPelicula} </span> 
-                            <span>{tab}/{tab}{estiloPelicula}</span> 
-                            <span>{tab}-{tab}Duración: {duracionPelicula}</span> 
+                            <span>{tab}/{tab}{estiloPelicula}</span>  */}
+                            <span>Duración: {duracionPelicula}</span> 
 
                             </div>
                             <p>Formato Original: {post.acf.formato_original}</p>
@@ -439,7 +439,7 @@ const Post = ({ actions, state, element, libraries }) => {
             <>
                <Artista>
                     <InfoAf>
-                        <Indice><p> {">"} CATALOGO                
+                        <Indice><p> {">"} CATÁLOGO                
                             {" > "} 
                           <Link href='/productoras'>
                             PRODUCTORAS 
@@ -668,15 +668,16 @@ const InteresarPeliculas = styled.section`
 `
 
 const Article = styled.article`
-    
+    margin-bottom: 1vw;
 &:first-of-type{
-    margin-left: -1vw;
+    // margin-left: -1vw;
 }
 `
 
 const Array = styled.div`
     display: flex;
     padding: 1em 0;
+    flex-wrap: wrap;
 `
 
 const Cartel = styled.div`
@@ -692,6 +693,8 @@ const Cartel = styled.div`
   border-radius: 2px;
   z-index: 95;
   display: flex;
+
+  gap: 1vw;
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 3em;
@@ -740,11 +743,16 @@ const Rayita = styled.div`
 const Cuadrado = styled.div`
   background: grey;
   border-radius: 2px;
-  height: 18vw;
-  width: 20.5vw;
+  height: 36vw;
+  width: 41vw;
   overflow:hidden;
   margin-left: 1vw;
   z-index: 99;
+
+  @media (min-width: 944px){   
+      width: 20.5vw;
+      height: 18vw;   
+  }
 `
 
 
@@ -763,14 +771,14 @@ const Catalogo = styled.p`
 const TituloPeli = styled.h2`
     font-size: 2rem;
     color: black;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
     margin-top: 0;
     text-transform: uppercase;
     font-weight: normal;
 
 `
 const InfoPeli = styled.span`
-    font-family: "Calibri",sans-serif;
+    font-family: ${redHat};
     font-size: 1.3rem;
     color:#5b5b5b;
 
@@ -833,8 +841,8 @@ const GaleriaPelicula = styled.div`
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: ${naranja};
-        border-radius: 2px;
+        background: #f95614;
+        border-radius: 50px;
         cursor: pointer;
       }
 
@@ -861,37 +869,38 @@ const FichaTecnicaPelicula = styled.div`
       // padding-left: 1.4em;
       color: #333;
       padding-bottom: 1em;
-      padding-top: 2em;
+      padding-top: 0.5em;
     }
 
     .cartel-ficha {
       font-family: 'Calibri';
-      line-height: 0.2;
+      line-height: 1;
       font-size: 1.3rem;
       color: #333;
-      padding-top: 0.5em;
+      // padding-top: 0.5em;
     }
 `
 
 const SliderFichaTecnica = styled.div`
-      transition: flex-wrap 500ms ease;
-      padding-bottom: 2.3em;
+      transition: all 500ms ease;
+      padding-bottom: 0.5em;
       display: flex;
+      gap: 1vw;
       overflow-x: scroll;
-    //   justify-content: space-between;
+      //justify-content: space-between;
 
-      scrollbar-color: ${naranja} ${fondoRosa};
+      scrollbar-color: #ff510a ${fondoRosa};
       scrollbar-width: thin;
       scrollbar-radius: 2px;
 
-      &:first-of-type {
-        margin-left: -2vw;
-      }
+      // &:first-of-type {
+      //   margin-left: -2vw;
+      // }
 
       &::-webkit-scrollbar {
         height: 10px;
         width: 69px;
-        background-color: ${naranja} ${fondoRosa};
+        background-color: #ff510a ${fondoRosa};
         cursor:pointer;
 
       }
@@ -909,7 +918,7 @@ const SliderFichaTecnica = styled.div`
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: ${naranja};
+        background: #ff510a;
         border-radius: 6px;
         cursor: pointer;
       }
@@ -930,7 +939,7 @@ const SliderFichaTecnicaWrap = styled.div`
       overflow-x: scroll;
     //   justify-content: space-between;
 
-      scrollbar-color: ${naranja} ${fondoRosa};
+      scrollbar-color: #ff5e1d ${fondoRosa};
       scrollbar-width: thin;
       scrollbar-radius: 2px;
 
@@ -941,7 +950,7 @@ const SliderFichaTecnicaWrap = styled.div`
       &::-webkit-scrollbar {
         height: 10px;
         width: 69px;
-        background-color: ${naranja} ${fondoRosa};
+        background-color: #ff5e1d ${fondoRosa};
         cursor:pointer;
 
       }
@@ -959,8 +968,8 @@ const SliderFichaTecnicaWrap = styled.div`
 
       /* Handle */
       &::-webkit-scrollbar-thumb {
-        background: ${naranja};
-        border-radius: 6px;
+        background: #ff510a;
+        border-radius: 25px;
         cursor: pointer;
       }
 
@@ -976,6 +985,8 @@ const VerMas = styled.p`
       text-align: right;
       cursor: pointer;
       font-size: 0.8rem;
+      margin: 0;
+      padding-top: 2em;
 `
 
 const ContenedorFicha = styled.div`
@@ -985,26 +996,32 @@ const ContenedorFicha = styled.div`
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    padding-left: 2vw;
+    // padding-left: 2vw;
     color: white;
-    width: 12vw;
+    // width: 12vw;
     margin-bottom: 2vw;
+    margin-top: 1.2em;
 
-
-    
+   
     div {
       height: 100%;
-      width: 12vw;
+      // width: 12vw;
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 2px 2px 0 0;
 
       }
+    // &:first-of-type {
+    //   margin-left: -2vw;
+    // }  
+
+
     .fondo-verde {
       background:#00ad9d;
       padding: 0.3em 0.5em 1.1em 0.5em;
       border-radius: 0 0 2px 2px ;
-      height: 7vw;
+      height: 100px;
+      width: 150px;
     }
 
     p {
@@ -1026,7 +1043,7 @@ const ContenedorFicha = styled.div`
 
 const Raya = styled.div`
     background: #d5d3d3;
-    height: 2px;
+    height: 1px;
     border-radius: 25px;
     position: absolute;
     left: 0;
@@ -1035,7 +1052,7 @@ const Raya = styled.div`
 `
 
 const TextoFichaTecnica = styled.div`
-  // padding-top: 2em;
+  padding-bottom: 0.5em;
 
   p {
     // font-size: .9rem;
