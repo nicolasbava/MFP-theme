@@ -3,6 +3,7 @@ import {connect, styled} from "frontity"
 import Link from "../components/Link"
 import Peliculas from "./Peliculas"
 import Cargando from "../components/Cargando"
+import CatalogoNoticias from "./catalogoNoticias"
 // import Catalogo from "./catalogoVideos"
 
 const Home = ({state}) => {
@@ -26,8 +27,10 @@ const Home = ({state}) => {
             {typeof peliculas === "undefined" ? <Cargando /> : 
             
                 // <Catalogo />
-
-                <Peliculas />
+                <>
+                    <Peliculas />
+                    <CatalogoNoticias />
+                </>
             }
 
             

@@ -19,7 +19,7 @@ const CatalogoNoticias = ({state, actions}) => {
 
     return (
         <Contenedor>
-            <p>{">"} NOTICIAS</p>
+            <p class="krona">{">"} NOTICIAS</p>
             {!filteredArtistas.length > 0 && (
                 <p>No encontramos nada con: {state.theme.valorBusquedaGlobal}</p>
             )}
@@ -100,8 +100,8 @@ const ImagenNoticia = styled.div`
     background: no-repeat;
     background-color: rgba(0, 0, 0, 0);
     background-color: #00b1a0;
-    height: 24vw;
-    width: 27.2vw;
+    height: 23vw;
+    width: 26.9vw;
     background-blend-mode: screen;
     cursor: pointer; 
     transition: background-color 500ms ease;
@@ -179,8 +179,7 @@ const Noticias = styled.div`
 const Flex = styled.div`
   display: flex;
   align-items: center;
-
-
+  font-family: 'Krona One'
 `
 
 const CartelNoticia = styled.section`

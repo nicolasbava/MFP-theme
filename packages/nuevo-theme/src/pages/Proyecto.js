@@ -62,7 +62,8 @@ const Indice = styled.div`
     font-size: .7rem;
     font-weight: normal;
     padding-top: 3em;
-
+    font-family: "Krona One";
+    
     p {
         margin:0;
         padding: 0;

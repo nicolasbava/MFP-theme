@@ -59,7 +59,13 @@ const Base = () => {
                     font-family: ${kronaOne};
                 }
 
+                .krona {
+                    font-family: ${kronaOne}
+                }
 
+                .redHat {
+                    font-family: ${redHat}
+                }
 
             `}
         />

@@ -69,7 +69,7 @@ const Peliculas = ({state, actions}) => {
 
         <Contenedor>
             <CartelHeader>
-                <p>{"> "}ENCICLOPEDIA VIRTUAL</p>
+                <p className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
  
@@ -186,14 +186,14 @@ const Peliculas = ({state, actions}) => {
                 })}
                 </Array>
 
-                <Año>
+                {/* <Año>
                   {array3.map((peliculas) => {
                     return (
                       <h3>{peliculas.acf.year}</h3>
                     )
                   }
                   )}                  
-                </Año>
+                </Año> */}
             
               </Outside>
             </Contenedor>
@@ -237,7 +237,7 @@ const Outside = styled.div`
   overflow-x: scroll;
   width: 87vw;
   padding-bottom: 2em;
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 
   &:first-of-type {
     margin-left: -1vw;

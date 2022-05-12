@@ -35,7 +35,9 @@ const Contenedor = styled.div`
     display: flex;
     justify-content: space-between;
     font-size: .7rem;
-    align-items: center;    
+    align-items: center; 
+    font-family: "Krona One";
+
 
     .img {
         max-width: 106px;
@@ -47,8 +49,7 @@ const Contenedor = styled.div`
     }
 `
 const Logo = styled.div`
-
-
+    font-family: "Krona One";
 `
 const Nav = styled.nav`
     display: flex; 
