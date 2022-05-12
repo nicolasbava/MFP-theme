@@ -11,6 +11,10 @@ const Base = () => {
     
     const fondoRosa = "#fbf0e5"
 
+    const redHat = "'Red Hat Text', sans-serif"
+
+    const kronaOne = "'Krona One', sans-serif"
+
     return (
         <Global 
             styles = {css`
@@ -46,6 +50,16 @@ const Base = () => {
                     display: block;
                     height: 160px
                 }
+
+                p {
+                    font-family: ${redHat};
+                }
+
+                h1, h2, h3, h4 {
+                    font-family: ${kronaOne};
+                }
+
+
 
             `}
         />

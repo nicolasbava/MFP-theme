@@ -37,6 +37,31 @@ const Territorio = ({state}) => {
 
                 </Imagenes> */}
 
+                <a href="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png" data-toggle="lightbox">
+                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
+                </a>
+
+                <div class="row">
+                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid"></img>
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid"></img>
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid"></img>
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid"></img>
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid"></img>
+                    </a>
+                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid"></img>
+                    </a>
+                </div>
+
             
             </Contenedor> 
 

@@ -3,7 +3,7 @@ import {connect, Head, styled} from "frontity"
 
 import { FooterBasico } from "../components/footer"
 
-const fontTitulo = ".8rem"
+const fontTitulo = ".7rem"
 
 const Mapa = () => {
 

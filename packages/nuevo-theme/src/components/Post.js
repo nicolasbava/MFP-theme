@@ -148,16 +148,17 @@ const Post = ({ actions, state, element, libraries }) => {
                 )}
                 
                 {/* GALERIA PELICULAS */}
-                <GaleriaPelicula>              
-                    {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
-                    return (
-                        <a href={val}>
-                          <img src={val}></img>
-                        </a>
-                    )
-                    })) : null
-                    }    
-
+                <GaleriaPelicula>    
+                         
+                      {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
+                      return (
+                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                            <img src={val}  class="img-fluid"></img>
+                          </a>
+                      )
+                      })) : null
+                      }    
+                  
                 </GaleriaPelicula>
 
                 
@@ -805,6 +806,8 @@ const GaleriaPelicula = styled.div`
     display: flex;
     overflow-x: scroll;
     padding-bottom: 2em;
+    height: auto;
+    gap: 1vw;
 
     &:first-of-type {
       margin-left: -2vw;
@@ -812,8 +815,8 @@ const GaleriaPelicula = styled.div`
 
     img {
       cursor:pointer;
-      margin-left: 2vw;
-
+      // margin-bottom: 2vw;
+      max-height: 300px;
     }
 
     scrollbar-color: ${naranja} ${fondoRosa};
