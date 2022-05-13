@@ -212,8 +212,10 @@ const Peliculas = ({state, actions}) => {
 const VerTodasPeliculas = styled.article`
     text-transform: uppercase;
     font-size: .7rem;
-    padding: 1.5em 13px 0em 0;
+    padding: 2em 13px 0em 0;
     float:right;
+    position:absolute: 
+    right: 7%;
 
 `;
 
@@ -251,7 +253,7 @@ const Outside = styled.div`
   overflow-x: scroll;
   width: 87vw;
   padding-bottom: 2em;
-  margin-bottom: 2em;
+  //margin-bottom: 2em;
 
   &:first-of-type {
     margin-left: -1vw;

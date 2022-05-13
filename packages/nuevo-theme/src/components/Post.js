@@ -4,6 +4,7 @@ import {connect, styled, css, Global} from 'frontity'
 import Link from './Link'
 import FichaLink from './FichaLink'
 import Cargando from './Cargando'
+import IconosRedes from './IconosRedes'
 
 
 const naranja = '#ec7342'
@@ -474,6 +475,9 @@ const Post = ({ actions, state, element, libraries }) => {
                     {/* [0].peliculas.post_title */}
     
             </Artista>
+
+
+
             </>   
                )
     } else if (element === 'noticia') {
@@ -482,7 +486,7 @@ const Post = ({ actions, state, element, libraries }) => {
         <Noticia>
         <IndiceNoticias>
           <Link href='/noticias'>
-            <p className="krona">{">"} NOTICIAS</p>
+            <p className="krona">{"> "}NOTICIAS</p>
           </Link>
         </IndiceNoticias>
           
@@ -502,6 +506,8 @@ const Post = ({ actions, state, element, libraries }) => {
                     }    
 
           </GaleriaPelicula>
+
+          <IconosRedes />
         
         </Noticia>
         )

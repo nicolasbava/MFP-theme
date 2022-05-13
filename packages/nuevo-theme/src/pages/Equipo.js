@@ -1,6 +1,7 @@
 import React from "react"
 import {connect, styled} from "frontity"
 import Cargando from "../components/Cargando"
+import IconosRedes from "../components/IconosRedes"
 
 const Equipo = ({state}) => {
 
@@ -45,9 +46,9 @@ const Equipo = ({state}) => {
 
                 </Imagenes> */}
 
+            <IconosRedes />
             
             </Contenedor> 
-
 
         
         

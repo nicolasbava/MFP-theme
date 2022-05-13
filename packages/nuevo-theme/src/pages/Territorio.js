@@ -1,6 +1,7 @@
 import React from "react"
 import {connect, styled} from "frontity"
 import Cargando from "../components/Cargando"
+import IconosRedes from "../components/IconosRedes"
 
 const Territorio = ({state}) => {
 
@@ -41,30 +42,9 @@ const Territorio = ({state}) => {
                     <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
                 </a>
 
-                <div class="row">
-                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid"></img>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid"></img>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid"></img>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid"></img>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid"></img>
-                    </a>
-                    <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                        <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid"></img>
-                    </a>
-                </div>
-
-            
+            <IconosRedes />
+                            
             </Contenedor> 
-
 
         
         
@@ -84,8 +64,8 @@ const Indice = styled.div`
     p {
         margin:0;
         padding: 0;
-    font-size: .7rem;
-    font-family: 'Krona One', sans-serif;
+        font-size: .7rem;
+        font-family: 'Krona One', sans-serif;
 
     }
 `
