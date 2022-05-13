@@ -46,13 +46,18 @@ const Territorio = ({state}) => {
                             
             </Contenedor> 
 
+            
+
         
         
         </>
     )
 }
 
+
 export default connect(Territorio)
+
+
 
 const Indice = styled.div`
     padding-left: 7%;

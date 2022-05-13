@@ -83,28 +83,17 @@ const Header = ({state,actions}) => {
                 <Nav>
                    <Relative>
                         
-                            {state.theme.contadorPresentacion % 2 !== 0 && 
-                                <Presentacion onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN
-                                {/* <div className="absoluto">
-                                    <article>
-                                        <p>ABSOLUTO</p>
-                                        <p>ABSOLUTO</p>
-                                        <p>ABSOLUTO</p>
-                                    </article>
-                                
-                                </div> */}
-                                </Presentacion>}                       
-                            {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN               
-                    </Presentacion2>}
-                                          
+                        {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion  onMouseDown={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion>}                       
+                        {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onMouseEnter={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion2>}
+                                        
                         {state.theme.contadorPresentacion % 2 !== 0 && <PresentacionModal />}                       
                    </Relative>
 
                    <Link href='/noticias'>NOTICIAS</Link> 
 
                    <RelativeCatalogo>
-                        {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion>}
-                        {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion2>}
+                        {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onMouseDown={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion>}
+                        {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onMouseEnter={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion2>}
 
                         {state.theme.contadorCatalogo % 2 !== 0 && <CatalogoModal />}                       
                         
@@ -114,8 +103,8 @@ const Header = ({state,actions}) => {
                    </RelativeCatalogo>
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
-                    <FichaLink link='/mapa' onClick={actions.theme.setPlusContadorPresentacion} >MAPA</FichaLink>
-                    <Link href='/contacto'onClick={actions.theme.setPlusContadorPresentacion}>CONTACTO</Link> 
+                    <FichaLink link='/mapa'>MAPA</FichaLink>
+                    <Link href='/contacto'>CONTACTO</Link> 
                     
                 </Nav>
             <MenuButton />
