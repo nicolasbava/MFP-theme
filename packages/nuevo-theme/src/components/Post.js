@@ -672,6 +672,14 @@ const TrabajosArtista = styled.div`
 // artista final
 const InteresarPeliculas = styled.section`
     padding-top: 2em;
+    
+    p {
+      font-family: 'Krona One';
+      font-weight: normal;
+      padding-bottom: 2em;
+      font-size: 0.8rem;
+    }
+
 `
 
 const Article = styled.article`
@@ -819,6 +827,7 @@ const GaleriaPelicula = styled.div`
     display: flex;
     overflow-x: scroll;
     padding-bottom: 2em;
+    padding-top: 1em;
     height: auto;
     gap: 1vw;
 
@@ -878,6 +887,7 @@ const FichaTecnicaPelicula = styled.div`
       color: #333;
       font-weight: normal;
       font-size: 1.5rem;
+      padding-bottom: .5em;
     }
 
     .eq {
@@ -892,7 +902,7 @@ const FichaTecnicaPelicula = styled.div`
     .cartel-ficha {
       font-family: 'Calibri';
       line-height: 1;
-      font-size: 1.3rem;
+      font-size: 1rem;
       color: #333;
       // padding-top: 0.5em;
     }
@@ -1017,7 +1027,7 @@ const ContenedorFicha = styled.div`
     color: white;
     // width: 12vw;
     margin-bottom: 2vw;
-    margin-top: 1.2em;
+    margin-top: 1em;
 
    
     div {
@@ -1039,15 +1049,18 @@ const ContenedorFicha = styled.div`
       border-radius: 0 0 2px 2px ;
       height: 100px;
       width: 150px;
+      color: #FBF0E5;
+
     }
 
     p {
       margin: 0;
-      padding: 0;
+      padding: .2em .3em;
       color: white;
       font-weight: normal;
       text-transform: uppercase;
       font-size: 0.8rem;
+      font-family: 'Krona One';
     }
 
     .cargo {
