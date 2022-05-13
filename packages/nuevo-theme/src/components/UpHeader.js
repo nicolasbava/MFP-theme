@@ -108,6 +108,8 @@ const Description = styled.h4`
   margin-right: 7%;
   opacity: 0; 
   font-weight: normal;
+  font-size: 1rem;
+  
   @media(min-width: 769px){
     opacity: 1; 
   }

@@ -25,13 +25,18 @@ const Contenedor = styled.section`
     align-items: center;
     justify-content: center;
 
+    h3 {
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+
     // INPUT
     input {
         border-radius: 5px;
         border: none;
         font-family: 'red hat display';
-        width: 95%;
-        padding: .3em .5em;
+        width: 100%;
+        //padding: .3em .5em;
     }
 
     // BOTON SUBMIT
@@ -41,8 +46,8 @@ const Contenedor = styled.section`
         font-weight: normal;
         font-family: 'Krona One';
         text-transform: uppercase;
-        padding: 0.3em 0.6em;
+        //padding: 0.3em 0.6em;
         width: 65%;
-        margin-left: 5em;
+        margin-left: 20%;
         margin-right: auto;
 `;

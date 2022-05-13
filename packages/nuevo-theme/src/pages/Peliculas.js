@@ -195,6 +195,12 @@ const Peliculas = ({state, actions}) => {
                   )}                  
                 </Año> */}
             
+              <VerTodasPeliculas> 
+                <Link href="/peliculas">
+                  <p className="krona">{"> "}Ver todas las películas</p>                
+                </Link>
+              </VerTodasPeliculas>
+
               </Outside>
             </Contenedor>
 
@@ -202,6 +208,14 @@ const Peliculas = ({state, actions}) => {
         </>
     )
 }
+
+const VerTodasPeliculas = styled.article`
+    text-transform: uppercase;
+    font-size: .7rem;
+    padding: 1.5em 13px 0em 0;
+    float:right;
+
+`;
 
 const Año = styled.div`
     display: flex;

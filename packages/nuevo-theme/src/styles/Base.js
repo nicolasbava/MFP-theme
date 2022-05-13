@@ -57,14 +57,25 @@ const Base = () => {
 
                 h1, h2, h3, h4 {
                     font-family: ${kronaOne};
+                    font-weight: normal;
                 }
 
                 .krona {
-                    font-family: ${kronaOne}
+                    font-family: ${kronaOne};
+                    margin: 0;
+
                 }
 
                 .redHat {
                     font-family: ${redHat}
+                }
+
+                .carousel-control-next {
+                    right: -50px;
+                  }
+
+                .carousel-control-prev {
+                left: -50px;
                 }
 
             `}

@@ -118,7 +118,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
             <Pelicula>
-                <Catalogo>
+                <Catalogo className="krona">
                   <Link href="/">  {"> "}CATÁLOGO{" "} 
                   {">"} PELÍCULAS</Link>
                 </Catalogo>
@@ -126,11 +126,11 @@ const Post = ({ actions, state, element, libraries }) => {
                 {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
                 
 
-                <CaractPeliculas >      
+                <CaractPeliculas>      
 
                     {yearPelicula && <Link href={yearPelicula} > <p>{yearPelicula}</p> </Link>}  
                     
-                    {generoPelicula && <p>/{tab}{generoPelicula} </p>} 
+                    {generoPelicula && <p>{tab}/{tab}{generoPelicula} </p>} 
 
                     {colorPelicula && <p>{tab}/{tab}{colorPelicula} </p>}        
                    
@@ -178,7 +178,7 @@ const Post = ({ actions, state, element, libraries }) => {
                             {/* <span>{tab}/{tab}{generoPelicula} </span> 
                             <span>{tab}/{tab}{colorPelicula} </span> 
                             <span>{tab}/{tab}{estiloPelicula}</span>  */}
-                            <span>Duración: {duracionPelicula}</span> 
+                            <p>Duración: {duracionPelicula}</p> 
 
                             </div>
                             <p>Formato Original: {post.acf.formato_original}</p>
@@ -482,7 +482,7 @@ const Post = ({ actions, state, element, libraries }) => {
         <Noticia>
         <IndiceNoticias>
           <Link href='/noticias'>
-            <p>{">"} NOTICIAS</p>
+            <p className="krona">{">"} NOTICIAS</p>
           </Link>
         </IndiceNoticias>
           
@@ -494,8 +494,8 @@ const Post = ({ actions, state, element, libraries }) => {
           <GaleriaPelicula>              
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                       return (
-                        <a href={val}>
-                          <img src={val}></img>
+                        <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                          <img src={val}  class="img-fluid"></img>
                         </a>
                       )
                       })) : null
@@ -785,8 +785,9 @@ const TituloPeli = styled.h2`
 `
 const InfoPeli = styled.span`
     font-family: ${redHat};
-    font-size: 1.3rem;
+    font-size: 1rem;
     color:#5b5b5b;
+    margin-botton: 1rem;
 
 `
 const CaractPeliculas = styled.div`
@@ -799,6 +800,7 @@ const CaractPeliculas = styled.div`
     p {
       padding: 0;
       margin: 0;
+      font-family: 'Krona One';
     }
 `
 const VideoPelicula = styled.div`

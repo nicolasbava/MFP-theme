@@ -89,7 +89,7 @@ const Root = ({state, actions}) => {
         {data.isEquipoArchive && <Equipo />}
         {data.isProyectoArchive && <Proyecto />}
 
-        {data.isPeliculasArchive && <Peliculas />}
+        {data.isPeliculasArchive && <CatalogoVideos />}
         {data.isArtistasArchive && <CatalogoArtistas />}
         {data.isNoticiasArchive && <CatalogoNoticias />}
         {data.isProductorasArchive && <CatalogoProductoras />}

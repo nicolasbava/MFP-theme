@@ -25,7 +25,7 @@ const CatalogoArtistas = ({state, actions}) => {
         <Contenedor>
             {/* {console.log(arrayArtistas)} */}
             <Flex>
-            <p>{"> "} CATÁLOGO {">"} ARTISTAS</p>
+            <p className="krona">{"> "} CATÁLOGO {">"} ARTISTAS</p>
                 <Search />
             </Flex>
             {!filteredArtistas.length > 0 && (
@@ -115,8 +115,8 @@ const Contenedor = styled.main`
     padding-right: 7%;
 
     P {
-        padding-top: 2em;
-        padding-bottom: 2em;
+        padding-top: 3em;
+        padding-bottom: 3em;
         font-size: .7rem;
     }
 `
@@ -146,6 +146,7 @@ const Cartel = styled.div`
 
   h3 {
       margin-bottom: 0;
+      font-size: 1rem;
       text-transform: uppercase;
   }
 

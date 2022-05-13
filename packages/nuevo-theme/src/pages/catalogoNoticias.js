@@ -89,8 +89,9 @@ const Contenedor = styled.main`
 
     p {
         font-size: .7rem;
-        padding-bottom: 2.5em;
-        padding-top: 2.5em;
+        padding-bottom: 3em;
+        padding-top: 3em;
+        margin: 0;
     }
 `
 

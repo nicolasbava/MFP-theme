@@ -70,7 +70,7 @@ const CatalogoVideos = ({state, actions}) => {
 
         <Contenedor>
             <CartelHeader>
-                <p>{"> "}ENCICLOPEDIA VIRTUAL</p>
+                <p className="krona">{"> "}CATÁLOGO{" > "}PELÍCULAS</p>
                 <Search />
             </CartelHeader>    
  
@@ -189,36 +189,7 @@ const CatalogoVideos = ({state, actions}) => {
             
             </Outside>
 
-            {/* NOTICIAS ultimas 3 */}
-            
-            <Titulo>NOTICIAS {">>"}</Titulo>
-                <NoticiasFlex>
-                    {typeof noticias === "undefined" ? <p>Cargando Noticias...</p> : 
-                    
-                        Object.values(noticias).reverse().slice(0,3).map( noticia => {
-
-                            return (
-                                <DisplayNoticias key={noticia.id}>
-                                    <Noticias>  
-                                        <Link href={noticia.link}>
-                                            <ImagenNoticia style={{backgroundImage:`url(${noticia.acf.foto_portada})`}}></ImagenNoticia>
-                                        </Link>    
-                                        <CartelNoticia>
-                                            <Link href={noticia.link}>
-                                                <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
-                                            </Link>
-                                            <p dangerouslySetInnerHTML={{__html: noticia.acf.resumen}}></p>
-                                            <span>{">>"}</span>
-                                        </CartelNoticia>
-
-                                    </Noticias>
-                                </DisplayNoticias> 
-                            )
-                        })         
-                    }
-                </NoticiasFlex>
-                {typeof noticias === "undefined" ? '' : <p>{noticias.id}</p>}
-                    
+               
 
             </Contenedor>
 
@@ -289,7 +260,7 @@ const Catalogo = ({state, actions}) => {
 
         <Contenedor>
             <CartelHeader>
-                <p>{"> "}ENCICLOPEDIA VIRTUAL</p>
+                <p className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
  
@@ -428,7 +399,7 @@ const CartelHeader = styled.nav`
     padding-bottom: 2em;
 
     p {
-        font-size: .8rem
+        font-size: .7rem
     }
 `
 
@@ -476,7 +447,7 @@ const ImagenNoticia = styled.div`
 
 
 const DisplayNoticias = styled.div`
-  display: flex;
+  //display: flex;
   justify-content: space-around;
   /*width: 100%;*/
   margin-left: 2px;
@@ -614,10 +585,8 @@ const Outside = styled.div`
 
 const Array = styled.div`
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   // padding: 1em 0;
-
-
 `
 
 const Contenedor = styled.main`

@@ -16,9 +16,9 @@ const CatalogoModal = ({state,actions}) => {
                     
                     <NavLinks>
                         
-                        <Link href='/peliculas'><p onClick={actions.theme.setPlusContadorCatalogo}>{"> "}PELÍCULAS</p></Link> 
-                        <Link href='/artistas'><p onClick={actions.theme.setPlusContadorCatalogo}>{"> "}ARTISTAS</p></Link> 
-                        <Link href='/productoras'><p onClick={actions.theme.setPlusContadorCatalogo}>{"> "}PRODUCTORAS</p></Link> 
+                        <Link href='/peliculas'><p className="krona" onClick={actions.theme.setPlusContadorCatalogo}>{"> "}PELÍCULAS</p></Link> 
+                        <Link href='/artistas'><p className="krona" onClick={actions.theme.setPlusContadorCatalogo}>{"> "}ARTISTAS</p></Link> 
+                        <Link href='/productoras'><p className="krona" onClick={actions.theme.setPlusContadorCatalogo}>{"> "}PRODUCTORAS</p></Link> 
                     </NavLinks>                
                 </MenuContainer>
                

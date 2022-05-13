@@ -16,7 +16,7 @@ const Mapa = () => {
        <>
             <Contendor>
 
-                <p className="titulo">{">"} MAPA INTERACTIVO</p>
+                <p className="titulo krona">{">"} MAPA INTERACTIVO</p>
                 {/* <p className="descripcion">Presionar sobre este icono para desplegar mas opciones.</p> */}
 
                 <ContenedorMapa>

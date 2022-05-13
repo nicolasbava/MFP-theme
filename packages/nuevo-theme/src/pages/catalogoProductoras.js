@@ -22,7 +22,7 @@ const CatalogoProductoras = ({state, actions}) => {
         <Productoras>
             {console.log(arrayArtistas)}
             <article>
-                <p>{"> "} CATÁLOGO {">"} PRODUCTORAS</p>
+                <p className="krona">{"> "} CATÁLOGO {">"} PRODUCTORAS</p>
                 <Search />
 
             </article>
@@ -122,17 +122,13 @@ const Cartel = styled.div`
   justify-content: end;
   padding-bottom: 5em;
 
-  @media (max-width: 600px) { 
-    font-size: 0.5rem;  }
 
-  @media (min-width:601px) and (max-width:1000px) {
-    font-size: 0.6rem;
-  }​
 
 
   h3 {
       margin-bottom: 0;
       text-transform: uppercase;
+      font-size: 1rem;
   }
 
   h4{
@@ -156,9 +152,14 @@ const Cartel = styled.div`
     background: rgba(0,0,0, .7);
     opacity: 1;
     box-sizing: border-box;
-
-
   }
+
+  @media (max-width: 600px) { 
+    font-size: 0.5rem;  }
+
+  @media (min-width:601px) and (max-width:1000px) {
+    font-size: 0.6rem;
+  }​
 `
 
 const Rayita = styled.div`
@@ -212,8 +213,8 @@ const Productoras = styled.section`
 
         p {
             font-size: .7rem;
-            padding-top: 2em;
-            padding-bottom: 2em;
+            padding-top: 3em;
+            padding-bottom: 3em;
         }
     }
 

@@ -333,6 +333,8 @@ const Container = styled.div`
 
   p {
     margin: 1em 0;
+    FONT-SIZE: 0.5rem;
+    font-family: 'Krona One';
   }
 
   .rojolab {
