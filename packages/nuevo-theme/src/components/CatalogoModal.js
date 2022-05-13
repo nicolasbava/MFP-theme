@@ -14,7 +14,7 @@ const CatalogoModal = ({state,actions}) => {
             <>
                 <MenuContainer>
                     
-                    <NavLinks onMouseEnter={actions.theme.setPlusContadorCatalogo} onMouseLeave={actions.theme.setPlusContadorCatalogo}>
+                    <NavLinks onMouseLeave={actions.theme.setPlusContadorCatalogo}>
                         
                         <Link href='/peliculas'><p className="krona" onClick={actions.theme.setPlusContadorCatalogo}>{"> "}PELÍCULAS</p></Link> 
                         <Link href='/artistas'><p className="krona" onClick={actions.theme.setPlusContadorCatalogo}>{"> "}ARTISTAS</p></Link> 

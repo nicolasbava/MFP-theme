@@ -1026,8 +1026,8 @@ const ContenedorFicha = styled.div`
     // padding-left: 2vw;
     color: white;
     // width: 12vw;
-    margin-bottom: 2vw;
-    margin-top: 1em;
+    //margin-bottom: 2vw;
+    //margin-top: 1em;
 
    
     div {
@@ -1045,7 +1045,7 @@ const ContenedorFicha = styled.div`
 
     .fondo-verde {
       background:#00ad9d;
-      padding: 0.3em 0.5em 1.1em 0.5em;
+      padding: 0.6em;
       border-radius: 0 0 2px 2px ;
       height: 100px;
       width: 150px;
@@ -1055,7 +1055,7 @@ const ContenedorFicha = styled.div`
 
     p {
       margin: 0;
-      padding: .2em .3em;
+      line-height: 1;
       color: white;
       font-weight: normal;
       text-transform: uppercase;
