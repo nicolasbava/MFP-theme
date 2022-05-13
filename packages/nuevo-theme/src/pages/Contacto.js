@@ -30,6 +30,12 @@ const Contenedor = styled.section`
         font-weight: normal;
     }
 
+    // TEXTAREA
+
+    textarea {
+        width: 94%;
+    }
+
     // INPUT
     input {
         border-radius: 5px;
@@ -48,6 +54,7 @@ const Contenedor = styled.section`
         text-transform: uppercase;
         //padding: 0.3em 0.6em;
         width: 65%;
-        margin-left: 20%;
+        margin-left: 15%;
         margin-right: auto;
+    }
 `;
