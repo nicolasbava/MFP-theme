@@ -329,6 +329,11 @@ const Container = styled.div`
   display: flex; 
   justify-content: space-between; 
   align-items: center;
+  font-size: 'Krona One';
+
+  p {
+    margin: 1em 0;
+  }
 
   .rojolab {
     text-align: right;

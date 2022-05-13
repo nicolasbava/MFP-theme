@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {connect, styled} from "frontity"
 import Link from "./Link"
 import MenuButton from "./MenuButton"
@@ -7,6 +7,8 @@ import FichaLink from "./FichaLink"
 
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
+import Script from "../scripts"
+import JsNav from "./JsNav"
 
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
@@ -70,6 +72,7 @@ const Nav = styled.nav`
 
 // RENDER
 const Header = ({state,actions}) => {
+
     return (
        <HeaderContenedor>
             <Contenedor>
@@ -112,7 +115,7 @@ const Header = ({state,actions}) => {
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
                     <FichaLink link='/mapa' onClick={actions.theme.setPlusContadorPresentacion} >MAPA</FichaLink>
-                    <Link href='/articulos'onClick={actions.theme.setPlusContadorPresentacion}>CONTACTO</Link> 
+                    <Link href='/contacto'onClick={actions.theme.setPlusContadorPresentacion}>CONTACTO</Link> 
                     
                 </Nav>
             <MenuButton />
@@ -120,8 +123,10 @@ const Header = ({state,actions}) => {
 
 
             </Contenedor>
-            
         </HeaderContenedor>
+
+           
+            
     )
 
 }

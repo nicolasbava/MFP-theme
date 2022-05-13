@@ -23,6 +23,7 @@ import Catalogo from "./pages/catalogoVideos"
 import Peliculas from "./pages/Peliculas";
 import Cargando from "./components/Cargando";
 import Script from "./scripts";
+import Contacto from "./pages/Contacto";
 
 
 
@@ -38,7 +39,9 @@ const Root = ({state, actions}) => {
       actions.source.fetch("/territorio")
       actions.source.fetch("/equipo")
       actions.source.fetch("/proyecto")
+      actions.source.fetch("/contacto")
 
+      
 
     }, []) 
 
@@ -97,6 +100,9 @@ const Root = ({state, actions}) => {
         {data.isProductoras && <Post element='productora' />}
         {data.isNoticias && <Post element='noticia' />}
 
+        {data.isContactoArchive && <Contacto />}
+
+
         
         {data.isMapaArchive && <Mapa />}
        
@@ -110,7 +116,7 @@ const Root = ({state, actions}) => {
 
         {/* BOOTSTRAP LIGHTBOX */}
         <Script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></Script>
-        
+
         <Footer />
 
   

@@ -670,15 +670,17 @@ const InteresarPeliculas = styled.section`
 
 const Article = styled.article`
     margin-bottom: 1vw;
-&:first-of-type{
-    // margin-left: -1vw;
-}
+    &:first-of-type{
+        // margin-left: -1vw;
+    }
 `
 
 const Array = styled.div`
     display: flex;
-    padding: 1em 0;
+    //padding: 1em 0;
     flex-wrap: wrap;
+    gap: 1vw;
+    margin-right: -2vw;
 `
 
 const Cartel = styled.div`
@@ -703,13 +705,16 @@ const Cartel = styled.div`
   h3 {
     text-transform: uppercase;
     font-weight: normal;
-    margin-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 1rem;
   }
 
   h4 {
     font-weight: normal;
     padding-top: 0;
     margin-top: 0;
+    font-size: 1rem;
     margin-bottom: 2em;
   }
 
@@ -747,7 +752,7 @@ const Cuadrado = styled.div`
   height: 36vw;
   width: 41vw;
   overflow:hidden;
-  margin-left: 1vw;
+  //margin-left: 1vw;
   z-index: 99;
 
   @media (min-width: 944px){   
@@ -873,6 +878,7 @@ const FichaTecnicaPelicula = styled.div`
       color: #333;
       padding-bottom: 1em;
       padding-top: 0.5em;
+      font-family: 'krona one';
     }
 
     .cartel-ficha {

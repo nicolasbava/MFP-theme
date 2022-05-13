@@ -102,6 +102,15 @@ const settings = {
             "per_page": 99,
             "_embed": true
           },
+        },
+        {
+          type: "contacto",
+          endpoint: "contacto",
+          archive: "/contacto",
+          "params":{
+            "per_page": 99,
+            "_embed": true
+          },
         }
     ],
         "taxonomies" : [

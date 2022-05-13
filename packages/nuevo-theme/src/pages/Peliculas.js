@@ -366,6 +366,7 @@ const Cuadrado = styled.div`
     text-transform: uppercase;
     line-height: 1.6;
     font-weight: normal;
+    font-size: 1rem;
   }
 
   @media (max-width: 769px) { 
