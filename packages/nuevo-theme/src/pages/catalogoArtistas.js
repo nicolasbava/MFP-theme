@@ -20,6 +20,14 @@ const CatalogoArtistas = ({state, actions}) => {
         artistas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
+    const UltimoArrayArtistas = [];
+
+    console.log(filteredArtistas);
+
+
+
+
+
 
     return (
         <Contenedor>

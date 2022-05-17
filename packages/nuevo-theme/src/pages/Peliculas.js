@@ -58,9 +58,7 @@ const Peliculas = ({state, actions}) => {
     //     evt.preventDefault();
     //     scrollContainer.scrollLeft += evt.deltaY;
     // });
-
-
-
+    
 
     return (
         <>
