@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useRef} from "react"
 import {connect, styled} from "frontity"
 
 import Link from "../components/Link"
@@ -39,8 +39,7 @@ const Peliculas = ({state, actions}) => {
       filteredPeliculas.forEach((item,index) => {
       if(items1.includes(index)) array1.push(item);
       if(items2.includes(index)) array2.push(item);
-      if(items3.includes(index)) array3.push(item);
-      
+      if(items3.includes(index)) array3.push(item);      
       })
 
 
@@ -59,10 +58,13 @@ const Peliculas = ({state, actions}) => {
     //     scrollContainer.scrollLeft += evt.deltaY;
     // });
     
+    const scroll = (scrollOffset) => {
+      ref.current.scrollLeft += scrollOffset;
+    }; 
 
     return (
         <>
-        {}
+        
 
 
         <Contenedor>
@@ -75,12 +77,14 @@ const Peliculas = ({state, actions}) => {
 
             {/* OUTSIDE, scroll  */}
             <Outside className="main">
+                
 
                 {/* ARRAY 1  */}
                 <Array>
                 {array1.map((peliculas) => {
                     // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    // <p>Peliculas disponibles({data.items.length})</p>  
+                             
                     
                     return (
 
@@ -192,6 +196,7 @@ const Peliculas = ({state, actions}) => {
                   }
                   )}                  
                 </Año> */}
+
             
               <VerTodasPeliculas> 
                 <Link href="/peliculas">
@@ -199,7 +204,9 @@ const Peliculas = ({state, actions}) => {
                 </Link>
               </VerTodasPeliculas>
 
+
               </Outside>
+              
             </Contenedor>
 
 
@@ -212,8 +219,8 @@ const VerTodasPeliculas = styled.article`
     font-size: .7rem;
     padding: 2em 13px 0em 0;
     float:right;
-    position:absolute: 
-    right: 7%;
+    position:absolute; 
+    right: 5.8%;
 
 `;
 
@@ -249,8 +256,8 @@ export default connect(Peliculas)
 const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
-  width: 87vw;
-  padding-bottom: 2em;
+  width: 91vw;
+  padding-bottom: 4.5em;
   //margin-bottom: 2em;
 
   &:first-of-type {

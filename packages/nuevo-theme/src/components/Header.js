@@ -52,6 +52,7 @@ const Contenedor = styled.div`
 `
 const Logo = styled.div`
     font-family: "Krona One";
+
 `
 const Nav = styled.nav`
     display: flex; 
@@ -60,7 +61,12 @@ const Nav = styled.nav`
 
     & a {
         padding-left: 3.5em
+       
+    
     }
+
+   
+    
 
     
     
@@ -77,7 +83,7 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/'>{"> "}INICIO</Link> 
+                    <Link href='/'><a> {"> "}INICIO </a></Link> 
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>

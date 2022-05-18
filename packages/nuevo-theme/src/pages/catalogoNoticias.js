@@ -61,7 +61,10 @@ const CatalogoNoticias = ({state, actions}) => {
                                             </CartelNoticia>
 
                                         </Noticias>
-                                    </DisplayNoticias>                             
+                                    </DisplayNoticias>   
+
+
+                                                             
 
 
 
@@ -72,6 +75,11 @@ const CatalogoNoticias = ({state, actions}) => {
                     )
                 })}
             </NoticiasFlex>
+            <VerMasNoticias>
+                <Link href="/noticias">
+                    <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
+                </Link>
+            </VerMasNoticias>
 
 
 
@@ -79,6 +87,11 @@ const CatalogoNoticias = ({state, actions}) => {
         </Contenedor>
     )
 }
+
+const VerMasNoticias = styled.article`
+    text-align: right;
+    padding-right: 2%;
+`
 
 
 const Contenedor = styled.main`
@@ -155,7 +168,7 @@ const Noticias = styled.div`
 
   p {
     color: #4a4a4a;
-    font-size: .7rem;
+    font-size: .8rem;
     font-weight: initial;
     line-height: 1;
     text-align: justify;
