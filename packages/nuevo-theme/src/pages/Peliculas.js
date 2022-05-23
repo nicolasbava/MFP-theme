@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from "react"
+import ReactDOM from "react-dom";
 import {connect, styled} from "frontity"
 
 import Link from "../components/Link"
@@ -7,9 +8,13 @@ import Footer from "../components/footer"
 
 import Search from "../components/Search"
 
+import { useHorizontalScroll } from "../components/useSideScroll";
+
+
+
 
 const Peliculas = ({state, actions}) => {
-
+  const scrollRef = useHorizontalScroll();
 
    
 
@@ -76,7 +81,7 @@ const Peliculas = ({state, actions}) => {
 
 
             {/* OUTSIDE, scroll  */}
-            <Outside className="main">
+            <Outside className="main" ref={scrollRef} style={{ overflow: "auto" }}>
                 
 
                 {/* ARRAY 1  */}
