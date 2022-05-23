@@ -7,9 +7,8 @@ import FichaLink from "./FichaLink"
 
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
-import Script from "../scripts"
-import JsNav from "./JsNav"
 
+import Raya from "./Raya"
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
@@ -53,6 +52,10 @@ const Contenedor = styled.div`
 const Logo = styled.div`
     font-family: "Krona One";
 
+    .active{
+        text-decoration: underline
+      } 
+
 `
 const Nav = styled.nav`
     display: flex; 
@@ -83,7 +86,7 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/'><a> {"> "}INICIO </a></Link> 
+                    <Link href='/' activeClassName={`active`}><a> {"> "}INICIO </a></Link> 
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>
@@ -118,6 +121,8 @@ const Header = ({state,actions}) => {
 
 
             </Contenedor>
+      
+
         </HeaderContenedor>
 
            

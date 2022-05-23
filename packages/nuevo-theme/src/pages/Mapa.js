@@ -14,6 +14,7 @@ const Mapa = () => {
 
     return (
        <>
+
             <Contendor>
 
                 <p className="titulo krona">{">"} MAPA INTERACTIVO</p>

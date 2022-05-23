@@ -24,7 +24,8 @@ import Peliculas from "./pages/Peliculas";
 import Cargando from "./components/Cargando";
 import Script from "./scripts";
 import Contacto from "./pages/Contacto";
-
+import HeaderFijo from "./components/HeaderFijo";
+import Raya from "./components/Raya";
 
 
 const Root = ({state, actions}) => {
@@ -75,11 +76,12 @@ const Root = ({state, actions}) => {
 
         <UpHeader />
         <Header />
+        <HeaderFijo />
+        <Raya />
 
 
 
 
-        <Raya></Raya>
         {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
 
@@ -129,15 +131,3 @@ const Root = ({state, actions}) => {
 
 export default connect(Root)
 
-const Raya = styled.div`
-  height: 1px;
-  width: 100%;
-  background: #d9d4d4;
-
-  @media (max-width: 600px){
-
-    &{
-      display:none
-    }
-  }
-`

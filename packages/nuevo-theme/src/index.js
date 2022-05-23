@@ -24,12 +24,15 @@ export default {
       },
       setPlusContadorMobile: ({state}) =>{
         state.theme.contadorMobile += 1;
+        
       },
       setPlusContadorPresentacion: ({state}) =>{
         state.theme.contadorPresentacion += 1;
+        state.theme.contadorCatalogo = 0;
       },
       setPlusContadorCatalogo: ({state}) =>{
         state.theme.contadorCatalogo += 1;
+        state.theme.contadorPresentacion = 0;
       },
       setValorBusqueda: ({state}) => value => 
         {state.theme.valorBusquedaGlobal = value}

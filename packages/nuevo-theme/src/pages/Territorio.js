@@ -10,6 +10,7 @@ const Territorio = ({state}) => {
     return (
 
         <>
+
             <Indice>
                 <p>{"> "}PRESENTACIÓN {">"} TERRITORIO</p>
             </Indice>

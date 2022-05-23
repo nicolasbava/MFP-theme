@@ -102,7 +102,19 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
   const interesarPeliculas = state.source.peliculas;
-   
+
+  if ( element === 'pelicula')  {
+      
+    // function shuffle(array) {
+    //   if(array != false){
+    //     array.sort(() => Math.random() - 0.5);
+    //   }
+      
+    // }
+
+    
+                            
+  
 
   // ============ controladores NOTICIAS ======================
   
@@ -114,9 +126,12 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
     // ====== PELICULA inicio ========
-    if ( element === 'pelicula')  {
 
-      
+    const time = new Date().getTime();
+  
+    const lastNumber = String(time).slice(-2)
+
+      console.log(lastNumber)
         return (
 
 
@@ -255,12 +270,17 @@ const Post = ({ actions, state, element, libraries }) => {
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
                     <Array>
 
+                      
+
                       {typeof interesarPeliculas === "undefined" ? <Cargando /> : 
 
+
+                          
+                       
                           
 
-                          Object.values(interesarPeliculas).slice(0,4).map( pelicula => {
-
+                          Object.values(interesarPeliculas).slice(0, 4).map( pelicula => {
+                            
                               return (
                                       <Article key={pelicula.id}>
                                       {/* <p>{peliculas.title.rendered}</p> */}
