@@ -135,13 +135,7 @@ const Post = ({ actions, state, element, libraries }) => {
   
     const lastNumber = String(time).slice(-2)
 
-    const Galeria = styled.div`
-      height: 20vw;
-      width: 24vw;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    `
+    
 
       console.log(lastNumber)
         return (
@@ -180,6 +174,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 )}
                 
                 {/* GALERIA PELICULAS */}
+                {/* scroll ref scroll horizontal */}
                 <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>    
                          
                       {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
@@ -199,7 +194,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 <FichaTecnicaPelicula>               
 
-                    <Raya></Raya>
+                    <Raya style={{marginTop:`-5px`}}></Raya>
                     <h3>{">"} FICHA TÉCNICA</h3>
 
                     {/* FICHA TECNICA TEXTO - pelicula  */}
@@ -689,11 +684,12 @@ const Post = ({ actions, state, element, libraries }) => {
             <div dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
           </ContenedorNoticia>
 
-          <GaleriaPelicula>              
+           {/* scroll ref scroll horizontal */}
+           <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>             
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                       return (
                         <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                          <img src={val}  class="img-fluid"></img>
+                          <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
                         </a>
                       )
                       })) : null
@@ -714,7 +710,17 @@ const Post = ({ actions, state, element, libraries }) => {
 
 export default connect(Post)
 
+const Galeria = styled.div`
+      height: 20vw;
+      width: 24vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
 
+      & .col-sm-4 {
+        width: 24.333333%;
+      }
+    `
 
 //  NOTICIA inicio
 const Noticia = styled.section`
@@ -1069,7 +1075,7 @@ const GaleriaPelicula = styled.div`
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: ${fondoRosa};
+        background: none;
       }
 
       /* Handle */
@@ -1185,7 +1191,7 @@ const SliderFichaTecnicaWrap = styled.div`
       &::-webkit-scrollbar {
         height: 10px;
         width: 69px;
-        background-color: #ff5e1d ${fondoRosa};
+        background-color: #ff5e1d #3330;
         cursor:pointer;
 
       }
@@ -1198,7 +1204,7 @@ const SliderFichaTecnicaWrap = styled.div`
 
       /* Track */
       &::-webkit-scrollbar-track {
-        background: ${fondoRosa};
+        background: #3330;
       }
 
       /* Handle */
@@ -1210,7 +1216,8 @@ const SliderFichaTecnicaWrap = styled.div`
 
       /* Handle on hover */
       &::-webkit-scrollbar-thumb:hover {
-        background: #fe7434;
+        //background: #fe7434;
+        background: none;
         cursor: pointer;
 
       }
@@ -1286,7 +1293,7 @@ const Raya = styled.div`
     position: absolute;
     left: 0;
     right: 0;
-
+    z-index: -1;
 `
 
 const TextoFichaTecnica = styled.div`

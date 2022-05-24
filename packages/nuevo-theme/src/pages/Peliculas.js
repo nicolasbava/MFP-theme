@@ -53,16 +53,11 @@ const Peliculas = ({state, actions}) => {
     
     return (
         <>
-        
-
-
         <Contenedor>
             <CartelHeader>
                 <p className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
- 
-
 
             {/* OUTSIDE, scroll  */}
             <Outside className="main" ref={scrollRef} style={{ overflow: "auto" }}>
@@ -71,35 +66,18 @@ const Peliculas = ({state, actions}) => {
                 {/* ARRAY 1  */}
                 <Array>
                 {array1.map((peliculas) => {
-                    // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>  
-                             
-                    
                     return (
-
-
                         <Article key={peliculas.id}>
-                        {/* <p>{peliculas.title.rendered}</p> */}
-
-                        {/* {console.log(arrayPeliculas)} */}
-                            
                             <Link href={peliculas.link}>
-                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
-                                    
                                     <Rayita></Rayita>
                                     <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-
                                     <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
-                            
                         </Article>
-
                     )
                 })}
                 </Array>
@@ -108,36 +86,18 @@ const Peliculas = ({state, actions}) => {
                 {/* ARRAY 2  */}
                 <Array>
                 {array2.map((peliculas) => {
-                    // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>             
-                   // peliculas.title.rendered.toUpperCase()
-                   
                     return (
-
-
                         <Article key={peliculas.id}>
-                        {/* <p>{peliculas.title.rendered}</p> */}
-
-                        {/* {console.log(arrayPeliculas)} */}
-                            
                             <Link href={peliculas.link}>
-                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
-                                    
                                     <Rayita></Rayita>
-                                    
                                     <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-
                                     <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
-                            
                         </Article>
-
                     )
                 })}
                 </Array>                
@@ -145,71 +105,39 @@ const Peliculas = ({state, actions}) => {
                 {/* ARRAY 3  */}
                 <Array>
                 {array3.map((peliculas) => {
-                    // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>             
-                    
                     return (
-
-
                         <Article key={peliculas.id}>
-                        {/* <p>{peliculas.title.rendered}</p> */}
-
-                        {/* {console.log(arrayPeliculas)} */}
-                            
                             <Link href={peliculas.link}>
                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
-                                    
                                       <Rayita></Rayita>
                                       <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-
                                       <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
                             </Link>
-                            
                         </Article>
-
                     )
                 })}
                 </Array>
 
+
+                {/* Desplegar año  */}
                 <Array>
                 {array3.map((peliculas) => {
-                    // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>             
-                    
                     return (
-
-
-                        <Article key={peliculas.id}>
-                       
-
-                        {/* {console.log(arrayPeliculas)} */}
-                            
-                            
-                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
+                        <Article key={peliculas.id}>              
                                 <CuadradoAño >
-
                                     <h3>{peliculas.acf.year}</h3>
-                    
                                 </CuadradoAño>
-                        
-                            
                         </Article>
-
                     )
                 })}
                 </Array>
-
                 
 
-            
+                {/* link VER TODAS LAS PELICULAS */}
               <VerTodasPeliculas> 
                 <Link href="/peliculas">
                   <p className="krona">{"> "}Ver todas las películas</p>                
@@ -236,19 +164,6 @@ const VerTodasPeliculas = styled.article`
 
 `;
 
-const Año = styled.div`
-    display: flex;
-    gap:1vw;
-    
-    h3:first-of-type {
-      margin-left: 1vw;
-    }
-    
-    h3 {
-      
-      margin-left: 24vw;
-    }
-`
 
 const CartelHeader = styled.nav`
     display: flex;
