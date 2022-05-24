@@ -37,9 +37,9 @@ const Peliculas = ({state, actions}) => {
 
     const items1 = [0,3,6,9,12,15,18,21,24,27,30,33,36,39]
 
-    const items2 = [1,4,7,10,13,16,19,22,25,28,31]
+    const items2 = [1,4,7,10,13,16,19,22,25,28,31,34,37,40]
 
-    const items3 = [2,5,8,11,14,17,20,23,26,29]
+    const items3 = [2,5,8,11,14,17,20,23,26,29,32,35,38,41]
 
     filteredPeliculas.forEach((item,index) => {
     if(items1.includes(index)) array1.push(item);
@@ -108,7 +108,6 @@ const Peliculas = ({state, actions}) => {
                     return (
                         <Article key={peliculas.id}>
                             <Link href={peliculas.link}>
-                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                       <Rayita></Rayita>
@@ -135,6 +134,7 @@ const Peliculas = ({state, actions}) => {
                     )
                 })}
                 </Array>
+
                 
 
                 {/* link VER TODAS LAS PELICULAS */}
@@ -146,7 +146,7 @@ const Peliculas = ({state, actions}) => {
 
 
               </Outside>
-              
+              <Raya style={{marginTop:`-5px`}}></Raya>
             </Contenedor>
 
 
@@ -154,10 +154,24 @@ const Peliculas = ({state, actions}) => {
     )
 }
 
+export default connect(Peliculas)
+
+const transparente = '#3330'
+
+const Raya = styled.div`
+    background: #d5d3d3;
+    height: 1px;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+`
+
 const VerTodasPeliculas = styled.article`
     text-transform: uppercase;
     font-size: .7rem;
-    padding: 2em 13px 0em 0;
+    padding: 1.5em 13px 0em 0;
     float:right;
     position:absolute; 
     right: 5.8%;
@@ -182,7 +196,6 @@ const Article = styled.article`
   margin-bottom: 10px;
 `
 
-export default connect(Peliculas)
 
 
 const Outside = styled.div`
@@ -196,42 +209,42 @@ const Outside = styled.div`
     margin-left: -1vw;
   }
 
-  scrollbar-color: #fe743d #f5ebda;
-      scrollbar-width: thin;
-      scrollbar-radius: 25px;
+  scrollbar-color: #fe743d ${transparente};
+  scrollbar-width: thin;
+  scrollbar-radius: 25px;
 
-      &::-webkit-scrollbar {
-        height: 10px;
-        width: 69px;
-        background-color: #fe743d #f5ebda;
-        cursor:pointer;
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 69px;
+    background-color: #fe743d ${transparente};
+    cursor:pointer;
 
-      }
+  }
 
-      /* width */
-      &::-webkit-scrollbar {
-        width: 10px;
-        cursor:pointer;
-      }
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+    cursor:pointer;
+  }
 
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: #f5ebda;
-      }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: ${transparente};
+  }
 
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background: #fe743d;
-        border-radius: 25px;
-        cursor: pointer;
-      }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #fe743d;
+    border-radius: 25px;
+    cursor: pointer;
+  }
 
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
-        background: #fe7434;
-        cursor: pointer;
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #fe7434;
+    cursor: pointer;
 
-      }
+  }
 
 `
 
