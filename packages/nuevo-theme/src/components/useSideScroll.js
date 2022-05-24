@@ -12,7 +12,7 @@ export function useHorizontalScroll() {
         if (e.deltaY == 0) return;
         e.preventDefault();
         el.scrollTo({
-          left: el.scrollLeft + 6 * e.deltaY,
+          left: el.scrollLeft + 4 * e.deltaY,
           behavior: "smooth"
         });
       };

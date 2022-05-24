@@ -32,6 +32,11 @@ const Home = ({state}) => {
                 <>  
                     <Peliculas />
                     <CatalogoNoticias />
+                    <VerMasNoticias>
+                        <Link href="/noticias">
+                            <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
+                        </Link>
+                    </VerMasNoticias> 
                     
                 </>
             }
@@ -47,4 +52,21 @@ const Home = ({state}) => {
 }
 
 export default connect(Home)
+
+const VerMasNoticias = styled.article`
+    text-align: right;
+    //padding-right: 2%;
+
+    padding-left: 7%;
+    padding-right: 7%;
+    // margin-top: 3%;
+    //padding-bottom: 2em;
+
+    p {
+        font-size: .7rem;
+        padding-bottom: 3em;
+        //padding-top: 3em;
+        margin: 0;
+    }
+`
 

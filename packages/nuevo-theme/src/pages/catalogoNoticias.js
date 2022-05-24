@@ -75,11 +75,7 @@ const CatalogoNoticias = ({state, actions}) => {
                     )
                 })}
             </NoticiasFlex>
-            <VerMasNoticias>
-                <Link href="/noticias">
-                    <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
-                </Link>
-            </VerMasNoticias>
+
 
 
 
@@ -88,10 +84,7 @@ const CatalogoNoticias = ({state, actions}) => {
     )
 }
 
-const VerMasNoticias = styled.article`
-    text-align: right;
-    padding-right: 2%;
-`
+
 
 
 const Contenedor = styled.main`
