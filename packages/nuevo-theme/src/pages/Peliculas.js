@@ -14,59 +14,43 @@ import { useHorizontalScroll } from "../components/useSideScroll";
 
 
 const Peliculas = ({state, actions}) => {
-  const scrollRef = useHorizontalScroll();
+   const scrollRef = useHorizontalScroll();
 
    
 
     // const arrayNoticias = Object.values(state.source.noticias)
-      const peliculas = state.source.peliculas
-      
-      const arrayPeliculas = Object.values(state.source.peliculas)
-      arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
-  
-      
-      const filteredPeliculas = arrayPeliculas.filter((peliculas) =>
-          peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
-      )  
-  
-      // console.log(filteredPeliculas)
-  
-      let array1= []
-      let array2 = []
-      let array3 = []
-  
-      const items1 = [0,3,6,9,12,15,18,21,24,27,30,33,36,39]
-  
-      const items2 = [1,4,7,10,13,16,19,22,25,28,31]
-  
-      const items3 = [2,5,8,11,14,17,20,23,26,29]
-  
-      filteredPeliculas.forEach((item,index) => {
-      if(items1.includes(index)) array1.push(item);
-      if(items2.includes(index)) array2.push(item);
-      if(items3.includes(index)) array3.push(item);      
-      })
-
-
-
+    const peliculas = state.source.peliculas
+    
+    const arrayPeliculas = Object.values(state.source.peliculas)
+    arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
 
     
+    const filteredPeliculas = arrayPeliculas.filter((peliculas) =>
+        peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
+    )  
+
+    // console.log(filteredPeliculas)
+
+    let array1= []
+    let array2 = []
+    let array3 = []
+
+    const items1 = [0,3,6,9,12,15,18,21,24,27,30,33,36,39]
+
+    const items2 = [1,4,7,10,13,16,19,22,25,28,31]
+
+    const items3 = [2,5,8,11,14,17,20,23,26,29]
+
+    filteredPeliculas.forEach((item,index) => {
+    if(items1.includes(index)) array1.push(item);
+    if(items2.includes(index)) array2.push(item);
+    if(items3.includes(index)) array3.push(item);      
+    })
+
 
     const noticias = state.source.noticias;
 
     
-
-    // const scrollContainer = document.querySelector("main");
-
-    // scrollContainer.addEventListener("wheel", (evt) => {
-    //     evt.preventDefault();
-    //     scrollContainer.scrollLeft += evt.deltaY;
-    // });
-    
-    const scroll = (scrollOffset) => {
-      ref.current.scrollLeft += scrollOffset;
-    }; 
-
     return (
         <>
         
@@ -193,14 +177,37 @@ const Peliculas = ({state, actions}) => {
                 })}
                 </Array>
 
-                {/* <Año>
-                  {array3.map((peliculas) => {
+                <Array>
+                {array3.map((peliculas) => {
+                    // const pelicula = state.source.peliculas[id]                
+                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    
                     return (
-                      <h3>{peliculas.acf.year}</h3>
+
+
+                        <Article key={peliculas.id}>
+                       
+
+                        {/* {console.log(arrayPeliculas)} */}
+                            
+                            
+                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                <CuadradoAño >
+
+                                    <h3>{peliculas.acf.year}</h3>
+                    
+                                </CuadradoAño>
+                        
+                            
+                        </Article>
+
                     )
-                  }
-                  )}                  
-                </Año> */}
+                })}
+                </Array>
+
+                
 
             
               <VerTodasPeliculas> 
@@ -231,10 +238,15 @@ const VerTodasPeliculas = styled.article`
 
 const Año = styled.div`
     display: flex;
+    gap:1vw;
+    
+    h3:first-of-type {
+      margin-left: 1vw;
+    }
     
     h3 {
-      width: 27.7vw;
-      margin-left: 1vw;
+      
+      margin-left: 24vw;
     }
 `
 
@@ -373,6 +385,32 @@ const Rayita = styled.div`
   background: #ff871c;
   border-radius: 4px;
   margin-bottom: 11px;
+`
+
+const CuadradoAño = styled.div`
+  background: none;
+  border-radius: 2px;
+  //height: 24vw;
+  width: 27.7vw;
+  overflow: hidden;
+  margin-left: 1vw;
+  z-index: 99;
+  background-position: center;
+  background-size: cover;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    line-height: 1.6;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 769px) { 
+    height: 38vw;
+    width: 43vw;  
+  }
 `
 
 const Cuadrado = styled.div`

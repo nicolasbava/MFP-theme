@@ -6,6 +6,8 @@ import FichaLink from './FichaLink'
 import Cargando from './Cargando'
 import IconosRedes from './IconosRedes'
 
+import { useHorizontalScroll } from "../components/useSideScroll";
+
 
 
 
@@ -19,11 +21,13 @@ const redHat = "'Red Hat Text', sans-serif"
 
 
 const Post = ({ actions, state, element, libraries }) => {
-    const data = state.source.get(state.router.link)
-    
-    const post = state.source[data.type][data.id]   
-    // 
-    
+  const scrollRef = useHorizontalScroll();
+
+  const data = state.source.get(state.router.link)
+  
+  const post = state.source[data.type][data.id]   
+  // 
+  
   /*NICO PELICULAS controladores */
 
   useEffect(() => {
@@ -131,6 +135,14 @@ const Post = ({ actions, state, element, libraries }) => {
   
     const lastNumber = String(time).slice(-2)
 
+    const Galeria = styled.div`
+      height: 20vw;
+      width: 24vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    `
+
       console.log(lastNumber)
         return (
 
@@ -168,12 +180,13 @@ const Post = ({ actions, state, element, libraries }) => {
                 )}
                 
                 {/* GALERIA PELICULAS */}
-                <GaleriaPelicula>    
+                <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>    
                          
                       {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                       return (
                           <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                            <img src={val}  class="img-fluid"></img>
+                            <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                            {/* <img src={val}  class="img-fluid"></img> */}
                           </a>
                       )
                       })) : null
@@ -1020,6 +1033,11 @@ const GaleriaPelicula = styled.div`
     height: auto;
     gap: 1vw;
 
+    .col-sm-4 {
+      flex: 0 0 auto;
+      width: 28.333333%;
+    }
+
     &:first-of-type {
       margin-left: -2vw;
     }
@@ -1028,6 +1046,7 @@ const GaleriaPelicula = styled.div`
       cursor:pointer;
       // margin-bottom: 2vw;
       max-height: 300px;
+      margin: auto;
     }
 
     scrollbar-color: ${naranja} ${fondoRosa};
