@@ -661,13 +661,15 @@ const Post = ({ actions, state, element, libraries }) => {
           </Artista>
         </>   
            )
-    } else if (element === 'productora'){
+    } else if (element == 'productora'){
 
         const filmografia = post.acf.filmografia
         const equipo = post.acf.equipo
+        const galeria = post.acf.galeria
 
 
-        // === PRODUCTORA === //
+
+        // === PRODUCTORA individual === //
         return ( 
             <>
                 {console.log(post)}
@@ -695,20 +697,22 @@ const Post = ({ actions, state, element, libraries }) => {
                     </InfoAf>
 
                     {/* PRODUCTORA - galeria  */}
-                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5' }}>    
+                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'7%' }}>    
                          
-                         {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
+                       
+
+                         {typeof galeria === 'undefined' ? null : (galeria.map((val,key) => {
                          return (
                              <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
                                <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
                                {/* <img src={val}  class="img-fluid"></img> */}
                              </a>
                          )
-                         })) : null
+                         })) 
                          }    
                      
                     </GaleriaPelicula>
-                    <Raya style={{marginTop:`-5px`, zIndex: -1}}></Raya>
+                    <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
 
                     {/* PRODUCTORA - trabajos */}
                     <TrabajosArtista>   

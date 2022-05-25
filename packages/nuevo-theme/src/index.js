@@ -14,7 +14,8 @@ export default {
       contadorPresentacion: 0,
       contadorCatalogo: 0,
       valorBusquedaGlobal: '',
-      isMobileMenuOpen: false
+      isMobileMenuOpen: false,
+      menu: []
     }
   },
   actions: {
