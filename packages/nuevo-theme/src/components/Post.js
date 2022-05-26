@@ -386,7 +386,8 @@ const Post = ({ actions, state, element, libraries }) => {
     // console.log(trabajo2, trabajo3, unique[2])
     // }
     
-
+    // TRABAJOS inicio
+    // TRABAJOS arrays
     let direccion = []
     let guion = []
     let produccion = []
@@ -403,7 +404,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     let otros = []
 
-    
+    // TRABAJOS condicionales filter
     if (trabajos) {
 
     trabajos.forEach(element => {
@@ -510,11 +511,11 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 
                     <InteresarPeliculas>
-                      <p className="eq">{"> "}FILMOGRAFÍA</p>
+                      <p className="eq" style={{paddingBottom:'0'}}>{"> "}FILMOGRAFÍA</p>
 
                       {/* == 1. Trabajos Dirección == */}
                       {direccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0'}}>{"> "}Dirección</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección</p>        
                       )}
                       <Array>                    
 
@@ -550,7 +551,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 2. Trabajos Producción == */}
                       {produccion.length === 0 ? null : (
-                          <p>{"> "}Producción </p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Producción </p>        
                       )}
                       <Array>                    
 
@@ -617,7 +618,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 3. Trabajos Guión == */}
                       {guion.length === 0 ? null : (
-                          <p>{"> "}Guión</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión</p>        
                       )}
                       <Array>                    
 
@@ -653,7 +654,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 4. Trabajos Elenco == */}
                       {elenco.length === 0 ? null : (
-                          <p>{"> "}Elenco</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Elenco</p>        
                       )}
                       <Array>                    
 
@@ -689,7 +690,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 5. Trabajos Realización == */}
                       {realizacion.length === 0 ? null : (
-                          <p>{"> "}Realización</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Realización</p>        
                       )}
                       <Array>                    
 
@@ -725,7 +726,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 6. Trabajos Cámara == */}
                       {camara.length === 0 ? null : (
-                          <p>{"> "}Cámara</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Cámara</p>        
                       )}
                       <Array>                    
 
@@ -761,7 +762,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 7. Trabajos Dirección de fotografía == */}
                       {direccionDeFotografia.length === 0 ? null : (
-                          <p>{"> "}Dirección de fotografía</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección de fotografía</p>        
                       )}
                       <Array>                    
 
@@ -797,7 +798,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 8. Trabajos Sonido == */}
                       {sonido.length === 0 ? null : (
-                          <p>{"> "}Sonido</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Sonido</p>        
                       )}
                       <Array>                    
 
@@ -833,7 +834,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 9. Trabajos Montaje == */}
                       {montaje.length === 0 ? null : (
-                          <p>{"> "}Montaje</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Montaje</p>        
                       )}
                       <Array>                    
 
@@ -869,7 +870,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 10. Trabajos Guión técnico == */}
                       {guionTecnico.length === 0 ? null : (
-                          <p>{"> "}Guión técnico</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión técnico</p>        
                       )}
                       <Array>                    
 
@@ -905,7 +906,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 11. Trabajos Dirección artística == */}
                       {direccionArtistica.length === 0 ? null : (
-                          <p>{"> "}Dirección artística</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección artística</p>        
                       )}
                       <Array>                    
 
@@ -941,7 +942,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 12. Trabajos Asistente de dirección == */}
                       {asistenteDireccion.length === 0 ? null : (
-                          <p>{"> "}Asistente de dirección</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Asistente de dirección</p>        
                       )}
                       <Array>                    
 
@@ -977,7 +978,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       
                       {/* == 13. Trabajos Argumento == */}
                       {argumento.length === 0 ? null : (
-                          <p>{"> "}Argumento</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Argumento</p>        
                       )}
                       <Array>                    
 
@@ -1013,7 +1014,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 13. Trabajos Otros == */}
                       {otros.length === 0 ? null : (
-                          <p>{"> "}--</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}--</p>        
                       )}
                       <Array>                    
 
@@ -1056,7 +1057,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                   {typeof productoras === "undefined" ? <p>{"> "}PRODUCTORAS ASOCIADAS</p> : (
                     <InteresarPeliculas>
-                    <p className="eq">{">"} PRODUCTORAS ASOCIADAS</p>
+                    <p className="eq" style={{paddingBottom:'0'}}>{">"} PRODUCTORAS ASOCIADAS</p>
                     <Array>
 
                       {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
