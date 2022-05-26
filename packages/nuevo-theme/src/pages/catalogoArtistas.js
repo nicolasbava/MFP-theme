@@ -4,6 +4,7 @@ import Featured from "../components/Featured"
 import Link from "../components/Link"
 import Search from "../components/Search"
 import Footer from "../components/footer"
+import Pagination from "../components/pagination"
 
 
 
@@ -14,16 +15,19 @@ const CatalogoArtistas = ({state, actions}) => {
 
     const arrayArtistas = Object.values(state.source.artistas)
 
-    arrayArtistas.sort((a,b) => (a.content.rendered > b.content.rendered) ? 1 : ((b.content.rendered > a.content.rendered) ? -1 : 0))
+    // arrayArtistas.sort((a,b) => (a.content.rendered > b.content.rendered) ? 1 : ((b.content.rendered > a.content.rendered) ? -1 : 0))
     
     const filteredArtistas = arrayArtistas.filter((artistas) =>
         artistas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
-    const UltimoArrayArtistas = [];
+    const arrayArtistasBio = [];
 
-    console.log(filteredArtistas);
 
+
+    // filteredArtistas.forEach(item => {
+    //     item.content.rendered.length >= 2
+    // })
 
 
 
@@ -90,6 +94,8 @@ const CatalogoArtistas = ({state, actions}) => {
                     )
                 })}
             </ArtistasFlex>
+
+            <Pagination />
 
         </Contenedor>
     )

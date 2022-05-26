@@ -355,41 +355,52 @@ const Post = ({ actions, state, element, libraries }) => {
     const trabajos = post.acf.trabajos
 
     // DECLARO LOS DISTINTOS ARRAYS
-    let trabajo1 = []
-    let trabajo2 = []
-    let trabajo3 = []
-    let trabajo4 = []
-    let trabajo5 = []
+    // let trabajo1 = []
+    // let trabajo2 = []
+    // let trabajo3 = []
+    // let trabajo4 = []
+    // let trabajo5 = []
 
-    console.log(trabajos); // array con trabajos artista ( director(3 pelis), actor(2 pelis), camaras(1), etc)
+    // array con trabajos artista ( director(3 pelis), actor(2 pelis), camaras(1), etc)
 
     // Obtiene los titulos de cargos unicos
-    let unique = [...new Set(trabajos.map(item => item.cargo))];
-    console.log('unique', unique.length ,unique); //  ['direccion', 'actor', 'camaras']
+    // if(trabajos.length > 0){
+    //   let unique = [...new Set(trabajos.map(item => item.cargo))];
+    //   console.log('unique', unique.length ,unique); //  ['direccion', 'actor', 'camaras']
+    //   // llenar un array por cada cargo
+    // if(unique){
 
+    //   trabajo1 = [...trabajos.filter( x => x.cargo == unique[1] )]
+    //   console.log(trabajo1)
 
-    // llenar un array por cada cargo
-    if(unique){
+    // } else if (unique[1] === true) {
 
-      trabajo1 = [...trabajos.filter( x => x.cargo == unique[1] )]
-      console.log(trabajo1)
-
-    } else if (unique[1]) {
-
-      trabajo2 = [...trabajos.filter( x => x.cargo == unique[0] )]
+    //   trabajo2 = [...trabajos.filter( x => x.cargo == unique[0] )]
       
-    } else if (unique.length > 1) {
+    // } else if (unique.length > 1) {
 
-      trabajo3 = [...trabajos.filter( x => x.cargo == unique[2] )]
+    //   trabajo3 = [...trabajos.filter( x => x.cargo == unique[2] )]
 
-    }
+    // }
 
-    console.log(trabajo2, trabajo3, unique[2])
+    // console.log(trabajo2, trabajo3, unique[2])
+    // }
     
-    
+
     let direccion = []
     let guion = []
     let produccion = []
+    let elenco = []
+    let realizacion = []
+    let camara = []
+    let direccionDeFotografia = []
+    let sonido = []
+    let montaje = []
+    let guionTecnico = []
+    let direccionArtistica = []
+    let asistenteDireccion = []
+    let argumento = []
+
     let otros = []
 
     
@@ -408,8 +419,48 @@ const Post = ({ actions, state, element, libraries }) => {
       else if (element.cargo === 'Producción') {
         produccion.push(element)
       } 
+
+      else if (element.cargo === 'Elenco') {
+        elenco.push(element)
+      } 
+
+      else if (element.cargo === 'Realización') {
+        realizacion.push(element)
+      } 
+
+      else if (element.cargo === 'Cámara') {
+        camara.push(element)
+      } 
       
-      else if (element.cargo.length > 1) {
+      else if (element.cargo === 'Dirección de fotografía') {
+        direccionDeFotografia.push(element)
+      } 
+            
+      else if (element.cargo === 'Sonido') {
+        sonido.push(element)
+      } 
+            
+      else if (element.cargo === 'Montaje') {
+        montaje.push(element)
+      } 
+            
+      else if (element.cargo === 'Guión técnico') {
+        guionTecnico.push(element)
+      } 
+            
+      else if (element.cargo === 'Dirección artística') {
+        direccionArtistica.push(element)
+      } 
+            
+      else if (element.cargo === 'Asistente de dirección') {
+        asistenteDireccion.push(element)
+      } 
+            
+      else if (element.cargo === 'Argumento') {
+        argumento.push(element)
+      } 
+      
+      else  {
         otros.push(element)
       }
       
@@ -431,11 +482,6 @@ const Post = ({ actions, state, element, libraries }) => {
                 {/* {console.log(post)} */}
                 {/* {console.log(interesarPeliculas)} */}
                 {/* {console.log(trabajos)} */}
-
-                
-                
-                    
-
                   <InfoAf>
                       <Indice><p className='krona'> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
                       <Info>
@@ -448,7 +494,7 @@ const Post = ({ actions, state, element, libraries }) => {
                           <p>{nacimiento}</p>
 
                           <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
-
+                          
                       
                       </InfoArtista>
                       </Info>
@@ -457,7 +503,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
 
-  {/*============== TRABAJOS ARTISTA / artista==============================*/}
+  {/*============== TRABAJOS ARTISTA - artista ==============================*/}
                     
                   {typeof trabajos === false ? <p>{"> "}FILMOGRAFÍA</p> : (
 
@@ -468,7 +514,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 1. Trabajos Dirección == */}
                       {direccion.length === 0 ? null : (
-                          <p>{"> "}Dirección</p>        
+                          <p style={{paddingBottom: '0'}}>{"> "}Dirección</p>        
                       )}
                       <Array>                    
 
@@ -480,8 +526,6 @@ const Post = ({ actions, state, element, libraries }) => {
                                         
                                         <Article key={element.id}>
                                         {/* {console.log(direccion)} */}
-
-                                        
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
@@ -504,7 +548,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       </Array>
 
 
-                      {/* Trabajos Produccion */}
+                      {/* == 2. Trabajos Producción == */}
                       {produccion.length === 0 ? null : (
                           <p>{"> "}Producción </p>        
                       )}
@@ -571,7 +615,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       }
                       </Array>
 
-                      {/* Trabajos Guion */}
+                      {/* == 3. Trabajos Guión == */}
                       {guion.length === 0 ? null : (
                           <p>{"> "}Guión</p>        
                       )}
@@ -607,8 +651,402 @@ const Post = ({ actions, state, element, libraries }) => {
                       }
                       </Array>
 
+                      {/* == 4. Trabajos Elenco == */}
+                      {elenco.length === 0 ? null : (
+                          <p>{"> "}Elenco</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(elenco).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 5. Trabajos Realización == */}
+                      {realizacion.length === 0 ? null : (
+                          <p>{"> "}Realización</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(realizacion).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 6. Trabajos Cámara == */}
+                      {camara.length === 0 ? null : (
+                          <p>{"> "}Cámara</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(camara).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 7. Trabajos Dirección de fotografía == */}
+                      {direccionDeFotografia.length === 0 ? null : (
+                          <p>{"> "}Dirección de fotografía</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(direccionDeFotografia).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 8. Trabajos Sonido == */}
+                      {sonido.length === 0 ? null : (
+                          <p>{"> "}Sonido</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(sonido).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 9. Trabajos Montaje == */}
+                      {montaje.length === 0 ? null : (
+                          <p>{"> "}Montaje</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(montaje).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 10. Trabajos Guión técnico == */}
+                      {guionTecnico.length === 0 ? null : (
+                          <p>{"> "}Guión técnico</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(guionTecnico).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 11. Trabajos Dirección artística == */}
+                      {direccionArtistica.length === 0 ? null : (
+                          <p>{"> "}Dirección artística</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(direccionArtistica).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 12. Trabajos Asistente de dirección == */}
+                      {asistenteDireccion.length === 0 ? null : (
+                          <p>{"> "}Asistente de dirección</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(asistenteDireccion).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
                       
-                          
+                      {/* == 13. Trabajos Argumento == */}
+                      {argumento.length === 0 ? null : (
+                          <p>{"> "}Argumento</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(argumento).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
+                      {/* == 13. Trabajos Otros == */}
+                      {otros.length === 0 ? null : (
+                          <p>{"> "}--</p>        
+                      )}
+                      <Array>                    
+
+                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                            Object.values(otros).map( element => {
+
+                                return (
+
+                                        <Article key={element.id}>
+                                        {/* {console.log(guion)} */}
+                                        
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                    <Cartel>
+
+                                                      <Rayita></Rayita>
+                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                  {/* <h4>{pelicula.acf.year}</h4> */}
+                                                  </Cartel>
+                                              </Cuadrado>
+                                          </FichaLink>
+
+                                      </Article>                                                                
+                              )
+                          })     
+                      }
+                      </Array>
+
                     </InteresarPeliculas>
                     )}
 
@@ -1030,7 +1468,7 @@ const InteresarPeliculas = styled.section`
 `
 
 const Article = styled.article`
-    margin-bottom: 1vw;
+    //margin-bottom: 1vw;
     &:first-of-type{
         // margin-left: -1vw;
     }

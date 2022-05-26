@@ -18,7 +18,7 @@ const settings = {
         "source": {
           "url": "https://memoriafilmica.cl",
           "params":{
-            "per_page": 99,
+            "per_page": 100,
             "_embed": true
           },
           
@@ -36,7 +36,7 @@ const settings = {
             endpoint: "artistas",
             archive: "/artistas",
             "params":{
-              "per_page": 99,
+              "per_page": 100,
               "_embed": true
             },
         },
