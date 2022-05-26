@@ -11,6 +11,7 @@ import { useHorizontalScroll } from "../components/useSideScroll";
 
 
 
+
 const naranja = '#ec7342'
 
 const fondoRosa = '#fbf0e5'
@@ -38,7 +39,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
   }, []) 
 
-
+  const arrayPeliculas = state.source.peliculas
 
   const yearPelicula = post.acf.year;
 
@@ -471,7 +472,6 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
 
-     
 
 
 
@@ -505,6 +505,8 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
   {/*============== TRABAJOS ARTISTA - artista ==============================*/}
+
+                  
                     
                   {typeof trabajos === false ? <p>{"> "}FILMOGRAFÍA</p> : (
 
@@ -523,15 +525,43 @@ const Post = ({ actions, state, element, libraries }) => {
 
                             Object.values(direccion).map(element => {
 
-                                return (
+                              // let peli = []
+
+                              // let foto 
+                              // let id = element.peliculas[0].ID
+
+
+                              // if(state.source.peliculas[id].acf.foto_pelicula === undefined){
+                              //   foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
+                              // } else if(arrayPeliculas !== undefined){
+                              //   foto = state.source.peliculas[id].acf.foto_pelicula
+                              // }
+
+
+                              // let peli = arrayPeliculas[id]
+
+                              // let id = element.peliculas[0].ID
+                              let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
+
+                              
+                              useEffect(() => {
+                                actions.source.fetch("/peliculas")
+                                actions.source.fetch("/artistas")
+                              }, []) 
+
+                              return (
                                         
-                                        <Article key={element.id}>
-                                        {/* {console.log(direccion)} */}
+                                        <Article key={element.peliculas[0].ID}>
+                                        {console.log(element)}
+                                        {console.log(state.source.peliculas)}
+                                        {/* {console.log(state.source.peliculas[id].acf.foto_pelicula)} */}
+                                        {/* {console.log(peli)} */}
+                                        {/* <p>{id}</p> */}
+
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
-
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${foto})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
