@@ -223,6 +223,8 @@ const Post = ({ actions, state, element, libraries }) => {
                         </div>
                     </TextoFichaTecnica>
 
+
+                  {/* FICHA TECNICA PERSONAS slider - pelicula */}
                     {fichaTecnica.length > 0 ? (
                       <>
                         <p className="eq">{">"} EQUIPO Y REPARTO</p>
@@ -230,7 +232,6 @@ const Post = ({ actions, state, element, libraries }) => {
                     ): null}
                     
                       
-                  {/* FICHA TECNICA PERSONAS slider - pelicula */}
                     <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap }}>
 
                         {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
@@ -330,64 +331,13 @@ const Post = ({ actions, state, element, libraries }) => {
         )
     } else if (element === 'artista') {
       
-    // const arrayNuevo = [];
-
-    // const name = post.title.rendered
-
-    // const peliculas = interesarPeliculas;
-
-    // if(peliculas.length > 0) {
-    //   peliculas.forEach((item) => {
-    //     if (item.acf.ficha_tecnica !== "undefined"){
-    //         let test = []
-    //         test = item.acf.ficha_tecnica.filter(
-    //             (ele) => ele.post_title === name
-    //         );
-    //     }
-    //     if (test.length > 0) arrayNuevo.push(item);
-    //     });
-    
-    // } else {return null}
-
     const productoras = post.acf.prodcutoras
-
     
     // ARRAYS con cargos
     const trabajos = post.acf.trabajos
-
-    // DECLARO LOS DISTINTOS ARRAYS
-    // let trabajo1 = []
-    // let trabajo2 = []
-    // let trabajo3 = []
-    // let trabajo4 = []
-    // let trabajo5 = []
-
-    // array con trabajos artista ( director(3 pelis), actor(2 pelis), camaras(1), etc)
-
-    // Obtiene los titulos de cargos unicos
-    // if(trabajos.length > 0){
-    //   let unique = [...new Set(trabajos.map(item => item.cargo))];
-    //   console.log('unique', unique.length ,unique); //  ['direccion', 'actor', 'camaras']
-    //   // llenar un array por cada cargo
-    // if(unique){
-
-    //   trabajo1 = [...trabajos.filter( x => x.cargo == unique[1] )]
-    //   console.log(trabajo1)
-
-    // } else if (unique[1] === true) {
-
-    //   trabajo2 = [...trabajos.filter( x => x.cargo == unique[0] )]
-      
-    // } else if (unique.length > 1) {
-
-    //   trabajo3 = [...trabajos.filter( x => x.cargo == unique[2] )]
-
-    // }
-
-    // console.log(trabajo2, trabajo3, unique[2])
-    // }
     
-    // TRABAJOS inicio
+       
+    // TRABAJOS
     // TRABAJOS arrays
     let direccion = []
     let guion = []
@@ -472,7 +422,12 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
 
+    useEffect(() => {
+      actions.source.fetch("/peliculas")
+      actions.source.fetch("/artistas")
+    }, [])
 
+                 
 
 
        return ( 
@@ -506,12 +461,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
   {/*============== TRABAJOS ARTISTA - artista ==============================*/}
 
-                  
+                                  
                     
                   {typeof trabajos === false ? <p>{"> "}FILMOGRAFÍA</p> : (
 
-
-                
+ 
+                   
+                                  
                     <InteresarPeliculas>
                       <p className="eq" style={{paddingBottom:'0'}}>{"> "}FILMOGRAFÍA</p>
 
@@ -519,35 +475,29 @@ const Post = ({ actions, state, element, libraries }) => {
                       {direccion.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección</p>        
                       )}
-                      <Array>                    
+                      <Array>     
 
-                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+                        {typeof state.source.peliculas === "undefined" ? <p>Cargando...</p> :                          
 
                             Object.values(direccion).map(element => {
 
-                              // let peli = []
+                              let id = element.peliculas[0].ID  
+                              
+                              let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-                              // let foto 
-                              // let id = element.peliculas[0].ID
+                               if(typeof state.source.peliculas === "undefined"){
+                                 foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-
-                              // if(state.source.peliculas[id].acf.foto_pelicula === undefined){
-                              //   foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
-                              // } else if(arrayPeliculas !== undefined){
+                               } 
+                              //else if (typeof state.source.peliculas[id].acf.foto_pelicula !== "undefined"){
                               //   foto = state.source.peliculas[id].acf.foto_pelicula
                               // }
 
 
                               // let peli = arrayPeliculas[id]
 
-                              // let id = element.peliculas[0].ID
-                              let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-                              
-                              useEffect(() => {
-                                actions.source.fetch("/peliculas")
-                                actions.source.fetch("/artistas")
-                              }, []) 
+                              //let foto1 = state.source.peliculas[id].acf.foto_pelicula
 
                               return (
                                         
@@ -1136,12 +1086,114 @@ const Post = ({ actions, state, element, libraries }) => {
         const equipo = post.acf.equipo
         const galeria = post.acf.galeria
 
+         // TRABAJOS - produtora
+        // TRABAJOS arrays
+        let direccion = []
+        let guion = []
+        let produccion = []
+        let elenco = []
+        let realizacion = []
+        let camara = []
+        let direccionDeFotografia = []
+        let sonido = []
+        let montaje = []
+        let guionTecnico = []
+        let direccionArtistica = []
+        let asistenteDireccion = []
+        let argumento = []
+        let musica = []
+        let asistenteDeMontaje = []
+        let adaptacionMusical = []
+
+        let otros = []
+
+        // TRABAJOS condicionales filter
+        if (equipo) {
+
+        equipo.forEach(element => {
+
+          if (element.cargo === 'Dirección') {
+            direccion.push(element)
+          } 
+          
+          else if (element.cargo === 'Guión') {
+            guion.push(element)
+          } 
+          
+          else if (element.cargo === 'Producción') {
+            produccion.push(element)
+          } 
+
+          else if (element.cargo === 'Elenco') {
+            elenco.push(element)
+          } 
+
+          else if (element.cargo === 'Realización') {
+            realizacion.push(element)
+          } 
+
+          else if (element.cargo === 'Cámara') {
+            camara.push(element)
+          } 
+          
+          else if (element.cargo === 'Dirección de fotografía') {
+            direccionDeFotografia.push(element)
+          } 
+                
+          else if (element.cargo === 'Sonido') {
+            sonido.push(element)
+          } 
+                
+          else if (element.cargo === 'Montaje') {
+            montaje.push(element)
+          } 
+                
+          else if (element.cargo === 'Guión técnico') {
+            guionTecnico.push(element)
+          } 
+                
+          else if (element.cargo === 'Dirección artística') {
+            direccionArtistica.push(element)
+          } 
+                
+          else if (element.cargo === 'Asistente de dirección') {
+            asistenteDireccion.push(element)
+          } 
+                
+          else if (element.cargo === 'Argumento') {
+            argumento.push(element)
+          } 
+                
+          else if (element.cargo === 'Música') {
+            musica.push(element)
+          } 
+                
+          else if (element.cargo === 'Asistente de montaje') {
+            asistenteDeMontaje.push(element)
+          } 
+                
+          else if (element.cargo === 'Adaptación musical') {
+            adaptacionMusical.push(element)
+          } 
+          
+          else  {
+            otros.push(element)
+          }
+          
+        })
+      } else return null
+        // console.log(otros);
+
+
+
 
 
         // === PRODUCTORA individual === //
         return ( 
             <>
-                {console.log(post)}
+                {console.log('post:',post)}
+                {console.log('equipo:' ,equipo)}
+
                <Artista>
                     <InfoAf>
                         <Indice><p> {">"} CATÁLOGO                
@@ -1223,57 +1275,90 @@ const Post = ({ actions, state, element, libraries }) => {
                         
                             </InteresarPeliculas>
 
-                        )} {/* fin/PRODUCTORA - filmografia */}
+                        )} 
 
                         {/* PRODUCTORA - equipo */}
-                        {typeof filmografia === "undefined" ? <p>{"> "}EQUIPO </p> : (
-                          <InteresarPeliculas>
-                            <p className="eq">{"> "}EQUIPO</p>
-                            <Array>
-
-                            {typeof filmografia === "undefined" ? <p>Cargando Peliculas...</p> : 
-
-                            Object.values(filmografia).map( pelicula => {
-
-                              return(
-                                      <Article key={pelicula.id}>
-
-                                      <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
-                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                        {typeof equipo === "undefined" ? <p>{"> "}EQUIPO -</p> : (
+                          <p className="eq">{"> "}EQUIPO si</p>
 
 
-                                              <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                  <Cartel>
 
-                                                  <Rayita></Rayita>
-                                                  <h3 dangerouslySetInnerHTML={{__html: pelicula.post_title}}></h3>
+                        ) }
 
-                                                {/* <h4>{pelicula.acf.year}</h4> */}
-                                                </Cartel>
-                                            </Cuadrado>
-                                        </FichaLink>
-
-                                        </Article>                                                                
-                                    )
-                                })         
-                              }
-
-                              </Array>
-                        
-                            </InteresarPeliculas>
-
-                        )} {/* fin/PRODUCTORA - equipo */}
 
                         
 
+                  {typeof equipo === "undefined" ? <p>{"> "}EQUIPO -</p> : (
+                    <InteresarPeliculas>
+                      <p className="eq">{"> "}EQUIPO si</p>
+                      <Array>
 
+
+                        {/* == 1. Trabajos Dirección == */}
+                        {direccion.length === 0 ? null : (
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección</p>        
+                        )}
+                          <Array>     
+                            {console.log(direccion)}
+
+                            {typeof direccion === "undefined" ? <p>Cargando...</p> :                          
+
+                            Object.values(direccion).map((element, key) => {
+                            return (
+                                  <>
+                                    <FichaLink link={'artistas/' + element.nombre[0].post_name}>  
+                                      <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p><span>{', '} </span>
+                                      <p dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                    </FichaLink> 
+                                  </>
+                                )
+                            })     
+                            }
+                          </Array>
+                      </Array>
+
+                       {/* == 1. Trabajos Dirección == */}
+                       {direccion.length === 0 ? null : (
+                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}--EQUIPO--</p>        
+                        )}
+                          <Array>     
+
+                            {typeof equipo === "undefined" ? <p>Cargando...</p> :                          
+
+                            Object.values(equipo).map((element, key) => {
+                            return (
+                                  <>
+                                    {/* PRODUCTORA - Equipo - Nombre Link  */}
+                                    {element.nombre.length === 0 ? null : (
+                                     <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
+                                      <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p>
+                                     </FichaLink>  
+                                    )}
+
+                                    {/* PRODUCTORA - Equipo - Nombre texto  */}
+                                    {element.nombre_texto.length === 0 ? null : (
+                                      <p dangerouslySetInnerHTML={{__html:element.nombre_texto}}></p>
+
+                                    )}
+
+                                    <p dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                  </>
+                                )
+                            })     
+                            }
+                          </Array>
+                        
+                    </InteresarPeliculas>
+
+                    )} 
+
+                      
+                        
                     </TrabajosArtista>
 
-                     
-                    
+                   
     
     
-                    {/* [0].peliculas.post_title */}
     
             </Artista>
 
@@ -1458,7 +1543,7 @@ const Info = styled.div`
     display: flex;
     padding-left: 7%;
     padding: -24px;
-    padding-right: 18%;
+    padding-right: 7%;
     padding-bottom: 2em;
 `
 
@@ -1520,7 +1605,7 @@ const Cartel = styled.div`
   height: 100%;
   padding-bottom: 1em;
   transition: 500ms ease;
-  opacity:0;
+  opacity: 0;
   box-sizing: border-box;
   transition: opacity 0.55s;
   border-radius: 2px;
