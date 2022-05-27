@@ -1191,8 +1191,6 @@ const Post = ({ actions, state, element, libraries }) => {
         // === PRODUCTORA individual === //
         return ( 
             <>
-                {console.log('post:',post)}
-                {console.log('equipo:' ,equipo)}
 
                <Artista>
                     <InfoAf>
@@ -1252,16 +1250,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                       <Article key={pelicula.id}>
 
                                       <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
-                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
                                               <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
                                                   <Cartel>
-
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:filmografia[index].peliculas.post_title}}></h3>
-
-                                                {/* <h4>{pelicula.acf.year}</h4> */}
                                                 </Cartel>
                                             </Cuadrado>
                                         </FichaLink>
@@ -1277,92 +1269,57 @@ const Post = ({ actions, state, element, libraries }) => {
 
                         )} 
 
-                        {/* PRODUCTORA - equipo */}
-                        {typeof equipo === "undefined" ? <p>{"> "}EQUIPO -</p> : (
-                          <p className="eq">{"> "}EQUIPO si</p>
 
-
-
-                        ) }
-
-
-                        
-
-                  {typeof equipo === "undefined" ? <p>{"> "}EQUIPO -</p> : (
-                    <InteresarPeliculas>
-                      <p className="eq">{"> "}EQUIPO si</p>
-                      <Array>
-
-
-                        {/* == 1. Trabajos Dirección == */}
-                        {direccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección</p>        
+                        {/* PRODUCTORA - equipo slider */}
+                        {typeof equipo === "undefined" ? null : (
+                            <p className='eq' style={{paddingBlock: '4em', fontSize: '0.8rem'}}>{"> "}EQUIPO </p>
                         )}
-                          <Array>     
-                            {console.log(direccion)}
+                        <SliderFichaTecnica className="panel" ref={scrollRef} style={{ paddingBottom: '2em',overflow: "auto", flexWrap:'wrap' }}>
+                          
+                            
 
-                            {typeof direccion === "undefined" ? <p>Cargando...</p> :                          
+                          {typeof equipo === "undefined" ? <p>Cargando...</p> : 
 
-                            Object.values(direccion).map((element, key) => {
-                            return (
+                          Object.values(equipo).map((element, key) => {
+                          return (                    
+                              <ContenedorFicha  value={key}>
+                              {/* FONDO imagen */}
+                              <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                              {/* FONDO verde texto */}
+                              <article className="fondo-verde">                        
                                   <>
-                                    <FichaLink link={'artistas/' + element.nombre[0].post_name}>  
-                                      <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p><span>{', '} </span>
-                                      <p dangerouslySetInnerHTML={{__html: element.cargo}}></p>
-                                    </FichaLink> 
+                                      {/* PRODUCTORA - Equipo - Nombre Link  */}
+                                      {element.nombre.length === 0 ? null : (
+                                          <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
+                                          <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p>
+                                          </FichaLink>  
+                                      )}
+
+                                      {/* PRODUCTORA - Equipo - Nombre texto  */}
+                                      {element.nombre_texto.length === 0 ? null : (
+                                          <p dangerouslySetInnerHTML={{__html:element.nombre_texto}}></p>
+
+                                      )}
+
+                                      {/* <p dangerouslySetInnerHTML={{__html: element.cargo}}></p> */}
                                   </>
-                                )
-                            })     
-                            }
-                          </Array>
-                      </Array>
+                                  
+                                  
 
-                       {/* == 1. Trabajos Dirección == */}
-                       {direccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}--EQUIPO--</p>        
-                        )}
-                          <Array>     
-
-                            {typeof equipo === "undefined" ? <p>Cargando...</p> :                          
-
-                            Object.values(equipo).map((element, key) => {
-                            return (
-                                  <>
-                                    {/* PRODUCTORA - Equipo - Nombre Link  */}
-                                    {element.nombre.length === 0 ? null : (
-                                     <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
-                                      <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p>
-                                     </FichaLink>  
-                                    )}
-
-                                    {/* PRODUCTORA - Equipo - Nombre texto  */}
-                                    {element.nombre_texto.length === 0 ? null : (
-                                      <p dangerouslySetInnerHTML={{__html:element.nombre_texto}}></p>
-
-                                    )}
-
-                                    <p dangerouslySetInnerHTML={{__html: element.cargo}}></p>
-                                  </>
-                                )
-                            })     
-                            }
-                          </Array>
-                        
-                    </InteresarPeliculas>
-
-                    )} 
-
-                      
+                                
+                                  <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                  </article>
+                              </ContenedorFicha>
+                          )
+                          } 
+                          )
+                          }
+                          </SliderFichaTecnica >
+                          <Raya style={{marginTop:`-4px`}}></Raya>
+                          {/* /  */}
                         
                     </TrabajosArtista>
-
-                   
-    
-    
-    
             </Artista>
-
-
 
             </>   
                )

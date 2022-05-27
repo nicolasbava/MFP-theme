@@ -78,6 +78,10 @@ const Base = () => {
                 left: -50px;
                 }
 
+                .eq {
+                    font-family: ${kronaOne}
+                }
+
             `}
         />
     )   

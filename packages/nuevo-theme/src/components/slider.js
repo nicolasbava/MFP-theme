@@ -6,25 +6,31 @@
     Object.values(equipo).map((val, key) => {
     return (                    
         <ContenedorFicha  value={key}>
-
+        {/* FONDO imagen */}
         <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+        {/* FONDO verde texto */}
         <article className="fondo-verde">                        
-            {val.nombre.length === 0 ? null : 
-            
-            val.nombre.map((val,key) =>{
-            return (
-                <FichaLink link={"artistas/" + 'nombre'}>
-                    <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p><span>{', '} </span>
-                    
-                </FichaLink>
-            )
-            })}
+            <>
+                {/* PRODUCTORA - Equipo - Nombre Link  */}
+                {element.nombre.length === 0 ? null : (
+                    <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
+                    <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p>
+                    </FichaLink>  
+                )}
 
-            {/* {val.nombre_texto.length === 0 ? null : 
-                <p>{val.nombre_texto}</p>
-            } */}
-                
-            <p className="cargo"> CARGO </p>
+                {/* PRODUCTORA - Equipo - Nombre texto  */}
+                {element.nombre_texto.length === 0 ? null : (
+                    <p dangerouslySetInnerHTML={{__html:element.nombre_texto}}></p>
+
+                )}
+
+                {/* <p dangerouslySetInnerHTML={{__html: element.cargo}}></p> */}
+            </>
+            
+            
+
+          
+            <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
             </article>
         </ContenedorFicha>
     )
