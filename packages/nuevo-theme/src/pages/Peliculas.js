@@ -207,7 +207,7 @@ const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
   width: 87vw;
-  padding-bottom: 1em;
+  padding-bottom: .3em;
   //margin-bottom: 2em;
 
   &:first-of-type {
@@ -342,7 +342,7 @@ const CuadradoAño = styled.div`
   }
 
   @media (max-width: 769px) { 
-    height: 38vw;
+    // height: 38vw;
     width: 43vw;  
   }
 `

@@ -25,7 +25,7 @@ const Contenedor = styled.section`
         width: 300px;
         height:auto;
         margin: 0;
-        margin-top: -6em; 
+        margin-top: -17vh; 
 
         padding: 0;
     }

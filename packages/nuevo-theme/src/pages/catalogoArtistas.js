@@ -37,9 +37,12 @@ const CatalogoArtistas = ({state, actions}) => {
         <Contenedor>
             {/* {console.log(arrayArtistas)} */}
             <Flex>
-            <p className="krona">{"> "} CATÁLOGO {">"} ARTISTAS</p>
+            <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}ARTISTAS</p>
                 <Search />
             </Flex>
+       
+
+            
             {!filteredArtistas.length > 0 && (
                 <p>No encontramos nada con: {state.theme.valorBusquedaGlobal}</p>
             )}

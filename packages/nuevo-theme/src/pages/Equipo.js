@@ -2,6 +2,7 @@ import React from "react"
 import {connect, styled} from "frontity"
 import Cargando from "../components/Cargando"
 import IconosRedes from "../components/IconosRedes"
+import Link from "../components/Link"
 
 const Equipo = ({state}) => {
 
@@ -16,7 +17,9 @@ const Equipo = ({state}) => {
 
         <>
             <Indice>
-                <p>{"> "}PRESENTACIÓN {">"} EQUIPO</p>
+                <p>
+                <Link href="/">{"> "}CATÁLOGO</Link>
+                {" > "}PRESENTACIÓN {" > "}EQUIPO</p>
             </Indice>
 
 

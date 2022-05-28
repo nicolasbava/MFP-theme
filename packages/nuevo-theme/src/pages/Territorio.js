@@ -2,6 +2,7 @@ import React from "react"
 import {connect, styled} from "frontity"
 import Cargando from "../components/Cargando"
 import IconosRedes from "../components/IconosRedes"
+import Link from "../components/Link"
 
 const Territorio = ({state}) => {
 
@@ -11,8 +12,10 @@ const Territorio = ({state}) => {
 
         <>
 
-            <Indice>
-                <p>{"> "}PRESENTACIÓN {">"} TERRITORIO</p>
+<Indice>
+                <p>
+                <Link href="/">{"> "}CATÁLOGO</Link>
+                {" > "}PRESENTACIÓN {" > "}TERRITORIO</p>
             </Indice>
 
             <Contenedor>

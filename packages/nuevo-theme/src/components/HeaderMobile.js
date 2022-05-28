@@ -17,14 +17,19 @@ const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
 // ESTILOS CSS
 const HeaderContenedor = styled.section`
     padding: 2em 7% 2em 7%;
+
+    @media (min-width: 769px){
+        // HIDE HEADER IN SMARTPHONE
+        display:none;   
     
+    }
     @media (max-widht:600px) {
         padding: 1em 7% 1em 7%;
     }
 
     @media (max-width: 769px){
         // HIDE HEADER IN SMARTPHONE
-        display:none;
+        display:static;
 
         &{
             background: #ff743d
@@ -125,8 +130,7 @@ const Presentacion = styled.span`
     cursor: pointer;
     border: 0.3px solid ${bordeModal};
     /* border-radius: 2px; */
-    // padding: 0.1em 0.2em;
-    padding: 0.4em 0.8em;
+    padding: 0.1em 0.2em;
     margin-left: 3.5em;
     
     .absoluto {
@@ -150,8 +154,7 @@ const Presentacion = styled.span`
 const Presentacion2 = styled.span`
     margin-left: 3.5em;
     cursor: pointer;
-    // padding: .1em .2em;
-    padding: 0.4em 0.8em;
+    padding: .1em .2em;
     border: 1px solid rgba(0,0,0,0);
     position:relative;
 

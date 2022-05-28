@@ -35,7 +35,7 @@ const MenuContainer = styled.div`
     background: ${fondoRosa};
     color: white;
     position: absolute;
-    top: 15px;
+    top: 19px;
     left: 39px;
     z-index: 99;
 

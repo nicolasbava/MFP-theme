@@ -3,7 +3,7 @@ import {connect, styled} from "frontity"
 import Link from "../components/Link"
 import Peliculas from "./Peliculas"
 import Cargando from "../components/Cargando"
-import CatalogoNoticias from "./catalogoNoticias"
+import CatalogoNoticiasInicio from "./catalogoNoticiasInicio"
 
 
 const Home = ({state}) => {
@@ -23,7 +23,7 @@ const Home = ({state}) => {
                 <>  
                 {/* PELICULAS */}
                     <Peliculas />
-                    <CatalogoNoticias />
+                    <CatalogoNoticiasInicio />
                     <VerMasNoticias>
                         <Link href="/noticias">
                             <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
@@ -43,9 +43,9 @@ const VerMasNoticias = styled.article`
     //padding-right: 2%;
 
     padding-left: 7%;
-    padding-right: 7%;
+    padding-right: 6%;
     // margin-top: 3%;
-    //padding-bottom: 2em;
+    padding-bottom: 4%;
 
     p {
         font-size: .7rem;

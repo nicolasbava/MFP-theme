@@ -40,7 +40,7 @@ const Contenedor = styled.div`
         background: #f9f9f9;
         border: 1px solid #d9d4d4;
         border-radius: 20px;
-        padding: 0.3em 1em;
+        padding: 0.8em 1em;
     }
 
     input:hover {

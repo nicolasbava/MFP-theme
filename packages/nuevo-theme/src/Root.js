@@ -26,7 +26,8 @@ import Script from "./scripts";
 import Contacto from "./pages/Contacto";
 import HeaderFijo from "./components/HeaderFijo";
 import Raya from "./components/Raya";
-
+import HeaderMobile from "./components/HeaderMobile";
+import HeaderFijoMobile from "./components/HeaderFijoMobile";
 
 const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
@@ -77,41 +78,44 @@ const Root = ({state, actions}) => {
 
 
         <UpHeader />
+        {/* <HeaderMobile /> */}
         <Header />
         <HeaderFijo />
+        
+        <HeaderFijoMobile />
         <Raya />
 
 
+        <Main>
+
+          {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
 
-        {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
+          {data.isFetching && <Cargando />}
+
+          {data.isHome && <Home />}
+
+          {data.isTerritorioArchive && <Territorio />}
+          {data.isEquipoArchive && <Equipo />}
+          {data.isProyectoArchive && <Proyecto />}
+
+          {data.isPeliculasArchive && <CatalogoVideos />}
+          {data.isArtistasArchive && <CatalogoArtistas />}
+          {data.isNoticiasArchive && <CatalogoNoticias />}
+          {data.isProductorasArchive && <CatalogoProductoras />}
 
 
-        {data.isFetching && <Cargando />}
+          {data.isPeliculas && <Post element='pelicula' />}
+          {data.isArtistas && <Post element='artista' />}
+          {data.isProductoras && <Post element='productora' />}
+          {data.isNoticias && <Post element='noticia' />}
 
-        {data.isHome && <Home />}
-
-        {data.isTerritorioArchive && <Territorio />}
-        {data.isEquipoArchive && <Equipo />}
-        {data.isProyectoArchive && <Proyecto />}
-
-        {data.isPeliculasArchive && <CatalogoVideos />}
-        {data.isArtistasArchive && <CatalogoArtistas />}
-        {data.isNoticiasArchive && <CatalogoNoticias />}
-        {data.isProductorasArchive && <CatalogoProductoras />}
+          {data.isContactoArchive && <Contacto />}
 
 
-        {data.isPeliculas && <Post element='pelicula' />}
-        {data.isArtistas && <Post element='artista' />}
-        {data.isProductoras && <Post element='productora' />}
-        {data.isNoticias && <Post element='noticia' />}
-
-        {data.isContactoArchive && <Contacto />}
-
-
-        
-        {data.isMapaArchive && <Mapa />}
-       
+          
+          {data.isMapaArchive && <Mapa />}
+        </Main>
 
        
        
@@ -133,3 +137,10 @@ const Root = ({state, actions}) => {
 
 export default connect(Root)
 
+const Main = styled.section`
+
+  @media (max-width: 796px){
+    padding-top: 23%;
+
+  }
+`

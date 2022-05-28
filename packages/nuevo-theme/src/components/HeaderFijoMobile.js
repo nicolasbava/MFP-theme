@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import {connect, Global, styled} from "frontity"
 import Header from "./Header";
 import Raya from "./Raya";
+import HeaderMobile from "./HeaderMobile";
+import MenuModal from "./MenuModal";
+
+
 export const EdgeButton = styled.div`    
     position: fixed;
     top: 0;
@@ -20,7 +24,7 @@ export const EdgeButton = styled.div`
 `;
 
 
-const HeaderFijo = ({state, actions ,children, color}) => {
+const HeaderFijoMobile = ({state, actions,children, color}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     // // Top: 0 takes us all the way back to the top of the page
@@ -35,7 +39,7 @@ const HeaderFijo = ({state, actions ,children, color}) => {
     useEffect(() => {
       // Button is displayed after scrolling for 302 pixels
       const toggleVisibility = () => {
-        if (window.pageYOffset > 302) {
+        if (window.pageYOffset >= 0) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
@@ -53,8 +57,10 @@ const HeaderFijo = ({state, actions ,children, color}) => {
         {isVisible && (
           <EdgeButton color={color} >
             {children}
-            <Header />
+            <HeaderMobile />
             <Raya />
+            {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
+
           </EdgeButton>
         )}
         
@@ -62,4 +68,4 @@ const HeaderFijo = ({state, actions ,children, color}) => {
     );
 }
  
-export default connect(HeaderFijo);
+export default connect(HeaderFijoMobile);

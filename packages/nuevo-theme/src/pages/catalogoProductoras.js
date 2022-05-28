@@ -22,9 +22,8 @@ const CatalogoProductoras = ({state, actions}) => {
         <Productoras>
             {console.log(arrayArtistas)}
             <article>
-                <p className="krona">{"> "} CATÁLOGO {">"} PRODUCTORAS</p>
-                <Search />
-
+              <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}PRODUCTORAS</p>
+              <Search />
             </article>
             {!filteredArtistas.length > 0 && (
                 <p>No encontramos nada con: {state.theme.valorBusquedaGlobal}</p>

@@ -152,9 +152,9 @@ const Post = ({ actions, state, element, libraries }) => {
 
             <Pelicula>
                 <Catalogo className="krona">
-                  {"> "}CATÁLOGO{" "} 
+                <Link href="/">{"> "}CATÁLOGO</Link>
                     <Link href="/peliculas">
-                      {" > "}PELÍCULAS
+                    {" > "}PELÍCULAS
                     </Link>
                         {" > "}FICHA TÉCNICA
                 </Catalogo>
@@ -164,7 +164,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 <CaractPeliculas>      
 
-                    {yearPelicula && <Link href={yearPelicula} > <p>{yearPelicula}</p> </Link>}  
+                    {yearPelicula && <p>{yearPelicula}</p> }  
                     
                     {generoPelicula && <p>{tab}/{tab}{generoPelicula} </p>} 
 
@@ -205,14 +205,14 @@ const Post = ({ actions, state, element, libraries }) => {
                 <FichaTecnicaPelicula>               
 
                     <Raya style={{marginTop:`-4px`}}></Raya>
-                    <h3>{">"} FICHA TÉCNICA</h3>
+                    <p className="eq" style={{paddingTop: '2em', paddingBottom:'2em', marginBottom:'0'}}>{">"} FICHA TÉCNICA</p>
 
                     {/* FICHA TECNICA TEXTO - pelicula  */}
                     <TextoFichaTecnica>
                         
                         <div className="cartel-ficha">
                             <div>
-                            <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                 
+                            {/* <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                  */}
                             {/* <span>{tab}/{tab}{generoPelicula} </span> 
                             <span>{tab}/{tab}{colorPelicula} </span> 
                             <span>{tab}/{tab}{estiloPelicula}</span>  */}
@@ -225,9 +225,9 @@ const Post = ({ actions, state, element, libraries }) => {
 
                             {productoraPelicula.length > 0 ? (productoraPelicula.map((val,key) => {
                             return (
-                                <p>Procutora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
+                                <p>Productora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
                             )
-                            })) :<p>Productora: <FichaLink link={"productoras/desconocida"}>  Desconocida </FichaLink></p>
+                            })) : null
                         }         
                         </div>
                     </TextoFichaTecnica>
@@ -236,7 +236,7 @@ const Post = ({ actions, state, element, libraries }) => {
                   {/* FICHA TECNICA PERSONAS slider - pelicula */}
                     {fichaTecnica.length > 0 ? (
                       <>
-                        <p className="eq">{">"} EQUIPO Y REPARTO</p>
+                        <p className="eq">{">"} EQUIPO</p>
                       </>
                     ): null}
                     
@@ -438,7 +438,13 @@ const Post = ({ actions, state, element, libraries }) => {
                 {/* {console.log(interesarPeliculas)} */}
                 {/* {console.log(trabajos)} */}
                   <InfoAf>
-                      <Indice><p className='krona'> {">"} CATALOGO {">"} FICHA TÉCNICA</p></Indice>
+                      <Indice><p className='krona'> 
+                        <Link href="/artistas">{"> "}CATÁLOGO </Link>
+                        <Link href="/artistas">{" > "}ARTISTAS </Link>
+                        {" > "}FICHA TÉCNICA
+                        </p>
+                        </Indice>
+                      
                       <Info>
                       <Foto>
                           <div style={{backgroundImage:`url(${post.acf.foto_artista || fotoRandom})`}}></div>
@@ -1091,12 +1097,16 @@ const Post = ({ actions, state, element, libraries }) => {
 
                <Artista>
                     <InfoAf>
-                        <Indice><p> {">"} CATÁLOGO                
-                            {" > "} 
+                        <Indice><p className='eq'> 
+                        <Link href='/'>
+                          {">"} CATÁLOGO 
+                          </Link>               
+                            
                           <Link href='/productoras'>
-                            PRODUCTORAS 
-                          </Link></p>
-                         </Indice>
+                          {" > "}PRODUCTORAS 
+                          </Link>
+                          {" > "}FICHA TÉCNICA </p>
+                        </Indice>
                         <Info>
                         <Foto>
                             <div style={{backgroundImage:`url(${post.acf.foto_productora || fotoRandom})`}}></div>
@@ -1229,13 +1239,19 @@ const Post = ({ actions, state, element, libraries }) => {
         
       return (
         <Noticia>
-          <IndiceNoticias>
-            <Link href='/noticias'>
-              <p className="krona">{"> "}NOTICIAS</p>
-            </Link>
-          </IndiceNoticias>
           
-          <ContenedorNoticia>
+          <Indice><p className='eq'> 
+                        <Link href='/'>
+                          {">"} CATÁLOGO 
+                          </Link>               
+                            
+                          <Link href='/noticias'>
+                          {" > "}NOTICIAS 
+                          </Link>
+                          {" > "}NOTICIA </p>
+                        </Indice>
+          
+          <ContenedorNoticia style={{paddingTop: '2em'}}>
             <h2 dangerouslySetInnerHTML={{__html: post.title.rendered}}></h2>
             <div dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
           </ContenedorNoticia>
@@ -1548,8 +1564,8 @@ const Pelicula = styled.section`
 
 `
 const Catalogo = styled.p`
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 3em;
+    padding-bottom: 3em;
     font-size: .7rem
 `
 const TituloPeli = styled.h2`
