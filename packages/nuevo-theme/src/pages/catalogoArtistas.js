@@ -103,8 +103,16 @@ const CatalogoArtistas = ({state, actions}) => {
 
 const fotoArtista = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
 
-
 export default connect(CatalogoArtistas)
+
+const arrayArtistas = ({state}) => {
+    const arrayArtistas = Object.values(state.source.artistas)
+    return (
+        <></>
+    )
+}
+export {arrayArtistas}
+
 
 const Flex = styled.div`
     display:flex;

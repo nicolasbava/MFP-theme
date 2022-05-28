@@ -9,6 +9,7 @@ import Footer from "../components/footer"
 import Search from "../components/Search"
 
 import { useHorizontalScroll } from "../components/useSideScroll";
+import ModalFlechas from "../components/ModalFlechas";
 
 
 
@@ -58,9 +59,10 @@ const Peliculas = ({state, actions}) => {
                 <p className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p>
                 <Search />
             </CartelHeader>    
+       
 
             {/* OUTSIDE, scroll  */}
-            <Outside className="main" ref={scrollRef} style={{ overflow: "auto" }}>
+            <Outside className="main" ref={scrollRef} style={{ overflow: "auto",}}>
                 
 
                 {/* ARRAY 1  */}
@@ -121,6 +123,9 @@ const Peliculas = ({state, actions}) => {
                 })}
                 </Array>
 
+                <Raya style={{marginTop:`26px`, background: '#b5b5b5'}}></Raya>
+
+
 
                 {/* Desplegar año  */}
                 <Array>
@@ -128,7 +133,7 @@ const Peliculas = ({state, actions}) => {
                     return (
                         <Article key={peliculas.id}>              
                                 <CuadradoAño >
-                                    <h3>{peliculas.acf.year}</h3>
+                                    <h3>{'> '} {peliculas.acf.year}</h3>
                                 </CuadradoAño>
                         </Article>
                     )
@@ -171,7 +176,7 @@ const Raya = styled.div`
 const VerTodasPeliculas = styled.article`
     text-transform: uppercase;
     font-size: .7rem;
-    padding: 1.5em 13px 0em 0;
+    padding: 4.5em 13px 0em 0;
     float:right;
     position:absolute; 
     right: 5.8%;
@@ -202,7 +207,7 @@ const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
   width: 87vw;
-  padding-bottom: 4.5em;
+  padding-bottom: 1em;
   //margin-bottom: 2em;
 
   &:first-of-type {
@@ -327,12 +332,13 @@ const CuadradoAño = styled.div`
   background-size: cover;
 
   h3 {
-    margin-top: 0;
+    margin-top: 3em;
     margin-bottom: 4px;
     text-transform: uppercase;
     line-height: 1.6;
     font-weight: normal;
     font-size: 1rem;
+    color:#fe743d;
   }
 
   @media (max-width: 769px) { 

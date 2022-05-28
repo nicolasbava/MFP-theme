@@ -5,8 +5,6 @@ import Peliculas from "./Peliculas"
 import Cargando from "../components/Cargando"
 import CatalogoNoticias from "./catalogoNoticias"
 
-import HeaderFijo from "../components/HeaderFijo"
-// import Catalogo from "./catalogoVideos"
 
 const Home = ({state}) => {
     const pageHero = state.source.page[353]
@@ -19,17 +17,11 @@ const Home = ({state}) => {
     return (
         <>
 
-
-            {/* TIRA UNDEFINED CUANDO AUN NO DESCARGO EL OBJETO, ENTONCES TIRA NULL, CUANDO LO DESCARGA LO MUESTRA */}
-            
-            {/* <CatalogoVideos /> */}
-
-            {/* {console.log(peliculas)} */}
-
             {typeof peliculas === "undefined" ? <Cargando /> : 
             
                 // <Catalogo />
                 <>  
+                {/* PELICULAS */}
                     <Peliculas />
                     <CatalogoNoticias />
                     <VerMasNoticias>
@@ -40,15 +32,8 @@ const Home = ({state}) => {
                     
                 </>
             }
-
-            
-        
-
-
         </>
-
     )
-
 }
 
 export default connect(Home)

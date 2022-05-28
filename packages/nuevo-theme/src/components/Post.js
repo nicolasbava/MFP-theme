@@ -5,6 +5,7 @@ import Link from './Link'
 import FichaLink from './FichaLink'
 import Cargando from './Cargando'
 import IconosRedes from './IconosRedes'
+import {arrayArtistas} from '../pages/catalogoArtistas'
 
 import { useHorizontalScroll } from "../components/useSideScroll";
 
@@ -39,6 +40,8 @@ const Post = ({ actions, state, element, libraries }) => {
 
   }, []) 
 
+
+
   const arrayPeliculas = state.source.peliculas
 
   const yearPelicula = post.acf.year;
@@ -62,6 +65,8 @@ const Post = ({ actions, state, element, libraries }) => {
   const productoraPelicula = post.acf.productora;
 
   const galeriaPelicula = post.acf.galeria;
+
+
 
  
 
@@ -136,18 +141,22 @@ const Post = ({ actions, state, element, libraries }) => {
   
     const lastNumber = String(time).slice(-2)
 
-    
+    let arrayNuevo = []
 
-      console.log(lastNumber)
-        return (
+    console.log(lastNumber)
+ 
+         return (
 
 
 
 
             <Pelicula>
                 <Catalogo className="krona">
-                  <Link href="/">  {"> "}CATÁLOGO{" "} 
-                  {">"} PELÍCULAS</Link>
+                  {"> "}CATÁLOGO{" "} 
+                    <Link href="/peliculas">
+                      {" > "}PELÍCULAS
+                    </Link>
+                        {" > "}FICHA TÉCNICA
                 </Catalogo>
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
                 {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
@@ -200,7 +209,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     {/* FICHA TECNICA TEXTO - pelicula  */}
                     <TextoFichaTecnica>
-                        <p className="eq">{">"} FICHA TÉCNICA</p>
+                        
                         <div className="cartel-ficha">
                             <div>
                             <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                 
@@ -232,15 +241,23 @@ const Post = ({ actions, state, element, libraries }) => {
                     ): null}
                     
                       
-                    <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap }}>
+                    <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
+                    {console.log('ficha',fichaTecnica)}
+                    
+                    {console.log(state.source.artistas)}
 
-                        {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
-                        return (                    
+                        {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
+                         let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
+                        //  let id = val.cargo_nombre[0].ID
+              
+                         return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                            {console.log(fichaTecnica)}
+                            
+                            
 
-                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                            
+                            <div style={{backgroundImage:`url(${foto})`}}></div>
                             <article className="fondo-verde">                        
                                 {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                 return (
@@ -280,40 +297,22 @@ const Post = ({ actions, state, element, libraries }) => {
                 <InteresarPeliculas>
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
                     <Array>
-
-                      
-
                       {typeof interesarPeliculas === "undefined" ? <Cargando /> : 
-
-
-                          
-                       
-                          
-
                           Object.values(interesarPeliculas).slice(0, 4).map( pelicula => {
-                            
+                          
                               return (
-                                      <Article key={pelicula.id}>
-                                      {/* <p>{peliculas.title.rendered}</p> */}
+                                  <Article key={pelicula.id}>
+                                      <Link href={pelicula.link}>
+                                          <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
+                                              <Cartel>
 
-                                      {/* {console.log(arrayPeliculas)} */}
+                                              <Rayita></Rayita>
+                                              <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
 
-
-
-                                          <Link href={pelicula.link}>
-                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                                              <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
-                                                  <Cartel>
-
-                                                  <Rayita></Rayita>
-                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
-
-                                                <h4>{pelicula.acf.year}</h4>
-                                                </Cartel>
-                                            </Cuadrado>
-                                        </Link>
+                                            <h4>{pelicula.acf.year}</h4>
+                                            </Cartel>
+                                        </Cuadrado>
+                                    </Link>
 
                                     </Article>                                                                
                             )
@@ -1085,109 +1084,7 @@ const Post = ({ actions, state, element, libraries }) => {
         const filmografia = post.acf.filmografia
         const equipo = post.acf.equipo
         const galeria = post.acf.galeria
-
-         // TRABAJOS - produtora
-        // TRABAJOS arrays
-        let direccion = []
-        let guion = []
-        let produccion = []
-        let elenco = []
-        let realizacion = []
-        let camara = []
-        let direccionDeFotografia = []
-        let sonido = []
-        let montaje = []
-        let guionTecnico = []
-        let direccionArtistica = []
-        let asistenteDireccion = []
-        let argumento = []
-        let musica = []
-        let asistenteDeMontaje = []
-        let adaptacionMusical = []
-
-        let otros = []
-
-        // TRABAJOS condicionales filter
-        if (equipo) {
-
-        equipo.forEach(element => {
-
-          if (element.cargo === 'Dirección') {
-            direccion.push(element)
-          } 
-          
-          else if (element.cargo === 'Guión') {
-            guion.push(element)
-          } 
-          
-          else if (element.cargo === 'Producción') {
-            produccion.push(element)
-          } 
-
-          else if (element.cargo === 'Elenco') {
-            elenco.push(element)
-          } 
-
-          else if (element.cargo === 'Realización') {
-            realizacion.push(element)
-          } 
-
-          else if (element.cargo === 'Cámara') {
-            camara.push(element)
-          } 
-          
-          else if (element.cargo === 'Dirección de fotografía') {
-            direccionDeFotografia.push(element)
-          } 
-                
-          else if (element.cargo === 'Sonido') {
-            sonido.push(element)
-          } 
-                
-          else if (element.cargo === 'Montaje') {
-            montaje.push(element)
-          } 
-                
-          else if (element.cargo === 'Guión técnico') {
-            guionTecnico.push(element)
-          } 
-                
-          else if (element.cargo === 'Dirección artística') {
-            direccionArtistica.push(element)
-          } 
-                
-          else if (element.cargo === 'Asistente de dirección') {
-            asistenteDireccion.push(element)
-          } 
-                
-          else if (element.cargo === 'Argumento') {
-            argumento.push(element)
-          } 
-                
-          else if (element.cargo === 'Música') {
-            musica.push(element)
-          } 
-                
-          else if (element.cargo === 'Asistente de montaje') {
-            asistenteDeMontaje.push(element)
-          } 
-                
-          else if (element.cargo === 'Adaptación musical') {
-            adaptacionMusical.push(element)
-          } 
-          
-          else  {
-            otros.push(element)
-          }
-          
-        })
-      } else return null
-        // console.log(otros);
-
-
-
-
-
+         
         // === PRODUCTORA individual === //
         return ( 
             <>
@@ -1215,8 +1112,13 @@ const Post = ({ actions, state, element, libraries }) => {
                         </Info>
                     </InfoAf>
 
-                    {/* PRODUCTORA - galeria  */}
-                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'7%' }}>    
+                    
+
+                    {/* PRODUCTORA - trabajos */}
+                    <TrabajosArtista>   
+
+                      {/* PRODUCTORA - galeria  */}
+                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'7%'}}>    
                          
                        
 
@@ -1231,10 +1133,10 @@ const Post = ({ actions, state, element, libraries }) => {
                          }    
                      
                     </GaleriaPelicula>
-                    <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
 
-                    {/* PRODUCTORA - trabajos */}
-                    <TrabajosArtista>   
+                    {typeof galeria == "undefined" ? null : (
+                      <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
+                    )}
                         
                         {/* PRODUCTORA - filmografia */}
                         {typeof filmografia === "undefined" ? <p>{"> "}FILMOGRAFÍA </p> : (
@@ -1272,7 +1174,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                         {/* PRODUCTORA - equipo slider */}
                         {typeof equipo === "undefined" ? null : (
-                            <p className='eq' style={{paddingBlock: '4em', fontSize: '0.8rem'}}>{"> "}EQUIPO </p>
+                            <p className='eq' style={{paddingBlock: '5em', fontSize: '0.8rem', margin: '0'}}>{"> "}EQUIPO </p>
                         )}
                         <SliderFichaTecnica className="panel" ref={scrollRef} style={{ paddingBottom: '2em',overflow: "auto", flexWrap:'wrap' }}>
                           
@@ -1574,7 +1476,7 @@ const Cartel = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 3em;
-  padding-bottom: 3em;
+  /padding-bottom: 3em;
 
   h3 {
     text-transform: uppercase;

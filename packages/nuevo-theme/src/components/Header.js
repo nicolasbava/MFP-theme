@@ -92,8 +92,8 @@ const Header = ({state,actions}) => {
                 <Nav>
                    <Relative>
                         
-                        {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion  onMouseDown={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion>}                       
-                        {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onMouseEnter={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN</Presentacion2>}
+                        {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion  onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i class="bi bi-caret-up-fill"></i></Presentacion>}                       
+                        {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i class="bi bi-caret-down-fill"></i></Presentacion2>}
                                         
                         {state.theme.contadorPresentacion % 2 !== 0 && <PresentacionModal />}                       
                    </Relative>
@@ -101,8 +101,8 @@ const Header = ({state,actions}) => {
                    <Link href='/noticias'>NOTICIAS</Link> 
 
                    <RelativeCatalogo>
-                        {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onMouseDown={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion>}
-                        {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onMouseEnter={actions.theme.setPlusContadorCatalogo}>CATÁLOGO</Presentacion2>}
+                        {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i class="bi bi-caret-up-fill"></i></Presentacion>}
+                        {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i class="bi bi-caret-down-fill"></i></Presentacion2>}
 
                         {state.theme.contadorCatalogo % 2 !== 0 && <CatalogoModal />}                       
                         
@@ -117,12 +117,7 @@ const Header = ({state,actions}) => {
                     
                 </Nav>
             <MenuButton />
-
-
-
             </Contenedor>
-      
-
         </HeaderContenedor>
 
            
