@@ -128,6 +128,7 @@ const ArtistasFlex = styled.section`
     flex-wrap:wrap;
     justify-content: left;
     margin-right: -2vw;
+    padding-bottom:7%;
 
     &:first-of-type {
         margin-left: -1vw;

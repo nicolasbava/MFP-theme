@@ -37,7 +37,7 @@ const MenuContainer = styled.div`
     color: white;
     position: absolute;
     top: 19px;
-    left: 39px;
+    left: 40px;
     z-index: 99;
 
 `

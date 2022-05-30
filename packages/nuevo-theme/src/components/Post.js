@@ -19,7 +19,34 @@ const fondoRosa = '#fbf0e5'
 
 const redHat = "'Red Hat Text', sans-serif"
 
+// FOTOS PARA USAR EN EL POST
 
+let foto477 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg" // violeta parra
+ 
+let foto403 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg" // Mary wolf
+ 
+let foto400 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png" //Alberto Sealls 
+  
+let foto398 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg" //Jorge Sanjinés 
+  
+let foto397 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg" //Consuelo Saavedra
+  
+let foto395 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png"//Elena Puelma
+  
+let foto394 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png"//Juan Pérez Castillo
+  
+let foto393 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/berrocalcantaynollores3.png" //Juan Pérez Berrocal
+  
+let foto392 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png" //"Antonia Pellicer"
+  
+// FOTOS PELICULAS
+
+let foto742 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png"//QUERIDOS COMPAÑEROS
+  
+// let foto =  //
+  
+// let foto =  //
+ 
 
 
 const Post = ({ actions, state, element, libraries }) => {
@@ -297,7 +324,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 <InteresarPeliculas>
                     <p className="eq">{">"} TE PUEDE INTERESAR</p>
                     <Array>
-                      {typeof interesarPeliculas === "undefined" ? <Cargando /> : 
+                      {typeof interesarPeliculas === "undefined" ? null : 
                           Object.values(interesarPeliculas).slice(0, 4).map( pelicula => {
                           
                               return (
@@ -464,7 +491,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
 
-  {/*============== TRABAJOS ARTISTA - artista ==============================*/}
+                  {/*======== TRABAJOS ARTISTA - artista ===================*/}
 
                                   
                     
@@ -474,15 +501,15 @@ const Post = ({ actions, state, element, libraries }) => {
                    
                                   
                     <InteresarPeliculas>
-                      <p className="eq" style={{paddingBottom:'0'}}>{"> "}FILMOGRAFÍA</p>
+                      <p className="eq" style={{paddingBottom:'0', fontSize:'1rem'}}>{"> "}FILMOGRAFÍA</p>
 
                       {/* == 1. Trabajos Dirección == */}
                       {direccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección</p>        
                       )}
                       <Array>     
 
-                        {typeof state.source.peliculas === "undefined" ? <p>Cargando...</p> :                          
+                        {typeof direccion === "undefined" ? null :                          
 
                             Object.values(direccion).map(element => {
 
@@ -506,28 +533,28 @@ const Post = ({ actions, state, element, libraries }) => {
 
                               return (
                                         
-                                        <Article key={element.peliculas[0].ID}>
-                                        {console.log(element)}
-                                        {console.log(state.source.peliculas)}
-                                        {/* {console.log(state.source.peliculas[id].acf.foto_pelicula)} */}
-                                        {/* {console.log(peli)} */}
-                                        {/* <p>{id}</p> */}
+                                  <Article key={element.peliculas[0].ID}>
+                                  {console.log(element)}
+                                  {console.log(state.source.peliculas)}
+                                  {/* {console.log(state.source.peliculas[id].acf.foto_pelicula)} */}
+                                  {/* {console.log(peli)} */}
+                                  {/* <p>{id}</p> */}
 
-                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
-                                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                  <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                          {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
-                                                <Cuadrado style={{backgroundImage:`url(${foto})`}}>
-                                                    <Cartel>
+                                          <Cuadrado style={{backgroundImage:`url(${foto})`}}>
+                                              <Cartel>
 
-                                                      <Rayita></Rayita>
-                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+                                                <Rayita></Rayita>
+                                                <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
-                                                  {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel>
-                                              </Cuadrado>
-                                          </FichaLink>
+                                            {/* <h4>{pelicula.acf.year}</h4> */}
+                                            </Cartel>
+                                        </Cuadrado>
+                                    </FichaLink>
 
-                                      </Article>                                                                
+                                </Article>                                                                
                               )
                           })     
                       }
@@ -536,11 +563,11 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 2. Trabajos Producción == */}
                       {produccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Producción </p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Producción </p>        
                       )}
                       <Array>                    
 
-                        {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> : 
+                        {typeof trabajos === "undefined" ? null : 
 
                             
                             Object.values(produccion).map( element => {
@@ -585,13 +612,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
                                                 <Cuadrado style={{backgroundImage:`url(${foto})`}}>
-                                                    <Cartel>
+                                                  <Cartel2>
 
                                                     <Rayita></Rayita>
                                                     <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel>
+                                                  </Cartel2>
                                               </Cuadrado>
                                           </FichaLink>
 
@@ -603,7 +630,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 3. Trabajos Guión == */}
                       {guion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión</p>        
+                          <p className='uppercase' style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión</p>        
                       )}
                       <Array>                    
 
@@ -639,7 +666,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 4. Trabajos Elenco == */}
                       {elenco.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Elenco</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Elenco</p>        
                       )}
                       <Array>                    
 
@@ -657,13 +684,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
                                                 <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                    <Cartel>
+                                                    <Cartel2>
 
                                                       <Rayita></Rayita>
                                                       <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel>
+                                                  </Cartel2>
                                               </Cuadrado>
                                           </FichaLink>
 
@@ -675,7 +702,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 5. Trabajos Realización == */}
                       {realizacion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Realización</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Realización</p>        
                       )}
                       <Array>                    
 
@@ -711,7 +738,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 6. Trabajos Cámara == */}
                       {camara.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Cámara</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Cámara</p>        
                       )}
                       <Array>                    
 
@@ -747,7 +774,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 7. Trabajos Dirección de fotografía == */}
                       {direccionDeFotografia.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección de fotografía</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección de fotografía</p>        
                       )}
                       <Array>                    
 
@@ -783,7 +810,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 8. Trabajos Sonido == */}
                       {sonido.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Sonido</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Sonido</p>        
                       )}
                       <Array>                    
 
@@ -819,7 +846,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 9. Trabajos Montaje == */}
                       {montaje.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Montaje</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Montaje</p>        
                       )}
                       <Array>                    
 
@@ -855,7 +882,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 10. Trabajos Guión técnico == */}
                       {guionTecnico.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión técnico</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Guión técnico</p>        
                       )}
                       <Array>                    
 
@@ -891,7 +918,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 11. Trabajos Dirección artística == */}
                       {direccionArtistica.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Dirección artística</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección artística</p>        
                       )}
                       <Array>                    
 
@@ -927,7 +954,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 12. Trabajos Asistente de dirección == */}
                       {asistenteDireccion.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Asistente de dirección</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Asistente de dirección</p>        
                       )}
                       <Array>                    
 
@@ -963,7 +990,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       
                       {/* == 13. Trabajos Argumento == */}
                       {argumento.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Argumento</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Argumento</p>        
                       )}
                       <Array>                    
 
@@ -999,7 +1026,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 13. Trabajos Otros == */}
                       {otros.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}--</p>        
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}--</p>        
                       )}
                       <Array>                    
 
@@ -1041,8 +1068,8 @@ const Post = ({ actions, state, element, libraries }) => {
                   {/* ============ PRODUCTORAS / artista ============*/}
 
                   {typeof productoras === "undefined" ? <p>{"> "}PRODUCTORAS ASOCIADAS</p> : (
-                    <InteresarPeliculas>
-                    <p className="eq" style={{paddingBottom:'0'}}>{">"} PRODUCTORAS ASOCIADAS</p>
+                    <InteresarPeliculas style={{paddingTop:'2em'}}>
+                    <p className="eq" style={{paddingBottom:'0', fontSize:'1rem'}}>{">"} PRODUCTORAS ASOCIADAS</p>
                     <Array>
 
                       {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
@@ -1057,13 +1084,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
                                               <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                  <Cartel>
+                                                  <Cartel2>
 
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
 
                                                 {/* <h4>{pelicula.acf.year}</h4> */}
-                                                </Cartel>
+                                                </Cartel2>
                                             </Cuadrado>
                                         </FichaLink>
 
@@ -1128,7 +1155,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     <TrabajosArtista>   
 
                       {/* PRODUCTORA - galeria  */}
-                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'7%'}}>    
+                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'2%'}}>    
                          
                        
 
@@ -1163,10 +1190,10 @@ const Post = ({ actions, state, element, libraries }) => {
 
                                       <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
                                               <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                  <Cartel>
+                                                <Cartel2>
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:filmografia[index].peliculas.post_title}}></h3>
-                                                </Cartel>
+                                                </Cartel2>
                                             </Cuadrado>
                                         </FichaLink>
 
@@ -1473,6 +1500,67 @@ const Array = styled.div`
     margin-right: -2vw;
 `
 
+const Cartel2 = styled.div`
+  color: #fff;
+  //padding-top: 2em;
+  // padding-left: 1em;
+  height: 100%;
+  padding-bottom: 1em;
+  transition: all 500ms ease;
+  opacity: 1;
+  box-sizing: border-box;
+  transition: opacity 0.55s;
+  border-radius: 2px;
+  z-index: 95;
+  display: flex;
+  padding-right: 3em;
+  background: rgba(0,0,0, .7);
+
+
+  gap: 1vw;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 3em;
+  padding-bottom: 3em;
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-weight: normal;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1rem;
+    margin-bottom: 2em;
+  }
+
+  // & > * {
+
+  //   transition: transform 0.7s;
+  //   transform: translateX(-8rem);
+  // }
+
+  
+  &:hover > * {
+    //transform: translateX(0);
+    // transform: scale(1.1);
+    text-decoration: underline;
+  }
+
+  // &:hover {
+  //   background: rgba(0,0,0, .7);
+  //   opacity: 1;
+  //   box-sizing: border-box;
+  // }
+`
+
+
+
 const Cartel = styled.div`
   color: #fff;
   //padding-top: 2em;
@@ -1492,7 +1580,7 @@ const Cartel = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   padding-left: 3em;
-  /padding-bottom: 3em;
+  padding-bottom: 3em;
 
   h3 {
     text-transform: uppercase;

@@ -28,7 +28,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
             )}
 
             <NoticiasFlex>
-                {filteredArtistas.reverse().map((artistas, index) => {
+                {filteredArtistas.reverse().slice(0, 3).map((artistas, index) => {
                     // const artista = state.source.artistas[id];
 
 
