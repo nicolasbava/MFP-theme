@@ -4,6 +4,7 @@ import Link from "../components/Link"
 import Peliculas from "./Peliculas"
 import Cargando from "../components/Cargando"
 import CatalogoNoticiasInicio from "./catalogoNoticiasInicio"
+import SliderFichaTecnicaModulo from "../components/individuales/SliderFichaTecnica"
 
 
 const Home = ({state}) => {
@@ -21,7 +22,7 @@ const Home = ({state}) => {
             
                 // <Catalogo />
                 <>  
-                {/* PELICULAS */}
+                    {/* PELICULAS */}
                     <Peliculas />
                     <CatalogoNoticiasInicio />
                     <VerMasNoticias>
@@ -29,6 +30,8 @@ const Home = ({state}) => {
                             <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
                         </Link>
                     </VerMasNoticias> 
+
+                   
                     
                 </>
             }

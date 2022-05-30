@@ -6,10 +6,10 @@ import FichaLink from './FichaLink'
 import Cargando from './Cargando'
 import IconosRedes from './IconosRedes'
 import {arrayArtistas} from '../pages/catalogoArtistas'
+import InteresarPeliculas2 from './individuales/InteresarPeliculas'
+import SliderFichaTecnicaModulo from './individuales/SliderFichaTecnica'
 
 import { useHorizontalScroll } from "../components/useSideScroll";
-
-
 
 
 
@@ -136,26 +136,44 @@ const Post = ({ actions, state, element, libraries }) => {
 
     // const equipo = post.acf.equipo
 
+    // shuffle
+    const time = new Date().getTime();
+      
+    const lastNumber = String(time).slice(-2)
+
+    const interesarPeliculas = state.source.peliculas;
+
+    var points = [40, 100, 1, 5, 25, 10];
+
+    if(interesarPeliculas){
+      for (let i = interesarPeliculas.length -1; i > 0; i--) {
+        j = Math.floor(time * i)
+        k = interesarPeliculas[i]
+        interesarPeliculas[i] = interesarPeliculas[j]
+        interesarPeliculas[j] = k
+      }
+    }
+
+    
 
 
-  const interesarPeliculas = state.source.peliculas;
+
+
+    let arrayNuevo = []
+    // /shuffle
+
+  
 
   if ( element === 'pelicula')  {
       
-    // function shuffle(array) {
-    //   if(array != false){
-    //     array.sort(() => Math.random() - 0.5);
-    //   }
-      
-    // }
-
+   
     
-                            
+    let peliculaId = post.id                       
   
-
-  // ============ controladores NOTICIAS ======================
+    console.log('ID:', peliculaId);
+    // ============ controladores NOTICIAS ======================
   
-  const noticias = state.source.noticias
+    const noticias = state.source.noticias
 
 
     
@@ -164,11 +182,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     // ====== PELICULA inicio ========
 
-    const time = new Date().getTime();
-  
-    const lastNumber = String(time).slice(-2)
-
-    let arrayNuevo = []
+   
 
     console.log(lastNumber)
  
@@ -319,37 +333,13 @@ const Post = ({ actions, state, element, libraries }) => {
                     )} 
               </FichaTecnicaPelicula>
 
+              <h1>''' desde aca '''</h1>
+
+              <SliderFichaTecnicaModulo peliculaId={peliculaId}/>
+
             {/* TE PUEDE INTERESAR inicio  */}
-
-                <InteresarPeliculas>
-                    <p className="eq">{">"} TE PUEDE INTERESAR</p>
-                    <Array>
-                      {typeof interesarPeliculas === "undefined" ? null : 
-                          Object.values(interesarPeliculas).slice(0, 4).map( pelicula => {
-                          
-                              return (
-                                  <Article key={pelicula.id}>
-                                      <Link href={pelicula.link}>
-                                          <Cuadrado style={{backgroundImage:`url(${pelicula.acf.foto_pelicula})`}}>
-                                              <Cartel>
-
-                                              <Rayita></Rayita>
-                                              <h3 dangerouslySetInnerHTML={{__html:pelicula.title.rendered}}></h3>
-
-                                            <h4>{pelicula.acf.year}</h4>
-                                            </Cartel>
-                                        </Cuadrado>
-                                    </Link>
-
-                                    </Article>                                                                
-                            )
-                        })         
-                    }
-
-                </Array>
-                        
-                </InteresarPeliculas>
-              
+            {/* from InteresarPeliculas.js  */}
+            <InteresarPeliculas2 />
 
 
             </Pelicula>            
