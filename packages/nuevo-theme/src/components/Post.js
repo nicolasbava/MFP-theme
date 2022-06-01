@@ -544,7 +544,7 @@ const Post = ({ actions, state, element, libraries }) => {
                      
                             
 
-                            {console.log('IDDDDD:', fichaTecnica)}
+                   
                             {val.cargo_nombre.length === 0 ? 
                             <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                             
