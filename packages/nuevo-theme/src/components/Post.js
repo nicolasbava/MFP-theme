@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {connect, styled, css, Global} from 'frontity'
+import {connect, styled, css, Global, state} from 'frontity'
 
 import Link from './Link'
 import FichaLink from './FichaLink'
@@ -11,7 +11,7 @@ import SliderFichaTecnicaModulo from './individuales/SliderFichaTecnica'
 
 import { useHorizontalScroll } from "../components/useSideScroll";
 
-
+let fondoRandom = "http://memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"
 
 const naranja = '#ec7342'
 
@@ -19,9 +19,124 @@ const fondoRosa = '#fbf0e5'
 
 const redHat = "'Red Hat Text', sans-serif"
 
-// FOTOS PARA USAR EN EL POST
+// OBJETO FOTOS artistas y peliculas PARA USAR EN EL POST
 
-let foto477 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg" // violeta parra
+  let fotos = {  
+   
+    742 : "http://memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png",
+    741 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/unterderjunta2.png",
+    740  :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" ,
+    51 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-1.jpg"  ,
+    71 :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png",
+    105 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" ,
+    110  : "https://memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png",
+    123: "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png" ,
+    124 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-23.png",
+    125 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-22.png",
+    128 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1967_12_26_ECRAN-p8-copia.png",
+    129 : fondoRandom,
+    130 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-1418137820_1-copia.png",
+    131 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/13-4.png",
+    145 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/oriana2.png",
+    203 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1946.png",
+    239 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1903fundicion.jpg" ,
+    242 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1.png" ,
+    248  : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1924_12_17_EL-SUR.jpg",
+    251 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1941_12_02_ECRAN-p18¿.png",
+    252 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/163934403_2829588743963118_9058270311909214934_n.jpg",
+    373 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/amparoalsina2.png",
+    374 : fondoRandom,
+    376 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/Adolfo_Berchenko_Garcia_entre_1945_1948_Concepcion_Chile-copia.jpg",
+    377 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/4-10.png",
+    378 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/mariita-copia.png",
+    379 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/67140215_2434850203235230_1432942308470292480_o-copia.jpg",
+    380 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/claracastillocantaynollores3.png",
+    381 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/anitagiraudocantaynollores.png",
+    382 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/trianavarela.png",
+    383 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/domenechcantaynollores6.png",
+    388 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/loubiescruzdelsur3.png",
+     447 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg",
+    403 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg",
+    400 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png",
+    398 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg",
+    397 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg",
+    395 : "http://memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png",
+    394  : "https://memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png",
+    393 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/berrocalcantaynollores3.png" ,
+    392  : "http://memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png",
+    402 : fondoRandom,
+    258 :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/3-11.png" ,
+    265 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/regioncarbonifera.png" ,
+    370 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1.jpg",
+    681: "https://memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-copia-1.jpg",
+    685 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/3.jpg",
+    686 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/vghbjk.png",
+    687 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1931_08_01_LA-OPINION-DE-LOTA-p3-hacia-el-parque.png" ,
+    688 :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/0.jpg",
+    690 :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png",
+    691 :  "https://memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png",
+    692: "https://memoriafilmica.cl/wp-content/uploads/2022/04/carbon8.png",
+    693:fondoRandom ,
+    694 : fondoRandom,
+    695 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/06-copia-copia.jpg"  ,
+    696 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/06-copia.jpg",
+    697  : "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-9.png",
+    698  :fondoRandom ,
+    700 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/mural-estacion.png",
+    701 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/5-8.png" ,
+    702 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1lota-green.png",
+    703 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-16.png",
+    704:"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png" ,
+    705 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-Santos-Chavez-Violeta-Sanjines-Consuelo.png" ,
+    707 : fondoRandom ,
+    708:"https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg" ,
+    709 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png" ,
+    710 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-13.png" ,
+    711 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/4b2ed389d7ac7231a3f97ff8decb445b.jpg",
+    712: "https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.png",
+    713 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-7.png",
+    714: "https://memoriafilmica.cl/wp-content/uploads/2022/04/6-7.png",
+    715  :  fondoRandom,
+    716 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-9.png" ,
+    717 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1963_02_20_ERCILLA-cinechile.jpg",
+    718:"https://memoriafilmica.cl/wp-content/uploads/2022/04/lctd1.png"  ,
+    719 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/14-2.png" ,
+    720 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/7-4.png" ,
+    721:"https://memoriafilmica.cl/wp-content/uploads/2022/04/5-3.png" ,
+    722: "https://memoriafilmica.cl/wp-content/uploads/2022/04/construccion12.png",
+    723 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/pinacoteca.png",
+    724 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/16-1.png",
+    725: fondoRandom,
+    726 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/5-2.png" ,
+    727 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/nocheotono.png",
+    728 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/22.png",
+    729 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/plazaapostadero.png",
+    730 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/freiasmar2.png",
+    731 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/freiquiriquina2.png",
+    732 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1970_12_22_PUNTO-FINAL-p8suplemento.png" ,
+    733 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/articles-105499_imagen_0.jpg",
+    734 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/EhFqX2WX0AMfxPR.jpg",
+    735 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/primerano.png",
+    736 : fondoRandom ,
+    737 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/5.png",
+    738 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/cormu2.png",
+    739 : fondoRandom ,
+
+    53 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/cineforo.jpg",
+    54 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/costasur-1.png",
+    55 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/austral.jpeg",
+    57 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-24.png" ,
+    58 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/rapto-1.png" ,
+    59 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-10.jpg",
+    60 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/IDBN5724_0001.png",
+    677 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/1931_11_01_LA-OPINION-DE-LOTA-p2.png"
+  }
+
+
+// console.log('esta foto es: ', fotos[739])
+
+{
+  let foto477 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg" // violeta parra
  
 let foto403 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg" // Mary wolf
  
@@ -32,21 +147,159 @@ let foto398 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjin
 let foto397 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg" //Consuelo Saavedra
   
 let foto395 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png"//Elena Puelma
-  
+
 let foto394 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png"//Juan Pérez Castillo
   
 let foto393 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/berrocalcantaynollores3.png" //Juan Pérez Berrocal
   
 let foto392 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png" //"Antonia Pellicer"
-  
-// FOTOS PELICULAS
 
 let foto742 = "http://memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png"//QUERIDOS COMPAÑEROS
   
-// let foto =  //
+let foto741 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/unterderjunta2.png" // Chile unter der junta
   
-// let foto =  //
+let foto740 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" //césar Mendoza y carabineros en plaza de armas de Concepción - 
  
+let foto51 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-1.jpg" // "La Semana Penquista"
+
+let foto71 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png" // "El carbón chileno - Memoria Filmica Pencopolitana"
+
+let foto105 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" //"fabrica-de-loza-de-penco"
+
+let foto110 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png"// "Póker - Memoria Filmica Pencopolitana"
+
+// FOTOS PELICULAS
+
+let foto123 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png"// "/peliculas/la-sortija-de-la-suerte/"
+ 
+let foto239 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1903fundicion.jpg"// "fundicion-de-cobre-en-lota"
+ 
+let foto242 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1.png" // "una-visita-a-las-minas-de-lota"
+ 
+let foto248 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1924_12_17_EL-SUR.jpg"// "actualidades-penquistas"
+ 
+let foto258 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/3-11.png" // /peliculas/boyscouts-en-concepcion/"
+ 
+let foto265 ="https://memoriafilmica.cl/wp-content/uploads/2022/04/regioncarbonifera.png" // "/peliculas/la-region-carbonifera/"
+ 
+let foto370 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1.jpg"// "Mater dolorosa - Memoria Filmica Pencopolitana"
+ 
+let foto681 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-copia-1.jpg"// "/peliculas/actualidades-de-talcahuano/"
+ 
+let foto683 ="https://memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-scaled.jpg" // "juan-penco-boxeador"
+ 
+let foto685 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/3.jpg"// "canta-y-no-llores-corazon-o-el-precio-de-una-honra"
+   
+let foto686 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/vghbjk.png"// "/peliculas/desfile-del-cuerpo-de-bomberos-y-revista-general/"
+ 
+let foto687 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1931_08_01_LA-OPINION-DE-LOTA-p3-hacia-el-parque.png" // "solemnes-funerales-del-senor-cousino"
+ 
+let foto688 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/0.jpg"// "/peliculas/vistas-panoramicas-de-lota/"
+ 
+let foto690 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png"// "/peliculas/el-rapto/"
+  
+let foto691 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png"// "/peliculas/1er-noticiario/"
+  
+let foto692 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/carbon8.png"// "carbon-biografia-de-una-mina"
+  
+let foto693 = fondoRandom // "Alerta en el Pacífico - Memoria Filmica Pencopolitana"
+  
+let foto694 = fondoRandom// NOTICIARIO N 1
+
+let foto695 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/06-copia-copia.jpg" // "Noticiario El Sur N° 2"
+
+let foto696 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/06-copia.jpg"// "Más allá del río Claro y del Bío-Bío"
+
+let foto697 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-9.png"// "bajo-la-cruz-del-sur"
+
+let foto698 = fondoRandom // "concepcion-parque-industrial-de-chile"
+  
+let foto699 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/perfil.png"// "/peliculas/huachipato/"
+ 
+let foto700 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/mural-estacion.png"//"concepcion-cuatro-siglos-de-progreso-de-una-provincia"
+  
+let foto701 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-8.png"//"100-anos-del-carbon-de-lota"
+  
+let foto702 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1lota-green.png"//"El dominio del fuego - Memoria Filmica Pencopolitana"
+  
+let foto703 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-16.png"//"/peliculas/panos-de-tome/"
+  
+let foto704 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png"//"/peliculas/vidrios-planos-de-lirquen/"
+  
+let foto705 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-Santos-Chavez-Violeta-Sanjines-Consuelo.png"//"El poroto"
+  
+let foto707 =  fondoRandom//"fiesta-de-san-sebastian-de-yumbel"
+  
+let foto708 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg"//"mercado-lorenzo-arenas"
+ 
+let foto709 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png"//"universidad-de-concepcion"
+  
+let foto710 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-13.png"//"trilla"
+  
+let foto711 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/4b2ed389d7ac7231a3f97ff8decb445b.jpg"//"el-puerto-olvidado"
+  
+let foto712 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.png"//"/peliculas/energia-gris/"
+  
+let foto713 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-7.png"//"/peliculas/marcha-de-los-mineros-del-carbon/"
+  
+let foto714 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/6-7.png"//
+  
+let foto715 =  fondoRandom//"/peliculas/residuos-domiciliarios/"
+  
+let foto716 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-9.png"//"/peliculas/lo-que-debemos-saber/"
+  
+let foto717 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1963_02_20_ERCILLA-cinechile.jpg"//"/peliculas/parto-normal/"
+  
+let foto718 ="https://memoriafilmica.cl/wp-content/uploads/2022/04/lctd1.png" //"/peliculas/la-cara-tiznada-de-dios/"
+  
+let foto719 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/14-2.png"//"/peliculas/un-espiritu-en-el-bronce/"
+  
+let foto720 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/7-4.png"//"/peliculas/tejidos-chilenos/"
+  
+let foto721 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-3.png"//"/peliculas/carbon/"
+  
+let foto722 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/construccion12.png"//"/peliculas/un-millon-de-toneladas/"
+  
+let foto723 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/pinacoteca.png"//"gonzalez-camarena-en-la-pinacoteca-udec"
+ 
+let foto724 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/16-1.png"//"/peliculas/ocaso/"
+ 
+let foto725 = fondoRandom //"/peliculas/exposicion-de-hobbies/"
+ 
+let foto726 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5-2.png"//"/peliculas/las-nueve-torres/"
+ 
+let foto727 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/nocheotono.png"//"/peliculas/con-la-noche-el-otono/"
+ 
+let foto728 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/22.png" //"reportaje-a-lota"
+ 
+let foto729 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/plazaapostadero.png"//"visita-de-s-e-el-presidente-la-republica-sr-eduardo-frei-montalva-a-la-base-naval-de-talcahuano-e-isla-quiriquina"
+ 
+let foto730 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/freiasmar2.png"//"visita-de-s-e-el-presidente-de-la-republica-sr-eduardo-frei-montalva-a-la-planta-asmar-talcahuano"
+ 
+let foto731 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/freiquiriquina2.png"//"visita-de-s-e-sr-eduardo-frei-montalva-a-la-isla-quiriquina"
+ 
+let foto732 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1970_12_22_PUNTO-FINAL-p8suplemento.png"//"/peliculas/el-companero-rios/"
+ 
+let foto733 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/articles-105499_imagen_0.jpg"//"bellavista-tome"
+ 
+let foto734 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/EhFqX2WX0AMfxPR.jpg"//"lota"
+ 
+let foto735 ="https://memoriafilmica.cl/wp-content/uploads/2022/04/primerano.png" //"el-primer-ano"
+ 
+let foto736 = fondoRandom //"/peliculas/historia-de-una-pelota/"
+ 
+let foto737 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/5.png"//"/peliculas/nuestro-acero/"
+ 
+let foto738 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/cormu2.png"//"proyecto-cormu-concepcion"
+ 
+let foto739 = fondoRandom //"interferencias"
+ 
+ 
+// fin fotos peliculas
+
+
+}
+
 
 
 const Post = ({ actions, state, element, libraries }) => {
@@ -153,16 +406,7 @@ const Post = ({ actions, state, element, libraries }) => {
         interesarPeliculas[j] = k
       }
     }
-
-    
-
-
-
-
-    let arrayNuevo = []
-    // /shuffle
-
-  
+ 
 
   if ( element === 'pelicula')  {
       
@@ -285,20 +529,32 @@ const Post = ({ actions, state, element, libraries }) => {
                     <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
                     {console.log('ficha',fichaTecnica)}
                     
-                    {console.log(state.source.artistas)}
+                    {/* {console.log(state.source.artistas)} */}
 
                         {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
-                         let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
-                        //  let id = val.cargo_nombre[0].ID
+                        //  let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
+                     
+                      
+
+                 
               
                          return (                    
                             <ContenedorFicha  value={val.id}>
                             {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                            
+                     
                             
 
+                            {console.log('IDDDDD:', fichaTecnica)}
+                            {val.cargo_nombre.length === 0 ? 
+                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                             
-                            <div style={{backgroundImage:`url(${foto})`}}></div>
+                            : (
+                              
+
+                            <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+
+                            )}
+
                             <article className="fondo-verde">                        
                                 {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                 return (
@@ -333,13 +589,11 @@ const Post = ({ actions, state, element, libraries }) => {
                     )} 
               </FichaTecnicaPelicula>
 
-              <h1>''' desde aca '''</h1>
-
-              <SliderFichaTecnicaModulo peliculaId={peliculaId}/>
+  
 
             {/* TE PUEDE INTERESAR inicio  */}
             {/* from InteresarPeliculas.js  */}
-            <InteresarPeliculas2 />
+            {/* <InteresarPeliculas2 /> */}
 
 
             </Pelicula>            
@@ -483,7 +737,6 @@ const Post = ({ actions, state, element, libraries }) => {
 
                   {/*======== TRABAJOS ARTISTA - artista ===================*/}
 
-                                  
                     
                   {typeof trabajos === false ? <p>{"> "}FILMOGRAFÍA</p> : (
 
@@ -497,7 +750,8 @@ const Post = ({ actions, state, element, libraries }) => {
                       {direccion.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección</p>        
                       )}
-                      <Array>     
+                      <Array key={1}>     
+                       
 
                         {typeof direccion === "undefined" ? null :                          
 
@@ -507,25 +761,29 @@ const Post = ({ actions, state, element, libraries }) => {
                               
                               let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-                               if(typeof state.source.peliculas === "undefined"){
-                                 foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
+                                // if(typeof state.source.peliculas === "undefined"){
+                                //   foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-                               } 
-                              //else if (typeof state.source.peliculas[id].acf.foto_pelicula !== "undefined"){
-                              //   foto = state.source.peliculas[id].acf.foto_pelicula
-                              // }
+                                // } 
+                                // else if (state.source.peliculas[id].acf.foto_pelicula == false){
+                                
+                                // foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
 
-
+                                // } else if (state.source.peliculas[id].acf.foto_pelicula != false){
+                                //   foto = state.source.peliculas[id].acf.foto_pelicula
+                                // } 
                               // let peli = arrayPeliculas[id]
 
 
                               //let foto1 = state.source.peliculas[id].acf.foto_pelicula
 
                               return (
+
+                                
                                         
-                                  <Article key={element.peliculas[0].ID}>
-                                  {console.log(element)}
-                                  {console.log(state.source.peliculas)}
+                                  <Article key={element.id}>
+                                  {/* {console.log('element:',element)}
+                                  {console.log(state.source.peliculas)} */}
                                   {/* {console.log(state.source.peliculas[id].acf.foto_pelicula)} */}
                                   {/* {console.log(peli)} */}
                                   {/* <p>{id}</p> */}
@@ -533,7 +791,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                   <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                           {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
-                                          <Cuadrado style={{backgroundImage:`url(${foto})`}}>
+                                          <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                               <Cartel>
 
                                                 <Rayita></Rayita>
@@ -555,60 +813,37 @@ const Post = ({ actions, state, element, libraries }) => {
                       {produccion.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Producción </p>        
                       )}
-                      <Array>                    
+                      <Array key={2}>                    
 
                         {typeof trabajos === "undefined" ? null : 
-
-                            
+                           
                             Object.values(produccion).map( element => {
-
                                 
-                                console.log(element.peliculas[0].ID)
+                                // console.log(element.peliculas[0].ID)
                                 
-
                                 let id = element.peliculas[0].ID
 
                                 let foto = [] 
 
                                 let fotoRandom = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)'
 
-                                // if(interesarPeliculas[id].acf.foto_pelicula !== 'undefined'){
-                                //   foto.push(interesarPeliculas[id].acf.foto_pelicula)
-                                // } else {foto.push(fotoRandom)}
-                                
-
-                                console.log(element.peliculas[0].post_title , id)
-                                  
-                                  
-                                console.log(foto)
-                                //console.log(interesarPeliculas[370])
-                                
-
-                              
-                                
-
-                                
-
                                 return (
 
                                         <Article key={element.id}>
                                         {/* {console.log(produccion)} */}
                                         
-                                      
-
-                                        
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(${foto})`}}>
-                                                  <Cartel2>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cartel>
 
                                                     <Rayita></Rayita>
                                                     <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel2>
+                                                  </Cartel>
                                               </Cuadrado>
                                           </FichaLink>
 
@@ -620,14 +855,14 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {/* == 3. Trabajos Guión == */}
                       {guion.length === 0 ? null : (
-                          <p className='uppercase' style={{paddingBottom: '0', paddingTop: '2em'}}>{"> "}Guión</p>        
+                          <p className='uppercase' style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Guión</p>        
                       )}
-                      <Array>                    
+                      <Array key={3}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(guion).map( element => {
-
+                              let id = element.peliculas[0].ID
                                 return (
 
                                         <Article key={element.id}>
@@ -637,7 +872,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -658,12 +893,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {elenco.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Elenco</p>        
                       )}
-                      <Array>                    
+                      <Array key={4}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(elenco).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -673,14 +908,14 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                    <Cartel2>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                    <Cartel>
 
                                                       <Rayita></Rayita>
                                                       <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel2>
+                                                  </Cartel>
                                               </Cuadrado>
                                           </FichaLink>
 
@@ -694,12 +929,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {realizacion.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Realización</p>        
                       )}
-                      <Array>                    
+                      <Array key={5}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(realizacion).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -709,7 +944,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -730,12 +965,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {camara.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Cámara</p>        
                       )}
-                      <Array>                    
+                      <Array key={6}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(camara).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -745,7 +980,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -766,12 +1001,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {direccionDeFotografia.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección de fotografía</p>        
                       )}
-                      <Array>                    
+                      <Array key={7}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(direccionDeFotografia).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -781,7 +1016,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -802,12 +1037,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {sonido.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Sonido</p>        
                       )}
-                      <Array>                    
+                      <Array key={8}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(sonido).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -817,7 +1052,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -838,7 +1073,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       {montaje.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Montaje</p>        
                       )}
-                      <Array>                    
+                      <Array key={9}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
@@ -853,7 +1088,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -874,12 +1109,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {guionTecnico.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Guión técnico</p>        
                       )}
-                      <Array>                    
+                      <Array key={10}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(guionTecnico).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -889,7 +1124,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -910,12 +1145,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {direccionArtistica.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección artística</p>        
                       )}
-                      <Array>                    
+                      <Array key={11}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(direccionArtistica).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -925,7 +1160,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -946,12 +1181,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {asistenteDireccion.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Asistente de dirección</p>        
                       )}
-                      <Array>                    
+                      <Array key={12}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(asistenteDireccion).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -961,7 +1196,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -982,12 +1217,12 @@ const Post = ({ actions, state, element, libraries }) => {
                       {argumento.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Argumento</p>        
                       )}
-                      <Array>                    
+                      <Array key={14}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(argumento).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
@@ -997,7 +1232,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1014,26 +1249,26 @@ const Post = ({ actions, state, element, libraries }) => {
                       }
                       </Array>
 
-                      {/* == 13. Trabajos Otros == */}
+                      {/* == 14. Trabajos Otros == */}
                       {otros.length === 0 ? null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}--</p>        
                       )}
-                      <Array>                    
+                      <Array key={14}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
                             Object.values(otros).map( element => {
-
+                              let id = element.peliculas[0].ID  
                                 return (
 
                                         <Article key={element.id}>
                                         {/* {console.log(guion)} */}
                                         
-                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                          <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
+                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1053,7 +1288,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     </InteresarPeliculas>
                     )}
 
-
+                    {console.log(post)}
 
                   {/* ============ PRODUCTORAS / artista ============*/}
 
@@ -1065,7 +1300,9 @@ const Post = ({ actions, state, element, libraries }) => {
                       {typeof productoras === "undefined" ? <p>Cargando Peliculas...</p> : 
 
                           Object.values(productoras).map( pelicula => {
+                            let id = pelicula.ID
 
+                            
                               return (
                                       <Article key={pelicula.id}>
 
@@ -1073,14 +1310,14 @@ const Post = ({ actions, state, element, libraries }) => {
                                               {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                              <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                  <Cartel2>
+                                              <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cartel>
 
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
 
                                                 {/* <h4>{pelicula.acf.year}</h4> */}
-                                                </Cartel2>
+                                                </Cartel>
                                             </Cuadrado>
                                         </FichaLink>
 
@@ -1210,6 +1447,12 @@ const Post = ({ actions, state, element, libraries }) => {
                           {typeof equipo === "undefined" ? <p>Cargando...</p> : 
 
                           Object.values(equipo).map((element, key) => {
+                            console.log('equipo:',equipo);
+
+                            if(element.nombre[0].ID){
+                              let id = element.nombre[0].ID
+                            } 
+                            
                           return (                    
                               <ContenedorFicha  value={key}>
                               {/* FONDO imagen */}
@@ -1232,8 +1475,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                                       {/* <p dangerouslySetInnerHTML={{__html: element.cargo}}></p> */}
                                   </>
-                                  
-                                  
+                                                       
 
                                 
                                   <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>

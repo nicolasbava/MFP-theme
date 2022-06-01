@@ -30,7 +30,7 @@ const Home = ({state}) => {
                             <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
                         </Link>
                     </VerMasNoticias> 
-
+               
                    
                     
                 </>

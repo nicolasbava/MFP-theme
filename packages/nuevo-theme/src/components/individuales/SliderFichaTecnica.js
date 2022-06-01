@@ -1,4 +1,4 @@
- import React from "react"
+ import React, {useEffect} from "react"
  import {connect,Global,css,styled} from "frontity"
  import Link from "../Link"
  import FichaLink from "../FichaLink"
@@ -6,19 +6,21 @@
  import { useHorizontalScroll } from "../useSideScroll";
  
 
- const SliderFichaTecnicaModulo = ({state, peliculaId}) => {
+ const SliderFichaTecnicaModulo = ({state, peliculaId, actions}) => {
+
+    
 
 
-    const arrayArtistas = state.source.artistas
+    let arrayArtistas = state.source.artistas
 
-    let wrap = { flexWrap:'wrap'}
+    let wrap = "flexWrap:'wrap'"
 
     if(state.theme.contador % 2 !== 0) {
-      wrap = { flexWrap:'wrap'}
+      wrap = "flexWrap:'wrap'"
     } 
     
     if (state.theme.contador % 2 === 0){
-      wrap = {flexWrap:'no-wrap'}
+      wrap = "flexWrap:'no-wrap'"
     }
 
     let fichaTecnica = []
@@ -30,11 +32,16 @@
     }
 
     const scrollRef = useHorizontalScroll();
+
+    
+  
     
 
 
     return (
         <>
+
+       
             {/* FICHA TECNICA PERSONAS slider - pelicula */}
             {fichaTecnica.length > 0 ? (
                 <>
@@ -42,23 +49,42 @@
                 </>
             ): null}
             
+            {/* {console.log('estado: ', state)} */}
+            
             {/* {console.log('artistas: ', arrayArtistas)} */}
-            {console.log('ID RECIBIDO: ', peliculaId)}
+            {/* {console.log('ID RECIBIDO: ', peliculaId)} */}
+            
                 
             <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
             {/* {console.log('ficha',fichaTecnica)} */}
             
             {/* {console.log(state.source.artistas)} */}
+            
 
-                {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
+                {fichaTecnica.length > 0 ? fichaTecnica.map((val, key) => {
                 let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
-                //  let id = val.cargo_nombre[0].ID
+                // let personaId = val.cargo_nombre[0].ID
+                //let personaId
+                
+
+                // arrayArtistas ? console.log('ficha', arrayArtistas[personaId].acf.foto_artista  ) : null
+               
+
+                // if( arrayArtistas  && val.cargo_nombre.length > 0 && arrayArtistas.personaId.acf.foto_artista  ){
+                //    personaId = val.cargo_nombre[0].ID
+                //    foto = arrayArtistas.personaId.acf.foto_artista  
+                         
+                // } else {foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'}
+                
 
                 return (                    
                     <ContenedorFicha  value={val.id}>
                     {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
                     
-                    
+                    {/* <h1>{personaId} </h1> */}
+                    {/* <h1>{val.cargo} </h1> */}
+                  
+
 
                     
                     <div style={{backgroundImage:`url(${foto})`}}></div>
