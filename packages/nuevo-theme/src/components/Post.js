@@ -55,7 +55,7 @@ const redHat = "'Red Hat Text', sans-serif"
     382 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/trianavarela.png",
     383 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/domenechcantaynollores6.png",
     388 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/loubiescruzdelsur3.png",
-     447 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg",
+     447 : "http://memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg",
     403 :"https://memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg",
     400 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png",
     398 : "https://memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg",
@@ -385,28 +385,28 @@ const Post = ({ actions, state, element, libraries }) => {
 
   // =========== controladores PRODUCTORAS ====================
 
-    const filmografia = post.acf.filmografia
+  const filmografia = post.acf.filmografia
 
-    // const equipo = post.acf.equipo
+  // const equipo = post.acf.equipo
 
-    // shuffle
-    const time = new Date().getTime();
-      
-    const lastNumber = String(time).slice(-2)
+  // shuffle
+  const time = new Date().getTime();
+    
+  const lastNumber = String(time).slice(-2)
 
-    const interesarPeliculas = state.source.peliculas;
+  const interesarPeliculas = state.source.peliculas;
 
-    var points = [40, 100, 1, 5, 25, 10];
+  var points = [40, 100, 1, 5, 25, 10];
 
-    if(interesarPeliculas){
-      for (let i = interesarPeliculas.length -1; i > 0; i--) {
-        j = Math.floor(time * i)
-        k = interesarPeliculas[i]
-        interesarPeliculas[i] = interesarPeliculas[j]
-        interesarPeliculas[j] = k
-      }
+  if(interesarPeliculas){
+    for (let i = interesarPeliculas.length -1; i > 0; i--) {
+      j = Math.floor(time * i)
+      k = interesarPeliculas[i]
+      interesarPeliculas[i] = interesarPeliculas[j]
+      interesarPeliculas[j] = k
     }
- 
+  }
+
 
   if ( element === 'pelicula')  {
       
@@ -414,7 +414,7 @@ const Post = ({ actions, state, element, libraries }) => {
     
     let peliculaId = post.id                       
   
-    console.log('ID:', peliculaId);
+    // console.log('ID:', peliculaId);
     // ============ controladores NOTICIAS ======================
   
     const noticias = state.source.noticias
@@ -428,7 +428,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
    
 
-    console.log(lastNumber)
+    // console.log(lastNumber)
  
          return (
 
@@ -630,11 +630,11 @@ const Post = ({ actions, state, element, libraries }) => {
 
     trabajos.forEach(element => {
 
-      if (element.cargo === 'Dirección') {
+      if (element.cargo.includes('Dirección')) {
         direccion.push(element)
       } 
       
-      else if (element.cargo === 'Guión') {
+      else if (element.cargo.includes('Guión')) {
         guion.push(element)
       } 
       
@@ -1342,9 +1342,11 @@ const Post = ({ actions, state, element, libraries }) => {
     } else if (element == 'productora'){
 
         const filmografia = post.acf.filmografia
-        const equipo = post.acf.equipo
+        const equipo = post.acf.equipo_copy
         const galeria = post.acf.galeria
-         
+
+        console.log(post)
+       
         // === PRODUCTORA individual === //
         return ( 
             <>
@@ -1355,7 +1357,7 @@ const Post = ({ actions, state, element, libraries }) => {
                         <Link href='/'>
                           {">"} CATÁLOGO 
                           </Link>               
-                            
+                          
                           <Link href='/productoras'>
                           {" > "}PRODUCTORAS 
                           </Link>
@@ -1370,7 +1372,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
     
                             <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
-    
+
                         
                         </InfoArtista>
                         </Info>
@@ -1382,21 +1384,23 @@ const Post = ({ actions, state, element, libraries }) => {
                     <TrabajosArtista>   
 
                       {/* PRODUCTORA - galeria  */}
-                    <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'2%'}}>    
+                    {/* <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'2%'}}>    
                          
-                       
+                       {console.log(post)}
 
-                         {typeof galeria === 'undefined' ? null : (galeria.map((val,key) => {
+                      
+                         {galeria.length == false ? <p>Cargando...</p> : 
+                         galeria.map((val,key) => {
                          return (
                              <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                               <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                               <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria> */}
                                {/* <img src={val}  class="img-fluid"></img> */}
-                             </a>
+                             {/* </a>
                          )
-                         })) 
+                         }) 
                          }    
                      
-                    </GaleriaPelicula>
+                    </GaleriaPelicula> */}
 
                     {typeof galeria == "undefined" ? null : (
                       <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
@@ -1411,16 +1415,17 @@ const Post = ({ actions, state, element, libraries }) => {
                             {typeof filmografia === "undefined" ? <p>Cargando Peliculas...</p> : 
 
                             Object.values(filmografia).map( (pelicula, index) => {
-
+                              console.log(filmografia);
+                              let idPelicula = pelicula.peliculas.ID
                               return(
                                       <Article key={pelicula.id}>
 
                                       <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
-                                              <Cuadrado style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}>
-                                                <Cartel2>
+                                              <Cuadrado style={{backgroundImage:`url(${fotos[idPelicula]})`}}>
+                                                <Cartel>
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:filmografia[index].peliculas.post_title}}></h3>
-                                                </Cartel2>
+                                                </Cartel>
                                             </Cuadrado>
                                         </FichaLink>
 
@@ -1442,43 +1447,66 @@ const Post = ({ actions, state, element, libraries }) => {
                         )}
                         <SliderFichaTecnica className="panel" ref={scrollRef} style={{ paddingBottom: '2em',overflow: "auto", flexWrap:'wrap' }}>
                           
-                            
-
-                          {typeof equipo === "undefined" ? <p>Cargando...</p> : 
+                          {typeof equipo === "undefined" ? null : 
 
                           Object.values(equipo).map((element, key) => {
-                            console.log('equipo:',equipo);
+                            //console.log('equipo:',equipo);
 
-                            if(element.nombre[0].ID){
-                              let id = element.nombre[0].ID
-                            } 
+                            // if(element.nombre.length > 2){
+                              // let id = element.nombre[0].ID
+                              // id1 = fotos[id]
+                            // } 
                             
+                       
                           return (                    
-                              <ContenedorFicha  value={key}>
-                              {/* FONDO imagen */}
-                              <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                              <ContenedorFicha  key={key}>
+                              {/* FONDO imagen */}    
+                          {/*  */}
+                          {element.nombre.length === 0 ? 
+                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                            
+                            : (
+                              
+
+                            <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
+
+                            )}
+                          {/*  */}
+                          {/* {element.nombre === false ?  */}
+                          {/* <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>  */}
+                          {/* : */}
+                          {/* <div style={{backgroundImage:`url(${fotos[id]})`}}></div> */}
+
+                            {/* }                 */}
                               {/* FONDO verde texto */}
                               <article className="fondo-verde">                        
                                   <>
                                       {/* PRODUCTORA - Equipo - Nombre Link  */}
-                                      {element.nombre.length === 0 ? null : (
+                                      {element.nombre.length === 0 ? <p dangerouslySetInnerHTML={{__html: element.nombre_texto}}></p> : (
                                           <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
-                                          <p dangerouslySetInnerHTML={{__html:element.nombre[0].post_title}}></p>
+                                          <p dangerouslySetInnerHTML={{__html: element.nombre[0].post_title}}></p>
                                           </FichaLink>  
                                       )}
 
                                       {/* PRODUCTORA - Equipo - Nombre texto  */}
-                                      {element.nombre_texto.length === 0 ? null : (
-                                          <p dangerouslySetInnerHTML={{__html:element.nombre_texto}}></p>
+                                      {/* {element.nombre_texto.length === 0 ? null : (
+                                          
 
-                                      )}
+                                      )} */}
 
                                       {/* <p dangerouslySetInnerHTML={{__html: element.cargo}}></p> */}
                                   </>
-                                                       
-
-                                
-                                  <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                 
+                                  
+                                  {element.nombre.length === 0 ? 
+                                      <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                  : (
+                                    <> 
+                                      
+                                      <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                    </>
+                                  )}
+                                  
                                   </article>
                               </ContenedorFicha>
                           )
