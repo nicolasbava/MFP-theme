@@ -38,17 +38,17 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                         <>
                             <DisplayNoticias key={artistas.id}>
                                 <Noticias>  
-                                    <Link href={artistas.link}>
+                                    <a href={artistas.link}>
                                         <ImagenNoticia style={{backgroundImage:`url(${artistas.acf.foto_portada})`}}></ImagenNoticia>
-                                    </Link>    
+                                    </a>    
                                     <CartelNoticia>
-                                        <Link href={artistas.link}>
+                                        <a href={artistas.link}>
                                             <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
-                                        </Link>
+                                        </a>
                                         <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
                                         <Flex>
                                             <span>{">>"}</span>
-                                            <Link href={artistas.link}><span className="vermas">VER MÁS</span></Link>
+                                            <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
 

@@ -70,7 +70,7 @@ const Peliculas = ({state, actions}) => {
                 {array1.map((peliculas) => {
                     return (
                         <Article key={peliculas.id}>
-                            <Link target="_blank" href={peliculas.link}>
+                            <a href={peliculas.link}>
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                     <Rayita></Rayita>
@@ -78,7 +78,7 @@ const Peliculas = ({state, actions}) => {
                                     <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
-                            </Link>
+                            </a>
                         </Article>
                     )
                 })}
@@ -90,7 +90,7 @@ const Peliculas = ({state, actions}) => {
                 {array2.map((peliculas) => {
                     return (
                         <Article key={peliculas.id}>
-                            <Link href={peliculas.link}>
+                            <a href={peliculas.link}>
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                     <Rayita></Rayita>
@@ -98,7 +98,7 @@ const Peliculas = ({state, actions}) => {
                                     <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
-                            </Link>
+                            </a>
                         </Article>
                     )
                 })}
@@ -109,7 +109,7 @@ const Peliculas = ({state, actions}) => {
                 {array3.map((peliculas) => {
                     return (
                         <Article key={peliculas.id}>
-                            <Link href={peliculas.link}>
+                            <a href={peliculas.link}>
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                       <Rayita></Rayita>
@@ -117,7 +117,7 @@ const Peliculas = ({state, actions}) => {
                                       <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
-                            </Link>
+                            </a>
                         </Article>
                     )
                 })}

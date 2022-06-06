@@ -29,10 +29,14 @@ const MenuModal = ({state,actions}) => {
                         </Padding>
                         <Link href='/mapa'><p onClick={actions.theme.setPlusContadorMobile}>{">"}MAPA</p></Link>
                         <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>{">"}CONTACTO</p></Link>
+                        <Padding>
+                            <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>· ESCRÍBENOS</p></Link> 
+                            <Link href='/artistas'><p onClick={actions.theme.setPlusContadorMobile}>· LINKS DE INTERÉS</p></Link> 
+                        </Padding>
 
                         
                     </NavLinks>                
-               <Raya></Raya>
+               {/* <Raya></Raya> */}
 
                 </MenuContainer>
             
@@ -65,33 +69,38 @@ const Padding = styled.div`
 const MenuContainer = styled.div`
     background: ${fondoRosa};
     color:white;
-    position:relative;
+    position: fixed;
+    width: 40%;
+    font-size: 0.7rem;
+    border-radius: 0px 0px 5px 0px;
+    z-index: -1;
 
-    top:0;
-    left:0;
-    z-index: 99;
 
-    @media (min-width: 600px){
+    // @media (min-width: 600px){
 
-        &{
-            display:none
-        }
-    }
+    //     &{
+    //         display:none
+    //     }
+    // }
 `
 
 const NavLinks = styled.nav`
     widht: 100%;
     height: 100%;
     display:flex;
-    padding-left: 1em;
+    padding-left: 3em;
     flex-direction: column;
     padding-top: 1em;
     text-align: left;
-    padding-bottom: 1em;
+    // padding-bottom: 1em;
+    font-family: 'Krona One';
+
 
     p {
         color: #333;
         margin: .2em 0;
+        font-family: 'Krona One';
+        padding-left: 5%;
     }
 `
 

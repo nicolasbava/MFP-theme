@@ -16,7 +16,7 @@ const ContactoModal = ({state,actions}) => {
                     
                     <NavLinks onMouseLeave={actions.theme.setPlusContadorContacto}>
                         <Link href='/contacto'><p className="krona" onClick={actions.theme.setPlusContadorContacto}>{"> "}ESCRÍBENOS</p></Link> 
-                        <Link href='/links'><p className="krona" onClick={actions.theme.setPlusContadorContacto}>{"> "}LINKS </p></Link> 
+                        <Link href='/links'><p className="krona" onClick={actions.theme.setPlusContadorContacto}>{"> "}LINKS DE INTERÉS</p></Link> 
                     </NavLinks>                
                 </MenuContainer>
                

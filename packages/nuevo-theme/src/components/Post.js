@@ -22,6 +22,14 @@ const redHat = "'Red Hat Text', sans-serif"
 
 
 
+{/* <Script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></Script> */}
+{/* script bootstrap 5 */}
+<Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></Script>
+{/* BOOTSTRAP LIGHTBOX */}
+<Script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></Script>
+
+
+
 // OBJETO FOTOS artistas y peliculas PARA USAR EN EL POST
 
   let fotos = {  
@@ -487,8 +495,10 @@ const Post = ({ actions, state, element, libraries }) => {
                 <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>    
                          
                       {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
+                       
+                      
                       return (
-                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption="texto">
                             <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
                             {/* <img src={val}  class="img-fluid"></img> */}
                           </a>

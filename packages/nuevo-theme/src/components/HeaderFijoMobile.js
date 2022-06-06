@@ -25,7 +25,9 @@ export const EdgeButton = styled.div`
 
 
 const HeaderFijoMobile = ({state, actions,children, color}) => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+
+   
 
     // // Top: 0 takes us all the way back to the top of the page
     // // Behavior: smooth keeps it smooth!
@@ -36,21 +38,19 @@ const HeaderFijoMobile = ({state, actions,children, color}) => {
     //   });
     // };
   
-    useEffect(() => {
-      // Button is displayed after scrolling for 302 pixels
-      const toggleVisibility = () => {
-        if (window.pageYOffset >= 0) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      };
+    // useEffect(() => {
+    //   // Button is displayed after scrolling for 302 pixels
+    //   const toggleVisibility = () => {
+       
+    //       setIsVisible(true);
+        
+    //   };
   
-      window.addEventListener("scroll", toggleVisibility);
+    //   window.addEventListener("scroll", toggleVisibility);
   
-      return () => window.removeEventListener("scroll", toggleVisibility);
-      // onClick={scrollToTop}
-    }, []);
+    //   return () => window.removeEventListener("scroll", toggleVisibility);
+    //   // onClick={scrollToTop}
+    // }, []);
 
     return (  
       <>
