@@ -7,6 +7,8 @@ import Footer from "../components/footer"
 
 const naranja = "#EC7342"
 
+// NOTICIAS - muestra las ultimas 3 noticias
+
 
 const CatalogoNoticiasInicio = ({state, actions}) => {
     const data = state.source.get(state.router.link)

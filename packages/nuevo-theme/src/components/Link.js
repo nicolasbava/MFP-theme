@@ -15,6 +15,7 @@ const Link = ({ href, actions, children }) =>{
     return (
         <a 
             href={href}
+            target="_blank"
             onClick = {event => {
                 scrollToTop();
                 event.preventDefault();

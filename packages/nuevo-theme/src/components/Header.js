@@ -7,6 +7,7 @@ import FichaLink from "./FichaLink"
 
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
+import ContactoModal from "./ContactoModal"
 
 import Raya from "./Raya"
 const naranja = "#EC7342"
@@ -105,7 +106,17 @@ const Header = ({state,actions}) => {
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
                     <FichaLink link='/mapa'>MAPA</FichaLink>
-                    <Link href='/contacto'>CONTACTO</Link> 
+                    {/* <Link href='/contacto'>CONTACTO</Link>  */}
+                    <RelativeCatalogo>
+                        {state.theme.contadorContacto % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-up-fill"></i></Presentacion>}
+                        {state.theme.contadorContacto % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+
+                        {state.theme.contadorContacto % 2 !== 0 && <ContactoModal />}                       
+                        
+                        
+                        
+
+                   </RelativeCatalogo>
                     
                 </Nav>
             <MenuButton />

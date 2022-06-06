@@ -14,6 +14,8 @@ export default {
       contadorMobile: 0,
       contadorPresentacion: 0,
       contadorCatalogo: 0,
+      contadorContacto: 0,
+
       valorBusquedaGlobal: '',
       isMobileMenuOpen: false,
       menu: []
@@ -30,10 +32,17 @@ export default {
       },
       setPlusContadorPresentacion: ({state}) =>{
         state.theme.contadorPresentacion += 1;
+        state.theme.contadorContacto = 0;
         state.theme.contadorCatalogo = 0;
       },
       setPlusContadorCatalogo: ({state}) =>{
         state.theme.contadorCatalogo += 1;
+        state.theme.contadorContacto = 0;
+        state.theme.contadorPresentacion = 0;
+      },
+      setPlusContadorContacto: ({state}) =>{
+        state.theme.contadorContacto += 1;
+        state.theme.contadorCatalogo = 0;
         state.theme.contadorPresentacion = 0;
       },
       setValorBusqueda: ({state}) => value => 

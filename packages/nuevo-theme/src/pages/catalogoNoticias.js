@@ -239,8 +239,6 @@ const CartelNoticia = styled.section`
 
 `
 
-
-
 export default connect(CatalogoNoticias)
 
 const Raya = styled.div`
@@ -257,25 +255,14 @@ const Titulo = styled.h3`
     margin-bottom: 0em;
 `
 
-// const Noticias = styled.main`
-//     padding-left: 7%;
-//     padding-right: 7%;
-// `
-
 const DescripcionArtista = styled.span`
     font-family: 'Red Hat Text', sans-serif;
     font-size: 1rem;
 `
 
-
-
 const NoticiasFlex = styled.section`
     display:flex;
 `
 
-// const CartelNoticias = styled.article`
-//     // border: 2px black solid;
-//     padding-bottom: 3em;
 
-// `
 

@@ -8,6 +8,7 @@ import IconosRedes from './IconosRedes'
 import {arrayArtistas} from '../pages/catalogoArtistas'
 import InteresarPeliculas2 from './individuales/InteresarPeliculas'
 import SliderFichaTecnicaModulo from './individuales/SliderFichaTecnica'
+import Script from '../scripts'
 
 import { useHorizontalScroll } from "../components/useSideScroll";
 
@@ -18,6 +19,8 @@ const naranja = '#ec7342'
 const fondoRosa = '#fbf0e5'
 
 const redHat = "'Red Hat Text', sans-serif"
+
+
 
 // OBJETO FOTOS artistas y peliculas PARA USAR EN EL POST
 
@@ -317,6 +320,8 @@ const Post = ({ actions, state, element, libraries }) => {
     actions.source.fetch("/artistas")
     actions.source.fetch("/noticias")
     actions.source.fetch("/presentacion")
+    actions.source.fetch("/productoras")
+
 
   }, []) 
 
@@ -415,27 +420,36 @@ const Post = ({ actions, state, element, libraries }) => {
     let peliculaId = post.id                       
   
     // console.log('ID:', peliculaId);
-    // ============ controladores NOTICIAS ======================
+    // ============ controladores PELICULAS /  ======================
   
-    const noticias = state.source.noticias
 
+    //  // 1. fetch data related to the tag you need
+    //  actions.source.fetch("/peliculas/");
+    //  actions.source.fetch("/artistas/");
 
+    //  // 2. get data from frontity state
+    //  // const peliculasGET = state.source.get("/peliculas/");
+    //  const peliculasGET = state.source.peliculas
+
+    //  const artistasGET = state.source.artistas
+
+    //  console.log('peliculasGET:', peliculasGET, peliculasGET.length)
+    //  console.log('artistasGET:', artistasGET, artistasGET.length)
     
     // ARTISTAS final
 
 
     // ====== PELICULA inicio ========
 
+
    
 
     // console.log(lastNumber)
  
          return (
-
-
-
-
             <Pelicula>
+
+              
                 <Catalogo className="krona">
                 <Link href="/">{"> "}CATÁLOGO</Link>
                     <Link href="/peliculas">
@@ -622,6 +636,7 @@ const Post = ({ actions, state, element, libraries }) => {
     let direccionArtistica = []
     let asistenteDireccion = []
     let argumento = []
+    let musica = []
 
     let otros = []
 
@@ -681,6 +696,10 @@ const Post = ({ actions, state, element, libraries }) => {
       else if (element.cargo === 'Argumento') {
         argumento.push(element)
       } 
+
+      else if (element.cargo === 'Música') {
+        musica.push(element)
+      } 
       
       else  {
         otros.push(element)
@@ -689,15 +708,29 @@ const Post = ({ actions, state, element, libraries }) => {
     })
   } else return null
     // console.log(otros);
+    
+    // useEffect(() => {
+    //   actions.source.fetch("/peliculas")
+    //   actions.source.fetch("/artistas")
+    // }, [])
 
 
+     // 1. fetch data related to the tag you need
+     actions.source.fetch("/peliculas/");
+     actions.source.fetch("/artistas/");
 
-    useEffect(() => {
-      actions.source.fetch("/peliculas")
-      actions.source.fetch("/artistas")
-    }, [])
+     // 2. get data from frontity state
+     // const peliculasGET = state.source.get("/peliculas/");
 
-                 
+     const peliculasGET = state.source.get('/peliculas')
+     const peliculasGET2 = state.source.peliculas
+
+     const artistasGET = state.source.get('/artistas')
+
+     const arrayArtistas = state.source.artistas
+    
+
+
 
 
        return ( 
@@ -715,6 +748,7 @@ const Post = ({ actions, state, element, libraries }) => {
                         {" > "}FICHA TÉCNICA
                         </p>
                         </Indice>
+                        {/* {console.log('artistasGET:', artistas)} */}
                       
                       <Info>
                       <Foto>
@@ -1249,15 +1283,15 @@ const Post = ({ actions, state, element, libraries }) => {
                       }
                       </Array>
 
-                      {/* == 14. Trabajos Otros == */}
-                      {otros.length === 0 ? null : (
-                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}--</p>        
+                      {/* == 14. Trabajos Música == */}
+                      {musica.length === 0 ? null : (
+                          <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Música</p>        
                       )}
-                      <Array key={14}>                    
+                      <Array key={15}>                    
 
                         {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
 
-                            Object.values(otros).map( element => {
+                            Object.values(musica).map( element => {
                               let id = element.peliculas[0].ID  
                                 return (
 
@@ -1285,10 +1319,48 @@ const Post = ({ actions, state, element, libraries }) => {
                       }
                       </Array>
 
+                      {/* == 15. Trabajos Otros == */}
+                      {otros.length === 0 ? null : (
+                        <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Música</p>        
+                      )}
+                      <Array key={14}>                    
+
+                      {typeof trabajos === "undefined" ? <p>Cargando Trabajos...</p> :                          
+
+                          Object.values(otros).map( element => {
+                            let id = element.peliculas[0].ID  
+                              return (
+
+                                      <Article key={element.id}>
+                                      {/* {console.log(guion)} */}
+                                      
+                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+
+
+                                              <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cartel>
+
+                                                    <Rayita></Rayita>
+                                                    <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
+
+                                                {/* <h4>{pelicula.acf.year}</h4> */}
+                                                </Cartel>
+                                            </Cuadrado>
+                                        </FichaLink>
+
+                                    </Article>                                                                
+                            )
+                        })     
+                    }
+                      </Array>
+
                     </InteresarPeliculas>
                     )}
 
                     {console.log(post)}
+
+                
 
                   {/* ============ PRODUCTORAS / artista ============*/}
 
@@ -1345,7 +1417,18 @@ const Post = ({ actions, state, element, libraries }) => {
         const equipo = post.acf.equipo_copy
         const galeria = post.acf.galeria
 
-        console.log(post)
+        // 1. fetch data related to the tag you need
+        actions.source.fetch("/peliculas/");
+        actions.source.fetch("/artistas/");
+
+        // 2. get data from frontity state
+        // const peliculasGET = state.source.get("/peliculas/");
+        const peliculasGET = state.source.peliculas
+
+        const artistasGET = state.source.artistas
+
+        console.log('peliculasGET:', peliculasGET, peliculasGET.length)
+        console.log('artistasGET:', artistasGET, artistasGET.length)
        
         // === PRODUCTORA individual === //
         return ( 

@@ -70,7 +70,7 @@ const Peliculas = ({state, actions}) => {
                 {array1.map((peliculas) => {
                     return (
                         <Article key={peliculas.id}>
-                            <Link href={peliculas.link}>
+                            <Link target="_blank" href={peliculas.link}>
                                 <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
                                     <Cartel>
                                     <Rayita></Rayita>
