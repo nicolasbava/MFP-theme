@@ -48,46 +48,6 @@ const Footer = () => {
                 </a>
               </Linea1>
 
-            {/* <Linea2>
-                <a href="http://catalogoafudec.udec.cl/" target="_blank">
-                <img className="foto achicar gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/07-AFUDEC-b.png"></img>
-                </a>
-                <a href="http://www.archivohistoricoconcepcion.cl/" target="_blank">
-                <img className="foto agrandar gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/08.MHC-B.png"></img>
-                </a>
-                <a href="https://historiaarquitectonicaconcepcion.cl/?fbclid=IwAR0irT9yzrWgfSoCdCDuJ5RCVneYns1G9GQX4Vg-Ud4p2IalxL8FaJ3LGOA" target="_blank">
-                <img className="foto agrandar gris bigger" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/09-H.A.C-B.png"></img>
-                </a>
-                <a href="http://proyectovermut.cl/" target="_blank">
-                <img className="foto achicar gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/10-VERMUT-B.png"></img>
-                </a>
-                <a href="https://casadesalud.cl/" target="_blank">
-                <img className="foto agrandar gris bigger" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/11-CDS-B.png"></img>
-                </a>
-              </Linea2>
-
-              <Linea3>
-                <a href="https://www.cclm.cl/cineteca-nacional-de-chile/" target="_blank">
-                <img className="foto gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/12-CINETECA-A.png"></img>
-                </a>
-                <a href="http://cinetecavirtual.uchile.cl/" target="_blank">
-                <img className="foto agrandar blanco bigger" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/13-CINETECA.U.CHILE-B.png"></img>
-                </a>
-                <a href="https://archivopatrimonial.usach.cl/" target="_blank">
-                <img className="foto agrandar blanco bigger" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/14-ARCHIVO-PATRIMONIAL-B.png"></img>
-                </a>
-                <a href="http://archivofilmico.uc.cl/" target="_blank">
-                <img className="foto agrandar blanco ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/15-CATOLICA-B.png"></img>
-                </a>
-                <a href="https://cinechile.cl/" target="_blank">
-                <img className="foto agrandar gris ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/16-CINECHILE-B.png"></img>
-                </a>
-                <a href="" target="_blank">
-                <img className="foto agrandar blanco ultimos" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/17-CINETECACL-B.png"></img>
-                </a>
-              </Linea3> */}
-
-
             
           </FooterPeliculas>
         </AnteRaya>
@@ -136,41 +96,6 @@ const Linea1 = styled.section`
   padding-bottom: 2em;
     }
   }
-`
-
-const Linea2 = styled.section`
-  display:flex;
-  flex-wrap:wrap;
-  align-items: center;
-  padding-bottom: 4em;
-  justify-content: space-between;
-
-  @media (max-width: 944px){
-    & {
-      padding-bottom: 4em;
-    }
-  }
-
-`
-
-const Linea3 = styled.section`
-  flex-wrap:wrap;
-  display:flex;
-  align-items: center;
-  padding-bottom: 4em;
-  justify-content: space-between;
-
-  .ultimos {
-    max-width: 9vw;
-  }
-  
-  @media (max-width: 944px){
-    & {
-      padding-bottom: 4em;
-    }
-  }
-
-
 `
 
 

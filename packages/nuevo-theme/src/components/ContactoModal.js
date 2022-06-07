@@ -12,8 +12,7 @@ const ContactoModal = ({state,actions}) => {
     // if(isMobileMenuOpen === true) {
         return ( 
             <>
-                <MenuContainer>
-                    
+                <MenuContainer>                    
                     <NavLinks onMouseLeave={actions.theme.setPlusContadorContacto}>
                         <Link href='/contacto'><p className="krona" onClick={actions.theme.setPlusContadorContacto}>{"> "}ESCRÍBENOS</p></Link> 
                         <Link href='/links'><p className="krona" onClick={actions.theme.setPlusContadorContacto}>{"> "}LINKS DE INTERÉS</p></Link> 

@@ -63,6 +63,11 @@ const Logo = styled.div`
         text-decoration: underline
       } 
 
+    .subrayado {
+        text-decoration: underline
+
+    }
+
 `
 const Nav = styled.nav`
     display: flex; 
@@ -78,6 +83,23 @@ const Nav = styled.nav`
     }
 `
 
+const Subraya = styled.div`
+    
+    width: 63px;
+    height: 2px;
+    position: relative;
+    background: orange;
+    top: 34px;
+    left: 0px
+
+`
+
+const Column = styled.div`
+    display:block
+`
+
+
+
 // RENDER
 const Header = ({state,actions}) => {
 
@@ -85,43 +107,174 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/' activeClassName={`active`} className={{display:'none'}}><a> {"> "}INICIO </a></Link> 
-
+                    {state.router.link !== '/' && 
+                     <>
+                        <Link href='/' activeClassName={`active`}  ><a> {"> "}INICIO </a></Link>
+                        <Subraya style={{background:'none'}}></Subraya>
+                    </>
+                    }
+                    {/* <Link href='/' activeClassName={`active`} className={{display:'none'}}><a> {"> "}INICIO </a></Link> */}
+                    {state.router.link === '/' &&  
+                    <>
+                        <Link href='/' activeClassName={`active`} style={{paddingTop:'2px'}}><a> {"> "}INICIO</a></Link>
+                        <Subraya ></Subraya>
+                    </>
+                    } 
+                    {/* <Link href='/' activeClassName={`active`} className={{display:'none'}}><a> {"> "}INICIO </a></Link>  */}
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>
                    <Relative>
                         
-                        {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion  onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i className="bi bi-caret-up-fill"></i></Presentacion>}                       
-                        {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+                    
+                        <Column>              
+                        
+                        
+                            <>
+                                
+                                {state.theme.contadorPresentacion % 2 !== 0 && <Presentacion  onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i className="bi bi-caret-up-fill"></i></Presentacion>}   
+                                {state.theme.contadorPresentacion % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorPresentacion}>PRESENTACIÓN <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+                                    
+                        
+                            </>
+
+                                {state.router.link !== '/territorio/' &&  
+                                        <Subraya style={{background:'none'}}></Subraya>
+                                }   
+                        
+                                {state.router.link !== '/equipo/' &&  
+                                        <Subraya style={{display:'none'}}></Subraya>
+                                }  
+                                {state.router.link !== '/proyecto/' &&  
+                                        <Subraya style={{display:'none'}}></Subraya>
+                                } 
+                            
+                                {state.router.link === '/territorio/' &&  
+                                        <Subraya style={{left:'44px', width:'141px'}}></Subraya>
+                                    
+                                } 
+                                {state.router.link === '/equipo/' &&  
+                                        <Subraya style={{left:'44px', width:'141px'}}></Subraya>
+                                } 
+                                {state.router.link === '/proyecto/' &&  
+                                        <Subraya style={{left:'44px', width:'141px'}}></Subraya>
+                                } 
+                          
+                        </Column>
                                         
                         {state.theme.contadorPresentacion % 2 !== 0 && <PresentacionModal />}                       
                    </Relative>
 
-                   <Link href='/noticias'>NOTICIAS</Link> 
+                   <Column>
+                        {state.router.link !== '/noticias/' &&  
+                        <>
+                            <Link href='/noticias'>NOTICIAS</Link> 
+                            <Subraya style={{background:'none'}}></Subraya>
+                        </>
+                        } 
+                    {state.router.link === '/noticias/' &&  
+                        <>
+                            <Link href='/noticias'>NOTICIAS</Link> 
+                            <Subraya style={{left:'37px', width:'81px'}}></Subraya>
+                        </>
+                        } 
+                   </Column>
 
+                   
+                   
+                    {/* CATALOGO */}
                    <RelativeCatalogo>
-                        {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-up-fill"></i></Presentacion>}
-                        {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
 
-                        {state.theme.contadorCatalogo % 2 !== 0 && <CatalogoModal />}                       
+                        {/* {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-up-fill"></i></Presentacion>} */}
+                        {/* {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-down-fill"></i></Presentacion2>} */}
+
+                        
+                        <Column>              
                         
                         
-                        
+                            <>
+                                {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-up-fill"></i></Presentacion>}
+                                {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+                            </>
+
+                                {state.router.link !== '/artistas/' &&  
+                                        <Subraya style={{background:'none'}}></Subraya>
+                                }   
+                                {state.router.link !== '/artistas/' &&  
+                                        <Subraya style={{display:'none'}}></Subraya>
+                                }  
+                                {state.router.link !== '/artistas/' &&  
+                                        <Subraya style={{display:'none'}}></Subraya>
+                                }  
+                       
+                            
+                                {state.router.link === '/peliculas/' &&  
+                                        <Subraya style={{left:'47px', width:'104px'}}></Subraya>
+                                    
+                                } 
+                                {state.router.link === '/artistas/' &&  
+                                        <Subraya style={{left:'47px', width:'104px'}}></Subraya>
+                                } 
+                                {state.router.link === '/productoras/' &&  
+                                    <Subraya style={{left:'47px', width:'104px'}}></Subraya>
+                                } 
+                        </Column>
+
+                                {state.theme.contadorCatalogo % 2 !== 0 && <CatalogoModal />}      
 
                    </RelativeCatalogo>
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
-                    <FichaLink link='/mapa'>MAPA</FichaLink>
+                    {/* MAPA */}
+                    <Column>
+                        {state.router.link !== '/mapa/' &&  
+                        <>
+                            <FichaLink link='/mapa'>MAPA</FichaLink>
+
+                        </>
+                        } 
+                    {state.router.link === '/mapa/' &&  
+                        <>
+                            <FichaLink link='/mapa' style={{marginTop:'2px'}}>MAPA</FichaLink>
+                            <Subraya style={{left:'35px', width:'52px'}}></Subraya>
+                        </>
+                        } 
+                   </Column>
+                    
                     {/* <Link href='/contacto'>CONTACTO</Link>  */}
                     <RelativeCatalogo>
-                        {state.theme.contadorContacto % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-up-fill"></i></Presentacion>}
-                        {state.theme.contadorContacto % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+                        
 
+                        
+                        
+                        <Column>              
+                        
+                        
+                            <>
+                                {state.theme.contadorContacto % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-up-fill"></i></Presentacion>}
+                                {state.theme.contadorContacto % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorContacto}>CONTACTO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
+                            </>
+
+                                {state.router.link !== '/links/' &&  
+                                        <Subraya style={{background:'none'}}></Subraya>
+                                }   
+                        
+                                {state.router.link !== '/contacto/' &&  
+                                        <Subraya style={{display:'none'}}></Subraya>
+                                }  
+                       
+                            
+                                {state.router.link === '/contacto/' &&  
+                                        <Subraya style={{left:'47px', width:'88px'}}></Subraya>
+                                    
+                                } 
+                                {state.router.link === '/links/' &&  
+                                        <Subraya style={{left:'47px', width:'88px'}}></Subraya>
+                                } 
+                          
+                        </Column>
+                        
                         {state.theme.contadorContacto % 2 !== 0 && <ContactoModal />}                       
-                        
-                        
-                        
 
                    </RelativeCatalogo>
                     

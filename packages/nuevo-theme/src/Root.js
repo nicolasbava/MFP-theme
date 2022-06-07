@@ -28,6 +28,9 @@ import HeaderFijo from "./components/HeaderFijo";
 import Raya from "./components/Raya";
 import HeaderMobile from "./components/HeaderMobile";
 import HeaderFijoMobile from "./components/HeaderFijoMobile";
+import LinksDeInteres from "./pages/LinksDeInteres";
+
+
 
 
 let brakepoint = '880px'
@@ -35,6 +38,7 @@ let brakepoint = '880px'
 const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
     const [estadoModal1, cambiarEstadoModal1] = useState(true);
+
 
 
     useEffect(() => {
@@ -118,6 +122,15 @@ const Root = ({state, actions}) => {
           {data.isNoticias && <Post element='noticia' />}
 
           {data.isContactoArchive && <Contacto />}
+
+    
+          {state.router.link === '/links/' &&
+          <LinksDeInteres />
+          
+          }
+          {/* <LinksDeInteres when={state.router.link === '/links/'} /> */}
+    
+
 
 
           
