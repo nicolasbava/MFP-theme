@@ -107,8 +107,6 @@ const Contenedor = styled.main`
 `
 const Cartel = styled.div`
   color: #fff;
-  padding-left: 4em;
-  padding-right: 4em;
   height: 100%;
   transition: 500ms ease;
   opacity:0;
@@ -119,15 +117,19 @@ const Cartel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding-bottom: 5em;
-
+  // padding-bottom: 5em;
+  // padding-left: 4em;
+  // padding-right: 4em;
 
 
 
   h3 {
       margin-bottom: 0;
       text-transform: uppercase;
-      font-size: 1rem;
+      font-size: clamp(0.35rem, 1.4vw, 1rem);
+      padding-bottom: 4em;
+      padding-left: 4em;
+      padding-right: 2em;
   }
 
   h4{
@@ -153,21 +155,34 @@ const Cartel = styled.div`
     box-sizing: border-box;
   }
 
-  @media (max-width: 600px) { 
-    font-size: 0.5rem;  }
 
-  @media (min-width:601px) and (max-width:1000px) {
-    font-size: 0.6rem;
-  }​
+  // @media (max-width:880px) {
+  //   padding-bottom: 1em;
+  //   padding-left: 1em;
+
+  //   h3 {
+  //     font-size: 0.5rem;
+
+  //   }
+
+  // }​
 `
 
 const Rayita = styled.div`
     width: 29px;
     height: 5px;
-    margin-left: 1px;
+    // margin-left: 1px;
     background: #ff871c;
     border-radius: 4px;
     margin-bottom: 11px;
+
+    font-size: clamp(0.35rem, 1.4vw, 1rem);
+    // padding-bottom: 4em;
+    margin-left: 4em;
+
+    @media (max-width: 495px){
+      // margin-left: 1.4em;
+    }
 `
 
 const Cuadrado = styled.div`

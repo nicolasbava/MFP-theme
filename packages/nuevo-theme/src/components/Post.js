@@ -363,15 +363,14 @@ const Post = ({ actions, state, element, libraries }) => {
 
  
 
-  let wrap = { flexWrap:'wrap'}
+  let wrap2 = {flexWrap:'no-wrap'}
 
   if(state.theme.contador % 2 !== 0) {
-    wrap = { flexWrap:'wrap'}
-  } 
-  
-  if (state.theme.contador % 2 === 0){
-    wrap = {flexWrap:'no-wrap'}
+    wrap2 = {flexWrap:'wrap'}
+  } else {
+    wrap2 = {flexWrap:'no-wrap'}
   }
+
 
 
 
@@ -505,7 +504,7 @@ const Post = ({ actions, state, element, libraries }) => {
                        
                       
                       return (
-                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption="texto">
+                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" >
                             <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
                             {/* <img src={val}  class="img-fluid"></img> */}
                           </a>
@@ -521,7 +520,7 @@ const Post = ({ actions, state, element, libraries }) => {
                 <FichaTecnicaPelicula>               
 
                     <Raya style={{marginTop:`-4px`}}></Raya>
-                    <p className="eq" style={{paddingTop: '2em', paddingBottom:'2em', marginBottom:'0'}}>{">"} FICHA TÉCNICA</p>
+                    <p className="eq" style={{paddingTop: '2.4em', paddingBottom:'1.6em', marginBottom:'0'}}>{">"} FICHA TÉCNICA</p>
 
                     {/* FICHA TECNICA TEXTO - pelicula  */}
                     <TextoFichaTecnica>
@@ -555,69 +554,135 @@ const Post = ({ actions, state, element, libraries }) => {
                         <p className="eq">{">"} EQUIPO</p>
                       </>
                     ): null}
+
+
+                    {/* FLEX NO-WRAP */}
+
+                    {state.theme.contador % 2 === 0 && 
+                    // 
+                    <>
+                      <SliderFichaTecnica className="panel" ref={scrollRef2}  style={wrap2}>
+                                        
+
+                          {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
+                
+                          return (                    
+                              <ContenedorFicha  value={val.id}>
                     
-                      
-                    <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
-                    {/* {console.log('ficha',fichaTecnica)} */}
-                    
-                    {/* {console.log(state.source.artistas)} */}
-
-                        {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
-                        //  let foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
-                     
-                      
-
-                 
-              
-                         return (                    
-                            <ContenedorFicha  value={val.id}>
-                            {/* <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/051-min.png"></img> */}
-                     
-                            
-
-                   
-                            {val.cargo_nombre.length === 0 ? 
-                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
-                            
-                            : (
+                              {val.cargo_nombre.length === 0 ? 
+                              <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                               
+                              : (
+                                
 
-                            <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+                              <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
 
-                            )}
+                              )}
 
-                            <article className="fondo-verde">                        
-                                {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
-                                return (
-                                    <FichaLink link={val.post_type + "/" + val.post_name}>
-                                        <p className='nombre'>{val.post_title}</p>
-                                    </FichaLink>
-                                )
-                                })}
+                              <article className="fondo-verde">                        
+                                  {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
+                                  return (
+                                      <FichaLink link={val.post_type + "/" + val.post_name}>
+                                          <p className='nombre'>{val.post_title}</p>
+                                      </FichaLink>
+                                  )
+                                  })}
 
-                                {val.nombre_texto.length === 0 ? null : 
-                                    <p>{val.nombre_texto}</p>
-                                }
-                                 
-                                <p className="cargo">{val.cargo}</p>  
-                                </article>
-                            </ContenedorFicha>
-                        )
-                      } 
-                        ): null
+                                  {val.nombre_texto.length === 0 ? null : 
+                                      <p>{val.nombre_texto}</p>
+                                  }
+                                  
+                                  <p className="cargo">{val.cargo}</p>  
+                                  </article>
+                              </ContenedorFicha>
+                          )
+                        } 
+                          ): null
+                      }
+                      </SliderFichaTecnica >
+                      <Raya style={{marginTop:`-4px`}}></Raya>
+
+                    </>
+                    //
                     }
-                    </SliderFichaTecnica >
-                    <Raya style={{marginTop:`-4px`}}></Raya>
+                    {/* FIN FLEX- NO-WRAP */}
+
+
+                    {/* INICIO FLEX WRAP  */}
+
+                    {state.theme.contador % 2 !== 0 &&
+                    <>
+                    
+
+                    <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{flexWrap:'wrap'}}>
+                                      
+
+                          {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
+                
+                            return (                    
+                              <ContenedorFicha  value={val.id}>
+                               
+                      
+                              {val.cargo_nombre.length === 0 ? 
+                              <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                              
+                              : (
+                                
+  
+                              <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+  
+                              )}
+  
+                              <article className="fondo-verde">                        
+                                  {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
+                                  return (
+                                      <FichaLink link={val.post_type + "/" + val.post_name}>
+                                          <p className='nombre'>{val.post_title}</p>
+                                      </FichaLink>
+                                  )
+                                  })}
+  
+                                  {val.nombre_texto.length === 0 ? null : 
+                                      <p>{val.nombre_texto}</p>
+                                  }
+                                    
+                                  <p className="cargo">{val.cargo}</p>  
+                                  </article>
+                              </ContenedorFicha>
+                          )
+                        } 
+                          ): null
+                      }
+                      </SliderFichaTecnica >
+                      {/* <Raya style={{marginTop:`-4px`}}></Raya> */}
+
+                    </>
+                    }
+                 
 
                     {/* {state.theme.contador % 2 !== 0 && } */}                
                     
 
 
-                    {fichaTecnica !== "undefined" && fichaTecnica.length > 5 && (
-                    <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length}) 
-                                    
-                    </VerMas>
-                    )} 
+                    
+
+
+                    {state.theme.contador % 2 !== 0 && 
+                    fichaTecnica !== "undefined" && 
+                    fichaTecnica.length > 5 && 
+                        
+                          <VerMas onClick={actions.theme.setPlusContador}>Ver Menos <i style={{marginTop:'2px'}} className="bi bi-caret-up-fill"></i></VerMas>
+                    }
+                    
+                    {state.theme.contador % 2 === 0 && 
+                    fichaTecnica !== "undefined" && 
+                    fichaTecnica.length > 5 && 
+                        <VerMas onClick={actions.theme.setPlusContador}>Ver Más ({fichaTecnica.length-5})<i className="bi bi-caret-down-fill" ></i></VerMas>
+                    }
+                    {/* <VerMas onClick={actions.theme.setPlusContador}>Ver más ({fichaTecnica.length-5}) 
+                                      <p>{state.theme.contador} </p>
+                    </VerMas> */}
+                  
               </FichaTecnicaPelicula>
 
   
@@ -2249,6 +2314,7 @@ const SliderFichaTecnica = styled.div`
       gap: 1vw;
       overflow-x: scroll;
       //justify-content: space-between;
+      flex-wrap: no-wrap;
 
       scrollbar-color: #ff510a #0d6efd00;
       scrollbar-width: thin;
