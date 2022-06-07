@@ -48,10 +48,10 @@ const Proyecto = ({state}) => {
 
                 </Imagenes> */}
 
-            
+                <IconosRedes />
             </Contenedor> 
 
-            <IconosRedes />
+            
         
         
         </>

@@ -7,6 +7,8 @@ import Footer from "../components/footer"
 
 const naranja = "#EC7342"
 
+let brakepoint2 = '750px'
+
 // NOTICIAS - muestra las ultimas 3 noticias
 
 
@@ -29,7 +31,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                 <p>No encontramos nada con: {state.theme.valorBusquedaGlobal}</p>
             )}
 
-            <NoticiasFlex>
+            <NoticiasFlex className="desktop">
                 {filteredArtistas.reverse().slice(0, 3).map((artistas, index) => {
                     // const artista = state.source.artistas[id];
 
@@ -58,7 +60,39 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
 
                     )
                 })}
-            </NoticiasFlex>
+                </NoticiasFlex>
+
+                {/* MOBILE VERSION, SOLO 1 NOTICIA */}
+                <NoticiasFlex className="mobile">
+                {filteredArtistas.reverse().slice(0, 1).map((artistas, index) => {
+                    // const artista = state.source.artistas[id];
+
+
+                    return (
+                        <>
+                            <DisplayNoticias key={artistas.id}>
+                                <Noticias>  
+                                    <a href={artistas.link}>
+                                        <ImagenNoticia style={{backgroundImage:`url(${artistas.acf.foto_portada})`}}></ImagenNoticia>
+                                    </a>    
+                                    <CartelNoticia>
+                                        <a href={artistas.link}>
+                                            <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
+                                        </a>
+                                        <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
+                                        <Flex>
+                                            <span>{">>"}</span>
+                                            <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
+                                        </Flex>
+                                    </CartelNoticia>
+
+                                </Noticias>
+                            </DisplayNoticias>   
+                        </>
+
+                    )
+                })}
+                </NoticiasFlex>
 
 
 
@@ -76,6 +110,20 @@ const Contenedor = styled.main`
     padding-right: 5%;
     margin-top: 4%;
     padding-bottom: 2em;
+
+    .mobile {
+
+        @media (min-width: ${brakepoint2}){
+            display: none;
+        }
+    }
+
+    .desktop {
+
+        @media (max-width: ${brakepoint2}){
+            display: none;
+        }
+    }
 
     p {
         font-size: .7rem;
@@ -120,9 +168,9 @@ const ImagenNoticia = styled.div`
     -webkit-filter: blur(0);
     };
 
-    @media (max-width: 786px){
+    @media (max-width: ${brakepoint2}){
         height: 40vw;
-        width: 85vw;
+        width: 84.4vw;
     }
 `
 
@@ -174,7 +222,7 @@ const Noticias = styled.div`
     transition: 500ms;
   }
 
-  @media (max-width: 785px){
+  @media (max-width: ${brakepoint2}){
       width: 85vw;
   }
 
@@ -208,7 +256,7 @@ const CartelNoticia = styled.section`
       opacity: 1;
   }
 
-  @media(max-width: 796px){
+  @media(max-width: ${brakepoint2}){
     padding: 1em 1em;
 
     h4 {
@@ -224,7 +272,7 @@ export default connect(CatalogoNoticiasInicio)
 
 const NoticiasFlex = styled.section`
     display:flex;
-    flex-wrap:wrap;
+    // flex-wrap:wrap;
 `
 
 

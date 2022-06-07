@@ -92,7 +92,7 @@ const Peliculas = ({state, actions}) => {
 
                         {/* {console.log(arrayPeliculas)} */}
                             
-                            <Link href={peliculas.link}>
+                            <a href={peliculas.link}>
                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
@@ -105,7 +105,7 @@ const Peliculas = ({state, actions}) => {
                                     <h3 className="año">{peliculas.acf.year}</h3>
                                     </Cartel>
                                 </Cuadrado>
-                            </Link>
+                            </a>
                             
                         </Article>
 
@@ -313,7 +313,7 @@ const Cuadrado = styled.div`
 
   @media (max-width: 769px) { 
     height: 38vw;
-    width: 43vw;  
+    width: 42vw;  
   }
 `
 

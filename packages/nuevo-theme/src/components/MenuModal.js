@@ -1,6 +1,7 @@
 import React from "react"
 import {styled, connect} from "frontity"
 import Link from "./Link"
+import IconosRedes from "./IconosRedes"
 
 const fondoRosa = "rgb(251 240 229)"
 
@@ -33,11 +34,26 @@ const MenuModal = ({state,actions}) => {
                             <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>· ESCRÍBENOS</p></Link> 
                             <Link href='/artistas'><p onClick={actions.theme.setPlusContadorMobile}>· LINKS DE INTERÉS</p></Link> 
                         </Padding>
-
+                       
+                    {/* ICONOS REDES */}
+                    <ContenedorRedes>
+                        <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="" target="_blank"> 
+                            <i class="fa-brands fa-facebook-square"></i>
+                        </a>
+                        <a href="" target="_blank"> 
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="" target="_blank"> 
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        
+                    </ContenedorRedes>
                         
                     </NavLinks>                
                {/* <Raya></Raya> */}
-
                 </MenuContainer>
             
             </>
@@ -46,6 +62,24 @@ const MenuModal = ({state,actions}) => {
 
     
 }
+
+const ContenedorRedes = styled.section`
+    width: 100%;
+    //text-align: right;
+    //background: grey;
+    padding: 9% 7%;
+
+    i {
+        font-size: 1rem;
+        margin-left: 1em;
+    }
+
+    a {
+        cursor:pointer;
+    }
+`;
+
+
 
 
 const Raya = styled.div`
@@ -75,12 +109,12 @@ const MenuContainer = styled.div`
     font-size: 0.7rem;
     border-radius: 0px 0px 5px 0px;
 
-    // @media (min-width: 600px){
+    @media (min-width: 880px){
 
-    //     &{
-    //         display:none
-    //     }
-    // }
+        &{
+            display:none
+        }
+    }
 `
 
 const NavLinks = styled.nav`
@@ -89,7 +123,7 @@ const NavLinks = styled.nav`
     display:flex;
     padding-left: 3em;
     flex-direction: column;
-    padding-top: 1em;
+    padding-top: 2em;
     text-align: left;
     // padding-bottom: 1em;
     font-family: 'Krona One';

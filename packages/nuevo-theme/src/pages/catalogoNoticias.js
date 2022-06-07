@@ -49,17 +49,17 @@ const CatalogoNoticias = ({state, actions}) => {
         
                                     <DisplayNoticias key={artistas.id}>
                                         <Noticias>  
-                                            <Link href={artistas.link}>
+                                            <a href={artistas.link}>
                                                 <ImagenNoticia style={{backgroundImage:`url(${artistas.acf.foto_portada})`}}></ImagenNoticia>
-                                            </Link>    
+                                            </a>    
                                             <CartelNoticia>
-                                                <Link href={artistas.link}>
+                                                <a href={artistas.link}>
                                                     <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
-                                                </Link>
+                                                </a>
                                                 <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
                                                 <Flex>
                                                     <span>{">>"}</span>
-                                                    <Link href={artistas.link}><span className="vermas">VER MÁS</span></Link>
+                                                    <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
                                                 </Flex>
                                             </CartelNoticia>
 
@@ -141,6 +141,11 @@ const ImagenNoticia = styled.div`
     -webkit-filter: blur(0);
 
     };
+
+    @media (max-width: 880px){
+        width: 84.2vw;
+        height: 35vw;
+    }
   
 
 `
@@ -159,6 +164,8 @@ const Noticias = styled.div`
   border-radius: 5px;
   width: 27.2vw;
   height: fit-content;
+
+margin-bottom: 2em;
   
   img {
     max-width: 100%;
@@ -166,7 +173,6 @@ const Noticias = styled.div`
     cursor:pointer;
     background-color: blue;
     background-blend-mode: multiply;
-    
   }
 
   h4 {
@@ -189,13 +195,17 @@ const Noticias = styled.div`
     padding-top: 1em;
   }
 
-
-
   span {
     color: #333;
     cursor: pointer;
     font-size: 1rem;
     transition: 500ms;
+  }
+
+  @media (max-width: 880px){
+        // height: 35vw;
+        width: 85vw;
+       
   }
 
 `
@@ -244,7 +254,11 @@ export default connect(CatalogoNoticias)
 
 const NoticiasFlex = styled.section`
     display:flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+
+    @media (max-width: 880px){
+        flex-wrap:wrap;
+    }
 `
 
 

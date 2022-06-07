@@ -488,7 +488,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     
                 </CaractPeliculas>
 
-                <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
+                <InfoPeli style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli>
 
                 {post.acf.link.length === 0 ? null : (
 
@@ -590,7 +590,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                 {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                 return (
                                     <FichaLink link={val.post_type + "/" + val.post_name}>
-                                        <p>{val.post_title}</p>
+                                        <p className='nombre'>{val.post_title}</p>
                                     </FichaLink>
                                 )
                                 })}
@@ -1447,6 +1447,10 @@ const Post = ({ actions, state, element, libraries }) => {
         const equipo = post.acf.equipo
         const galeria = post.acf.galeria
 
+        let desde = post.acf.desde
+        let hasta = post.acf.hasta
+        let lugar = post.acf.lugar
+
         // 1. fetch data related to the tag you need
         actions.source.fetch("/peliculas/");
         actions.source.fetch("/artistas/");
@@ -1482,15 +1486,17 @@ const Post = ({ actions, state, element, libraries }) => {
                           </Foto>
                           <InfoArtista>
                               <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
+                              {desde ? <span>{'('}{desde}{')'}</span> : null}
+                              {lugar ? <span>{' - '} {lugar}</span> : null}
+                              {hasta ? <span>{' - '}{'('}{hasta}{')'}</span> : null}
       
-                              <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
+                              <DescripcionArtista style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
 
                           
                           </InfoArtista>
 
                         </Info>
-                        <DescripcionArtistaMobile dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtistaMobile>
+                        <DescripcionArtistaMobile style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtistaMobile>
 
                     </InfoAf>
 
@@ -2347,7 +2353,10 @@ const VerMas = styled.p`
 
 const ContenedorFicha = styled.div`
     // border: 2px #00ad9d solid;
-    height: 250px;
+    // height: 250px;
+    height: 330px;
+    cursor: pointer;
+
     // width: 150px;
     display: flex;
     flex-direction: column;
@@ -2375,9 +2384,10 @@ const ContenedorFicha = styled.div`
     .fondo-verde {
       background:#00ad9d;
       padding: 0.6em;
-      border-radius: 0 0 2px 2px ;
-      height: 100px;
-      width: 150px;
+      border-radius: 3px ;
+      margin-top: -3px;
+      height: 170px;
+      width: 220px;
       color: #FBF0E5;
 
     }
@@ -2388,14 +2398,23 @@ const ContenedorFicha = styled.div`
       color: white;
       font-weight: normal;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-family: 'Krona One';
+      padding: 0.4em 0.8em;
+      color:#f5efe8;
+      transition: all 150ms ease;
+    }
+
+    &:hover .nombre {
+      color: #fff;
     }
 
     .cargo {
       font-size: 1rem;
       font-family: 'Calibri', sans-serif;
       text-transform: capitalize;
+      color:#f5efe8c7;
+      margin-top: -5px;
     }
 
 `

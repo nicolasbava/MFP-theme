@@ -74,7 +74,7 @@ const CatalogoArtistas = ({state, actions}) => {
                                 {/* artistas.acf.foto_artista === 0 ? fotoArtista : artistas.acf.foto_artista */}
                                 {/* {console.log(arrayPeliculas)} */}
                                 
-                                <Link href={artistas.link}>
+                                <a href={artistas.link}>
                                     {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
@@ -87,7 +87,7 @@ const CatalogoArtistas = ({state, actions}) => {
 
                                         </Cartel>
                                     </Cuadrado>
-                                </Link>
+                                </a>
                                 
                             </Article>
 
