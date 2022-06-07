@@ -6,7 +6,7 @@ import HambIcon from "../img/hamb.png"
 import Close from "../img/close.png"
 
 
-
+let brakepoint = '880px'
 
 
 const MenuButtons = ({ state, actions }) => {
@@ -32,13 +32,10 @@ const Img = styled.img`
 
     display:none;
 
-    @media (max-width: 769px){
+    @media (max-width: 880px){
         display: flex;
     }
 `
 
-const StyledMenuButton = styled.button`
-
-`;
 
 export default connect(MenuButtons)

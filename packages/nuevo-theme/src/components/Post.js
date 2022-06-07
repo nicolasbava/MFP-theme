@@ -151,8 +151,7 @@ const redHat = "'Red Hat Text', sans-serif"
  
 let foto403 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg" // Mary wolf
  
-let foto400 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png" //Alberto Sealls 
-  
+let foto400 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png" //Alberto Sealls Cara
 let foto398 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg" //Jorge Sanjinés 
   
 let foto397 = "https://memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg" //Consuelo Saavedra
@@ -315,6 +314,7 @@ let foto739 = fondoRandom //"interferencias"
 
 const Post = ({ actions, state, element, libraries }) => {
   const scrollRef = useHorizontalScroll();
+  const scrollRef2 = useHorizontalScroll()
 
   const data = state.source.get(state.router.link)
   
@@ -396,6 +396,13 @@ const Post = ({ actions, state, element, libraries }) => {
   
     const yearNacimiento = post.acf.nacimiento;
 
+    const yearFallecimiento = post.acf.fallecimiento
+
+    const fallecimiento = post.acf.lugar_de_fallecimiento
+
+    const trabajoComo = post.acf.trabajoComo
+
+    const cargoIndice = post.acf.cargo_indice
   // =========== controladores PRODUCTORAS ====================
 
   const filmografia = post.acf.filmografia
@@ -471,13 +478,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
                 <CaractPeliculas>      
 
-                    {yearPelicula && <p>{yearPelicula}</p> }  
+                    {yearPelicula && <p>{yearPelicula}{tab}/{tab}</p> }  
                     
-                    {generoPelicula && <p>{tab}/{tab}{generoPelicula} </p>} 
+                    {generoPelicula && <p>{generoPelicula}{tab}/{tab}</p>} 
 
-                    {colorPelicula && <p>{tab}/{tab}{colorPelicula} </p>}        
+                    {colorPelicula && <p>{colorPelicula}{tab}/{tab}</p>}        
                    
-                    {estiloPelicula && <p>/{tab}{estiloPelicula}</p>}                
+                    {estiloPelicula && <p>{estiloPelicula}</p>}                
                     
                 </CaractPeliculas>
 
@@ -550,8 +557,8 @@ const Post = ({ actions, state, element, libraries }) => {
                     ): null}
                     
                       
-                    <SliderFichaTecnica className="panel" ref={scrollRef} style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
-                    {console.log('ficha',fichaTecnica)}
+                    <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{ overflow: "auto", wrap, paddingBottom:'2em' }}>
+                    {/* {console.log('ficha',fichaTecnica)} */}
                     
                     {/* {console.log(state.source.artistas)} */}
 
@@ -754,9 +761,13 @@ const Post = ({ actions, state, element, libraries }) => {
                   <InfoAf>
                       <Indice><p className='krona'> 
                         <Link href="/artistas">{"> "}CATÁLOGO </Link>
-                        <Link href="/artistas">{" > "}ARTISTAS </Link>
-                        {" > "}FICHA TÉCNICA
+                        <Link href="/artistas">{" > "}ARTISTAS{' > '}  </Link>
+                        {cargoIndice ? <span className='krona' style={{textTransform: 'uppercase', fontSize:'.8rem'}}>{cargoIndice}</span> : <span className='krona'>FICHA TÉCNICA</span>}
+
                         </p>
+
+                        
+                        
                         </Indice>
                         {/* {console.log('artistasGET:', artistas)} */}
                       
@@ -765,15 +776,24 @@ const Post = ({ actions, state, element, libraries }) => {
                           <div style={{backgroundImage:`url(${post.acf.foto_artista || fotoRandom})`}}></div>
                       </Foto>
                       <InfoArtista>
-                          <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                          <p>{yearNacimiento}</p>
-                          <p>{nacimiento}</p>
+                          <div >
+                              <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                              {yearNacimiento ? <span>{'('}{yearNacimiento}{')'}</span> : null}
+                              {nacimiento ? <span>{' - '} {nacimiento}</span> : null}
+                              {yearFallecimiento ? <span>{' - '}{'('}{yearFallecimiento}{')'}</span> : null}
+                              {fallecimiento ? <span>{' - '} {fallecimiento}</span> : null}
 
-                          <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
-                          
+                              <p className='krona'>{trabajoComo}</p>
+
+                          </div>
+
+                          <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }} ></DescripcionArtista>
                       
                       </InfoArtista>
+
                       </Info>
+                      <DescripcionArtistaMobile dangerouslySetInnerHTML={{__html:post.content.rendered }}   ></DescripcionArtistaMobile>
+
                   </InfoAf>
                   <TrabajosArtista>
 
@@ -1424,7 +1444,7 @@ const Post = ({ actions, state, element, libraries }) => {
     } else if (element == 'productora'){
 
         const filmografia = post.acf.filmografia
-        const equipo = post.acf.equipo_copy
+        const equipo = post.acf.equipo
         const galeria = post.acf.galeria
 
         // 1. fetch data related to the tag you need
@@ -1437,8 +1457,8 @@ const Post = ({ actions, state, element, libraries }) => {
 
         const artistasGET = state.source.artistas
 
-        console.log('peliculasGET:', peliculasGET, peliculasGET.length)
-        console.log('artistasGET:', artistasGET, artistasGET.length)
+        // console.log('peliculasGET:', peliculasGET, peliculasGET.length)
+        // console.log('artistasGET:', artistasGET, artistasGET.length)
        
         // === PRODUCTORA individual === //
         return ( 
@@ -1457,18 +1477,21 @@ const Post = ({ actions, state, element, libraries }) => {
                           {" > "}FICHA TÉCNICA </p>
                         </Indice>
                         <Info>
-                        <Foto>
-                            <div style={{backgroundImage:`url(${post.acf.foto_productora || fotoRandom})`}}></div>
-                        </Foto>
-                        <InfoArtista>
-                            <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                          <Foto>
+                              <div style={{backgroundImage:`url(${post.acf.foto_productora || fotoRandom})`}}></div>
+                          </Foto>
+                          <InfoArtista>
+                              <TituloArtista dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-    
-                            <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
+      
+                              <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtista>
 
-                        
-                        </InfoArtista>
+                          
+                          </InfoArtista>
+
                         </Info>
+                        <DescripcionArtistaMobile dangerouslySetInnerHTML={{__html:post.content.rendered }}></DescripcionArtistaMobile>
+
                     </InfoAf>
 
                     
@@ -1477,26 +1500,32 @@ const Post = ({ actions, state, element, libraries }) => {
                     <TrabajosArtista>   
 
                       {/* PRODUCTORA - galeria  */}
-                    {/* <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'2%'}}>    
-                         
-                       {console.log(post)}
-
+                    {galeria === false ? null : 
+                      <>
+                        <p className="eq" style={{fontSize:'0.8rem', marginTop:'2em'}}>{"> "}GALERÍA</p> 
+                        <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", backgroundColor: '#FBF0E5', paddingInline:'2%'}}>    
+                                                       
+                          
+                          {galeria.map((val,key) => {
+                          return (
+                              <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                                <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                              
+                              </a>
+                              )
+                            }) }
+                              
                       
-                         {galeria.length == false ? <p>Cargando...</p> : 
-                         galeria.map((val,key) => {
-                         return (
-                             <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                               <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria> */}
-                               {/* <img src={val}  class="img-fluid"></img> */}
-                             {/* </a>
-                         )
-                         }) 
-                         }    
-                     
-                    </GaleriaPelicula> */}
+                        </GaleriaPelicula> 
+                      </>
+                    }
+                    {console.log(post)}
 
-                    {typeof galeria == "undefined" ? null : (
-                      <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
+                    {galeria == false ? null : (
+                      <>
+                        <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
+            
+                      </>
                     )}
                         
                         {/* PRODUCTORA - filmografia */}
@@ -1536,7 +1565,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                         {/* PRODUCTORA - equipo slider */}
                         {typeof equipo === "undefined" ? null : (
-                            <p className='eq' style={{paddingBlock: '5em', fontSize: '0.8rem', margin: '0'}}>{"> "}EQUIPO </p>
+                            <p className='eq' style={{paddingBlock: '3em', fontSize: '0.8rem', margin: '0'}}>{"> "}EQUIPO </p>
                         )}
                         <SliderFichaTecnica className="panel" ref={scrollRef} style={{ paddingBottom: '2em',overflow: "auto", flexWrap:'wrap' }}>
                           
@@ -1554,26 +1583,26 @@ const Post = ({ actions, state, element, libraries }) => {
                           return (                    
                               <ContenedorFicha  key={key}>
                               {/* FONDO imagen */}    
-                          {/*  */}
-                          {element.nombre.length === 0 ? 
-                            <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
-                            
-                            : (
-                              
+                              {/*  */}
+                              {element.nombre.length === 0 ? 
+                                <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+                                
+                                : (
+                                  
 
-                            <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
+                                <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
 
-                            )}
-                          {/*  */}
-                          {/* {element.nombre === false ?  */}
-                          {/* <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>  */}
-                          {/* : */}
-                          {/* <div style={{backgroundImage:`url(${fotos[id]})`}}></div> */}
+                                )}
+                                {/*  */}
+                                {/* {element.nombre === false ?  */}
+                                {/* <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>  */}
+                                {/* : */}
+                                {/* <div style={{backgroundImage:`url(${fotos[id]})`}}></div> */}
 
-                            {/* }                 */}
-                              {/* FONDO verde texto */}
-                              <article className="fondo-verde">                        
-                                  <>
+                                {/* }                 */}
+                                  {/* FONDO verde texto */}
+                                  <article className="fondo-verde">                        
+                                      <>
                                       {/* PRODUCTORA - Equipo - Nombre Link  */}
                                       {element.nombre.length === 0 ? <p dangerouslySetInnerHTML={{__html: element.nombre_texto}}></p> : (
                                           <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
@@ -1672,6 +1701,15 @@ const Galeria = styled.div`
       & .col-sm-4 {
         width: 24.333333%;
       }
+
+      @media (max-width: 785px){
+        height: 35vw;
+        width: 50vw;
+
+        & .col-sm-4 {
+          width: 40%;
+        }
+      }
     `
 
 //  NOTICIA inicio
@@ -1753,15 +1791,29 @@ const Artista = styled.div`
 
 
 `
-
-const DescripcionArtista = styled.span`
+const DescripcionArtistaMobile = styled.div`
     font-family: 'Red Hat Text', sans-serif;
+    padding-inline: 7%;
+    text-align: justify;
+
+    @media (min-width: 880px){
+      display:none;
+    }
+`
+
+const DescripcionArtista = styled.div`
+    font-family: 'Red Hat Text', sans-serif;
+    text-transform: none;
+    margin-top:1em;
+
+    @media (max-width: 880px){
+      display:none;
+    }
+
 `
 
 const InfoAf = styled.div`
     // background: ${fondoRosa};
-
-
 
 `
 
@@ -1811,11 +1863,31 @@ const Foto = styled.div`
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+
+      @media (max-width: 880px){
+        width: min(30vw, 192px);
+        height: min(36vw, 244px);
+
+      }
     }
+
+
 `
 
 const InfoArtista = styled.div`
     margin-left: 2em;
+    font-family: 'Krona One';
+    color: #5e5959;
+    text-transform: uppercase;
+
+    .krona {
+      font-family: 'Krona One';
+    }
+
+    span {
+      line-height: 1.8;
+      // margin-bottom: .5em;
+    }
 `
 
 const TrabajosArtista = styled.div`
@@ -1927,7 +1999,7 @@ const Cartel = styled.div`
   border-radius: 2px;
   z-index: 95;
   display: flex;
-  //padding-right: 1em;
+  padding-right: 2em;
 
   gap: 1vw;
   flex-direction: column;
@@ -1940,7 +2012,10 @@ const Cartel = styled.div`
     font-weight: normal;
     margin-top: 8px;
     margin-bottom: 0;
-    font-size: 1rem;
+    // font-size: 1rem;
+    font-size: clamp(.7rem, 3vw, 1.35rem);
+
+  
   }
 
   h4 {
@@ -1967,9 +2042,17 @@ const Cartel = styled.div`
     background: rgba(0,0,0, .7);
     opacity: 1;
     box-sizing: border-box;
-
-
   }
+
+  @media (max-width: 400px){
+
+    & {
+      padding-bottom: 1em;
+      padding-left: 1em;
+    }
+    
+  }
+
 `
 
 const Rayita = styled.div`
@@ -2031,12 +2114,18 @@ const CaractPeliculas = styled.div`
     letter-spacing: 1px;
     color:#424141;
     margin-bottom: 1.2em;
-
+    flex-wrap:wrap;
+    
     p {
       padding: 0;
       margin: 0;
       font-family: 'Krona One';
     }
+
+    @media (max-width: 785px){
+      // flex-direction: column;
+    }
+
 `
 const VideoPelicula = styled.div`
     padding: 1em 0;
@@ -2102,9 +2191,19 @@ const GaleriaPelicula = styled.div`
       &::-webkit-scrollbar-thumb:hover {
         background: #F9672D;;
         cursor: pointer;
+      }
+
+      @media (max-width: 785px){
+        .col-sm-4 {
+          flex: 0 0 auto;
+          width: 40%;
+        }
+
 
       }
-`
+
+
+ `
 
 const FichaTecnicaPelicula = styled.div`
       

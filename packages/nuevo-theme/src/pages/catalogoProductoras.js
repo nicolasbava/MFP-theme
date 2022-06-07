@@ -52,7 +52,7 @@ const CatalogoProductoras = ({state, actions}) => {
 
                                 {/* {console.log(arrayPeliculas)} */}
                                     
-                                    <Link href={productoras.link}>
+                                    <a href={productoras.link}>
                                         {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
@@ -64,7 +64,7 @@ const CatalogoProductoras = ({state, actions}) => {
 
                                             </Cartel>
                                         </Cuadrado>
-                                    </Link>
+                                    </a>
                                     
                                 </Article>
 

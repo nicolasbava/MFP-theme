@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import {connect, Global, styled} from "frontity"
 import Header from "./Header";
 import Raya from "./Raya";
+
+
+
 export const EdgeButton = styled.div`    
     position: fixed;
     top: 0;

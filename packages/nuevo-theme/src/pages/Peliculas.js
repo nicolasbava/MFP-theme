@@ -302,8 +302,14 @@ const Cartel = styled.div`
     box-sizing: border-box;
   }
 
-  @media (max-width: 600px) { 
-    font-size: 0.5rem;  
+  @media (max-width: 785px) { 
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    
+    // h3 {
+    //   font-size: 1rem; 
+    // } 
   }
 
   @media (min-width:601px) and (max-width:1000px) {
@@ -365,11 +371,17 @@ const Cuadrado = styled.div`
     line-height: 1.6;
     font-weight: normal;
     font-size: 1rem;
+   
   }
 
   @media (max-width: 769px) { 
     height: 38vw;
     width: 43vw;  
+
+    h3 {
+      
+    font-size: clamp(0.4rem, 2.6vw, 1.2rem);
+    }
   }
 `
 

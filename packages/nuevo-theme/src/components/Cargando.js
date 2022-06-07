@@ -6,7 +6,7 @@ const Cargando = () => {
     return (
         <Contenedor>
             <img src="http://memoriafilmica.cl/wp-content/uploads/2022/05/3.-Logo-loop-rapido-gif.gif"></img>
-            <p>Cargando...</p>
+            {/* <p>Cargando...</p> */}
         </Contenedor>
     )
 }
@@ -25,7 +25,8 @@ const Contenedor = styled.section`
         width: 300px;
         height:auto;
         margin: 0;
-        margin-top: -17vh; 
+        // margin-top: -17vh; 
+        margin-top: -5vh;
 
         padding: 0;
     }

@@ -7,8 +7,15 @@ import FichaLink from "./FichaLink"
 
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
-
 import Raya from "./Raya"
+import Search from './Search'
+
+
+// BRAKEPOINT mobile
+
+let brakepoint = '880px'
+
+
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
@@ -18,16 +25,16 @@ const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
 const HeaderContenedor = styled.section`
     padding: 2em 7% 2em 7%;
 
-    @media (min-width: 769px){
+    @media (min-width: ${brakepoint}){
         // HIDE HEADER IN SMARTPHONE
         display:none;   
     
     }
-    @media (max-widht:600px) {
+    @media (max-widht: ${brakepoint}) {
         padding: 1em 7% 1em 7%;
     }
 
-    @media (max-width: 769px){
+    @media (max-width: ${brakepoint}){
         // HIDE HEADER IN SMARTPHONE
         display:static;
 
@@ -49,7 +56,7 @@ const Contenedor = styled.div`
         max-width: 106px;
         height: auto;
         
-        @media (min-width: 769px) {
+        @media (min-width: ${brakepoint}) {
             display: none;
         }
     }
@@ -71,7 +78,7 @@ const Nav = styled.nav`
         padding-left: 3.5em
     }
 
-    @media (max-width: 769px){
+    @media (max-width: ${brakepoint}){
         display:none
     }
 `
@@ -83,9 +90,11 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/' activeClassName={`active`}><a> {"> "}INICIO </a></Link> 
+                    {/* <Link href='/' activeClassName={`active`}><a> {"> "}INICIO </a></Link>  */}
+                    <MenuButton />
                 </Logo>
                 <img className="img" src={logo}></img>
+                {/* <Search /> */}
                 <Nav>
                    <Relative>
                         
@@ -100,12 +109,7 @@ const Header = ({state,actions}) => {
                    <RelativeCatalogo>
                         {state.theme.contadorCatalogo % 2 !== 0 && <Presentacion onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-up-fill"></i></Presentacion>}
                         {state.theme.contadorCatalogo % 2 === 0 && <Presentacion2 onClick={actions.theme.setPlusContadorCatalogo}>CATÁLOGO <i className="bi bi-caret-down-fill"></i></Presentacion2>}
-
                         {state.theme.contadorCatalogo % 2 !== 0 && <CatalogoModal />}                       
-                        
-                        
-                        
-
                    </RelativeCatalogo>
                    
                     {/* <Link href='/productoras'>PRODUCTORAS</Link> */}
@@ -113,7 +117,8 @@ const Header = ({state,actions}) => {
                     <Link href='/contacto'>CONTACTO</Link> 
                     
                 </Nav>
-            <MenuButton />
+            {/* <MenuButton /> */}
+            <div></div>
             </Contenedor>
         </HeaderContenedor>
 

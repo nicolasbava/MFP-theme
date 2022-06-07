@@ -93,8 +93,8 @@ const Footer = () => {
         </AnteRaya>
 
       <Container>
-        <p>MEMORIAFILMICAPENCOPOLITANA@GMAIL.COM</p>
-        <p className="rojolab">DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank">ROJOLAB</a></p>        
+        <p>{'> '}MEMORIAFILMICAPENCOPOLITANA@GMAIL.COM</p>
+        <p className="rojolab">{'> '}DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank">ROJOLAB</a></p>        
       </Container>
 
 
@@ -330,6 +330,7 @@ const Container = styled.div`
   justify-content: space-between; 
   align-items: center;
   font-size: 'Krona One';
+  flex-wrap: wrap;
 
   p {
     margin: 1em 0;
@@ -343,8 +344,10 @@ const Container = styled.div`
 
   a {color: white}
 
-  p::before {
-      content:"> "   
+  @media(max-width: 325px){
+    p {
+      font-size: .3rem;
+    }
   }
 `;
 

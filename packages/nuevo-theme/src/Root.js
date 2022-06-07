@@ -29,6 +29,9 @@ import Raya from "./components/Raya";
 import HeaderMobile from "./components/HeaderMobile";
 import HeaderFijoMobile from "./components/HeaderFijoMobile";
 
+
+let brakepoint = '880px'
+
 const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
     const [estadoModal1, cambiarEstadoModal1] = useState(true);
@@ -144,8 +147,8 @@ export default connect(Root)
 
 const Main = styled.section`
 
-  @media (max-width: 796px){
-    padding-top: 23%;
+  // @media (max-width: ${brakepoint}){
+  //   padding-top: 150px;
 
-  }
+  // }
 `

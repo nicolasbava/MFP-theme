@@ -241,27 +241,10 @@ const CartelNoticia = styled.section`
 
 export default connect(CatalogoNoticias)
 
-const Raya = styled.div`
-    heigth:4px;
-    width: 100vw;
-    background: #333;
-`
-
-const Titulo = styled.h3`
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: normal;
-    margin-bottom: 0em;
-`
-
-const DescripcionArtista = styled.span`
-    font-family: 'Red Hat Text', sans-serif;
-    font-size: 1rem;
-`
 
 const NoticiasFlex = styled.section`
     display:flex;
+    flex-wrap: wrap;
 `
 
 

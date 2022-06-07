@@ -2,7 +2,7 @@ import { connect, styled } from "frontity";
 import Link from "./Link";
 // import MobileMenu from "./menu";
 
-
+let brakepoint = '880px'
 
 
 const UpHeader = ({ state }) => {
@@ -23,6 +23,7 @@ const UpHeader = ({ state }) => {
 
     
   ];
+  
   
   
   const time = new Date().getTime();
@@ -71,7 +72,7 @@ const HeadContainer = styled.div`
   justify-content: space-between;
   font-weight: normal;
 
-  @media (max-width: 769px){
+  @media (max-width: ${brakepoint}){
     & {
       display: none
     }
@@ -110,7 +111,7 @@ const Description = styled.h4`
   font-weight: normal;
   font-size: 1rem;
   
-  @media(min-width: 769px){
+  @media(min-width: ${brakepoint}){
     opacity: 1; 
   }
 `;

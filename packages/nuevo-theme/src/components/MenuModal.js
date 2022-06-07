@@ -67,14 +67,13 @@ const Padding = styled.div`
 `
 
 const MenuContainer = styled.div`
-    background: ${fondoRosa};
+    background: rgba(0 0 0 / .5);
     color:white;
     position: fixed;
-    width: 40%;
+    width: 100%;
+    height:100%;
     font-size: 0.7rem;
     border-radius: 0px 0px 5px 0px;
-    z-index: -1;
-
 
     // @media (min-width: 600px){
 
@@ -85,7 +84,7 @@ const MenuContainer = styled.div`
 `
 
 const NavLinks = styled.nav`
-    widht: 100%;
+    max-width: 250px;
     height: 100%;
     display:flex;
     padding-left: 3em;
@@ -94,6 +93,7 @@ const NavLinks = styled.nav`
     text-align: left;
     // padding-bottom: 1em;
     font-family: 'Krona One';
+    background-color: ${fondoRosa};
 
 
     p {

@@ -154,10 +154,10 @@ const Article = styled.article`
 
 const Cartel = styled.div`
     color: #fff;
-    padding-top: 5em;
+    // padding-top: 5em;
     padding-left: 4em;
     padding-right: 4em;
-    padding-bottom: 1em;
+
     height: 100%;
     transition: 500ms ease;
     opacity:0;
@@ -167,12 +167,13 @@ const Cartel = styled.div`
     z-index: 95;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-bottom: 3em;
 
 
   h3 {
       margin-bottom: 0;
-      font-size: 1rem;
+      font-size: clamp(0.6rem, 4.6vw, 1.8rem);
       text-transform: uppercase;
   }
 
@@ -197,13 +198,16 @@ const Cartel = styled.div`
     background: rgba(0,0,0, .7);
     opacity: 1;
     box-sizing: border-box;
+  }
 
-
+  @media (max-width: 785px){
+    padding-left: 2em;
+    padding-bottom: 2em;
   }
 `
 
 const Rayita = styled.div`
-    width: 29px;
+    width: 38px;
     height: 5px;
     margin-left: 1px;
     background: #ff871c;

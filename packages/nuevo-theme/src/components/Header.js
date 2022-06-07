@@ -8,8 +8,14 @@ import FichaLink from "./FichaLink"
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
 import ContactoModal from "./ContactoModal"
-
 import Raya from "./Raya"
+
+
+// BRAKEPOINT header mobile
+
+let brakepoint = '880px'
+
+
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
@@ -19,11 +25,11 @@ const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
 const HeaderContenedor = styled.section`
     padding: 2em 7% 2em 7%;
     
-    @media (max-widht:600px) {
+    @media (max-widht: ${brakepoint}) {
         padding: 1em 7% 1em 7%;
     }
 
-    @media (max-width: 769px){
+    @media (max-width: ${brakepoint}{
         // HIDE HEADER IN SMARTPHONE
         display:none;
 
@@ -45,7 +51,7 @@ const Contenedor = styled.div`
         max-width: 106px;
         height: auto;
         
-        @media (min-width: 769px) {
+        @media (min-width: ${brakepoint}) {
             display: none;
         }
     }
@@ -67,7 +73,7 @@ const Nav = styled.nav`
         padding-left: 3.5em
     }
 
-    @media (max-width: 769px){
+    @media (max-width: ${brakepoint}){
         display:none
     }
 `
@@ -79,7 +85,8 @@ const Header = ({state,actions}) => {
        <HeaderContenedor>
             <Contenedor>
                 <Logo>
-                    <Link href='/' activeClassName={`active`}><a> {"> "}INICIO </a></Link> 
+                    <Link href='/' activeClassName={`active`} className={{display:'none'}}><a> {"> "}INICIO </a></Link> 
+
                 </Logo>
                 <img className="img" src={logo}></img>
                 <Nav>

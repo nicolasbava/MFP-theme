@@ -6,6 +6,8 @@ import Raya from "./Raya";
 import HeaderMobile from "./HeaderMobile";
 import MenuModal from "./MenuModal";
 
+let transparente = '#6610f200'
+
 
 export const EdgeButton = styled.div`    
     position: fixed;
@@ -55,7 +57,7 @@ const HeaderFijoMobile = ({state, actions,children, color}) => {
     return (  
       <>
         {isVisible && (
-          <EdgeButton color={color} >
+          <EdgeButton color={transparente} >
             {children}
             <HeaderMobile />
             <Raya />
