@@ -159,10 +159,10 @@ const Cartel = styled.div`
     padding-right: 4em;
 
     height: 100%;
-    transition: 500ms ease;
+
     opacity:0;
     box-sizing: border-box;
-    transition: opacity 0.55s;
+    transition: all 250ms ease-in-out;
      border-radius: 2px;
     z-index: 95;
     display: flex;

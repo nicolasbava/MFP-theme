@@ -20,7 +20,7 @@ const Territorio = ({state}) => {
 
             <Contenedor>
                 <h2>TERRITORIO</h2>
-                <article dangerouslySetInnerHTML={{__html: data.content.rendered}}></article>
+                <article className="justify" dangerouslySetInnerHTML={{__html: data.content.rendered}}></article>
 
                 {/* 
                 <p>
@@ -95,6 +95,10 @@ const Contenedor = styled.main`
     padding-left: 16%;
     padding-bottom: 4em;
     padding-right: 16%;
+    
+    .justify {
+        text-align: justify;
+    }
 
     ul, li {
         text-decoration: none;

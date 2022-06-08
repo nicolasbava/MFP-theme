@@ -29,6 +29,7 @@ import Raya from "./components/Raya";
 import HeaderMobile from "./components/HeaderMobile";
 import HeaderFijoMobile from "./components/HeaderFijoMobile";
 import LinksDeInteres from "./pages/LinksDeInteres";
+import CargandoPrincipal from "./components/CargandoPrincipal";
 
 
 
@@ -39,7 +40,7 @@ const Root = ({state, actions}) => {
     const data = state.source.get(state.router.link)
     const [estadoModal1, cambiarEstadoModal1] = useState(true);
 
-
+    const peliculas = state.source.peliculas
 
     useEffect(() => {
       actions.source.fetch("/peliculas")
@@ -81,20 +82,28 @@ const Root = ({state, actions}) => {
        
                        
         
+        {/* <HeaderMobile /> */}
         
         {/* estilos CSS base */}
         <Base />
+        {data.isFetching ? <CargandoPrincipal /> : 
 
-
-
-
+        <>
+        {console.log('state.source.state:',state.source.state)}
         <UpHeader />
-        {/* <HeaderMobile /> */}
         <Header />
         <HeaderFijo />
         
         <HeaderFijoMobile />
         <Raya />
+        
+        
+        
+        
+        
+
+
+
 
 
         <Main>
@@ -124,7 +133,7 @@ const Root = ({state, actions}) => {
           {data.isContactoArchive && <Contacto />}
 
     
-          {state.router.link === '/links/' &&
+          {state.router.link === '/links/' && !data.isFetching &&
           <LinksDeInteres />
           
           }
@@ -138,8 +147,10 @@ const Root = ({state, actions}) => {
     
           
         </Main>
-          
+        <Footer />
+        </>
        
+        }
 
         {/* <Script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></Script> */}
         {/* script bootstrap 5 */}
@@ -148,8 +159,6 @@ const Root = ({state, actions}) => {
         <Script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></Script>
 
         
-        <Footer />
-
   
 
       </>

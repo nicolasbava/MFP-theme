@@ -273,16 +273,16 @@ const Cartel = styled.div`
   // padding-top: 11em;
   justify-content: flex-end;
   height: 100%;
-  transition: 500ms ease;
+  
   opacity:0;
   box-sizing: border-box;
-  transition: opacity 0.55s;
+  
   border-radius: 2px;
   z-index: 95;
   display: flex;
   flex-direction: column;
   // justify-content: flex-end;
-
+  transition: all 250ms ease-in-out;
   
   
   & > * {

@@ -18,6 +18,7 @@ const IconosRedes = () => {
 export default connect(IconosRedes)
 
 const Contenedor = styled.section`
+    margin-top: 2em;
     width: 100%;
     text-align: right;
     //background: grey;

@@ -1733,7 +1733,7 @@ const Post = ({ actions, state, element, libraries }) => {
           
           <ContenedorNoticia style={{paddingTop: '2em'}}>
             <h2 dangerouslySetInnerHTML={{__html: post.title.rendered}}></h2>
-            <div dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
+            <div className='justify' dangerouslySetInnerHTML={{__html: post.content.rendered}}></div>
           </ContenedorNoticia>
 
            {/* scroll ref scroll horizontal */}
@@ -1748,7 +1748,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     }    
 
           </GaleriaPelicula>
-
+          <Raya style={{marginTop:`-5px`}}></Raya>
           <ContenedorNoticia>
             <IconosRedes />
 
@@ -1764,13 +1764,13 @@ export default connect(Post)
 
 const Galeria = styled.div`
       height: 20vw;
-      width: 24vw;
+      width: 29vw;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
 
       & .col-sm-4 {
-        width: 24.333333%;
+        width: 33.333333%;
       }
 
       @media (max-width: 785px){
@@ -1803,6 +1803,10 @@ const ContenedorNoticia = styled.section`
     padding-left: 16%;
     padding-bottom: 4em;
     padding-right: 16%;
+
+    .justify {
+      text-align: justify;
+    }
 
     ul, li {
         text-decoration: none;

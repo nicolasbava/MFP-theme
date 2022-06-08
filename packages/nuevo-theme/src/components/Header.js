@@ -166,13 +166,13 @@ const Header = ({state,actions}) => {
                    </Relative>
 
                    <Column>
-                        {state.router.link !== '/noticias/' &&  
+                        {!state.router.link.includes('noticias') &&  
                         <>
                             <Link href='/noticias'>NOTICIAS</Link> 
                             <Subraya style={{background:'none'}}></Subraya>
                         </>
                         } 
-                    {state.router.link === '/noticias/' &&  
+                        {state.router.link.includes('noticias') &&  
                         <>
                             <Link href='/noticias'>NOTICIAS</Link> 
                             <Subraya style={{left:'37px', width:'81px'}}></Subraya>
@@ -200,22 +200,22 @@ const Header = ({state,actions}) => {
                                 {state.router.link !== '/artistas/' &&  
                                         <Subraya style={{background:'none'}}></Subraya>
                                 }   
-                                {state.router.link !== '/artistas/' &&  
+                                {state.router.link !== '/peliculas/' &&  
                                         <Subraya style={{display:'none'}}></Subraya>
                                 }  
-                                {state.router.link !== '/artistas/' &&  
+                                {state.router.link !== '/productoras/' &&  
                                         <Subraya style={{display:'none'}}></Subraya>
                                 }  
                        
                             
-                                {state.router.link === '/peliculas/' &&  
+                                {state.router.link.includes('peliculas')   &&  
                                         <Subraya style={{left:'47px', width:'104px'}}></Subraya>
                                     
                                 } 
-                                {state.router.link === '/artistas/' &&  
+                                {state.router.link.includes('artistas')  &&  
                                         <Subraya style={{left:'47px', width:'104px'}}></Subraya>
                                 } 
-                                {state.router.link === '/productoras/' &&  
+                                {state.router.link.includes('productoras') &&  
                                     <Subraya style={{left:'47px', width:'104px'}}></Subraya>
                                 } 
                         </Column>
@@ -265,11 +265,11 @@ const Header = ({state,actions}) => {
                        
                             
                                 {state.router.link === '/contacto/' &&  
-                                        <Subraya style={{left:'47px', width:'88px'}}></Subraya>
+                                        <Subraya style={{left:'47px', width:'103px'}}></Subraya>
                                     
                                 } 
                                 {state.router.link === '/links/' &&  
-                                        <Subraya style={{left:'47px', width:'88px'}}></Subraya>
+                                        <Subraya style={{left:'47px', width:'103px'}}></Subraya>
                                 } 
                           
                         </Column>

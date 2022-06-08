@@ -27,7 +27,7 @@ const Equipo = ({state}) => {
             {/* {console.log(data.content.rendered)} */}
             <Contenedor>
                 <h2>EQUIPO</h2>
-                <div dangerouslySetInnerHTML={{__html: data.content.rendered}}></div>
+                <div className="justify" dangerouslySetInnerHTML={{__html: data.content.rendered}}></div>
 
 
                 {/* <p>
@@ -93,6 +93,10 @@ const Contenedor = styled.main`
     padding-left: 16%;
     padding-bottom: 7%;
     padding-right: 16%;
+
+    .justify {
+        text-align: justify;
+    }
 
     ul, li {
         text-decoration: none;
