@@ -32,7 +32,7 @@ const Proyecto = ({state}) => {
 
     return (
 
-        <>
+        <Container>
             <Indice>
                 <p>
                 <Link href="/">{"> "}CATÁLOGO</Link>
@@ -56,10 +56,10 @@ const Proyecto = ({state}) => {
             
             
             
-                 <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>             
+                 <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", paddingBottom:'2em' }}>             
                         {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                         return (
-                            <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                            <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
                             <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                             </a>
                         )
@@ -75,11 +75,15 @@ const Proyecto = ({state}) => {
             
         
         
-        </>
+        </Container>
     )
 }
 
 export default connect(Proyecto)
+
+const Container = styled.main`
+    padding-bottom: 4em;
+`
 
 const Indice = styled.div`
     padding-left: 7%;

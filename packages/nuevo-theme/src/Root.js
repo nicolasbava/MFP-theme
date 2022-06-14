@@ -89,7 +89,7 @@ const Root = ({state, actions}) => {
         {data.isFetching ? <CargandoPrincipal /> : 
 
         <>
-        {console.log('state.source.state:',state.source.state)}
+ 
         <UpHeader />
         <Header />
         <HeaderFijo />

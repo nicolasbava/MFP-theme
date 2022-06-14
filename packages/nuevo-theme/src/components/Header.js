@@ -85,12 +85,13 @@ const Nav = styled.nav`
 
 const Subraya = styled.div`
     
-    width: 63px;
-    height: 2px;
+    width: 69px;
+    height: 3px;
     position: relative;
-    background: orange;
+    background: #f9672d;
     top: 34px;
-    left: 0px
+    border-radius:4px;
+    left: 0px;
 
 `
 
@@ -116,7 +117,7 @@ const Header = ({state,actions}) => {
                     {/* <Link href='/' activeClassName={`active`} className={{display:'none'}}><a> {"> "}INICIO </a></Link> */}
                     {state.router.link === '/' &&  
                     <>
-                        <Link href='/' activeClassName={`active`} style={{paddingTop:'2px'}}><a> {"> "}INICIO</a></Link>
+                        <Link href='/' activeClassName={`active`} style={{paddingTop:'2px', left:'-1px'}}><a> {"> "}INICIO</a></Link>
                         <Subraya ></Subraya>
                     </>
                     } 

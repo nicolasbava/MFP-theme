@@ -504,8 +504,8 @@ const Post = ({ actions, state, element, libraries }) => {
                        
                       
                       return (
-                          <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" >
-                            <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                          <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                            <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                             {/* <img src={val}  class="img-fluid"></img> */}
                           </a>
                       )
@@ -561,7 +561,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     {state.theme.contador % 2 === 0 && 
                     // 
                     <>
-                      <SliderFichaTecnica className="panel" ref={scrollRef2}  style={wrap2}>
+                      <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{paddingBottom: '2em',overflow: "auto"}}>
                                         
 
                           {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
@@ -852,12 +852,12 @@ const Post = ({ actions, state, element, libraries }) => {
 
                           </div>
 
-                          <DescripcionArtista dangerouslySetInnerHTML={{__html:post.content.rendered }} ></DescripcionArtista>
+                          <DescripcionArtista style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html:post.content.rendered }} ></DescripcionArtista>
                       
                       </InfoArtista>
 
                       </Info>
-                      <DescripcionArtistaMobile dangerouslySetInnerHTML={{__html:post.content.rendered }}   ></DescripcionArtistaMobile>
+                      <DescripcionArtistaMobile style={{textAlign:'justify'}} dangerouslySetInnerHTML={{__html:post.content.rendered }}   ></DescripcionArtistaMobile>
 
                   </InfoAf>
                   <TrabajosArtista>
@@ -1579,8 +1579,8 @@ const Post = ({ actions, state, element, libraries }) => {
                           
                           {galeria.map((val,key) => {
                           return (
-                              <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                                <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                              <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                                <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                               
                               </a>
                               )
@@ -1592,7 +1592,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     }
                     {console.log(post)}
 
-                    {galeria == false ? null : (
+                    {galeria === false ? null : (
                       <>
                         <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
             
@@ -1740,8 +1740,8 @@ const Post = ({ actions, state, element, libraries }) => {
            <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>             
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                       return (
-                        <a href={val} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
-                          <Galeria style={{backgroundImage:`url(${val})`}} className="img-fluid"></Galeria>
+                        <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                          <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                         </a>
                       )
                       })) : null

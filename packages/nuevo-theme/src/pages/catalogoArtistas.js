@@ -173,7 +173,7 @@ const Cartel = styled.div`
 
   h3 {
       margin-bottom: 0;
-      font-size: clamp(0.6rem, 4.6vw, 1.8rem);
+      font-size: clamp(0.6rem, 4.3vw, 1.8rem);
       text-transform: uppercase;
   }
 
@@ -200,7 +200,7 @@ const Cartel = styled.div`
     box-sizing: border-box;
   }
 
-  @media (max-width: 785px){
+  @media (max-width: 880px){
     padding-left: 2em;
     padding-bottom: 2em;
   }

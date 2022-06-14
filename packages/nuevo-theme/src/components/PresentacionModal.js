@@ -15,9 +15,9 @@ const PresentacionModal = ({state,actions}) => {
                 <MenuContainer>
                     
                     <NavLinks onMouseLeave={actions.theme.setPlusContadorPresentacion}>
-                        <Link href='/territorio'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}TERRITORIO</p></Link> 
-                        <Link href='/proyecto'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}PROYECTO</p></Link> 
-                        <Link href='/equipo'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}EQUIPO</p></Link> 
+                        <a href='/territorio'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}TERRITORIO</p></a> 
+                        <a href='/proyecto'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}PROYECTO</p></a> 
+                        <a href='/equipo'><p className="krona" onClick={actions.theme.setPlusContadorPresentacion}>{"> "}EQUIPO</p></a> 
                     </NavLinks>                
                 </MenuContainer>
                
