@@ -64,7 +64,21 @@ const Base = () => {
                     font-family: ${kronaOne};
                     margin: 0;
 
+
+                    @media(max-with: 200px){
+                        font-size: .5rem
+                    }
+
                 }
+
+                //krona responsive under 200px
+                .krona-res {
+
+                    @media(max-with: 200px){
+                        font-size: .5rem
+                    }
+                }
+
 
                 .redHat {
                     font-family: ${redHat}

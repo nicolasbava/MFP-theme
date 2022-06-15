@@ -28,7 +28,7 @@ const Proyecto = ({state}) => {
 
     const galeriaPelicula = data.acf.galeria
 
-    console.log(data)
+    // console.log(data)
 
     return (
 
@@ -100,6 +100,21 @@ const Indice = styled.div`
     font-family: 'Krona One', sans-serif;
 
     }
+
+    
+    @media (max-width: 390px){
+      p {
+          font-size: .5rem
+      }
+    }
+
+    @media (max-width: 280px){
+        p {
+            font-size: .4rem;
+            margin-bottom: 2em;
+        }
+    }
+
 `
 
 const Imagenes = styled.div`

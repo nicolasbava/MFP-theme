@@ -10,7 +10,7 @@ const Contacto = ({state}) => {
     return (
         <Contenedor>
             <article className="flex-noticias">
-                <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}CONTACTO{" > "}ESCRÍBENOS</p>
+                <p className="krona responsive"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}CONTACTO{" > "}ESCRÍBENOS</p>
             </article>
 
             <Flex>
@@ -57,6 +57,7 @@ const Flex = styled.div`
     div h3 {
         font-size: 1rem;
         line-height: 1.7;
+        padding-right: 1em;
     }
 
     @media (min-width: 969px){
@@ -90,6 +91,8 @@ const Contenedor = styled.section`
     // flex-direction: column;
     // align-items: center;
     // justify-content: center;
+
+  
 
     h3 {
         font-size: 1.2rem;
@@ -136,7 +139,21 @@ const Contenedor = styled.section`
             padding-top: 3em;
             padding-bottom: 3em;
         }
+
+        @media (max-width: 462px){
+            p {
+                font-size: .5rem;
+            }
+        }
+
+        @media (max-width: 270px){
+            p {
+                font-size: .5rem;
+            }
+        }
     }
+
+   
 `;
 
 /* 

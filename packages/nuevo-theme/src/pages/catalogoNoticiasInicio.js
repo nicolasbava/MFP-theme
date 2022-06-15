@@ -7,7 +7,7 @@ import Footer from "../components/footer"
 
 const naranja = "#EC7342"
 
-let brakepoint2 = '750px'
+
 
 // NOTICIAS - muestra las ultimas 3 noticias
 
@@ -82,7 +82,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                                         <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
                                         <Flex>
                                             <span>{">>"}</span>
-                                            <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
+                                            <a href={artistas.link}><span className="vermas krona">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
 
@@ -102,13 +102,13 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
     )
 }
 
-
+let brakepoint2 = '750px'
 
 
 const Contenedor = styled.main`
     padding-left: 7%;
     padding-right: 5%;
-    margin-top: 4%;
+    margin-top: 4em;
     padding-bottom: 2em;
 
     .mobile {
@@ -145,6 +145,10 @@ const Contenedor = styled.main`
             padding-bottom: 3em;
         }
     }
+
+    // @media(max-width: 244px){
+    //     padding-top: 2rem;
+    // }
 `
 
 const ImagenNoticia = styled.div`

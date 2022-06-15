@@ -181,6 +181,11 @@ const VerTodasPeliculas = styled.article`
     position:absolute; 
     right: 5.8%;
 
+    @media (max-width: 274px){
+      font-size: .5rem;
+      margin-top: 1em;
+    }
+
 `;
 
 
@@ -195,6 +200,14 @@ const CartelHeader = styled.nav`
         font-size: .7rem;
         padding: 0;
         margin: 0;
+    }
+
+    @media (max-width: 244px){
+
+      p{
+        font-size: .5rem;
+ 
+      }
     }
 `
 const Article = styled.article`

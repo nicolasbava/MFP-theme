@@ -55,6 +55,7 @@ const Contenedor = styled.div`
     .img {
         max-width: 106px;
         height: auto;
+        margin-left: -40px;
         
         @media (min-width: ${brakepoint}) {
             display: none;
@@ -93,7 +94,9 @@ const Header = ({state,actions}) => {
                     {/* <Link href='/' activeClassName={`active`}><a> {"> "}INICIO </a></Link>  */}
                     <MenuButton />
                 </Logo>
+                <a href="/">
                 <img className="img" src={logo}></img>
+                </a>
                 {/* <Search /> */}
                 <Nav>
                    <Relative>

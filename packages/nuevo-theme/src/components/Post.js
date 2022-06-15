@@ -29,8 +29,13 @@ const redHat = "'Red Hat Text', sans-serif"
 <Script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></Script>
 
 
+// no pude realizar la base de datos de forma relacional asique lo hago desde aca, subo todos los links
+// de la foto de cada pelicula y de cada artista y lo enlazo con la info que me trae cada post
 
-// OBJETO FOTOS artistas y peliculas PARA USAR EN EL POST
+// debe ser actualizado cada vez que se sume una pelicula
+
+// OBJETO FOTOS con fotos de artistas y peliculas para usar en los slider de ficha tecnica 
+
 
   let fotos = {  
    
@@ -456,14 +461,16 @@ const Post = ({ actions, state, element, libraries }) => {
     // ====== PELICULA inicio ========
 
 
-   
+   let fotoPelicula = post.acf.foto_pelicula ;
+   let link = post.acf.link
 
     // console.log(lastNumber)
  
          return (
             <Pelicula>
 
-              
+              {console.log(post)}
+              {console.log(fotoPelicula)}
                 <Catalogo className="krona">
                 <Link href="/">{"> "}CATÁLOGO</Link>
                     <Link href="/peliculas">
@@ -492,7 +499,14 @@ const Post = ({ actions, state, element, libraries }) => {
                 {post.acf.link.length === 0 ? null : (
 
                   <VideoPelicula>
-                      <iframe width="100%" height="600" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     <a href={link} target='_blank'>
+                       <div className='reproductor' style={{backgroundImage:`url(${fotoPelicula}`}} >
+                        <i class="bi bi-play-btn"></i>
+                        <p>Ver Pelicula</p>
+                       </div>
+
+                     </a>
+                      {/* <iframe width="100%" height="600" src={linkPelicula} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                   </VideoPelicula>
                 )}
                 
@@ -1664,13 +1678,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                 <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
 
                                 )}
-                                {/*  */}
-                                {/* {element.nombre === false ?  */}
-                                {/* <div style={{backgroundImage:`url(http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>  */}
-                                {/* : */}
-                                {/* <div style={{backgroundImage:`url(${fotos[id]})`}}></div> */}
-
-                                {/* }                 */}
+                                
                                   {/* FONDO verde texto */}
                                   <article className="fondo-verde">                        
                                       <>
@@ -1681,13 +1689,6 @@ const Post = ({ actions, state, element, libraries }) => {
                                           </FichaLink>  
                                       )}
 
-                                      {/* PRODUCTORA - Equipo - Nombre texto  */}
-                                      {/* {element.nombre_texto.length === 0 ? null : (
-                                          
-
-                                      )} */}
-
-                                      {/* <p dangerouslySetInnerHTML={{__html: element.cargo}}></p> */}
                                   </>
                                  
                                   
@@ -1957,7 +1958,7 @@ const InfoArtista = styled.div`
 
     .krona {
       font-family: 'Krona One';
-    }
+    }  
 
     span {
       line-height: 1.8;
@@ -2165,7 +2166,13 @@ const Pelicula = styled.section`
 const Catalogo = styled.p`
     padding-top: 3em;
     padding-bottom: 3em;
-    font-size: .7rem
+    font-size: .7rem;
+    
+    @media (max-width: 390px){
+      padding-top: 5em;
+      padding-bottom: 5em;
+      font-size: .5rem
+    }
 `
 const TituloPeli = styled.h2`
     font-size: 2rem;
@@ -2174,6 +2181,11 @@ const TituloPeli = styled.h2`
     margin-top: 0;
     text-transform: uppercase;
     font-weight: normal;
+
+     @media (max-width: 470px){
+
+      font-size: 1.5rem;
+    }
 
 `
 const InfoPeli = styled.span`
@@ -2197,13 +2209,59 @@ const CaractPeliculas = styled.div`
       font-family: 'Krona One';
     }
 
-    @media (max-width: 785px){
-      // flex-direction: column;
+    @media (max-width: 492px){
+      p {
+        font-size: .8rem
+      }
     }
 
 `
 const VideoPelicula = styled.div`
     padding: 1em 0;
+    
+
+    a {
+      cursor:pointer
+    }
+
+    .reproductor{
+      width: 100%;
+      height: 300px;
+      // background: black;
+      background-blend-mode: multiply;
+      background-position: center;
+      background-repat: no-repeat;
+      background-size: cover;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 5px;
+      
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+
+      .bi-play-btn {
+        color: #8f8f8f63; 
+        font-size: 4rem;
+        transition: all 250ms ease;
+      }
+
+           
+
+      
+    }
+
+    
+    
+
+    
+
+    @media (min-width: 950px){
+      .reproductor {
+        height: 500px;
+      }
+    }
+ 
 
 `
 
@@ -2360,6 +2418,14 @@ const SliderFichaTecnica = styled.div`
         cursor: pointer;
 
       }
+
+      @media (max-width: 799px){
+        
+        &{
+          justify-content: center;
+
+        }
+      }
 `
 
 const SliderFichaTecnicaWrap = styled.div`
@@ -2411,6 +2477,8 @@ const SliderFichaTecnicaWrap = styled.div`
         cursor: pointer;
 
       }
+
+
 `
 
 const VerMas = styled.p`
@@ -2471,7 +2539,7 @@ const ContenedorFicha = styled.div`
       font-size: 1rem;
       font-family: 'Krona One';
       padding: 0.4em 0.8em;
-      color:#f5efe8;
+      color: #f5efe8;
       transition: all 150ms ease;
     }
 
@@ -2486,6 +2554,8 @@ const ContenedorFicha = styled.div`
       color:#f5efe8c7;
       margin-top: -5px;
     }
+
+    
 
 `
 
