@@ -22,7 +22,7 @@ const Equipo = ({state}) => {
 
     return (
 
-        <>
+        <Afuera>
             <Indice>
                 <p>
                 <Link href="/">{"> "}CATÁLOGO</Link>
@@ -82,11 +82,15 @@ const Equipo = ({state}) => {
             }
         
         
-        </>
+        </Afuera>
     )
 }
 
 export default connect(Equipo)
+
+const Afuera = styled.div`
+    padding-bottom: 4em;
+`
 
 const Indice = styled.div`
     padding-left: 7%;
