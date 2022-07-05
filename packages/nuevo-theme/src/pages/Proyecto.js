@@ -34,9 +34,10 @@ const Proyecto = ({state}) => {
 
         <Container>
             <Indice>
-                <p>
+                {/* <p>
                 <Link href="/">{"> "}CATÁLOGO</Link>
-                {" > "}PRESENTACIÓN {">"} PROYECTO</p>
+                {" > "}PRESENTACIÓN {">"} PROYECTO</p> */}
+                <p></p>
             </Indice>
 
 
@@ -48,7 +49,7 @@ const Proyecto = ({state}) => {
 
                 
 
-                <IconosRedes />
+                {/* <IconosRedes /> */}
             </Contenedor> 
 
             {typeof galeriaPelicula != "undefined" && 

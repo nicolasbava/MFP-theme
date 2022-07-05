@@ -38,7 +38,7 @@ const HeaderFijo = ({state, actions ,children, color}) => {
     useEffect(() => {
       // Button is displayed after scrolling for 302 pixels
       const toggleVisibility = () => {
-        if (window.pageYOffset > 302) {
+        if (window.pageYOffset > 305) {
           setIsVisible(true);
         } else {
           setIsVisible(false);

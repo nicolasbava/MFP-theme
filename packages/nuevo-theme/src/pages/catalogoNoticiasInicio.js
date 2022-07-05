@@ -208,7 +208,7 @@ const Noticias = styled.div`
     color: #4a4a4a;
     font-size: .8rem;
     font-weight: initial;
-    line-height: 1;
+    line-height: 1.2;
     text-align: justify;
     padding-bottom: 0.7em;
     font-family: 'Red Hat Text', sans-serif;

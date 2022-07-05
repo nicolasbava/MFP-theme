@@ -82,11 +82,11 @@ const Root = ({state, actions}) => {
        
                        
         
-        {/* <HeaderMobile /> */}
+         {/* <HeaderMobile />  */}
         
         {/* estilos CSS base */}
         <Base />
-        {data.isFetching ? <CargandoPrincipal /> : 
+        {data.isFetching ? <CargandoPrincipal /> :  
 
         <>
  
@@ -101,12 +101,18 @@ const Root = ({state, actions}) => {
         
         
         
+            {/* en contruccion */}
+            {/* <EnConstruccion></EnConstruccion> 
+            <EnConstruccionMobile></EnConstruccionMobile> */}
 
+            {/* fin en construccion */}
 
 
 
 
         <Main>
+
+       
 
           {state.theme.contadorMobile % 2 !== 0 && <MenuModal />}
 
@@ -136,21 +142,23 @@ const Root = ({state, actions}) => {
           {state.router.link === '/links/' && !data.isFetching &&
           <LinksDeInteres />
           
-          }
-          {/* <LinksDeInteres when={state.router.link === '/links/'} /> */}
+          }  
+           {/* <LinksDeInteres when={state.router.link === '/links/'} />  */}
     
 
 
 
           
-          {data.isMapaArchive && <Mapa />}
+          {data.isMapaArchive && <Mapa />} 
+
+
     
           
-        </Main>
-        <Footer />
+         </Main> 
+         <Footer /> 
         </>
        
-        }
+      } 
 
         {/* <Script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></Script> */}
         {/* script bootstrap 5 */}
@@ -167,6 +175,36 @@ const Root = ({state, actions}) => {
 
 export default connect(Root)
 
+//
+const EnConstruccionMobile = styled.section`
+    width: 100vw;
+    height: 150vh;
+    overflow: hidden;
+    background: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-22-at-1.10.40-PM.jpeg);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
+    @media (min-width: 700px){
+      display: none
+    }
+`
+
+const EnConstruccion = styled.section`
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/EN-CONSTRUCCION.png);
+    background-size: cover;
+    background-position: bottom center;
+
+    @media (max-width: 700px){
+      display: none
+    }
+
+`
+
+//
 const Main = styled.section`
 
   // @media (max-width: ${brakepoint}){

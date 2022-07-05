@@ -5,7 +5,7 @@ const Search = ({state, actions}) => {
     return (
         <Contenedor>
             
-            <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/magnifying-glass.png" ></img>
+            <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/magnifying-glass.png" ></img>
             <input
                 type="text"
                 placeholder="Busca aqui..."

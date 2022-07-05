@@ -17,34 +17,34 @@ const Footer = () => {
           <FooterPeliculas>
 
             <Linea1>
-                <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
+                <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/CAMARA-MAN.png" className="logo-footer"></img>
                 <a>
-                  <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
+                  <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-LOGO_COLOR-FONDO.png" className="logo-mem"></img>
                 </a>
                 <Iconos>
-                  <img className="raya blanco" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/FLECHITAS.png"></img>
+                  <img className="raya blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/FLECHITAS.png"></img>
                   
                   <a href="https://www.youtube.com/channel/UCcCPD7ziLSWwc_tqyn_hL5w" target="_blank"> 
-                    <img className="youtube blanco" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/01-YOUTUBE-B.png"></img>
+                    <img className="youtube blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-YOUTUBE-B.png"></img>
                   </a>
                   <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
-                    <img className="blanco" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/02-FACEBOOK-B.png"></img>
+                    <img className="blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-FACEBOOK-B.png"></img>
                   </a>
-                  <a href="https://www.instagram.com/memoriafilmica/" target="_blank"> 
-                    <img className="blanco" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/03-INSTAGRAM-B.png"></img>
+                  <a href="https://www.instagram.com/web.memoriafilmica/" target="_blank"> 
+                    <img className="blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-INSTAGRAM-B.png"></img>
                   </a>  
                 </Iconos>
                 <div className="raya2"></div>
 
                 <a> 
-                <img className="foto gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/04-M.CONCE-b.png"></img>
+                <img className="foto gris" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-M.CONCE-b.png"></img>
                 </a>
 
                 <a>
-                <img className="foto gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/05-FAAIC-B.png"></img>
+                <img className="foto gris" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-FAAIC-B.png"></img>
                 </a>
                 <a>
-                <img className="foto gris" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/06-CC-A.png"></img>
+                <img className="foto gris" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/06/06-CC-A.png"></img>
                 </a>
               </Linea1>
 

@@ -5,7 +5,7 @@ const Cargando = () => {
 
     return (
         <Contenedor>
-            <img src="http://memoriafilmica.cl/wp-content/uploads/2022/05/3.-Logo-loop-rapido-gif.gif"></img>
+            <img src="http://web.memoriafilmica.cl/wp-content/uploads/2022/05/3.-Logo-loop-rapido-gif.gif"></img>
             {/* <p>Cargando...</p> */}
            
         </Contenedor>

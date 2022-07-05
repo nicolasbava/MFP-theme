@@ -24,9 +24,10 @@ const Equipo = ({state}) => {
 
         <Afuera>
             <Indice>
-                <p>
+                {/* <p>
                 <Link href="/">{"> "}CATÁLOGO</Link>
-                {" > "}PRESENTACIÓN {" > "}EQUIPO</p>
+                {" > "}PRESENTACIÓN {" > "}EQUIPO</p> */}
+                <p></p>
             </Indice>
 
 

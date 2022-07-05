@@ -20,7 +20,8 @@ const CatalogoNoticias = ({state, actions}) => {
     return (
         <Contenedor>
            <article className="flex-noticias">
-                <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}NOTICIAS</p>
+                {/* <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}NOTICIAS</p> */}
+                <p></p>
                 <Search />
             </article>
             {!filteredArtistas.length > 0 && (
@@ -88,13 +89,15 @@ const CatalogoNoticias = ({state, actions}) => {
 }
 
 
+export default connect(CatalogoNoticias)
 
 
 const Contenedor = styled.main`
     padding-left: 7%;
-    padding-right: 5%;
+    padding-right: 7%;
     // margin-top: 3%;
     padding-bottom: 7%;
+
 
     p {
         font-size: .7rem;
@@ -108,7 +111,8 @@ const Contenedor = styled.main`
         display: flex; 
         justify-content: space-between;
         align-items: center;
-        padding-right: 2%;
+        // padding-right: 2%;
+        padding-block:1em;
 
         p {
             font-size: .7rem;
@@ -125,7 +129,8 @@ const ImagenNoticia = styled.div`
     background-color: rgba(0, 0, 0, 0);
     background-color: #00b1a0;
     height: 23vw;
-    width: 26.9vw;
+    width: 100%;
+    //width: 26.9vw;
     background-blend-mode: screen;
     cursor: pointer; 
     transition: background-color 500ms ease;
@@ -154,18 +159,16 @@ const ImagenNoticia = styled.div`
 
 const DisplayNoticias = styled.div`
 
-  width: 100%;
-
-
 `
 
 const Noticias = styled.div`
   border: 2px #3335 solid;
   border-radius: 5px;
-  width: 27.2vw;
+  width: 27.5vw;
   height: fit-content;
+  margin-bottom: 2em;
 
-margin-bottom: 2em;
+
   
   img {
     max-width: 100%;
@@ -249,16 +252,17 @@ const CartelNoticia = styled.section`
 
 `
 
-export default connect(CatalogoNoticias)
 
 
 const NoticiasFlex = styled.section`
-    display:flex;
-    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 1vw;
 
-    @media (max-width: 880px){
-        flex-wrap:wrap;
-    }
+    // @media (max-width: 880px){
+    //     flex-wrap:wrap;
+    // }
 `
 
 

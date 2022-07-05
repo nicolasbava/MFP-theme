@@ -19,7 +19,7 @@ let brakepoint = '880px'
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"
 const bordeModal = "#b7b7b7"
-const logo = "http://memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
+const logo = "http://web.memoriafilmica.cl/wp-content/uploads/2022/05/Logo.png";
 
 // ESTILOS CSS
 const HeaderContenedor = styled.section`

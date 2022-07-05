@@ -22,7 +22,8 @@ const CatalogoProductoras = ({state, actions}) => {
         <Productoras>
             {console.log(arrayArtistas)}
             <article>
-              <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}PRODUCTORAS</p>
+              {/* <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}PRODUCTORAS</p> */}
+              <p></p>
               <Search />
             </article>
             {!filteredArtistas.length > 0 && (
@@ -224,6 +225,7 @@ const Productoras = styled.section`
         display: flex; 
         justify-content: space-between;
         align-items: center;
+        padding-block:.5em;
 
         p {
             font-size: .7rem;

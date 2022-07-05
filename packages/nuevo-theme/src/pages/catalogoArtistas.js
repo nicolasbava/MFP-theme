@@ -35,9 +35,10 @@ const CatalogoArtistas = ({state, actions}) => {
 
     return (
         <Contenedor>
-            {/* {console.log(arrayArtistas)} */}
+           {/* {console.log(arrayArtistas)} */}
             <Flex>
-            <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}ARTISTAS</p>
+            {/* <p  style={{opacity:'0'}} className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}ARTISTAS</p> */}
+                <p></p>
                 <Search />
             </Flex>
        
@@ -59,41 +60,17 @@ const CatalogoArtistas = ({state, actions}) => {
 
                     return (
                         <>
-                            {/* <p>{artistas.title.rendered}</p>  */}
-                            {/* <article key={artistas.id}>
-                                <Link href={artistas.link}>
-                                    <Featured imgID={artistas.featured_media} element='artista'/>                 
-
-                                    <h3 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h3>
-                                </Link>
-                            </article> */}
-
-
                             <Article key={artistas.id}>
-                                {/* <p>{peliculas.title.rendered}</p> */}
-                                {/* artistas.acf.foto_artista === 0 ? fotoArtista : artistas.acf.foto_artista */}
-                                {/* {console.log(arrayPeliculas)} */}
-                                
                                 <a href={artistas.link}>
-                                    {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
                                     <Cuadrado style={{backgroundImage:`url(${artistas.acf.foto_artista || fotoArtista})`}}>
                                         <Cartel>
-                                        
-                                        <Rayita></Rayita>
-                                        <h3 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h3>
-
-
+                                            <Rayita></Rayita>
+                                            <h3 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h3>
                                         </Cartel>
                                     </Cuadrado>
                                 </a>
-                                
                             </Article>
-
-
                         </>
-
                     )
                 })}
             </ArtistasFlex>
@@ -104,7 +81,7 @@ const CatalogoArtistas = ({state, actions}) => {
     )
 }
 
-const fotoArtista = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
+const fotoArtista = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg' 
 
 export default connect(CatalogoArtistas)
 
@@ -121,6 +98,7 @@ const Flex = styled.div`
     display:flex;
     justify-content: space-between;
     align-items: center;
+    padding-block: 0.5em;
 `
 
 const ArtistasFlex = styled.section`

@@ -16,8 +16,8 @@ const Mapa = () => {
        <>
 
             <Contendor>
-
-                <p className="titulo krona">{">"} MAPA INTERACTIVO</p>
+                {/* OPACITY ZERO- ON PORPOUSE, */}
+                <p style={{opacity:'0'}} className="titulo krona">{">"} MAPA INTERACTIVO</p>
                 {/* <p className="descripcion">Presionar sobre este icono para desplegar mas opciones.</p> */}
 
                 <ContenedorMapa>

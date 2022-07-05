@@ -56,7 +56,9 @@ const Peliculas = ({state, actions}) => {
         <>
         <Contenedor>
             <CartelHeader>
-                <p className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p>
+       
+                {/* <p style={{opacity:'0'}} className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p> */}
+                <p></p>
                 <Search />
             </CartelHeader>    
        

@@ -24,13 +24,15 @@ const Home = ({state}) => {
                 <>  
                     {/* PELICULAS */}
                     <Peliculas />
+                    {/* CATALOGO NOTICIAS INFO */}
                     <CatalogoNoticiasInicio />
                     <VerMasNoticias>
                         <Link href="/noticias">
-                            <p className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
+                            <p  className="krona">{"> "}VER TODAS LAS NOTICIAS</p>    
                         </Link>
                     </VerMasNoticias> 
-               
+
+                   
                    
                     
                 </>
@@ -40,6 +42,8 @@ const Home = ({state}) => {
 }
 
 export default connect(Home)
+
+
 
 const VerMasNoticias = styled.article`
     text-align: right;

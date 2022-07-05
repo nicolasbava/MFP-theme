@@ -69,7 +69,8 @@ const Peliculas = ({state, actions}) => {
 
         <Contenedor>
             <CartelHeader>
-                <p className="krona">{"> "}CATÁLOGO{" > "}PELÍCULAS</p>
+                {/* <p className="krona">{"> "}CATÁLOGO{" > "}PELÍCULAS</p> */}
+                <p></p>
                 <Search />
             </CartelHeader>    
  

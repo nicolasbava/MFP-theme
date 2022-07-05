@@ -7,7 +7,7 @@ const Featured = ({state, imgID, element}) => {
     
     
     if ( media === undefined) {
-        return <img src="https://memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"></img>
+        return <img src="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Usuario.png"></img>
     } else {
         return (
             <>
