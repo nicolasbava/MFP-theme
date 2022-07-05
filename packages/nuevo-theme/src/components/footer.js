@@ -54,7 +54,9 @@ const Footer = () => {
 
       <Container>
         <p>{'> '}MEMORIAFILMICAPENCOPOLITANA@GMAIL.COM</p>
-        <p className="rojolab">{'> '}DESARROLLADO POR <a href="https://www.behance.net/ROJOLAB" target="_blank">ROJOLAB</a></p>        
+    
+        <p className="rojolab">{'> '}DESARROLLADO POR  <a href="https://www.behance.net/ROJOLAB" target="_blank">ROJOLAB</a>     </p>  
+     
       </Container>
 
 
@@ -65,8 +67,6 @@ const Footer = () => {
 
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Footer);
-
-
 
 
 const Linea1 = styled.section`
@@ -268,6 +268,10 @@ const Container = styled.div`
   }
 
   a {color: white}
+
+  a:hover {
+    color: #ff946a;
+  }
 
   @media(max-width: 325px){
     p {

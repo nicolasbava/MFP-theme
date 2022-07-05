@@ -56,17 +56,18 @@ const Peliculas = ({state, actions}) => {
         <>
         <Contenedor>
             <CartelHeader>
-       
+            
                 {/* <p style={{opacity:'0'}} className="krona">{"> "}ENCICLOPEDIA VIRTUAL</p> */}
                 <p></p>
                 <Search />
             </CartelHeader>    
-       
+            <i class="bi bi-chevron-right arrow-r"></i>
+            <i class="bi bi-chevron-left arrow-l"></i>
+
 
             {/* OUTSIDE, scroll  */}
             <Outside className="main" ref={scrollRef} style={{ overflow: "auto",}}>
-                
-
+               
                 {/* ARRAY 1  */}
                 <Array>
                 {array1.map((peliculas) => {
@@ -279,6 +280,27 @@ const Array = styled.div`
 const Contenedor = styled.main`
   padding-left: 7%;
   padding-right: 7%;
+  position: relative;
+
+
+
+  .arrow-l {
+    position: absolute;
+    font-size: 6rem;
+    left: 0px;
+    top: 41%;
+    opacity: 0.2;
+  }
+
+  .arrow-r {
+    position: absolute;
+    font-size: 6rem;
+    right: 0px;
+    top: 41%;
+    opacity: 0.2;
+
+  }
+
 `
 const Cartel = styled.div`
   color: #fff;

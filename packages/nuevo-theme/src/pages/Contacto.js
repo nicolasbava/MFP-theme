@@ -33,7 +33,7 @@ const Contacto = ({state}) => {
                         <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
                             <img className="blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-FACEBOOK-B.png"></img>
                         </a>
-                        <a href="https://www.instagram.com/web.memoriafilmica/" target="_blank"> 
+                        <a href="https://www.instagram.com/memoriafilmica/" target="_blank"> 
                             <img className="blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-INSTAGRAM-B.png"></img>
                         </a>                        
 

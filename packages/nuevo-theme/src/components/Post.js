@@ -491,7 +491,8 @@ const Post = ({ actions, state, element, libraries }) => {
 
               {console.log(post)}
               {console.log(fotoPelicula)}
-                <Catalogo className="krona">
+                <Catalogo style={{opacity:'0'}} className="krona">
+                
                 <Link href="/">{"> "}CATÁLOGO</Link>
                     <Link href="/peliculas">
                     {" > "}PELÍCULAS
@@ -568,6 +569,7 @@ const Post = ({ actions, state, element, libraries }) => {
                             <p>Duración: {duracionPelicula}</p> 
 
                             </div>
+                            
                             <p>Formato Original: {post.acf.formato_original}</p>
                             <p>Rodaje: {rodajePelicula}</p>
                             <p>Estreno: {post.acf.estreno}</p>
@@ -1732,7 +1734,8 @@ const Post = ({ actions, state, element, libraries }) => {
       return (
         <Noticia>
           
-          <Indice><p className='eq'> 
+          <Indice>
+            <p className='eq'> 
                         <Link href='/'>
                           {">"} CATÁLOGO 
                           </Link>               
@@ -1921,6 +1924,10 @@ const TituloArtista  = styled.h2`
 `;
 
 const Indice = styled.div`
+
+// OPACITY ZERO
+opacity:0;
+//
     padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 2%;
