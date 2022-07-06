@@ -6,10 +6,10 @@ const IconosRedes = () => {
     return (
         <Contenedor>
             <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
             </a>
             <a href="" target="_blank"> 
-                <i class="fa-brands fa-facebook-square"></i>
+                <i className="fa-brands fa-facebook-square"></i>
             </a>
         </Contenedor>
     )

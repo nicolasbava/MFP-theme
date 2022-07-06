@@ -37,15 +37,15 @@ const redHat = "'Red Hat Text', sans-serif"
 
 
   let fotos = {  
-   
-    742 : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png",
+    699 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/acero9.png",
+    742 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/queridoscompanerosp.png",
     741 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/unterderjunta2.png",
-    740  :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" ,
-    51 :"http://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg"  ,
-    71 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png",
+    740 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" ,
+    51  : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg"  ,
+    71  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png",
     105 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" ,
-    110  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png",
-    123: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png" ,
+    110 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png",
+    123 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png" ,
     124 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/fburgos.jpeg",
     125 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-22.png",
     128 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1967_12_26_ECRAN-p8-copia.png",
@@ -54,96 +54,96 @@ const redHat = "'Red Hat Text', sans-serif"
     131 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-4.png",
     145 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/oriana2.png",
     203 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1946.png",
-    239 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1903fundicion.jpg" ,
-    242 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1.png" ,
-    248  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1924_12_17_EL-SUR.jpg",
+    239 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1903fundicion.jpg" ,
+    242 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1.png" ,
+    248 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1924_12_17_EL-SUR.jpg",
     251 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1941_12_02_ECRAN-p18¿.png",
     252 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/163934403_2829588743963118_9058270311909214934_n.jpg",
     373 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/amparoalsina2.png",
     374 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
     376 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Adolfo_Berchenko_Garcia_entre_1945_1948_Concepcion_Chile-copia.jpg",
-    377 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/4-10.png",
-    378 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mariita-copia.png",
+    377 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/buhrlegym.png",
+    378 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mariita-copia.png",
     379 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/67140215_2434850203235230_1432942308470292480_o-copia.jpg",
     380 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/claracastillocantaynollores3.png",
     381 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/anitagiraudocantaynollores.png",
-    382 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/trianavarela.png",
+    382 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/trianavarela.png",
     383 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/domenechcantaynollores6.png",
     388 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/loubiescruzdelsur3.png",
-     477 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg",
-    403 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg",
+    477 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg",
+    403 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/wolff.jpg",
     400 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png",
     398 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg",
     397 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/IMG_8838-scaled.jpg",
     395 : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png",
-    394  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png",
+    394 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png",
     393 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/berrocalcantaynollores3.png" ,
-    392  : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png",
-    402 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
-    258 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-11.png" ,
-    265 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/regioncarbonifera.png" ,
+    392 : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png",
+    402 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    258 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-11.png" ,
+    265 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/regioncarbonifera.png" ,
     370 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1.jpg",
-    681: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-copia-1.jpg",
+    681 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-copia-1.jpg",
     685 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3.jpg",
     686 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
     687 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
-    688 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
-    690 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png",
-    691 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png",
-    692: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/carbon8.png",
-    693:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
-    694 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
-    695 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-copia-copia.jpg"  ,
+    688 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    690 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png",
+    691 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png",
+    692 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/carbon17.png",
+    693 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
+    694 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    695 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-copia-copia.jpg"  ,
     696 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-copia.jpg",
-    697  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-9.png",
-    698  :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
+    697 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-9.png",
+    698 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
     700 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mural-estacion.png",
-    701 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-8.png" ,
+    701 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-8.png" ,
     702 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1lota-green.png",
     703 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-16.png",
-    704:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png" ,
-    705 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
+    704 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png" ,
+    705 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
     707 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
-    708:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg" ,
-    709 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png" ,
-    710 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-13.png" ,
-    711 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/4b2ed389d7ac7231a3f97ff8decb445b.jpg",
-    712: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.png",
+    708 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg" ,
+    709 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png" ,
+    710 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-13.png" ,
+    711 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    712 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.png",
     713 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-7.png",
-    714: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/6-7.png",
-    715  :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
-    716 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-9.png" ,
-    717 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1963_02_20_ERCILLA-cinechile.jpg",
-    718:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lctd1.png"  ,
-    719 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-2.png" ,
-    720 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/7-4.png" ,
-    721:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-3.png" ,
-    722: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/construccion12.png",
+    714 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/6-7.png",
+    715 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    716 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-9.png" ,
+    717 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    718 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lctd1.png"  ,
+    719 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-2.png" ,
+    720 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/7-4.png" ,
+    721 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-3.png" ,
+    722 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/construccion12.png",
     723 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pinacoteca.png",
     724 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-1.png",
-    725: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
-    726 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-2.png" ,
+    725 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    726 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-2.png" ,
     727 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/nocheotono.png",
     728 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/22.png",
     729 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/plazaapostadero.png",
     730 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/freiasmar2.png",
     731 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/freiquiriquina2.png",
-    732 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1970_12_22_PUNTO-FINAL-p8suplemento.png" ,
-    733 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/articles-105499_imagen_0.jpg",
-    734 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/EhFqX2WX0AMfxPR.jpg",
+    732 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
+    733 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    734 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
     735 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/primerano.png",
     736 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
     737 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5.png",
     738 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/cormu2.png",
     739 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
 
-    53 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/cineforo.jpg",
-    54 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/costasur-1.png",
-    55 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/austral.jpeg",
-    57 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-24.png" ,
-    58 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto-1.png" ,
-    59 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-10.jpg",
-    60 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/IDBN5724_0001.png",
+    53  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/cineforo.jpg",
+    54  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/costasur-1.png",
+    55  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/austral.jpeg",
+    57  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-24.png" ,
+    58  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto-1.png" ,
+    59  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-10.jpg",
+    60  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/IDBN5724_0001.png",
     677 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1931_11_01_LA-OPINION-DE-LOTA-p2.png",
     683 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/juanpenco1-scaled.jpg",
     681 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/actualidadestalcahuano.jpg",
@@ -154,15 +154,22 @@ const redHat = "'Red Hat Text', sans-serif"
 
     1754: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/mckeycantaynollores3.png",
     1791: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/vicente.jpg",
-    1777:"https://web.memoriafilmica.cl/wp-content/uploads/2022/06/oliveroscruzdelsur2.png",
+    1777: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/oliveroscruzdelsur2.png",
     1779: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/unnamed-file.png" ,
-    1781 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/06/carlos.jpg" 
+    1781: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/carlos.jpg",
+    1878: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    1877: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg",
+    1722: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/cinenucleo.jpg",
   }
 
 
 // console.log('esta foto es: ', fotos[739])
 
 {
+// ***** FOTOS ARTISTAS ****** //
+
+let foto377 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/buhrlegym.png" // arturo burhle
+
 let foto124 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/fburgos.jpeg" // fernando burgos
 
 let foto1781 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/carlos.jpg" // carlos flores del pino
@@ -175,7 +182,7 @@ let foto1777 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/olivero
 
 let foto477 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/viole-1.jpg" // violeta parra
  
-let foto403 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg" // Mary wolf
+let foto403 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/wolff.jpg" // Mary wolf
  
 let foto400 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png" //Alberto Sealls Cara
 let foto398 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg" //Jorge Sanjinés 
@@ -190,21 +197,23 @@ let foto393 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/berrocal
   
 let foto392 = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/pellicercantaynollores-1024x757.png" //"Antonia Pellicer"
 
-let foto742 = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png"//QUERIDOS COMPAÑEROS
+let foto742 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/queridoscompanerosp.png"//QUERIDOS COMPAÑEROS
   
 let foto741 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/unterderjunta2.png" // Chile unter der junta
   
 let foto740 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" //césar Mendoza y carabineros en plaza de armas de Concepción - 
  
-let foto51 = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg" // "La Semana Penquista"
-
 let foto71 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png" // "El carbón chileno - Memoria Filmica Pencopolitana"
-
-let foto105 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" //"fabrica-de-loza-de-penco"
 
 let foto110 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png"// "Poker - Memoria Filmica Pencopolitana"
 
-// FOTOS PELICULAS
+// **** FOTOS PELICULAS ****
+
+let foto1877 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg" //la semana penquista
+
+let foto1878 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" // fabrica de loza de penco
+
+let foto699 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/acero9.png" // acero
 
 let foto123 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png"// "/peliculas/la-sortija-de-la-suerte/"
  
@@ -236,7 +245,7 @@ let foto690 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.p
   
 let foto691 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png"// "/peliculas/1er-noticiario/"
   
-let foto692 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/carbon8.png"// "carbon-biografia-de-una-mina"
+let foto692 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/carbon17.png"// "carbon-biografia-de-una-mina"
   
 let foto693 = fondoRandom // "Alerta en el Pacífico - Memoria Filmica Pencopolitana"
   
@@ -250,7 +259,7 @@ let foto697 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-9.png"
 
 let foto698 = fondoRandom // "concepcion-parque-industrial-de-chile"
   
-let foto699 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/perfil.png"// "/peliculas/huachipato/"
+//let foto699 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/perfil.png"// "/peliculas/huachipato/"
  
 let foto700 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mural-estacion.png"//"concepcion-cuatro-siglos-de-progreso-de-una-provincia"
   
@@ -264,15 +273,13 @@ let foto704 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png
   
 let foto705 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"El poroto"
   
-
-  
 let foto708 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg"//"mercado-lorenzo-arenas"
  
 let foto709 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png"//"universidad-de-concepcion"
   
 let foto710 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-13.png"//"trilla"
   
-let foto711 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/4b2ed389d7ac7231a3f97ff8decb445b.jpg"//"el-puerto-olvidado"
+let foto711 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"el-puerto-olvidado"
   
 let foto712 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.png"//"/peliculas/energia-gris/"
   
@@ -284,7 +291,7 @@ let foto715 =  fondoRandom//"/peliculas/residuos-domiciliarios/"
   
 let foto716 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-9.png"//"/peliculas/lo-que-debemos-saber/"
   
-let foto717 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1963_02_20_ERCILLA-cinechile.jpg"//"/peliculas/parto-normal/"
+let foto717 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"/peliculas/parto-normal/"
   
 let foto718 ="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lctd1.png" //"/peliculas/la-cara-tiznada-de-dios/"
   
@@ -314,11 +321,11 @@ let foto730 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/freiasma
  
 let foto731 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/freiquiriquina2.png"//"visita-de-s-e-sr-eduardo-frei-montalva-a-la-isla-quiriquina"
  
-let foto732 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1970_12_22_PUNTO-FINAL-p8suplemento.png"//"/peliculas/el-companero-rios/"
+let foto732 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"/peliculas/el-companero-rios/"
  
-let foto733 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/articles-105499_imagen_0.jpg"//"bellavista-tome"
+let foto733 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"bellavista-tome"
  
-let foto734 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/EhFqX2WX0AMfxPR.jpg"//"lota"
+let foto734 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"lota"
  
 let foto735 ="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/primerano.png" //"el-primer-ano"
  
@@ -334,6 +341,10 @@ let foto707 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096
  
  
 // fin fotos peliculas
+
+// **** FOTOS PRODUCTORAS ****
+
+let foto1722 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/cinenucleo.jpg" // cine nucleo
 
 
 }
@@ -492,8 +503,14 @@ const Post = ({ actions, state, element, libraries }) => {
          return (
             <Pelicula>
 
-              {console.log(post)}
-              {console.log(fotoPelicula)}
+              {/* CONSOLE LOG para ubicar fotos, id */}
+              {console.log('==== Pelicula ==== :  ',post.title.rendered)}
+              {console.log('Post Pelicula:',post)}
+              {console.log('Post ID:',post.id)}
+              {console.log('Foto Pelicula url:',fotoPelicula)}
+              {/* fin CONSOLE LOG */}
+
+
                 <Catalogo style={{opacity:'0'}} className="krona">
                 
                 <Link href="/">{"> "}CATÁLOGO</Link>
@@ -525,7 +542,7 @@ const Post = ({ actions, state, element, libraries }) => {
                   <VideoPelicula>
                      <a href={link} target='_blank'>
                        <div className='reproductor' style={{backgroundImage:`url(${fotoPelicula}`}} >
-                        <i class="bi bi-play-btn"></i>
+                        <i className="bi bi-play-btn"></i>
                         <p>Ver Pelicula</p>
                        </div>
 
@@ -542,9 +559,9 @@ const Post = ({ actions, state, element, libraries }) => {
                        
                       
                       return (
-                          <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                          <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" className="col-sm-4" data-caption={val.description}>
                             <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
-                            {/* <img src={val}  class="img-fluid"></img> */}
+                            {/* <img src={val}  className="img-fluid"></img> */}
                           </a>
                       )
                       })) : null
@@ -862,6 +879,13 @@ const Post = ({ actions, state, element, libraries }) => {
        return ( 
         <>
           <Artista>
+
+              {/* CONSOLE LOG para ubicar fotos, id */}
+                {console.log('==== Artista ==== :  ', post.title.rendered)}
+                {console.log('Post Artista:',post)}
+                {console.log('Post ID:',post.id)}
+                {console.log('Foto Artista url:', post.acf.foto_artista)}
+              {/* fin CONSOLE LOG */}
 
                 {/* {productoras.length > 0 ? console.log(productoras.length) : null}  */}
                 {/* {console.log(post)} */}
@@ -1485,7 +1509,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                   {/* ============ PRODUCTORAS / artista ============*/}
 
-                  {typeof productoras === "undefined" ? <p>{"> "}PRODUCTORAS ASOCIADAS</p> : (
+                  { !productoras  ? null : (
                     <InteresarPeliculas style={{paddingTop:'2em'}}>
                     <p className="eq" style={{paddingBottom:'0'}}>{">"} PRODUCTORAS ASOCIADAS</p>
                     <Array key={17}>
@@ -1559,17 +1583,24 @@ const Post = ({ actions, state, element, libraries }) => {
         return ( 
             <>
 
+              {/* CONSOLE LOG para ubicar fotos, id */}
+              {console.log('==== Productora ==== :  ',post.title.rendered)}
+              {console.log('Post Productora:',post)}
+              {console.log('Post ID:',post.id)}
+              {console.log('Foto Productora url:', post.acf.foto_productora)}
+              {/* fin CONSOLE LOG */}
+
                <Artista>
                     <InfoAf>
                         <Indice><p className='eq'> 
-                        <Link href='/'>
-                          {">"} CATÁLOGO 
-                          </Link>               
-                          
-                          <Link href='/productoras'>
-                          {" > "}PRODUCTORAS 
-                          </Link>
-                          {" > "}FICHA TÉCNICA </p>
+                          <Link href='/'>
+                            {">"} CATÁLOGO 
+                              </Link>               
+                            
+                                <Link href='/productoras'>
+                                  {" > "}PRODUCTORAS 
+                                    </Link>
+                                      {" > "}FICHA TÉCNICA </p>
                         </Indice>
                         <Info>
                           <Foto>
@@ -1605,7 +1636,7 @@ const Post = ({ actions, state, element, libraries }) => {
                           
                           {galeria.map((val,key) => {
                           return (
-                              <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                              <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" className="col-sm-4" data-caption={val.description}>
                                 <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                               
                               </a>
@@ -1618,15 +1649,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       </>
                     }
-                    {console.log(post)}
-                    {/* {galeria === false ? null : (
-                            <>
-                              <Raya style={{marginTop:`-5px`, zIndex: 2}}></Raya>
-                  
-                            </>
-                          )} */}
-
-                        
+                          
                         {/* PRODUCTORA - filmografia */}
                         {typeof filmografia === "undefined" ? <p>{"> "}FILMOGRAFÍA </p> : (
                            
@@ -1640,12 +1663,12 @@ const Post = ({ actions, state, element, libraries }) => {
                             {typeof filmografia === "undefined" ? <p>Cargando Peliculas...</p> : 
 
                             Object.values(filmografia).map( (pelicula, index) => {
-                              console.log(filmografia);
+                              // console.log(filmografia);
                               let idPelicula = pelicula.peliculas.ID
                               return(
                                       <Article key={pelicula.id}>
 
-                                        {console.log('pelicula:', pelicula)}
+                                        {/* {console.log('pelicula:', pelicula)} */}
                                       <FichaLink link={pelicula.peliculas.post_type + '/' + pelicula.peliculas.post_name}> 
                                               <Cuadrado style={{backgroundImage:`url(${fotos[idPelicula]})`}}>
                                                 <Cartel>
@@ -1668,7 +1691,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
                         {/* PRODUCTORA - equipo slider */}
-                        {typeof equipo === "undefined" ? null : (
+                        {!equipo ? null : (
                             <p className='eq' style={{paddingBlock: '3em', fontSize: '0.8rem', margin: '0'}}>{"> "}EQUIPO </p>
                         )}
                         <SliderFichaTecnica className="panel" ref={scrollRef} style={{ paddingBottom: '2em',overflow: "auto", flexWrap:'wrap' }}>
@@ -1761,7 +1784,7 @@ const Post = ({ actions, state, element, libraries }) => {
            <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto" }}>             
                     {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                       return (
-                        <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                        <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" className="col-sm-4" data-caption={val.description}>
                           <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                         </a>
                       )

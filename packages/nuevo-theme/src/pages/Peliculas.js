@@ -61,8 +61,8 @@ const Peliculas = ({state, actions}) => {
                 <p></p>
                 <Search />
             </CartelHeader>    
-            <i class="bi bi-chevron-right arrow-r"></i>
-            <i class="bi bi-chevron-left arrow-l"></i>
+            <i className="bi bi-chevron-right arrow-r"></i>
+            <i className="bi bi-chevron-left arrow-l"></i>
 
 
             {/* OUTSIDE, scroll  */}

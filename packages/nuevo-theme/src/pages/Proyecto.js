@@ -60,7 +60,7 @@ const Proyecto = ({state}) => {
                  <GaleriaPelicula ref={scrollRef} style={{ overflow: "auto", paddingBottom:'2em' }}>             
                         {galeriaPelicula.length > 0 ? (galeriaPelicula.map((val,key) => {
                         return (
-                            <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" data-caption={val.description}>
+                            <a href={val.url} data-toggle="lightbox" data-gallery="example-gallery" className="col-sm-4" data-caption={val.description}>
                             <Galeria style={{backgroundImage:`url(${val.url})`}} className="img-fluid"></Galeria>
                             </a>
                         )

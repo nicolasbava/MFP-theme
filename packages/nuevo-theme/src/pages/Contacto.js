@@ -25,7 +25,7 @@ const Contacto = ({state}) => {
                   
                     <Iconos>
 
-                        <a href="mailto:memoriafilmicapencopolitana@gmail.com"> <i class="fa-solid fa-envelope"></i></a>     
+                        <a href="mailto:memoriafilmicapencopolitana@gmail.com"> <i className="fa-solid fa-envelope"></i></a>     
 
                         <a href="https://www.youtube.com/channel/UCcCPD7ziLSWwc_tqyn_hL5w" target="_blank"> 
                             <img className="youtube blanco" src="http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-YOUTUBE-B.png"></img>

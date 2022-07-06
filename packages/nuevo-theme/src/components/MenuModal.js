@@ -38,16 +38,16 @@ const MenuModal = ({state,actions}) => {
                     {/* ICONOS REDES */}
                     <ContenedorRedes>
                         <a href="https://www.twitter.com/memoriafilmicapencopolitana" target="_blank"> 
-                            <i class="fa-brands fa-twitter"></i>
+                            <i className="fa-brands fa-twitter"></i>
                         </a>
                         <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
-                            <i class="fa-brands fa-facebook-square"></i>
+                            <i className="fa-brands fa-facebook-square"></i>
                         </a>
                         <a href="https://www.instagram.com/web.memoriafilmica/" target="_blank"> 
-                            <i class="fa-brands fa-instagram"></i>
+                            <i className="fa-brands fa-instagram"></i>
                         </a>
                         <a href="https://www.youtube.com/channel/UCcCPD7ziLSWwc_tqyn_hL5w" target="_blank"> 
-                            <i class="fa-brands fa-youtube"></i>
+                            <i className="fa-brands fa-youtube"></i>
                         </a>
 
                       
