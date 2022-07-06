@@ -11,16 +11,24 @@ const CatalogoProductoras = ({state, actions}) => {
     const data = state.source.get(state.router.link)
 
     const arrayArtistas = Object.values(state.source.productoras)
+
+    const arrayOrdenadoOrden = arrayArtistas.sort((a,b) => {
+      if(a.acf.orden > b.acf.orden) return 1;
+      if(a.acf.orden < b.acf.orden) return -1;
+      return 0;
+    }) 
+
     
-    const filteredArtistas = arrayArtistas.filter((productoras) =>
+    const filteredArtistas = arrayOrdenadoOrden.filter((productoras) =>
         productoras.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
 
 
+
     return (
         <Productoras>
-            {console.log(arrayArtistas)}
+            {/* {console.log(arrayOrdenadoOrden)} */}
             <article>
               {/* <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}PRODUCTORAS</p> */}
               <p></p>

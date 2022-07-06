@@ -17,7 +17,14 @@ const CatalogoArtistas = ({state, actions}) => {
 
     // arrayArtistas.sort((a,b) => (a.content.rendered > b.content.rendered) ? 1 : ((b.content.rendered > a.content.rendered) ? -1 : 0))
     
-    const filteredArtistas = arrayArtistas.filter((artistas) =>
+    const arrayOrdenadoOrden = arrayArtistas.sort((a,b) => {
+        if(a.acf.orden > b.acf.orden) return 1;
+        if(a.acf.orden < b.acf.orden) return -1;
+        return 0;
+      }
+    ) 
+
+    const filteredArtistas = arrayOrdenadoOrden.filter((artistas) =>
         artistas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
@@ -35,7 +42,7 @@ const CatalogoArtistas = ({state, actions}) => {
 
     return (
         <Contenedor>
-           {/* {console.log(arrayArtistas)} */}
+           {console.log(arrayOrdenadoOrden)}
             <Flex>
             {/* <p  style={{opacity:'0'}} className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}ARTISTAS</p> */}
                 <p></p>
@@ -55,7 +62,7 @@ const CatalogoArtistas = ({state, actions}) => {
             {/* <p>Artistas disponibles({data.items.length})</p> */}
 
             <ArtistasFlex>
-                {filteredArtistas.reverse().map((artistas) => {
+                {filteredArtistas.map((artistas) => {
                     // const artista = state.source.artistas[id];
 
                     return (

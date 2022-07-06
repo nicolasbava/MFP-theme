@@ -33,6 +33,7 @@ const redHat = "'Red Hat Text', sans-serif"
 // ***!!!! debe ser actualizado cada vez que se sume una pelicula, artista o productora !!!!!****
 
 // OBJETO FOTOS con fotos de artistas y peliculas para usar en los slider de ficha tecnica 
+// YA SE QUE PODRIA ESTAR EN OTRO ARCHIVO E IMPORTAR EL OBJETO
 
 
   let fotos = {  
@@ -40,12 +41,12 @@ const redHat = "'Red Hat Text', sans-serif"
     742 : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/companeros5.png",
     741 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/unterderjunta2.png",
     740  :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" ,
-    51 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-1.jpg"  ,
+    51 :"http://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg"  ,
     71 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png",
     105 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" ,
-    110  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png",
+    110  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png",
     123: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-21.png" ,
-    124 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-23.png",
+    124 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/fburgos.jpeg",
     125 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-22.png",
     128 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1967_12_26_ECRAN-p8-copia.png",
     129 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
@@ -73,7 +74,7 @@ const redHat = "'Red Hat Text', sans-serif"
     403 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg",
     400 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png",
     398 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg",
-    397 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg",
+    397 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/IMG_8838-scaled.jpg",
     395 : "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png",
     394  : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/lalitocantaynollores.png",
     393 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/berrocalcantaynollores3.png" ,
@@ -84,9 +85,9 @@ const redHat = "'Red Hat Text', sans-serif"
     370 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1.jpg",
     681: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1925_01_20_EL-SUR-p8-copia-1.jpg",
     685 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3.jpg",
-    686 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/vghbjk.png",
-    687 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1931_08_01_LA-OPINION-DE-LOTA-p3-hacia-el-parque.png" ,
-    688 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/0.jpg",
+    686 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
+    687 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
+    688 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
     690 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png",
     691 :  "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/notibordeu2.png",
     692: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/carbon8.png",
@@ -101,7 +102,7 @@ const redHat = "'Red Hat Text', sans-serif"
     702 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1lota-green.png",
     703 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-16.png",
     704:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png" ,
-    705 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-Santos-Chavez-Violeta-Sanjines-Consuelo.png" ,
+    705 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
     707 : "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" ,
     708:"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil.jpg" ,
     709 :"https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1perfil-1.png" ,
@@ -162,6 +163,8 @@ const redHat = "'Red Hat Text', sans-serif"
 // console.log('esta foto es: ', fotos[739])
 
 {
+let foto124 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/fburgos.jpeg" // fernando burgos
+
 let foto1781 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/carlos.jpg" // carlos flores del pino
 
 let foto1779 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/unnamed-file.png" // jorge infante biggs
@@ -177,7 +180,7 @@ let foto403 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-5.jpg"
 let foto400 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/seallscantaynollores.png" //Alberto Sealls Cara
 let foto398 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/Jorge-Sanjinés-IMG_0014.jpg" //Jorge Sanjinés 
   
-let foto397 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/65303122_338576977027697_3502374176927204072_n-copia.jpg" //Consuelo Saavedra
+let foto397 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/IMG_8838-scaled.jpg" // consuelo saavedra
   
 let foto395 = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/5-10.png"//Elena Puelma
 
@@ -193,13 +196,13 @@ let foto741 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/unterder
   
 let foto740 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/mendoza.png" //césar Mendoza y carabineros en plaza de armas de Concepción - 
  
-let foto51 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-1.jpg" // "La Semana Penquista"
+let foto51 = "http://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg" // "La Semana Penquista"
 
 let foto71 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3-12.png" // "El carbón chileno - Memoria Filmica Pencopolitana"
 
 let foto105 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png" //"fabrica-de-loza-de-penco"
 
-let foto110 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/pencoloza.png"// "Póker - Memoria Filmica Pencopolitana"
+let foto110 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png"// "Poker - Memoria Filmica Pencopolitana"
 
 // FOTOS PELICULAS
 
@@ -223,11 +226,11 @@ let foto683 ="https://web.memoriafilmica.cl/wp-content/uploads/2022/04/juanpenco
  
 let foto685 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/3.jpg"// "canta-y-no-llores-corazon-o-el-precio-de-una-honra"
    
-let foto686 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/vghbjk.png"// "/peliculas/desfile-del-cuerpo-de-bomberos-y-revista-general/"
+let foto686 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"// "/peliculas/desfile-del-cuerpo-de-bomberos-y-revista-general/"
  
-let foto687 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1931_08_01_LA-OPINION-DE-LOTA-p3-hacia-el-parque.png" // "solemnes-funerales-del-senor-cousino"
+let foto687 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png" // "solemnes-funerales-del-senor-cousino"
  
-let foto688 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/0.jpg"// "/peliculas/vistas-panoramicas-de-lota/"
+let foto688 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"// "/peliculas/vistas-panoramicas-de-lota/"
  
 let foto690 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/rapto8.png"// "/peliculas/el-rapto/"
   
@@ -259,7 +262,7 @@ let foto703 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-16.png
   
 let foto704 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-15.png"//"/peliculas/vidrios-planos-de-lirquen/"
   
-let foto705 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/1-Santos-Chavez-Violeta-Sanjines-Consuelo.png"//"El poroto"
+let foto705 = "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png"//"El poroto"
   
 
   
@@ -561,25 +564,28 @@ const Post = ({ actions, state, element, libraries }) => {
                     <TextoFichaTecnica>
                         
                         <div className="cartel-ficha">
-                            <div>
+                            {/* <div> */}
                             {/* <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                  */}
                             {/* <span>{tab}/{tab}{generoPelicula} </span> 
                             <span>{tab}/{tab}{colorPelicula} </span> 
                             <span>{tab}/{tab}{estiloPelicula}</span>  */}
-                            <p>Duración: {duracionPelicula}</p> 
 
-                            </div>
+                            {/* </div> */}
                             
-                            <p>Formato Original: {post.acf.formato_original}</p>
-                            <p>Rodaje: {rodajePelicula}</p>
-                            <p>Estreno: {post.acf.estreno}</p>
-
+                            {duracionPelicula ? <p>Duración: {duracionPelicula}</p>  : null}
+                            {post.acf.formato_original ? <p>Formato Original: {post.acf.formato_original}</p> : null}
+                            {rodajePelicula ? <p>Rodaje: {rodajePelicula}</p> : null}
+                            {post.acf.estreno.length > 1 ? <p>Estreno: {post.acf.estreno}</p> : null}
                             {productoraPelicula.length > 0 ? (productoraPelicula.map((val,key) => {
                             return (
                                 <p>Productora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
-                            )
-                            })) : null
-                        }         
+                              )
+                              })) : null
+                            }
+                            
+                            
+
+                                    
                         </div>
                     </TextoFichaTecnica>
 
@@ -2511,7 +2517,7 @@ const ContenedorFicha = styled.div`
     // border: 2px #00ad9d solid;
     // height: 250px;
     height: 330px;
-    cursor: pointer;
+    //cursor: pointer;
 
     // width: 150px;
     display: flex;
@@ -2545,6 +2551,10 @@ const ContenedorFicha = styled.div`
       height: 170px;
       width: 220px;
       color: #FBF0E5;
+
+    a {
+      cursor:pointer;
+    }
 
     }
 

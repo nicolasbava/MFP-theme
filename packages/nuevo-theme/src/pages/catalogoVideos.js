@@ -17,8 +17,9 @@ const Peliculas = ({state, actions}) => {
       const peliculas = state.source.peliculas
       
       const arrayPeliculas = Object.values(state.source.peliculas)
-      arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
+      arrayPeliculas.sort((a,b) => (a.acf.orden > b.acf.orden) ? 1 : ((b.acf.orden > a.acf.orden) ? -1 : 0))
   
+
       
       const filteredPeliculas = arrayPeliculas.filter((peliculas) =>
           peliculas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
@@ -58,6 +59,8 @@ const Peliculas = ({state, actions}) => {
     //     evt.preventDefault();
     //     scrollContainer.scrollLeft += evt.deltaY;
     // });
+
+    
 
 
 
