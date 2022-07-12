@@ -62,8 +62,11 @@ const Root = ({state, actions}) => {
         <Head>
 
             <meta name="description" content="Memoria Filmica Pencopolitana" />
+
+            <title>Memoria Fílmica Pencopolitana</title>
             
             <html lang="en" /> 
+         
 
             {/* BOOTSTRAP icons */}
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"></link>

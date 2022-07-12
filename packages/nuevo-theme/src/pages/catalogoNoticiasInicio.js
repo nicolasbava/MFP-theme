@@ -49,7 +49,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                                         </a>
                                         <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
                                         <Flex>
-                                            <span>{">>"}</span>
+                                            <span className="flechas">{">>"}</span>
                                             <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
@@ -81,7 +81,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                                         </a>
                                         <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
                                         <Flex>
-                                            <span>{">>"}</span>
+                                            <span className="flechas">{">>"}</span>
                                             <a href={artistas.link}><span className="vermas krona">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
@@ -174,7 +174,7 @@ const ImagenNoticia = styled.div`
 
     @media (max-width: ${brakepoint2}){
         height: 40vw;
-        width: 84.4vw;
+        width: 83.9vw;
     }
 `
 
@@ -237,6 +237,15 @@ const Flex = styled.div`
   align-items: center;
   font-family: 'Krona One'
   flex-wrap: wrap;
+
+  .flechas {
+    color: #333;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 500ms;    
+    font-weight: bold;
+    font-family:'Krona One';
+  }
 `
 
 const CartelNoticia = styled.section`
@@ -249,10 +258,13 @@ const CartelNoticia = styled.section`
   }
 
   .vermas {
-    font-size: .8rem;
+    font-size: .85rem;
     margin-left: 0.5em;
     margin-top: auto;
     margin-bottom:auto;
+    // font-weight:bold;
+    font-family:'Krona One';  
+    margin-top: -2px;
   }
 
   .vermas:hover {

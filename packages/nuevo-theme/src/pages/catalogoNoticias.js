@@ -260,9 +260,10 @@ const NoticiasFlex = styled.section`
     justify-items: center;
     grid-gap: 1vw;
 
-    // @media (max-width: 880px){
-    //     flex-wrap:wrap;
-    // }
+    @media (max-width: 880px){
+        grid-template-columns: none;
+
+    }
 `
 
 

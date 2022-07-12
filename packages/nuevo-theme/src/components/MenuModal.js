@@ -32,7 +32,7 @@ const MenuModal = ({state,actions}) => {
                         <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>{">"}CONTACTO</p></Link>
                         <Padding>
                             <Link href='/contacto'><p onClick={actions.theme.setPlusContadorMobile}>· ESCRÍBENOS</p></Link> 
-                            <Link href='/artistas'><p onClick={actions.theme.setPlusContadorMobile}>· LINKS DE INTERÉS</p></Link> 
+                            <Link href='/links'><p onClick={actions.theme.setPlusContadorMobile}>· LINKS DE INTERÉS</p></Link> 
                         </Padding>
                        
                     {/* ICONOS REDES */}
@@ -43,7 +43,7 @@ const MenuModal = ({state,actions}) => {
                         <a href="https://www.facebook.com/memoriafilmicapencopolitana" target="_blank"> 
                             <i className="fa-brands fa-facebook-square"></i>
                         </a>
-                        <a href="https://www.instagram.com/web.memoriafilmica/" target="_blank"> 
+                        <a href="https://www.instagram.com/memoriafilmica/" target="_blank"> 
                             <i className="fa-brands fa-instagram"></i>
                         </a>
                         <a href="https://www.youtube.com/channel/UCcCPD7ziLSWwc_tqyn_hL5w" target="_blank"> 
@@ -122,7 +122,7 @@ const NavLinks = styled.nav`
     max-width: 250px;
     height: 100%;
     display:flex;
-    padding-left: 3em;
+    padding-left: 2em;
     flex-direction: column;
     padding-top: 2em;
     text-align: left;

@@ -301,6 +301,46 @@ const Contenedor = styled.main`
 
   }
 
+  @media (max-width: 769px){
+    .arrow-l {
+
+      font-size: 3.5rem;
+
+      top: 44%;
+      opacity: 0.3;
+    }
+  
+    .arrow-r {
+
+      font-size: 3.5rem;
+
+      top: 44%;
+      opacity: 0.3;
+  
+    }
+  }
+
+  @media (max-width: 400px){
+    .arrow-l {
+
+      font-size: 1.5rem;
+
+      top: 41%;
+      opacity: 0.3;
+    }
+  
+    .arrow-r {
+
+      font-size: 1.5rem;
+
+      top: 41%;
+      opacity: 0.3;
+  
+    }
+  }
+
+  
+
 `
 const Cartel = styled.div`
   color: #fff;

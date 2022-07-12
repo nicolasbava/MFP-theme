@@ -160,6 +160,7 @@ const redHat = "'Red Hat Text', sans-serif"
     1878: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/800x1096.png",
     1877: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/sempenq1.jpg",
     1722: "https://web.memoriafilmica.cl/wp-content/uploads/2022/06/cinenucleo.jpg",
+    1879: "https://web.memoriafilmica.cl/wp-content/uploads/2022/04/poker6.png"
   }
 
 
@@ -1950,6 +1951,8 @@ const TituloArtista  = styled.h2`
     font-size: 1.2rem;
     font-weight: lighter;
     text-transform: uppercase;
+    word-break: break-all;
+    padding-right: 1em;
 `;
 
 const Indice = styled.div`
@@ -2136,7 +2139,9 @@ const Cartel = styled.div`
     margin-top: 8px;
     margin-bottom: 0;
     // font-size: 1rem;
-    font-size: clamp(.7rem, 3vw, 1.35rem);
+    // font-size: clamp(.7rem, 3vw, 1.35rem);
+    
+    font-size: clamp(.7rem, 2.3vw, 0.95rem);
 
   
   }
@@ -2211,12 +2216,12 @@ const Pelicula = styled.section`
 
 `
 const Catalogo = styled.p`
-    padding-top: 3em;
+    // padding-top: 3em;
     padding-bottom: 3em;
     font-size: .7rem;
     
     @media (max-width: 390px){
-      padding-top: 5em;
+      // padding-top: 5em;
       padding-bottom: 5em;
       font-size: .5rem
     }
@@ -2469,7 +2474,7 @@ const SliderFichaTecnica = styled.div`
       @media (max-width: 799px){
         
         &{
-          justify-content: center;
+          // justify-content: center;
 
         }
       }
