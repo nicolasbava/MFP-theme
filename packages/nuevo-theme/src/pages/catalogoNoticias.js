@@ -149,7 +149,7 @@ const ImagenNoticia = styled.div`
 
     @media (max-width: 880px){
         width: 84.2vw;
-        height: 35vw;
+        height: 65vw;
     }
   
 

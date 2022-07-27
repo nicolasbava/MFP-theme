@@ -233,7 +233,7 @@ const Productoras = styled.section`
         display: flex; 
         justify-content: space-between;
         align-items: center;
-        padding-block:.5em;
+        // padding-block:.5em;
 
         p {
             font-size: .7rem;

@@ -286,55 +286,44 @@ const Contenedor = styled.main`
 
   .arrow-l {
     position: absolute;
-    font-size: 6rem;
-    left: 0px;
-    top: 41%;
-    opacity: 0.2;
+    font-size: 3.1rem;
+    left: 16px;
+    top: 44%;
   }
 
   .arrow-r {
     position: absolute;
-    font-size: 6rem;
-    right: 0px;
-    top: 41%;
-    opacity: 0.2;
+    font-size: 3.1rem;
+    right: 16px;
+    top: 43.7%;
 
   }
 
   @media (max-width: 769px){
     .arrow-l {
-
-      font-size: 3.5rem;
-
+      font-size: 2.5rem;
       top: 44%;
-      opacity: 0.3;
+      left: -3px;
     }
   
     .arrow-r {
-
-      font-size: 3.5rem;
-
+      font-size: 2.5rem;
       top: 44%;
-      opacity: 0.3;
-  
+      right: -3px;
     }
   }
 
   @media (max-width: 400px){
     .arrow-l {
-
       font-size: 1.5rem;
-
       top: 41%;
-      opacity: 0.3;
+      left: 0;
     }
   
     .arrow-r {
-
       font-size: 1.5rem;
-
       top: 41%;
-      opacity: 0.3;
+      right: 0;
   
     }
   }

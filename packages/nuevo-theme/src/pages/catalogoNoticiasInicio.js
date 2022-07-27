@@ -173,7 +173,7 @@ const ImagenNoticia = styled.div`
     };
 
     @media (max-width: ${brakepoint2}){
-        height: 40vw;
+        height: 65vw;
         width: 83.9vw;
     }
 `

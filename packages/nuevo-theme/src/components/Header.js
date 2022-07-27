@@ -173,7 +173,7 @@ const Header = ({state,actions}) => {
                             <Subraya style={{background:'none'}}></Subraya>
                         </>
                         } 
-                        {state.router.link.includes('noticias') &&  
+                        {state.router.link.includes('noticias') &&   !state.router.link.includes('peliculas')  &&
                         <>
                             <Link href='/noticias'>NOTICIAS</Link> 
                             <Subraya style={{left:'37px', width:'81px'}}></Subraya>
@@ -208,8 +208,8 @@ const Header = ({state,actions}) => {
                                         <Subraya style={{display:'none'}}></Subraya>
                                 }  
                        
-                            
-                                {state.router.link.includes('peliculas')   &&  
+                                                                              
+                                {state.router.link.includes('peliculas')  &&  
                                         <Subraya style={{left:'47px', width:'104px'}}></Subraya>
                                     
                                 } 
