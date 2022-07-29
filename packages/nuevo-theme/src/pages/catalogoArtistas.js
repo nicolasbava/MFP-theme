@@ -153,13 +153,13 @@ const Cartel = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 3em;
+    padding-bottom: 4em;
 
 
   h3 {
       margin-bottom: 0;
     //   font-size: clamp(0.6rem, 4.3vw, 1.8rem);
-    font-size: clamp(0.6rem, 1.8vw, 1.8rem);
+    font-size: clamp(0.35rem, 1.4vw, 1rem);
       text-transform: uppercase;
   }
 

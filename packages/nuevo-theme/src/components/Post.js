@@ -490,7 +490,14 @@ const Post = ({ actions, state, element, libraries }) => {
             return response.json();
           })
           .then((resFetchArtistas) => {
-            setFetchArtistas(resFetchArtistas);
+
+            const obj = Object.fromEntries(
+              resFetchArtistas.map(ele => [ele.id, {
+                ele
+              }])
+            )    
+
+            setFetchArtistas(obj);
             setError(null);
           })
           .catch((err) => {
@@ -656,38 +663,29 @@ const Post = ({ actions, state, element, libraries }) => {
                     <>
                       <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{paddingBottom: '2em',overflow: "auto"}}>
                                         
+                        {console.log('fetchArtistas',fetchArtistas)}
 
                           {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
-                
-                                                
-                                                // let id = val.cargo_nombre[0].ID
-                                                
-                                                // fetchArtistas ? console.log('ficha', fetchArtistas[personaId].acf.foto_artista  ) : null
-                                                let foto
-
-
-                                                // if( fetchArtistas  && val.cargo_nombre.length > 0 && fetchArtistas.personaId.acf.foto_artista  ){
-                                                //    personaId = val.cargo_nombre[0].ID
-                                                //    foto = fetchArtistas.personaId.acf.foto_artista  
-                                                //    console.log('fotoo====', foto);
-
-                                                // } else {foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'}
-
-
-
-                          return (                    
-                              <ContenedorFicha  key={val.id}>
+                 
+                          return (             
+                            <ContenedorFicha  key={val.id}>
+                            
                     
                               {val.cargo_nombre.length === 0 ? 
 
                                 <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                               
                               : (
-                                
-                                <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
 
+                                <>
+                                  {fetchArtistas ?  
+                                    <div style={{backgroundImage:`url(${fetchArtistas[val.cargo_nombre[0].ID].ele.acf.foto_artista})`}}></div>
+                                    
+                                    // <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+                                  : null}
+                                </>
                               )}
-
+                              {fetchArtistas ?    
                                     <article key={val.id} className="fondo-verde">                        
                                   {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                   return (
@@ -703,6 +701,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                   
                                   <p className="cargo">{val.cargo}</p>  
                                   </article>
+                              : null}      
                               </ContenedorFicha>
                           )
                         } 
