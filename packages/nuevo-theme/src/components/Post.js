@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect, styled, css, Global, state} from 'frontity'
 
 import Link from './Link'
@@ -359,19 +359,18 @@ const Post = ({ actions, state, element, libraries }) => {
   const data = state.source.get(state.router.link)
   
   const post = state.source[data.type][data.id]   
-  // 
   
-  /*NICO PELICULAS controladores */
 
-  useEffect(() => {
-    actions.source.fetch("/peliculas")
-    actions.source.fetch("/artistas")
-    actions.source.fetch("/noticias")
-    actions.source.fetch("/presentacion")
-    actions.source.fetch("/productoras")
+  // FETCH STATES 
+  // FETCH ARTISTAS
+  const [fetchArtistas, setFetchArtistas] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  // FETCH PELICULAS
+  const [fetchPeliculas, setFetchPeliculas] = useState('')
 
+  const [fetchProductoras , setFetchProductoras] = useState('')
 
-  }, []) 
 
 
 
@@ -402,7 +401,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
  
-
+  // WRAP FICHA TECNICA 
   let wrap2 = {flexWrap:'no-wrap'}
 
   if(state.theme.contador % 2 !== 0) {
@@ -442,6 +441,8 @@ const Post = ({ actions, state, element, libraries }) => {
     const trabajoComo = post.acf.trabajoComo
 
     const cargoIndice = post.acf.cargo_indice
+
+
   // =========== controladores PRODUCTORAS ====================
 
   const filmografia = post.acf.filmografia
@@ -473,28 +474,63 @@ const Post = ({ actions, state, element, libraries }) => {
     
     let peliculaId = post.id                       
   
-    // console.log('ID:', peliculaId);
-    // ============ controladores PELICULAS /  ======================
+    // ====== PELICULA inicio ========
   
 
-    //  // 1. fetch data related to the tag you need
-    //  actions.source.fetch("/peliculas/");
-    //  actions.source.fetch("/artistas/");
+    {/* FETCH DE ARTISTAS PARA UBICAR SU FOTO EN EQUIPO */}
+    {useEffect(() => {
+        // FETCH DE ARTISTAS 
+        fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/artistas?per_page=100')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `This is an HTTP error: The status is ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((resFetchArtistas) => {
+            setFetchArtistas(resFetchArtistas);
+            setError(null);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setFetchArtistas(null);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
 
-    //  // 2. get data from frontity state
-    //  // const peliculasGET = state.source.get("/peliculas/");
-    //  const peliculasGET = state.source.peliculas
+        // FETCH PELICULAS
 
-    //  const artistasGET = state.source.artistas
+        fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/peliculas?per_page=100')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `This is an HTTP error: The status is ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((resFetchPeliculas) => {
+            setFetchPeliculas(resFetchPeliculas);
+            setError(null);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setFetchPeliculas(null);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
 
-    //  console.log('peliculasGET:', peliculasGET, peliculasGET.length)
-    //  console.log('artistasGET:', artistasGET, artistasGET.length)
     
-    // ARTISTAS final
 
 
-    // ====== PELICULA inicio ========
-
+        }
+                , []) 
+    }
+    {/* fin FETCH DE ARTISTAS PARA UBICAR SU FOTO EN EQUIPO */} 
 
    let fotoPelicula = post.acf.foto_pelicula ;
    let link = post.acf.link
@@ -502,7 +538,9 @@ const Post = ({ actions, state, element, libraries }) => {
     // console.log(lastNumber)
  
          return (
+
             <Pelicula>
+
 
               {/* CONSOLE LOG para ubicar fotos, id */}
               {console.log('==== Pelicula ==== :  ',post.title.rendered)}
@@ -520,8 +558,8 @@ const Post = ({ actions, state, element, libraries }) => {
                     </Link>
                         {" > "}FICHA TÉCNICA
                 </Catalogo>
+                {/* TITULO PELICULA */}
                 <TituloPeli dangerouslySetInnerHTML={{ __html: post.title.rendered}}></TituloPeli>
-                {/* <InfoPeli dangerouslySetInnerHTML={{__html: post.content.rendered}}></InfoPeli> */}
                 
 
                 <CaractPeliculas>      
@@ -582,13 +620,6 @@ const Post = ({ actions, state, element, libraries }) => {
                     <TextoFichaTecnica>
                         
                         <div className="cartel-ficha">
-                            {/* <div> */}
-                            {/* <p>{yearPelicula}{tab}/{tab}{generoPelicula} {tab}/{tab}{colorPelicula}{tab}/{tab}{estiloPelicula}</p>                  */}
-                            {/* <span>{tab}/{tab}{generoPelicula} </span> 
-                            <span>{tab}/{tab}{colorPelicula} </span> 
-                            <span>{tab}/{tab}{estiloPelicula}</span>  */}
-
-                            {/* </div> */}
                             
                             {duracionPelicula ? <p>Duración: {duracionPelicula}</p>  : null}
                             {post.acf.formato_original ? <p>Formato Original: {post.acf.formato_original}</p> : null}
@@ -596,14 +627,11 @@ const Post = ({ actions, state, element, libraries }) => {
                             {post.acf.estreno.length > 1 ? <p>Estreno: {post.acf.estreno}</p> : null}
                             {productoraPelicula.length > 0 ? (productoraPelicula.map((val,key) => {
                             return (
-                                <p>Productora:   <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
+                                <p>Productora: <FichaLink link={val.post_type + '/' + val.post_name}> {val.post_title} </FichaLink></p>
                               )
                               })) : null
                             }
                             
-                            
-
-                                    
                         </div>
                     </TextoFichaTecnica>
 
@@ -615,9 +643,14 @@ const Post = ({ actions, state, element, libraries }) => {
                       </>
                     ): null}
 
+                    {/* {
+                      console.log(fetchArtistas)
+                    } */}
+
+                  
+                   
 
                     {/* FLEX NO-WRAP */}
-
                     {state.theme.contador % 2 === 0 && 
                     // 
                     <>
@@ -626,20 +659,36 @@ const Post = ({ actions, state, element, libraries }) => {
 
                           {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
                 
+                                                
+                                                // let id = val.cargo_nombre[0].ID
+                                                
+                                                // fetchArtistas ? console.log('ficha', fetchArtistas[personaId].acf.foto_artista  ) : null
+                                                let foto
+
+
+                                                // if( fetchArtistas  && val.cargo_nombre.length > 0 && fetchArtistas.personaId.acf.foto_artista  ){
+                                                //    personaId = val.cargo_nombre[0].ID
+                                                //    foto = fetchArtistas.personaId.acf.foto_artista  
+                                                //    console.log('fotoo====', foto);
+
+                                                // } else {foto = 'http://memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'}
+
+
+
                           return (                    
-                              <ContenedorFicha  value={val.id}>
+                              <ContenedorFicha  key={val.id}>
                     
                               {val.cargo_nombre.length === 0 ? 
-                              <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
+
+                                <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                               
                               : (
                                 
-
-                              <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+                                <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
 
                               )}
 
-                              <article className="fondo-verde">                        
+                                    <article key={val.id} className="fondo-verde">                        
                                   {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                   return (
                                       <FichaLink link={val.post_type + "/" + val.post_name}>
@@ -665,8 +714,11 @@ const Post = ({ actions, state, element, libraries }) => {
                     </>
                     //
                     }
+
                     {/* FIN FLEX- NO-WRAP */}
 
+                    {/* PELICULA - EQUIPO - FICHA TECNICA - FIND PICTURE */}
+                    
 
                     {/* INICIO FLEX WRAP  */}
 
@@ -680,10 +732,11 @@ const Post = ({ actions, state, element, libraries }) => {
                           {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
                 
                             return (                    
-                              <ContenedorFicha  value={val.id}>
+                              <ContenedorFicha  key={val.id}>
                                
-                      
+                              {/* PICTURE BACKGROUND IMAGE */}
                               {val.cargo_nombre.length === 0 ? 
+                              
                               <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                               
                               : (
@@ -693,7 +746,7 @@ const Post = ({ actions, state, element, libraries }) => {
   
                               )}
   
-                              <article className="fondo-verde">                        
+                              <article key={val.id} className="fondo-verde">                        
                                   {val.cargo_nombre.length === 0 ? null : val.cargo_nombre.map((val,key) =>{
                                   return (
                                       <FichaLink link={val.post_type + "/" + val.post_name}>
@@ -726,7 +779,7 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     
 
-
+                    {/* BOTON "ver mas" condiciones */}
                     {state.theme.contador % 2 !== 0 && 
                     fichaTecnica !== "undefined" && 
                     fichaTecnica.length > 5 && 
@@ -757,7 +810,77 @@ const Post = ({ actions, state, element, libraries }) => {
         )
     } else if (element === 'artista') {
 
-    // *************** ARTISTA *************
+      // FETCH PELICULAS
+      {useEffect(() => {
+
+        fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/peliculas?per_page=100')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `This is an HTTP error: The status is ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((resFetchPeliculas) => {
+  
+    
+            const obj = Object.fromEntries(
+              resFetchPeliculas.map(ele => [ele.id, {
+                ele
+              }])
+            )    
+            
+            setFetchPeliculas(obj);
+            setError(null);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setFetchPeliculas(null);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+
+          // FETCH PRODUCTORAS 
+          // PARA MOSTRAR LA FOTO 
+          fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/productoras?per_page=100')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `This is an HTTP error: The status is ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((resFetchProductoras) => {
+  
+    
+            const obj = Object.fromEntries(
+              resFetchProductoras.map(ele => [ele.id, {
+                ele
+              }])
+            )    
+            
+            setFetchProductoras(obj);
+            setError(null);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setFetchProductoras(null);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+        
+        
+        
+        
+        }
+                , []) 
+    }
+
+    // *************** POST ARTISTA *************
     const productoras = post.acf.prodcutoras
     
     // ARRAYS con cargos
@@ -860,20 +983,22 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
      // 1. fetch data related to the tag you need
-     actions.source.fetch("/peliculas/");
-     actions.source.fetch("/artistas/");
+    //  actions.source.fetch("/peliculas/");
+    //  actions.source.fetch("/artistas/");
 
      // 2. get data from frontity state
      // const peliculasGET = state.source.get("/peliculas/");
 
-     const peliculasGET = state.source.get('/peliculas')
-     const peliculasGET2 = state.source.peliculas
+    //  const peliculasGET = state.source.get('/peliculas')
+    //  const peliculasGET2 = state.source.peliculas
 
-     const artistasGET = state.source.get('/artistas')
+    //  const artistasGET = state.source.get('/artistas')
 
-     const arrayArtistas = state.source.artistas
+    //  const arrayArtistas = state.source.artistas
     
 
+    // console.log('feeeeetch=====',fetchPeliculas)
+    console.log('feeeeetch=====',fetchProductoras)
 
 
 
@@ -900,7 +1025,6 @@ const Post = ({ actions, state, element, libraries }) => {
 
                         </p>
 
-                        
                         
                         </Indice>
                         {/* {console.log('artistasGET:', artistas)} */}
@@ -937,48 +1061,38 @@ const Post = ({ actions, state, element, libraries }) => {
 
                     
                   {typeof trabajos === false ? <p>{"> "}FILMOGRAFÍA</p> : (
-
- 
-                   
-                                  
                     <InteresarPeliculas>
                       <p className="eq" style={{paddingBottom:'0', fontSize:'1rem'}}>{"> "}FILMOGRAFÍA</p>
 
                       {/* == 1. Trabajos Dirección == */}
-                      {direccion.length === 0 ? null : (
+                      {direccion.length === 0 ?  null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Dirección</p>        
                       )}
                       <Array key={1}>     
-                       
-
-                        {typeof direccion === "undefined" ? null :                          
-
+                        {typeof direccion  === "undefined" ? null :                          
                             Object.values(direccion).map(element => {
-
                               let id = element.peliculas[0].ID  
-                              
-                              let foto = 'http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg'
-
+                              // {console.log('state.source.peliculas=)==',state.source.peliculas)} 
+                              // {console.log(fetchPeliculas)}
                               return (
                                   <Article key={element.id}>
-                                  {/* {console.log('element:',element)}
-                                  {console.log(state.source.peliculas)} */}
-                                  {/* {console.log(state.source.peliculas[id].acf.foto_pelicula)} */}
+                                  {/* {console.log('element:',element)}*/}
                                   {/* {console.log(peli)} */}
                                   {/* <p>{id}</p> */}
-
                                   <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
-                                          {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-                                          <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                          {/* FOTO DE FONDO DESDE EL FETCH */}
+                                          {fetchPeliculas ? 
+                                            <>
+                                              {/* <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}> */}
+                                              <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                               <Cartel>
-
                                                 <Rayita></Rayita>
                                                 <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
-
-                                            {/* <h4>{pelicula.acf.year}</h4> */}
                                             </Cartel>
                                         </Cuadrado>
+                                            </>
+                                          : null }              
+                                              
                                     </FichaLink>
 
                                 </Article>                                                                
@@ -1013,17 +1127,15 @@ const Post = ({ actions, state, element, libraries }) => {
                                         
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                {fetchPeliculas? 
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
+                                                  {/* <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}> */}
                                                   <Cartel>
-
                                                     <Rayita></Rayita>
                                                     <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
-
-                                                  {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                                 : null }
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1047,19 +1159,21 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <Article key={element.id}>
                                         {/* {console.log(guion)} */}
                                         
-                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                          <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                                {fetchPeliculas ? 
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
 
+                                                  {/* <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}> */}
+                                                      <Cartel>
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
-                                                    <Cartel>
+                                                        <Rayita></Rayita>
+                                                        <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
 
-                                                      <Rayita></Rayita>
-                                                      <h3 dangerouslySetInnerHTML={{__html:element.peliculas[0].post_title}}></h3>
-
-                                                  {/* <h4>{pelicula.acf.year}</h4> */}
-                                                  </Cartel>
-                                              </Cuadrado>
+                                                    {/* <h4>{pelicula.acf.year}</h4> */}
+                                                    </Cartel>
+                                                  </Cuadrado>
+                                                : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1069,7 +1183,7 @@ const Post = ({ actions, state, element, libraries }) => {
                       </Array>
 
                       {/* == 4. Trabajos Elenco == */}
-                      {elenco.length === 0 ? null : (
+                      {elenco.length === 0 ?  null : (
                           <p style={{paddingBottom: '0', paddingTop: '2em', textTransform:'uppercase'}}>{"> "}Elenco</p>        
                       )}
                       <Array key={4}>                    
@@ -1085,9 +1199,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                         
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                            {fetchPeliculas ? 
+                                              <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
 
-
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                              {/* <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}> */}
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1096,6 +1211,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1122,8 +1238,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
+                                                {fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1132,6 +1250,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1158,8 +1277,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
+                                                {fetchPeliculas ? 
+                                                  // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1168,6 +1289,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1190,12 +1312,13 @@ const Post = ({ actions, state, element, libraries }) => {
 
                                         <Article key={element.id}>
                                         {/* {console.log(guion)} */}
-                                        
-                                        <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
+                                          <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                          { fetchPeliculas ? 
 
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                 // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                 <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1204,6 +1327,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null }
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1230,8 +1354,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
-
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                {fetchPeliculas ? 
+                                                 // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                 <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1240,6 +1365,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1266,9 +1392,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                         
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                                              {fetchPeliculas ? 
 
-
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                               // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                               <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1276,7 +1403,8 @@ const Post = ({ actions, state, element, libraries }) => {
 
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
-                                              </Cuadrado>
+                                                </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1303,8 +1431,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
-
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                {fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                 <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1313,6 +1442,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1339,8 +1469,10 @@ const Post = ({ actions, state, element, libraries }) => {
                                         <FichaLink link={element.peliculas[0].post_type + '/' + element.peliculas[0].post_name}> 
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
+                                                { fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1349,6 +1481,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null}
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1376,7 +1509,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                { fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1385,6 +1520,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                               : null  }
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1412,7 +1548,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                { fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1421,6 +1559,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null  }
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1448,7 +1587,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                                <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                { fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                     <Cartel>
 
                                                       <Rayita></Rayita>
@@ -1457,6 +1598,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                   {/* <h4>{pelicula.acf.year}</h4> */}
                                                   </Cartel>
                                               </Cuadrado>
+                                              : null   }
                                           </FichaLink>
 
                                       </Article>                                                                
@@ -1484,7 +1626,9 @@ const Post = ({ actions, state, element, libraries }) => {
                                               {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                              <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                              { fetchPeliculas ? 
+                                                // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                                  <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[id].ele.acf.foto_pelicula})`}}>
                                                   <Cartel>
 
                                                     <Rayita></Rayita>
@@ -1493,6 +1637,7 @@ const Post = ({ actions, state, element, libraries }) => {
                                                 {/* <h4>{pelicula.acf.year}</h4> */}
                                                 </Cartel>
                                             </Cuadrado>
+                                            : null   }
                                         </FichaLink>
 
                                     </Article>                                                                
@@ -1517,26 +1662,23 @@ const Post = ({ actions, state, element, libraries }) => {
 
                       {typeof productoras === "undefined" ? <p>Cargando Productoras...</p> : 
 
-                          Object.values(productoras).map( pelicula => {
-                            let id = pelicula.ID
-
+                          Object.values(productoras).map( productora => {
+                            let id = productora.ID
+                            
                             
                               return (
-                                      <Article key={pelicula.id}>
+                                      <Article key={productora.id}>
 
-                                      <FichaLink link={pelicula.post_type + '/' + pelicula.post_name}> 
-                                              {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                                              <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
-                                                  <Cartel>
-
-                                                  <Rayita></Rayita>
-                                                  <h3 dangerouslySetInnerHTML={{__html:pelicula.post_title}}></h3>
-
-                                                {/* <h4>{pelicula.acf.year}</h4> */}
-                                                </Cartel>
+                                        <FichaLink link={productora.post_type + '/' + productora.post_name}> 
+                                          {fetchProductoras ? 
+                                            // <Cuadrado style={{backgroundImage:`url(${fotos[id]})`}}>
+                                            <Cuadrado style={{backgroundImage:`url(${fetchProductoras[id].ele.acf.foto_productora})`}}>
+                                              <Cartel>
+                                                <Rayita></Rayita>
+                                                <h3 dangerouslySetInnerHTML={{__html:productora.post_title}}></h3>
+                                              </Cartel>
                                             </Cuadrado>
+                                          : null}
                                         </FichaLink>
 
                                     </Article>                                                                
@@ -1803,6 +1945,7 @@ const Post = ({ actions, state, element, libraries }) => {
         </Noticia>
         )
     }
+
 }
 
 export default connect(Post)
