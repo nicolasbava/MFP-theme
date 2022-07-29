@@ -1708,23 +1708,78 @@ const Post = ({ actions, state, element, libraries }) => {
         let hasta = post.acf.hasta
         let lugar = post.acf.lugar
 
-        // 1. fetch data related to the tag you need
-        actions.source.fetch("/peliculas/");
-        actions.source.fetch("/artistas/");
+        // FETCH 
+        {useEffect(() => {
+          // FETCH DE ARTISTAS 
+          fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/artistas?per_page=100')
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `This is an HTTP error: The status is ${response.status}`
+                );
+              }
+              return response.json();
+            })
+            .then((resFetchArtistas) => {
+  
+              const obj = Object.fromEntries(
+                resFetchArtistas.map(ele => [ele.id, {
+                  ele
+                }])
+              )    
+  
+              setFetchArtistas(obj);
+              setError('');
+            })
+            .catch((err) => {
+              setError(err.message);
+              setFetchArtistas('');
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+  
+          // FETCH PELICULAS
+  
+          fetch('https://web.memoriafilmica.cl/wp-json/wp/v2/peliculas?per_page=100')
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `This is an HTTP error: The status is ${response.status}`
+                );
+              }
+              return response.json();
+            })
+            .then((resFetchPeliculas) => {
 
-        // 2. get data from frontity state
-        // const peliculasGET = state.source.get("/peliculas/");
-        const peliculasGET = state.source.peliculas
+              const obj = Object.fromEntries(
+                resFetchPeliculas.map(ele => [ele.id, {
+                  ele
+                }])
+              )   
 
-        const artistasGET = state.source.artistas
-
-        // console.log('peliculasGET:', peliculasGET, peliculasGET.length)
-        // console.log('artistasGET:', artistasGET, artistasGET.length)
+              setFetchPeliculas(obj);
+              setError('');
+            })
+            .catch((err) => {
+              setError(err.message);
+              setFetchPeliculas('');
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+  
+      
+  
+  
+          }
+                  , []) 
+      }
        
         // === PRODUCTORA individual === //
         return ( 
             <>
-
+              {console.log('fetchPeliculas', fetchPeliculas)}
               {/* CONSOLE LOG para ubicar fotos, id */}
               {console.log('==== Productora ==== :  ',post.title.rendered)}
               {console.log('Post Productora:',post)}

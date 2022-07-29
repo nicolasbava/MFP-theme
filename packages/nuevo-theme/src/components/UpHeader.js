@@ -2,6 +2,32 @@ import { connect, styled } from "frontity";
 import Link from "./Link";
 // import MobileMenu from "./menu";
 
+import banner1 from '../img/banner/comp/01.jpg'
+import banner2 from '../img/banner/comp/02.jpg'
+import banner3 from '../img/banner/comp/03.jpg'
+import banner4 from '../img/banner/comp/04.jpg'
+import banner5 from '../img/banner/comp/05.jpg'
+import banner6 from '../img/banner/comp/06.jpg'
+import banner7 from '../img/banner/comp/07.jpg'
+import banner8 from '../img/banner/comp/08.jpg'
+import banner9 from '../img/banner/comp/09.jpg'
+import banner10 from '../img/banner/comp/10.jpg'
+import banner11 from '../img/banner/comp/11.jpg'
+import banner12 from '../img/banner/comp/12.jpg'
+import banner13 from '../img/banner/comp/13.jpg'
+import banner14 from '../img/banner/comp/14.jpg'
+import banner15 from '../img/banner/comp/15.jpg'
+import banner16 from '../img/banner/comp/16.jpg'
+import banner17 from '../img/banner/comp/17.jpg'
+import banner18 from '../img/banner/comp/18.jpg'
+import banner19 from '../img/banner/comp/19.jpg'
+import banner20 from '../img/banner/comp/20.jpg'
+import banner21 from '../img/banner/comp/21.jpg'
+import banner22 from '../img/banner/comp/22.jpg'
+import banner23 from '../img/banner/comp/23.jpg'
+
+
+
 let brakepoint = '880px'
 
 
@@ -10,109 +36,109 @@ const UpHeader = ({ state }) => {
 
 
   let arrayBackgrounds = [   
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/23-3556X900-e1657160757958.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900-e1657160646681.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900-e1657160659538.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/20-3556X900-e1657160673281.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/19-3556X900-e1657160685325.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900-e1657160693236.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900-e1657160704625.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900-e1657160714146.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-3556X900-e1657160731592.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900-e1657160741371.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-3556X900-e1657160967825.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900-e1657160977697.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-3556X900-e1657160984387.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-3556X900-e1657160991392.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-3556X900-e1657161001373.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08-3556X900-e1657161009704.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900-e1657161015635.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900-e1657161030406.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-3556X900-e1657161038597.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-3556X900-e1657161044394.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-3556X900png-e1657161050447.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-3556X900png-e1657161057498.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/23-3556X900-e1657160757958.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900-e1657160646681.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900-e1657160659538.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/20-3556X900-e1657160673281.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/19-3556X900-e1657160685325.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900-e1657160693236.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900-e1657160704625.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900-e1657160714146.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-3556X900-e1657160731592.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900-e1657160741371.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-3556X900-e1657160967825.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900-e1657160977697.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-3556X900-e1657160984387.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-3556X900-e1657160991392.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-3556X900-e1657161001373.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08-3556X900-e1657161009704.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900-e1657161015635.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900-e1657161030406.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-3556X900-e1657161038597.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-3556X900-e1657161044394.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-3556X900png-e1657161050447.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-3556X900png-e1657161057498.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/23-3556X900-e1657160757958.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900-e1657160646681.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900-e1657160659538.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/20-3556X900-e1657160673281.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/19-3556X900-e1657160685325.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900-e1657160693236.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900-e1657160704625.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900-e1657160714146.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-3556X900-e1657160731592.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900-e1657160741371.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-3556X900-e1657160967825.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900-e1657160977697.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-3556X900-e1657160984387.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-3556X900-e1657160991392.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-3556X900-e1657161001373.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08-3556X900-e1657161009704.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900-e1657161015635.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900-e1657161030406.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-3556X900-e1657161038597.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-3556X900-e1657161044394.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-3556X900png-e1657161050447.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-3556X900png-e1657161057498.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/23-3556X900-e1657160757958.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900-e1657160646681.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900-e1657160659538.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/20-3556X900-e1657160673281.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/19-3556X900-e1657160685325.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900-e1657160693236.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900-e1657160704625.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900-e1657160714146.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-3556X900-e1657160731592.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900-e1657160741371.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/13-3556X900-e1657160967825.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/12-3556X900-e1657160977697.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/11-3556X900-e1657160984387.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/10-3556X900-e1657160991392.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/09-3556X900-e1657161001373.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/08-3556X900-e1657161009704.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/07-3556X900-e1657161015635.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/06-3556X900.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/05-3556X900-e1657161030406.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/04-3556X900-e1657161038597.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/03-3556X900-e1657161044394.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/02-3556X900png-e1657161050447.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/01-3556X900png-e1657161057498.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/23-3556X900-e1657160757958.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/22-3556X900-e1657160646681.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/21-3556X900-e1657160659538.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/20-3556X900-e1657160673281.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/19-3556X900-e1657160685325.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/18-3556X900-e1657160693236.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/17-3556X900-e1657160704625.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/16-3556X900-e1657160714146.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/15-3556X900-e1657160731592.png')",
-    "url('http://web.memoriafilmica.cl/wp-content/uploads/2022/04/14-3556X900-e1657160741371.png')",
-   
+    `url(${banner1})`,
+    `url(${banner2})`,
+    `url(${banner3})`,
+    `url(${banner4})`,
+    `url(${banner5})`,
+    `url(${banner6})`,
+    `url(${banner7})`,
+    `url(${banner8})`,
+    `url(${banner9})`,
+    `url(${banner10})`,
+    `url(${banner11})`,
+    `url(${banner12})`,
+    `url(${banner13})`,
+    `url(${banner14})`,
+    `url(${banner15})`,
+    `url(${banner16})`,
+    `url(${banner17})`,
+    `url(${banner18})`,
+    `url(${banner19})`,
+    `url(${banner20})`,
+    `url(${banner21})`,
+    `url(${banner22})`,
+    `url(${banner23})`,
+    `url(${banner1})`,
+    `url(${banner2})`,
+    `url(${banner3})`,
+    `url(${banner4})`,
+    `url(${banner5})`,
+    `url(${banner6})`,
+    `url(${banner7})`,
+    `url(${banner8})`,
+    `url(${banner9})`,
+    `url(${banner10})`,
+    `url(${banner11})`,
+    `url(${banner12})`,
+    `url(${banner13})`,
+    `url(${banner14})`,
+    `url(${banner15})`,
+    `url(${banner16})`,
+    `url(${banner17})`,
+    `url(${banner18})`,
+    `url(${banner19})`,
+    `url(${banner20})`,
+    `url(${banner21})`,
+    `url(${banner22})`,
+    `url(${banner23})`,
+    `url(${banner1})`,
+    `url(${banner2})`,
+    `url(${banner3})`,
+    `url(${banner4})`,
+    `url(${banner5})`,
+    `url(${banner6})`,
+    `url(${banner7})`,
+    `url(${banner8})`,
+    `url(${banner9})`,
+    `url(${banner10})`,
+    `url(${banner11})`,
+    `url(${banner12})`,
+    `url(${banner13})`,
+    `url(${banner14})`,
+    `url(${banner15})`,
+    `url(${banner16})`,
+    `url(${banner17})`,
+    `url(${banner18})`,
+    `url(${banner19})`,
+    `url(${banner20})`,
+    `url(${banner21})`,
+    `url(${banner22})`,
+    `url(${banner23})`,
+    `url(${banner1})`,
+    `url(${banner2})`,
+    `url(${banner3})`,
+    `url(${banner4})`,
+    `url(${banner5})`,
+    `url(${banner6})`,
+    `url(${banner7})`,
+    `url(${banner8})`,
+    `url(${banner9})`,
+    `url(${banner10})`,
+    `url(${banner11})`,
+    `url(${banner12})`,
+    `url(${banner13})`,
+    `url(${banner14})`,
+    `url(${banner15})`,
+    `url(${banner16})`,
+    `url(${banner17})`,
+    `url(${banner18})`,
+    `url(${banner19})`,
+    `url(${banner20})`,
+    `url(${banner21})`,
+    `url(${banner22})`,
+    `url(${banner23})`,
+    `url(${banner1})`,
+    `url(${banner2})`,
+    `url(${banner3})`,
+    `url(${banner4})`,
+    `url(${banner5})`,
+    `url(${banner6})`,
+    `url(${banner7})`,
+    `url(${banner8})`,
+    `url(${banner9})`,
+    `url(${banner10})`  
+       
   ];
   
   
@@ -123,10 +149,13 @@ const UpHeader = ({ state }) => {
   
   let background = arrayBackgrounds[lastNumber];
 
+  console.log('NUMERO==', lastNumber);
+
 
   return (
     <>
     <HeadContainer  style={{backgroundImage:`${background}`}} >
+    {/* <HeadContainer  style={{backgroundImage:`url(${banner1})`}} > */}
 
         <Container>
           <StyledLink href="/peliculas">
