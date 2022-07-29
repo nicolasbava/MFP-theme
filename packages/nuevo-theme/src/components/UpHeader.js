@@ -145,7 +145,7 @@ const UpHeader = ({ state }) => {
   
   const time = new Date().getTime();
   
-  const lastNumber = String(time).slice(-2)
+  const lastNumber = +String(time).slice(-2)
   
   let background = arrayBackgrounds[lastNumber];
 

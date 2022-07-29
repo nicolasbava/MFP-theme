@@ -1768,12 +1768,7 @@ const Post = ({ actions, state, element, libraries }) => {
             .finally(() => {
               setLoading(false);
             });
-  
-      
-  
-  
-          }
-                  , []) 
+          }, [])
       }
        
         // === PRODUCTORA individual === //
@@ -1867,12 +1862,16 @@ const Post = ({ actions, state, element, libraries }) => {
 
                                         {/* {console.log('pelicula:', pelicula)} */}
                                       <FichaLink link={pelicula.peliculas.post_type + '/' + pelicula.peliculas.post_name}> 
-                                              <Cuadrado style={{backgroundImage:`url(${fotos[idPelicula]})`}}>
+                                          {fetchPeliculas ? 
+                                              // <Cuadrado style={{backgroundImage:`url(${fotos[idPelicula]})`}}>
+                                              <Cuadrado style={{backgroundImage:`url(${fetchPeliculas[idPelicula].ele.acf.foto_pelicula})`}}>
+
                                                 <Cartel>
                                                   <Rayita></Rayita>
                                                   <h3 dangerouslySetInnerHTML={{__html:filmografia[index].peliculas.post_title}}></h3>
                                                 </Cartel>
                                             </Cuadrado>
+                                          : null}
                                         </FichaLink>
 
                                         </Article>                                                                
@@ -1913,34 +1912,40 @@ const Post = ({ actions, state, element, libraries }) => {
                                 
                                 : (
                                   
+                                <>
+                                  {fetchArtistas ? 
+                                  // <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
+                                  <div style={{backgroundImage:`url(${fetchArtistas[element.nombre[0].ID].ele.acf.foto_artista})`}}></div>
 
-                                <div style={{backgroundImage:`url(${fotos[element.nombre[0].ID]})`}}></div>
-
+                                  : null}
+                                </>
                                 )}
                                 
                                   {/* FONDO verde texto */}
-                                  <article className="fondo-verde">                        
-                                      <>
-                                      {/* PRODUCTORA - Equipo - Nombre Link  */}
-                                      {element.nombre.length === 0 ? <p dangerouslySetInnerHTML={{__html: element.nombre_texto}}></p> : (
-                                          <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
-                                          <p dangerouslySetInnerHTML={{__html: element.nombre[0].post_title}}></p>
-                                          </FichaLink>  
-                                      )}
+                                  {fetchArtistas ? 
+                                    <article className="fondo-verde">                        
+                                        <>
+                                        {/* PRODUCTORA - Equipo - Nombre Link  */}
+                                        {element.nombre.length === 0 ? <p dangerouslySetInnerHTML={{__html: element.nombre_texto}}></p> : (
+                                            <FichaLink link={'artistas/' + element.nombre[0].post_name}>   
+                                            <p dangerouslySetInnerHTML={{__html: element.nombre[0].post_title}}></p>
+                                            </FichaLink>  
+                                        )}
 
-                                  </>
-                                 
-                                  
-                                  {element.nombre.length === 0 ? 
-                                      <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
-                                  : (
-                                    <> 
-                                      
-                                      <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
                                     </>
-                                  )}
                                   
-                                  </article>
+                                    
+                                    {element.nombre.length === 0 ? 
+                                        <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                    : (
+                                      <> 
+                                        
+                                        <p className="cargo" dangerouslySetInnerHTML={{__html: element.cargo}}></p>
+                                      </>
+                                    )}
+                                    
+                                    </article>
+                                  : null}
                               </ContenedorFicha>
                           )
                           } 
