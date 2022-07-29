@@ -27,7 +27,7 @@ const Territorio = ({state}) => {
             <Contenedor>
                 <h2>TERRITORIO</h2>
                 <article className="justify" dangerouslySetInnerHTML={{__html: data.content.rendered}}></article>
-                {console.log(data)}
+                {/* {console.log(data)} */}
                 {/* 
                 <p>
                     El término ‘pencopolitano’ alude al primer emplazamiento de la ciudad de Concepción en la bahía de Penco. El término ‘pencopolitanismo’, fue acuñado por el periodista Víctor Solar Manzano y revisitado por Pacián Martínez, uno de los nombres importantes del cineclubismo penquista, aludiendo a la historia, cultura y tradiciones de esta zona y al espíritu y amor por esta tierra que, o nos vio nacer o nos adoptó. Asimismo, el término ‘pencopolitano’ puede extenderse también a un área de influencia cultural, económica e industrial con centro en la ciudad de Concepción.

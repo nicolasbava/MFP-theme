@@ -550,10 +550,10 @@ const Post = ({ actions, state, element, libraries }) => {
 
 
               {/* CONSOLE LOG para ubicar fotos, id */}
-              {console.log('==== Pelicula ==== :  ',post.title.rendered)}
+              {/* {console.log('==== Pelicula ==== :  ',post.title.rendered)}
               {console.log('Post Pelicula:',post)}
               {console.log('Post ID:',post.id)}
-              {console.log('Foto Pelicula url:',fotoPelicula)}
+              {console.log('Foto Pelicula url:',fotoPelicula)} */}
               {/* fin CONSOLE LOG */}
 
 
@@ -663,7 +663,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     <>
                       <SliderFichaTecnica className="panel" ref={scrollRef2}  style={{paddingBottom: '2em',overflow: "auto"}}>
                                         
-                        {console.log('fetchArtistas',fetchArtistas)}
+                        {/* {console.log('fetchArtistas',fetchArtistas)} */}
 
                           {fichaTecnica.length > 0  ? fichaTecnica.map((val, key) => {
                  
@@ -997,7 +997,7 @@ const Post = ({ actions, state, element, libraries }) => {
     
 
     // console.log('feeeeetch=====',fetchPeliculas)
-    console.log('feeeeetch=====',fetchProductoras)
+    // console.log('feeeeetch=====',fetchProductoras)
 
 
 
@@ -1006,10 +1006,10 @@ const Post = ({ actions, state, element, libraries }) => {
           <Artista>
 
               {/* CONSOLE LOG para ubicar fotos, id */}
-                {console.log('==== Artista ==== :  ', post.title.rendered)}
+                {/* {console.log('==== Artista ==== :  ', post.title.rendered)}
                 {console.log('Post Artista:',post)}
                 {console.log('Post ID:',post.id)}
-                {console.log('Foto Artista url:', post.acf.foto_artista)}
+                {console.log('Foto Artista url:', post.acf.foto_artista)} */}
               {/* fin CONSOLE LOG */}
 
                 {/* {productoras.length > 0 ? console.log(productoras.length) : null}  */}
@@ -1648,7 +1648,7 @@ const Post = ({ actions, state, element, libraries }) => {
                     </InteresarPeliculas>
                     )}
 
-                    {console.log(post)}
+                    {/* {console.log(post)} */}
 
                 
 
@@ -1774,12 +1774,12 @@ const Post = ({ actions, state, element, libraries }) => {
         // === PRODUCTORA individual === //
         return ( 
             <>
-              {console.log('fetchPeliculas', fetchPeliculas)}
+              {/* {console.log('fetchPeliculas', fetchPeliculas)} */}
               {/* CONSOLE LOG para ubicar fotos, id */}
-              {console.log('==== Productora ==== :  ',post.title.rendered)}
+              {/* {console.log('==== Productora ==== :  ',post.title.rendered)}
               {console.log('Post Productora:',post)}
               {console.log('Post ID:',post.id)}
-              {console.log('Foto Productora url:', post.acf.foto_productora)}
+              {console.log('Foto Productora url:', post.acf.foto_productora)} */}
               {/* fin CONSOLE LOG */}
 
                <Artista>

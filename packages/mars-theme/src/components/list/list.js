@@ -12,7 +12,7 @@ const List = ({ state }) => {
 
 
 
-  console.log(data.items)
+  // console.log(data.items)
 
   return (
     <>

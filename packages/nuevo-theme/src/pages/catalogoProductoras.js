@@ -28,7 +28,7 @@ const CatalogoProductoras = ({state, actions}) => {
 
     return (
         <Productoras>
-            {console.log(arrayOrdenadoOrden)}
+            {/* {console.log(arrayOrdenadoOrden)} */}
             <article>
               {/* <p className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}PRODUCTORAS</p> */}
               <p></p>

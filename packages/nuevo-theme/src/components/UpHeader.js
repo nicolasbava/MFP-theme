@@ -149,7 +149,7 @@ const UpHeader = ({ state }) => {
   
   let background = arrayBackgrounds[lastNumber];
 
-  console.log('NUMERO==', lastNumber);
+  // console.log('NUMERO==', lastNumber);
 
 
   return (

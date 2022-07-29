@@ -151,7 +151,7 @@ const BeforeTitle = styled.p`
 
 
 
-console.log(numeroRandom)
+// console.log(numeroRandom)
 
 
 

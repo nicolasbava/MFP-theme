@@ -44,12 +44,12 @@ const Root = ({state, actions}) => {
 
     useEffect(() => {
       actions.source.fetch("/peliculas")
-      actions.source.fetch("/artistas")
+      // actions.source.fetch("/artistas")
       actions.source.fetch("/noticias")
-      actions.source.fetch("/territorio")
-      actions.source.fetch("/equipo")
-      actions.source.fetch("/proyecto")
-      actions.source.fetch("/contacto")
+      // actions.source.fetch("/territorio")
+      // actions.source.fetch("/equipo")
+      // actions.source.fetch("/proyecto")
+      // actions.source.fetch("/contacto")
 
       
 

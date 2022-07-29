@@ -22,7 +22,7 @@ const Trabajos = ({state, actions, nombre}) => {
 
     return (
         <>
-            {console.log(nombre)}
+            {/* {console.log(nombre)} */}
 
 
               <h1>TRABAJOS ARTISTAS SI SEÑOR EXITO</h1>

@@ -42,7 +42,7 @@ const CatalogoArtistas = ({state, actions}) => {
 
     return (
         <Contenedor>
-           {console.log(arrayOrdenadoOrden)}
+           {/* {console.log(arrayOrdenadoOrden)} */}
             <Flex>
             {/* <p  style={{opacity:'0'}} className="krona"><Link href="/">{"> "}CATÁLOGO </Link>{" > "}ARTISTAS</p> */}
                 <p></p>

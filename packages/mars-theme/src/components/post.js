@@ -75,8 +75,8 @@ import FeaturedMedia from "./featured-media";
   const tab = '\u00A0';
 
 
-  console.log(post);
-  console.log(postType);
+  // console.log(post);
+  // console.log(postType);
 
   
 
