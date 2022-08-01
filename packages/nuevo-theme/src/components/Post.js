@@ -740,8 +740,13 @@ const Post = ({ actions, state, element, libraries }) => {
                               
                               : (
                                 
-  
-                              <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+                                <>
+                                  {fetchArtistas ?  
+                                    <div style={{backgroundImage:`url(${fetchArtistas[val.cargo_nombre[0].ID].ele.acf.foto_artista})`}}></div>
+                                    
+                                    // <div style={{backgroundImage:`url(${fotos[val.cargo_nombre[0].ID]})`}}></div>
+                                  : null}
+                                </>
   
                               )}
   
@@ -1908,6 +1913,7 @@ const Post = ({ actions, state, element, libraries }) => {
                               {/* FONDO imagen */}    
                               {/*  */}
                               {element.nombre.length === 0 ? 
+                              
                                 <div style={{backgroundImage:`url(http://web.memoriafilmica.cl/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-29-at-3.44.31-PM.jpeg)`}}></div>
                                 
                                 : (
