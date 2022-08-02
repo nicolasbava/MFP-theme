@@ -11,16 +11,18 @@ import Search from "../components/Search"
 import { useHorizontalScroll } from "../components/useSideScroll";
 import ModalFlechas from "../components/ModalFlechas";
 
+import Cuadrado2 from '../components/individuales/Cuadrado2'
+
 
 
 
 const Peliculas = ({state, actions}) => {
-   const scrollRef = useHorizontalScroll();
+   const scrollRef = useHorizontalScroll(); // inicia scroll horizontal cuando esta encima de la galeria
 
    
 
     // const arrayNoticias = Object.values(state.source.noticias)
-    const peliculas = state.source.peliculas
+    // const peliculas = state.source.peliculas
     
     const arrayPeliculas = Object.values(state.source.peliculas)
     arrayPeliculas.sort((a,b) => (a.acf.year > b.acf.year) ? 1 : ((b.acf.year > a.acf.year) ? -1 : 0))
@@ -43,14 +45,19 @@ const Peliculas = ({state, actions}) => {
     const items3 = [2,5,8,11,14,17,20,23,26,29,32,35,38,41]
 
     filteredPeliculas.forEach((item,index) => {
-    if(items1.includes(index)) array1.push(item);
-    if(items2.includes(index)) array2.push(item);
-    if(items3.includes(index)) array3.push(item);      
+      if(items1.includes(index)) array1.push(item);
+      if(items2.includes(index)) array2.push(item);
+      if(items3.includes(index)) array3.push(item);      
     })
 
 
     const noticias = state.source.noticias;
 
+    // let image = peliculas.acf.foto_pelicula
+    // let link = peliculas.link
+    // let id = peliculas.id
+    // let title = peliculas.title.rendered
+    // let year = +peliculas.acf.year
     
     return (
         <>
@@ -68,21 +75,21 @@ const Peliculas = ({state, actions}) => {
             {/* OUTSIDE, scroll  */}
             <Outside className="main" ref={scrollRef} style={{ overflow: "auto",}}>
                
-                {/* ARRAY 1  */}
-                <Array>
-                {array1.map((peliculas) => {
+                {/* ARRAY 1 - primera fila de peliculas */}
+                <Array> 
+                {array1.map((peliculas, i) => {
+
+                    let image = peliculas.acf.foto_pelicula
+                    let link = peliculas.link
+                    let id = peliculas.id
+                    let title = peliculas.title.rendered
+                    let year = +peliculas.acf.year
+
+                    console.log('TITLE: ',title)
+
+
                     return (
-                        <Article key={peliculas.id}>
-                            <a href={peliculas.link}>
-                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                    <Cartel>
-                                    <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-                                    <h3 className="año">{peliculas.acf.year}</h3>
-                                    </Cartel>
-                                </Cuadrado>
-                            </a>
-                        </Article>
+                        <Cuadrado2 image={image} key={id+i} title={title} year={year} link={link}  />
                     )
                 })}
                 </Array>
@@ -90,38 +97,36 @@ const Peliculas = ({state, actions}) => {
 
                 {/* ARRAY 2  */}
                 <Array>
-                {array2.map((peliculas) => {
+                {array2.map((peliculas, i) => {
+
+                    let image = peliculas.acf.foto_pelicula
+                    let link = peliculas.link
+                    let id = peliculas.id
+                    let title = peliculas.title.rendered
+                    let year = +peliculas.acf.year
+  
+                      console.log('TITLE: ',title)
+
                     return (
-                        <Article key={peliculas.id}>
-                            <a href={peliculas.link}>
-                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                    <Cartel>
-                                    <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-                                    <h3 className="año">{peliculas.acf.year}</h3>
-                                    </Cartel>
-                                </Cuadrado>
-                            </a>
-                        </Article>
+                        <Cuadrado2 image={image} key={id+1+i} title={title} year={year} link={link}  />
                     )
                 })}
                 </Array>                
 
                 {/* ARRAY 3  */}
                 <Array>
-                {array3.map((peliculas) => {
+                {array3.map((peliculas , i) => {
+
+                    let image = peliculas.acf.foto_pelicula
+                    let link = peliculas.link
+                    let id = peliculas.id
+                    let title = peliculas.title.rendered
+                    let year = +peliculas.acf.year
+
+                    console.log('TITLE: ',title)
+
                     return (
-                        <Article key={peliculas.id}>
-                            <a href={peliculas.link}>
-                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                    <Cartel>
-                                      <Rayita></Rayita>
-                                      <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-                                      <h3 className="año">{peliculas.acf.year}</h3>
-                                    </Cartel>
-                                </Cuadrado>
-                            </a>
-                        </Article>
+                        <Cuadrado2 image={image} key={id+2+i} title={title} year={year} link={link}  />
                     )
                 })}
                 </Array>
@@ -419,8 +424,8 @@ const CuadradoAño = styled.div`
   }
 `
 
-const Cuadrado = styled.div`
-  background: grey;
+const Cuadrado1 = styled.div`
+  background: #80808052;;
   border-radius: 2px;
   height: 24vw;
   width: 27.7vw;
