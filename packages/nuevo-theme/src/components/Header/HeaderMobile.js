@@ -1,14 +1,14 @@
 import React, {useEffect} from "react"
 import {connect, styled} from "frontity"
-import Link from "./Link"
-import MenuButton from "./MenuButton"
-import FichaLink from "./FichaLink"
+import Link from "../Link"
+import MenuButton from "../MenuButton"
+import FichaLink from "../FichaLink"
 
 
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
-import Raya from "./Raya"
-import Search from './Search'
+import Raya from "../Raya"
+import Search from '../Search'
 
 
 // BRAKEPOINT mobile
@@ -123,9 +123,7 @@ const Header = ({state,actions}) => {
             {/* <MenuButton /> */}
             <div></div>
             </Contenedor>
-        </HeaderContenedor>
-
-           
+        </HeaderContenedor>          
             
     )
 

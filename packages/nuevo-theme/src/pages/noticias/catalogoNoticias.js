@@ -1,9 +1,6 @@
 import React from "react"
 import {connect, styled} from "frontity"
-import Featured from "../components/Featured"
-import Link from "../components/Link"
-import Search from "../components/Search"
-import Footer from "../components/footer"
+import Search from "../../components/Search"
 
 const naranja = "#EC7342"
 
@@ -57,7 +54,7 @@ const CatalogoNoticias = ({state, actions}) => {
                                                 <a href={artistas.link}>
                                                     <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
                                                 </a>
-                                                <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
+                                                <p dangerouslySetInnerHTML={{__html: 'as'+artistas.acf.resumen}}></p>
                                                 <Flex>
                                                     <span>{">>"}</span>
                                                     <a href={artistas.link}><span className="vermas">VER MÁS</span></a>

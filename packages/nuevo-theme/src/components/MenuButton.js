@@ -2,8 +2,8 @@ import React from "react"
 import { connect, styled, css } from "frontity"
 
 
-import HambIcon from "../img/hamb.png"
-import Close from "../img/close.png"
+import HambIcon from "../public/img/hamb.png"
+import Close from "../public/img/close.png"
 
 
 let brakepoint = '880px'

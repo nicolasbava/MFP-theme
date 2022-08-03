@@ -1,42 +1,30 @@
 import React from "react"
 import {connect, styled} from "frontity"
-import Cargando from "../components/Cargando"
-import IconosRedes from "../components/IconosRedes"
-import Link from "../components/Link"
+import IconosRedes from "../../components/IconosRedes"
 
-import { useHorizontalScroll } from "../components/useSideScroll";
+import { useHorizontalScroll } from "../../components/useSideScroll";
 
 const naranja = '#ec7342'
 
-const fondoRosa = '#fbf0e5'
-
-const redHat = "'Red Hat Text', sans-serif"
-
-
-
-const Proyecto = ({state}) => {
-
-    const scrollRef = useHorizontalScroll();
-    const scrollRef2 = useHorizontalScroll()
+const Equipo = ({state}) => {
 
     // const data = state.source.get(state.router.link)
 
     // const data = Object.values(state.source.territorio)
 
     // const data = state.source.territorio
-    const data = state.source.proyecto[1303]
+    const data = state.source.equipo[1302]
 
+    const scrollRef = useHorizontalScroll();
     const galeriaPelicula = data.acf.galeria
-
-    // console.log(data)
 
     return (
 
-        <Container>
+        <Afuera>
             <Indice>
                 {/* <p>
                 <Link href="/">{"> "}CATÁLOGO</Link>
-                {" > "}PRESENTACIÓN {">"} PROYECTO</p> */}
+                {" > "}PRESENTACIÓN {" > "}EQUIPO</p> */}
                 <p></p>
             </Indice>
 
@@ -44,12 +32,31 @@ const Proyecto = ({state}) => {
 
             {/* {console.log(data.content.rendered)} */}
             <Contenedor>
-                <h2>PROYECTO</h2>
+                <h2>EQUIPO</h2>
                 <div className="justify" dangerouslySetInnerHTML={{__html: data.content.rendered}}></div>
 
-                
 
-                {/* <IconosRedes /> */}
+                {/* <p>
+                    El término ‘pencopolitano’ alude al primer emplazamiento de la ciudad de Concepción en la bahía de Penco. El término ‘pencopolitanismo’, fue acuñado por el periodista Víctor Solar Manzano y revisitado por Pacián Martínez, uno de los nombres importantes del cineclubismo penquista, aludiendo a la historia, cultura y tradiciones de esta zona y al espíritu y amor por esta tierra que, o nos vio nacer o nos adoptó. Asimismo, el término ‘pencopolitano’ puede extenderse también a un área de influencia cultural, económica e industrial con centro en la ciudad de Concepción.
+                </p>
+                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/1-6.jpg"></img>
+
+                <p>
+                    Adhiriendo a este sentimiento de pertenencia, este proyecto cubre geográficamente el territorio cruzado por el río Bío Bío, entre la bahía de Coliumo y la parte norte del golfo de Arauco, comprendiendo las actuales comunas de Concepción, Talcahuano, Lota, Coronel, Tomé, Penco, Hualqui, Chiguayante, San Pedro de la Paz y Hualpén.
+                </p>
+                <img className="margen" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/2.jpg" ></img>
+
+                <p>
+                    Considerando este enfoque, la información aquí presentada se centra en la producción cinematográfica producida y/o filmada en este territorio, principalmente por realizadores y productores nacidos o avecindados en él. Esto no debe entenderse como algo excluyente, ni significa que sean las únicas producciones del artista. Asimismo, aunque los lugares de rodaje refieren principalmente a las comunas antes mencionadas, también puede haber locaciones externas a este territorio.
+                </p>
+                <Imagenes>
+                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
+                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/4-11.png"></img>
+
+                </Imagenes> */}
+
+            <IconosRedes />
+            
             </Contenedor> 
 
             {typeof galeriaPelicula != "undefined" && 
@@ -72,17 +79,15 @@ const Proyecto = ({state}) => {
             </>
             
             }
-
-            
         
         
-        </Container>
+        </Afuera>
     )
 }
 
-export default connect(Proyecto)
+export default connect(Equipo)
 
-const Container = styled.main`
+const Afuera = styled.div`
     padding-bottom: 4em;
 `
 
@@ -92,24 +97,21 @@ const Indice = styled.div`
     font-size: .7rem;
     font-weight: normal;
     padding-top: 3em;
-    font-family: "Krona One";
-    
+
     p {
         margin:0;
         padding: 0;
-    font-size: .7rem;
-    font-family: 'Krona One', sans-serif;
-
+        font-size: .7rem;
+        font-family: 'Krona One', sans-serif;
     }
-
     
-    @media (max-width: 390px){
-      p {
-          font-size: .5rem
-      }
+    @media (max-width: 364px){
+        p {
+            font-size: .5rem
+        }
     }
 
-    @media (max-width: 280px){
+    @media (max-width: 222px){
         p {
             font-size: .4rem;
             margin-bottom: 2em;
@@ -132,7 +134,7 @@ const Imagenes = styled.div`
 const Contenedor = styled.main`
     padding-top: 7%;
     padding-left: 16%;
-    padding-bottom: 4em;
+    padding-bottom: 7%;
     padding-right: 16%;
 
     .justify {
@@ -187,7 +189,7 @@ const Contenedor = styled.main`
 
 `
 
-//
+// galeria
 const GaleriaPelicula = styled.div`
     text-align: center;
     display: flex;
@@ -291,24 +293,4 @@ const Raya = styled.div`
     z-index: -1;
 `
 
-
-/* <p>
-                    El término ‘pencopolitano’ alude al primer emplazamiento de la ciudad de Concepción en la bahía de Penco. El término ‘pencopolitanismo’, fue acuñado por el periodista Víctor Solar Manzano y revisitado por Pacián Martínez, uno de los nombres importantes del cineclubismo penquista, aludiendo a la historia, cultura y tradiciones de esta zona y al espíritu y amor por esta tierra que, o nos vio nacer o nos adoptó. Asimismo, el término ‘pencopolitano’ puede extenderse también a un área de influencia cultural, económica e industrial con centro en la ciudad de Concepción.
-                </p>
-                <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/1-6.jpg"></img>
-
-                <p>
-                    Adhiriendo a este sentimiento de pertenencia, este proyecto cubre geográficamente el territorio cruzado por el río Bío Bío, entre la bahía de Coliumo y la parte norte del golfo de Arauco, comprendiendo las actuales comunas de Concepción, Talcahuano, Lota, Coronel, Tomé, Penco, Hualqui, Chiguayante, San Pedro de la Paz y Hualpén.
-                </p>
-                <img className="margen" src="http://memoriafilmica.cl/wp-content/uploads/2022/04/2.jpg" ></img>
-
-                <p>
-                    Considerando este enfoque, la información aquí presentada se centra en la producción cinematográfica producida y/o filmada en este territorio, principalmente por realizadores y productores nacidos o avecindados en él. Esto no debe entenderse como algo excluyente, ni significa que sean las únicas producciones del artista. Asimismo, aunque los lugares de rodaje refieren principalmente a las comunas antes mencionadas, también puede haber locaciones externas a este territorio.
-                </p>
-                <Imagenes>
-                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/3-14.png"></img>
-                    <img src="http://memoriafilmica.cl/wp-content/uploads/2022/04/4-11.png"></img>
-
-                </Imagenes> */
-
-
+// fin galeria

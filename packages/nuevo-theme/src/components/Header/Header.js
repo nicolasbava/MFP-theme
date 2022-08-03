@@ -1,20 +1,14 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {connect, styled} from "frontity"
-import Link from "./Link"
-import MenuButton from "./MenuButton"
-import FichaLink from "./FichaLink"
-
-
+import Link from "../Link"
+import MenuButton from "../MenuButton"
+import FichaLink from "../FichaLink"
 import PresentacionModal from "./PresentacionModal"
 import CatalogoModal from "./CatalogoModal"
 import ContactoModal from "./ContactoModal"
-import Raya from "./Raya"
-
 
 // BRAKEPOINT header mobile
-
 let brakepoint = '880px'
-
 
 const naranja = "#EC7342"
 const fondoSeleccionado = "#f5e1c8;"

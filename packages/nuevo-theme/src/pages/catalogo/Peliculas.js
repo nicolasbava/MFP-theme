@@ -2,16 +2,16 @@ import React, {useEffect, useRef} from "react"
 import ReactDOM from "react-dom";
 import {connect, styled} from "frontity"
 
-import Link from "../components/Link"
+import Link from "../../components/Link"
 
-import Footer from "../components/footer"
+import Footer from "../../components/footer/footer"
 
-import Search from "../components/Search"
+import Search from "../../components/Search"
 
-import { useHorizontalScroll } from "../components/useSideScroll";
-import ModalFlechas from "../components/ModalFlechas";
+import { useHorizontalScroll } from "../../components/useSideScroll";
+import ModalFlechas from "../../components/ModalFlechas";
 
-import Cuadrado2 from '../components/individuales/Cuadrado2'
+import Cuadrado2 from '../../components/individuales/Cuadrado2'
 
 
 
@@ -85,7 +85,7 @@ const Peliculas = ({state, actions}) => {
                     let title = peliculas.title.rendered
                     let year = +peliculas.acf.year
 
-                    console.log('TITLE: ',title)
+                    // console.log('TITLE: ',title)
 
 
                     return (
@@ -104,8 +104,6 @@ const Peliculas = ({state, actions}) => {
                     let id = peliculas.id
                     let title = peliculas.title.rendered
                     let year = +peliculas.acf.year
-  
-                      console.log('TITLE: ',title)
 
                     return (
                         <Cuadrado2 image={image} key={id+1+i} title={title} year={year} link={link}  />
@@ -122,8 +120,6 @@ const Peliculas = ({state, actions}) => {
                     let id = peliculas.id
                     let title = peliculas.title.rendered
                     let year = +peliculas.acf.year
-
-                    console.log('TITLE: ',title)
 
                     return (
                         <Cuadrado2 image={image} key={id+2+i} title={title} year={year} link={link}  />

@@ -1,9 +1,6 @@
 import React from "react"
 import {connect, styled} from "frontity"
-import Featured from "../components/Featured"
 import Link from "../components/Link"
-import Search from "../components/Search"
-import Footer from "../components/footer"
 
 const naranja = "#EC7342"
 
@@ -15,10 +12,10 @@ const naranja = "#EC7342"
 const CatalogoNoticiasInicio = ({state, actions}) => {
     const data = state.source.get(state.router.link)
 
-    const arrayArtistas = Object.values(state.source.noticias)
+    const arrayNoticias = Object.values(state.source.noticias)
     
-    const filteredArtistas = arrayArtistas.filter((artistas) =>
-        artistas.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
+    const filteredNoticias = arrayNoticias.filter((noticia) =>
+        noticia.title.rendered.toLowerCase().includes(state.theme.valorBusquedaGlobal.toLowerCase())
     )
 
     return (
@@ -27,30 +24,32 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
                 <p className="krona"><Link href="/noticias">{"> "}NOTICIAS </Link></p>
            
             </article>
-            {!filteredArtistas.length > 0 && (
+            {!filteredNoticias.length > 0 && (
                 <p>No encontramos nada con: {state.theme.valorBusquedaGlobal}</p>
             )}
 
             <NoticiasFlex className="desktop">
-                {filteredArtistas.reverse().slice(0, 3).map((artistas, index) => {
-                    // const artista = state.source.artistas[id];
+                {filteredNoticias.reverse().slice(0, 3).map((noticia, index) => {
+                    // const artista = state.source.noticia[id];
 
+                    let name = noticia.title.rendered
 
                     return (
                         <>
-                            <DisplayNoticias key={artistas.id}>
+                            <DisplayNoticias key={name + index + noticia.id + index}>
+
                                 <Noticias>  
-                                    <a href={artistas.link}>
-                                        <ImagenNoticia style={{backgroundImage:`url(${artistas.acf.foto_portada})`}}></ImagenNoticia>
+                                    <a href={noticia.link}>
+                                        <ImagenNoticia style={{backgroundImage:`url(${noticia.acf.foto_portada})`}}></ImagenNoticia>
                                     </a>    
                                     <CartelNoticia>
-                                        <a href={artistas.link}>
-                                            <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
+                                        <a href={noticia.link}>
+                                            <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
                                         </a>
-                                        <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
+                                        <p dangerouslySetInnerHTML={{__html: noticia.acf.resumen}}></p>
                                         <Flex>
                                             <span className="flechas">{">>"}</span>
-                                            <a href={artistas.link}><span className="vermas">VER MÁS</span></a>
+                                            <a href={noticia.link}><span className="vermas">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
 
@@ -64,25 +63,25 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
 
                 {/* MOBILE VERSION, SOLO 1 NOTICIA */}
                 <NoticiasFlex className="mobile">
-                {filteredArtistas.reverse().slice(0, 1).map((artistas, index) => {
-                    // const artista = state.source.artistas[id];
+                {filteredNoticias.reverse().slice(0, 1).map((noticia, index) => {
 
+                    let name = noticia.title.rendered
 
                     return (
                         <>
-                            <DisplayNoticias key={artistas.id}>
+                            <DisplayNoticias key={name + index + noticia.id}>
                                 <Noticias>  
-                                    <a href={artistas.link}>
-                                        <ImagenNoticia style={{backgroundImage:`url(${artistas.acf.foto_portada})`}}></ImagenNoticia>
+                                    <a href={noticia.link}>
+                                        <ImagenNoticia style={{backgroundImage:`url(${noticia.acf.foto_portada})`}}></ImagenNoticia>
                                     </a>    
                                     <CartelNoticia>
-                                        <a href={artistas.link}>
-                                            <h4 dangerouslySetInnerHTML={{__html:artistas.title.rendered}}></h4>
+                                        <a href={noticia.link}>
+                                            <h4 dangerouslySetInnerHTML={{__html:noticia.title.rendered}}></h4>
                                         </a>
-                                        <p dangerouslySetInnerHTML={{__html: artistas.acf.resumen}}></p>
+                                        <p dangerouslySetInnerHTML={{__html: noticia.acf.resumen}}></p>
                                         <Flex>
                                             <span className="flechas">{">>"}</span>
-                                            <a href={artistas.link}><span className="vermas krona">VER MÁS</span></a>
+                                            <a href={noticia.link}><span className="vermas krona">VER MÁS</span></a>
                                         </Flex>
                                     </CartelNoticia>
 

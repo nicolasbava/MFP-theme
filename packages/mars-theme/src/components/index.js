@@ -7,7 +7,7 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 import Nav from "./nav";
-import Footer from "./footer"
+import Footer from "../components/footer"
 
 
 

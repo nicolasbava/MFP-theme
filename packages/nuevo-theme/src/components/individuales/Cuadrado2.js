@@ -1,7 +1,10 @@
+// ========== COMPONENTE CUADRADO =========
+// UTILIZADO PARA MOSTRAR PELICULAS, ARTISTAS, PRODUCTORAS
+
 import React from 'react'
 import {connect, styled} from "frontity"
 
- 
+{/* <Cuadrado2 image={image} key={id+2+i} title={title} year={year} link={link}  /> */}
 
 function Cuadrado2 (props) {
 

@@ -1,10 +1,6 @@
 import React from "react"
 import {connect, styled} from "frontity"
-import Cargando from "../components/Cargando"
-import IconosRedes from "../components/IconosRedes"
-import Link from "../components/Link"
-
-import { useHorizontalScroll } from "../components/useSideScroll";
+import { useHorizontalScroll } from "../../components/useSideScroll";
 
 const naranja = '#ec7342'
 

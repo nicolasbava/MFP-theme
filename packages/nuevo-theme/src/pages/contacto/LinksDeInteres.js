@@ -1,6 +1,6 @@
 import React from "react"
 import {connect, Global, css, styled} from "frontity"
-import Link from "../components/Link"
+import Link from "../../components/Link"
 
 const LinksDeInteres = ({state}) => {
    

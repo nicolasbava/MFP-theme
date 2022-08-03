@@ -1,16 +1,15 @@
 import React from "React"
 import {connect, styled, css, Global} from "frontity"
+
+// COMPONENTE RAYA
+// raya gris que separa elementos
  
 const Raya = () => {
 
     return (
         <>
-        
             <Rayita>
-
             </Rayita>
-        
-        
         </>
     )
 }

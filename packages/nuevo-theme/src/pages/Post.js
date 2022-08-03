@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {connect, styled, css, Global, state} from 'frontity'
 
-import Link from './Link'
-import FichaLink from './FichaLink'
-import Cargando from './Cargando'
-import IconosRedes from './IconosRedes'
-import {arrayArtistas} from '../pages/catalogoArtistas'
-import InteresarPeliculas2 from './individuales/InteresarPeliculas'
-import SliderFichaTecnicaModulo from './individuales/SliderFichaTecnica'
+import Link from '../components/Link'
+import FichaLink from '../components/FichaLink'
+import IconosRedes from '../components/IconosRedes'
 import Script from '../scripts'
 
 import { useHorizontalScroll } from "../components/useSideScroll";

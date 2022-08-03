@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import {connect, Global, styled} from "frontity"
 import Header from "./Header";
-import Raya from "./Raya";
+import Raya from "../Raya";
 
 
 

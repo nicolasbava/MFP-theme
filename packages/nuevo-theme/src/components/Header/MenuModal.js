@@ -1,7 +1,6 @@
 import React from "react"
 import {styled, connect} from "frontity"
-import Link from "./Link"
-import IconosRedes from "./IconosRedes"
+import Link from "../Link"
 
 const fondoRosa = "rgb(251 240 229)"
 

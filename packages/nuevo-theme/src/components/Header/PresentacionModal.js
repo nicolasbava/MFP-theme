@@ -1,6 +1,6 @@
 import React from "react"
 import {styled, connect} from "frontity"
-import Link from "./Link"
+import Link from "../Link"
 
 const bordeModal = "#b7b7b7"
 

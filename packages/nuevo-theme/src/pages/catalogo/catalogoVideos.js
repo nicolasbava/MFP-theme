@@ -1,11 +1,8 @@
 import React, {useEffect} from "react"
 import {connect, styled} from "frontity"
 
-import Link from "../components/Link"
-
-import Footer from "../components/footer"
-
-import Search from "../components/Search"
+import Search from "../../components/Search"
+import Cuadrado2 from "../../components/individuales/Cuadrado2"
 
 
 const Peliculas = ({state, actions}) => {
@@ -86,32 +83,39 @@ const Peliculas = ({state, actions}) => {
                 <Array>
                 {filteredPeliculas.map((peliculas) => {
                     // const pelicula = state.source.peliculas[id]                
-                    // <p>Peliculas disponibles({data.items.length})</p>             
+                    // <p>Peliculas disponibles({data.items.length})</p>        
+                    let image = peliculas.acf.foto_pelicula
+                    let link = peliculas.link
+                    let id = peliculas.id
+                    let title = peliculas.title.rendered
+                    let year = +peliculas.acf.year
+       
                     
                     return (
+                        <Cuadrado2 image={image} key={id+1+i} title={title} year={year} link={link}  />
 
 
-                        <Article key={peliculas.id}>
-                        {/* <p>{peliculas.title.rendered}</p> */}
+                        // <Article key={peliculas.id}>
+                        // {/* <p>{peliculas.title.rendered}</p> */}
 
-                        {/* {console.log(arrayPeliculas)} */}
+                        // {/* {console.log(arrayPeliculas)} */}
                             
-                            <a href={peliculas.link}>
-                                {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
+                        //     <a href={peliculas.link}>
+                        //         {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
 
 
-                                <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                                    <Cartel>
+                        //         <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
+                        //             <Cartel>
                                     
-                                    <Rayita></Rayita>
-                                    <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
+                        //             <Rayita></Rayita>
+                        //             <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
 
-                                    <h3 className="año">{peliculas.acf.year}</h3>
-                                    </Cartel>
-                                </Cuadrado>
-                            </a>
+                        //             <h3 className="año">{peliculas.acf.year}</h3>
+                        //             </Cartel>
+                        //         </Cuadrado>
+                        //     </a>
                             
-                        </Article>
+                        // </Article>
 
                     )
                 })}
