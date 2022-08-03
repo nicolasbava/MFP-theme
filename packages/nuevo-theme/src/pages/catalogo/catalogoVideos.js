@@ -81,41 +81,19 @@ const Peliculas = ({state, actions}) => {
 
                 {/* ARRAY 1  */}
                 <Array>
-                {filteredPeliculas.map((peliculas) => {
-                    // const pelicula = state.source.peliculas[id]                
+                {filteredPeliculas.map((pelicula,i) => {
+                    // const pelicula = state.source.pelicula[id]                
                     // <p>Peliculas disponibles({data.items.length})</p>        
-                    let image = peliculas.acf.foto_pelicula
-                    let link = peliculas.link
-                    let id = peliculas.id
-                    let title = peliculas.title.rendered
-                    let year = +peliculas.acf.year
+                    let image = pelicula.acf.foto_pelicula
+                    let link = pelicula.link
+                    let id = pelicula.id
+                    let title = pelicula.title.rendered
+                    let year = +pelicula.acf.year
        
                     
                     return (
-                        <Cuadrado2 image={image} key={id+1+i} title={title} year={year} link={link}  />
+                        <Cuadrado2 image={image} key={id+'cp'+i} title={title} year={year} link={link}  />
 
-
-                        // <Article key={peliculas.id}>
-                        // {/* <p>{peliculas.title.rendered}</p> */}
-
-                        // {/* {console.log(arrayPeliculas)} */}
-                            
-                        //     <a href={peliculas.link}>
-                        //         {/* <Featured imgID={peliculas.featured_media} element="pelicula" /> */}
-
-
-                        //         <Cuadrado style={{backgroundImage:`url(${peliculas.acf.foto_pelicula})`}}>
-                        //             <Cartel>
-                                    
-                        //             <Rayita></Rayita>
-                        //             <h3 dangerouslySetInnerHTML={{__html:peliculas.title.rendered.toUpperCase()}}></h3>
-
-                        //             <h3 className="año">{peliculas.acf.year}</h3>
-                        //             </Cartel>
-                        //         </Cuadrado>
-                        //     </a>
-                            
-                        // </Article>
 
                     )
                 })}

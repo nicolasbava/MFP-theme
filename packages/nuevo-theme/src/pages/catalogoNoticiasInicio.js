@@ -36,7 +36,7 @@ const CatalogoNoticiasInicio = ({state, actions}) => {
 
                     return (
                         <>
-                            <DisplayNoticias key={name + index + noticia.id + index}>
+                            <DisplayNoticias key={name + index + noticia.id }>
 
                                 <Noticias>  
                                     <a href={noticia.link}>
