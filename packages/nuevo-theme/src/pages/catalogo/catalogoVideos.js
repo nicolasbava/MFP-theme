@@ -163,7 +163,7 @@ export default connect(Peliculas)
 const Outside = styled.div`
   // display:flex;
   overflow-x: scroll;
-  width: 87vw;
+  width: 88vw;
   padding-bottom: 2em;
   margin-bottom: 2em;
 

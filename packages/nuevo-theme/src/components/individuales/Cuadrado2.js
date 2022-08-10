@@ -118,12 +118,18 @@ const Cuadrado = styled.div`
   background-position: center;
   background-size: cover;
 
-  img.img {
-    height: 24vw;
-    width: 27.7vw;
-    object-fit: cover;
-  }
+  // img.img {
+  //   height: 24vw;
+  //   width: 27.7vw;
+  //   object-fit: cover;
+  // }
 
+  img.img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  
   h3 {
     margin-top: 0;
     margin-bottom: 4px;

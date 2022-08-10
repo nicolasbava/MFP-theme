@@ -1,25 +1,14 @@
-import React, {useEffect, useRef} from "react"
-import ReactDOM from "react-dom";
+import React from "react"
 import {connect, styled} from "frontity"
 
 import Link from "../../components/Link"
-
-import Footer from "../../components/footer/footer"
-
 import Search from "../../components/Search"
-
 import { useHorizontalScroll } from "../../components/useSideScroll";
-import ModalFlechas from "../../components/ModalFlechas";
-
 import Cuadrado2 from '../../components/individuales/Cuadrado2'
-
-
 
 
 const Peliculas = ({state, actions}) => {
    const scrollRef = useHorizontalScroll(); // inicia scroll horizontal cuando esta encima de la galeria
-
-   
 
     // const arrayNoticias = Object.values(state.source.noticias)
     // const peliculas = state.source.peliculas
